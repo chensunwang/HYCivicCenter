@@ -1,0 +1,6 @@
+framework module Pods_HYCivicCenter_Example {
+  umbrella header "Pods-HYCivicCenter_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

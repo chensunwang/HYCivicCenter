@@ -1,0 +1,6 @@
+framework module HYCivicCenter {
+  umbrella header "HYCivicCenter-umbrella.h"
+
+  export *
+  module * { export * }
+}

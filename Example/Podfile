@@ -3,7 +3,18 @@ use_frameworks!
 platform :ios, '10.0'
 
 target 'HYCivicCenter_Example' do
+  
   pod 'HYCivicCenter', :path => '../'
+  
+  pod 'AFNetworking'
+  pod 'AlipaySDK-iOS'
+  pod 'Masonry'
+  pod 'MJExtension'
+  pod 'MJRefresh'
+  pod 'WechatOpenSDK'
+  pod 'SDWebImage'
+  pod 'SVProgressHUD'
+  pod 'TZImagePickerController', '~> 3.8.3'
 
   target 'HYCivicCenter_Tests' do
     inherit! :search_paths

@@ -1,0 +1,66 @@
+{
+  "name": "HYCivicCenter",
+  "version": "0.1.1",
+  "summary": "A short description of HYCivicCenter.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/chensunwang/HYCivicCenter",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "chensunwang": "1172665780@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/chensunwang/HYCivicCenter.git",
+    "tag": "0.1.1"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "static_framework": true,
+  "requires_arc": true,
+  "source_files": "HYCivicCenter/Classes/**/*",
+  "public_header_files": "HYCivicCenter/Classes/Headers/*.h",
+  "resource_bundles": {
+    "HYCivicCenter": [
+      "HYCivicCenter/Assets/*.png"
+    ]
+  },
+  "ios": {
+    "vendored_frameworks": "HYCivicCenter/Classes/NetWorkIDCard/CTID_Verification.framework"
+  },
+  "vendored_libraries": "HYCivicCenter/Classes/BDFaceSDK/libFaceSSDKLib.a",
+  "xcconfig": {
+    "USER_HEADER_SEARCH_PATHS": "HYCivicCenter/Classes/BDFaceSDK/include/*.{h}"
+  },
+  "dependencies": {
+    "AFNetworking": [
+
+    ],
+    "AlipaySDK-iOS": [
+
+    ],
+    "Masonry": [
+
+    ],
+    "MJRefresh": [
+
+    ],
+    "MJExtension": [
+
+    ],
+    "WechatOpenSDK": [
+
+    ],
+    "SDWebImage": [
+
+    ],
+    "SVProgressHUD": [
+
+    ],
+    "TZImagePickerController": [
+      "~> 3.8.3"
+    ]
+  }
+}
