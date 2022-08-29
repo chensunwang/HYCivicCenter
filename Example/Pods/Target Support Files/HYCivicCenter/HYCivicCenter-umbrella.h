@@ -11,6 +11,7 @@
 #endif
 
 #import "DigitalcitizenViewController.h"
+#import "HYCivicCenterCommand.h"
 #import "HYGovernmentViewController.h"
 #import "HYHandleAffairsViewController.h"
 #import "HYNavigationController.h"

@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'HYCivicCenter' # 库名称
   s.version          = '0.1.1' # 库的版本号，我们每次发新版本的时候版本号需要对应修改
-  s.summary          = 'A short description of HYCivicCenter.' # 库的简单描述
+  s.summary          = 'HYCivicCenter.' # 库的简单描述
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -49,7 +49,7 @@ TODO: Add long description of the pod here.
   # 链接设置 重要
   # s.xcconfig = {'OTHER_LDFLAGS' => '-ObjC'}
 
-  # 你的远吗位置，源文件 包含 h、m
+  # 你的源码位置，源文件 包含 h、m
   s.source_files = 'HYCivicCenter/Classes/**/*'
   
   # 调试公开所有的头文件 这个地方下面的头文件 如果是在Example中调试 就公开全部，需要打包就只公开特定的h文件
@@ -61,7 +61,9 @@ TODO: Add long description of the pod here.
   # 资源、比如图片、音频文件等
   s.resource_bundles = {
     # 这是个数组，可以添加其他bundle
-    'HYCivicCenter' => ['HYCivicCenter/Assets/*.png']
+    'HYCivicCenter' => ['HYCivicCenter/Assets/*.png',
+                        'HYCivicCenter/Assets/CTID.bundle',
+                        'HYCivicCenter/Assets/HYCivicCenter.bundle']
   }
   
   # 表示依赖系统的框架(多个)
@@ -81,7 +83,8 @@ TODO: Add long description of the pod here.
   
   # 载入第三方.a头文件
   s.xcconfig = {
-      'USER_HEADER_SEARCH_PATHS' => 'HYCivicCenter/Classes/BDFaceSDK/include/*.{h}'
+      'USER_HEADER_SEARCH_PATHS' => 'HYCivicCenter/Classes/BDFaceSDK/include/*.{h}',  # 载入第三方.a头文件
+      "OTHER_LDFLAGS" => "$(inherited) -ObjC" # target 项⽬目配置 如果有分类加上
   }
   
   # 依赖第三方开源框架(多个)
@@ -96,3 +99,24 @@ TODO: Add long description of the pod here.
    s.dependency 'TZImagePickerController', '~> 3.8.3'
       
 end
+
+# pod更新步骤:
+
+# 1.修改代码/文件
+
+# 2.进入Example文件夹，执行pod install
+
+# 3.版本号更改  s.version = '0.1.1'
+
+# 4.验证类库  cd 到含有HYCivicCenter.podspec 文件下
+## 4.1  本地校验  pod lib lint HYCivicCenter.podspec --use-libraries --allow-warnings --verbose --no-clean
+## 4.2  远程校验  pod spec lint HYCivicCenter.podspec --use-libraries --allow-warnings
+
+# 5.提交代码并打对应的tag（tag和podspec文件中保持一致）
+## 5.1  git add .
+## 5.2  git commit -m 'change pod vresion'
+## 5.3  git push
+## 5.4  git tag -a 0.1.1 -m 'add tag 0.1.1'
+## 5.5  git push origin 0.1.1
+
+# 6.提交到cocoapods仓库  pod trunk push HYCivicCenter.podspec --allow-warnings

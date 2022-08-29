@@ -11,6 +11,7 @@
 #import <ContactsUI/ContactsUI.h>
 #import "HYContactManager.h"
 #import "HYAesUtil.h"
+#import "HYCivicCenterCommand.h"
 
 @interface CardDetailViewController () <UITableViewDelegate,UITableViewDataSource>
 

@@ -6,6 +6,7 @@
 //
 
 #import "SearchStationTableViewCell.h"
+#import "HYCivicCenterCommand.h"
 
 @interface SearchStationTableViewCell ()
 

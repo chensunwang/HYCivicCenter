@@ -6,6 +6,7 @@
 //
 
 #import "RechargeResultController.h"
+#import "HYCivicCenterCommand.h"
 
 @interface RechargeResultController ()
 

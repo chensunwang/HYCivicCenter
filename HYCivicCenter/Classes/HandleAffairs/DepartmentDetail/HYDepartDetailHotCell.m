@@ -9,6 +9,7 @@
 #import "HYDDCollectionViewCell.h"
 #import "HYHandleAffairsWebVIewController.h"
 #import "HYOnLineBusinessMainViewController.h"
+#import "HYCivicCenterCommand.h"
 
 @interface HYDepartDetailHotCell ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 

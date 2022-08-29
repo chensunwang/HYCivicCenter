@@ -6,6 +6,7 @@
 //
 
 #import "IndustryLeftTableViewCell.h"
+#import "HYCivicCenterCommand.h"
 
 @interface IndustryLeftTableViewCell ()
 

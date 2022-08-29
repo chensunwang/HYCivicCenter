@@ -9,6 +9,7 @@
 #import "HYGovServiceTableViewCell.h"
 #import "HYServiceClassifyModel.h"
 #import "HYServiceWebViewController.h"
+#import "HYCivicCenterCommand.h"
 
 @interface HYGovServiceViewController ()<UITableViewDelegate,UITableViewDataSource>
 

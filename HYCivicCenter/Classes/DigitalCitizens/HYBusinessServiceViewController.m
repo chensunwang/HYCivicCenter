@@ -8,6 +8,8 @@
 #import "HYBusinessServiceViewController.h"
 #import "HYServiceContentController.h"
 #import "HYServiceClassifyModel.h"
+#import "HYCivicCenterCommand.h"
+#import "UIView+YXAdd.h"
 
 @interface HYBusinessServiceViewController () <UIScrollViewDelegate>
 

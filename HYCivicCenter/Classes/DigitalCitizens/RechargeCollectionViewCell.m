@@ -6,6 +6,7 @@
 //
 
 #import "RechargeCollectionViewCell.h"
+#import "HYCivicCenterCommand.h"
 
 @implementation RechargeCollectionViewCell
 

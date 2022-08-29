@@ -6,6 +6,7 @@
 //
 
 #import "HYServiceProgressTableViewCell.h"
+#import "HYCivicCenterCommand.h"
 
 @interface HYServiceProgressTableViewCell ()
 

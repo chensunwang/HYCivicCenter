@@ -11,6 +11,7 @@
 #import "HYHandleAffairsWebVIewController.h"
 #import "FaceTipViewController.h"
 #import "HYOnLineBusinessMainViewController.h"
+#import "HYCivicCenterCommand.h"
 
 @interface HYSpecialServiceContentController () <UITableViewDelegate, UITableViewDataSource, FaceResultDelegate>
 

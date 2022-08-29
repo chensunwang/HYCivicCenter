@@ -7,6 +7,8 @@
 
 #import "IndustryChooseView.h"
 #import "IndustryChooseCollectionViewCell.h"
+#import "HYCivicCenterCommand.h"
+#import "UIView+YXAdd.h"
 
 @interface IndustryChooseView () <UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 
@@ -23,14 +25,6 @@
 
 NSString *const industryCell = @"industryCell";
 @implementation IndustryChooseView
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
 
 - (instancetype)initWithFrame:(CGRect)frame {
     

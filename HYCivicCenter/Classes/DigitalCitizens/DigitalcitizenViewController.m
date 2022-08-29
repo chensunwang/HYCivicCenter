@@ -25,6 +25,8 @@
 #import "MetroCodeViewController.h"
 #import "BusTransportViewController.h"
 #import "FaceTipViewController.h"
+#import "HYCivicCenterCommand.h"
+#import "UIView+YXAdd.h"
 
 @interface DigitalcitizenViewController () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, FaceResultDelegate>
 

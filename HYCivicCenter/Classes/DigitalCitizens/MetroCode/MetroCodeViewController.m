@@ -25,6 +25,7 @@
 #import "HYHomeSearchViewController.h"
 #import "HYHandleAffairsViewController.h"
 #import "HYHandleAffairsViewController.h"
+#import "HYCivicCenterCommand.h"
 
 @interface MetroCodeViewController () <UITableViewDelegate, UITableViewDataSource>
 

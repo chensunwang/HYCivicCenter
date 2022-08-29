@@ -6,6 +6,7 @@
 //
 
 #import "HYSearchServiceTableViewCell.h"
+#import "HYCivicCenterCommand.h"
 
 @interface HYSearchServiceTableViewCell () <UITextFieldDelegate>
 

@@ -6,6 +6,7 @@
 //
 
 #import "HYUploadImageCollectionViewCell.h"
+#import "HYCivicCenterCommand.h"
 
 @implementation HYUploadImageCollectionViewCell
 

@@ -6,6 +6,7 @@
 //
 
 #import "HYAreaServiceTableViewCell.h"
+#import "HYCivicCenterCommand.h"
 
 @interface HYAreaServiceTableViewCell ()
 

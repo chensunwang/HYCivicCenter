@@ -7,6 +7,7 @@
 //  热门办事中collectionView的cell
 
 #import "HYDDCollectionViewCell.h"
+#import "HYCivicCenterCommand.h"
 
 @interface HYDDCollectionViewCell ()
 

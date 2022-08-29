@@ -7,6 +7,7 @@
 
 #import "OpenIDCardViewController.h"
 #import "HYAesUtil.h"
+#import "HYCivicCenterCommand.h"
 
 @interface OpenIDCardViewController ()
 

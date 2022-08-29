@@ -7,8 +7,10 @@
 
 #import "ChooseCityView.h"
 #import "ChooseCityTableViewCell.h"
+#import "HYCivicCenterCommand.h"
+#import "UIView+YXAdd.h"
 
-@interface ChooseCityView () <UITableViewDelegate,UITableViewDataSource>
+@interface ChooseCityView () <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) UIView *backView;
 @property (nonatomic, strong) UIView *contentView;
@@ -29,15 +31,8 @@
 NSString *const provinceCell = @"province";
 NSString *const citycell = @"cityCell";
 NSString *const areaCell = @"areaCell";
-@implementation ChooseCityView
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
+@implementation ChooseCityView
 
 - (instancetype)initWithFrame:(CGRect)frame {
     

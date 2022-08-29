@@ -28,6 +28,7 @@
 #import "HYObtainCertiViewController.h"
 #import "HYServiceTableViewCell.h"
 #import "HYServiceClassifyModel.h"
+#import "HYCivicCenterCommand.h"
 
 @interface CitizenCodeViewController () <UITableViewDelegate, UITableViewDataSource, FaceResultDelegate>
 

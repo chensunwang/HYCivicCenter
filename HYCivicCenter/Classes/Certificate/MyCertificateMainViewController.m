@@ -8,6 +8,8 @@
 
 #import "MyCertificateMainViewController.h"
 #import "CertificateLibraryViewController.h"
+#import "HYCivicCenterCommand.h"
+#import "UIView+YXAdd.h"
 
 @interface MyCertificateMainViewController ()<UIScrollViewDelegate>
 

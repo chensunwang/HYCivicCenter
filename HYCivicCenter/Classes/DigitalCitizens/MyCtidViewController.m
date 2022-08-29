@@ -7,6 +7,7 @@
 
 #import "MyCtidViewController.h"
 #import "FaceTipViewController.h"
+#import "HYCivicCenterCommand.h"
 
 @interface MyCtidViewController () <FaceResultDelegate>
 

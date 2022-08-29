@@ -7,6 +7,7 @@
 //  专项服务表格cell
 
 #import "HYSSTableViewCell.h"
+#import "HYCivicCenterCommand.h"
 
 @interface HYSSTableViewCell ()
 

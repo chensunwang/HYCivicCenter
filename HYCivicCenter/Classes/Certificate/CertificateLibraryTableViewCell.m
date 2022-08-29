@@ -6,6 +6,7 @@
 //
 
 #import "CertificateLibraryTableViewCell.h"
+#import "HYCivicCenterCommand.h"
 
 @interface CertificateLibraryTableViewCell ()
 

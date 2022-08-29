@@ -12,6 +12,7 @@
 #import "XFUDButton.h"
 #import "HYSearchStationModel.h"
 #import "HYBusinfoModel.h"
+#import "HYCivicCenterCommand.h"
 
 @interface BusRouteViewController () <UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 

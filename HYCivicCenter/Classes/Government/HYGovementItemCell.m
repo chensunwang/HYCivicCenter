@@ -9,6 +9,7 @@
 #import "HYGovItemCollectionViewCell.h"
 #import "HYAreaServiceViewController.h"
 #import "HYDepartDetailViewController.h"
+#import "HYCivicCenterCommand.h"
 
 @interface HYGovementItemCell ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 

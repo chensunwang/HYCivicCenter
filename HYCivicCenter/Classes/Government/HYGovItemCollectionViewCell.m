@@ -6,6 +6,7 @@
 //
 
 #import "HYGovItemCollectionViewCell.h"
+#import "HYCivicCenterCommand.h"
 
 @interface HYGovItemCollectionViewCell ()
 

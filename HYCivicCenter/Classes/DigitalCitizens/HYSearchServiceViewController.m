@@ -14,6 +14,7 @@
 #import "HYGovServiceViewController.h"
 #import "HYBusinessServiceViewController.h"
 #import "HYObtainCertiViewController.h"
+#import "HYCivicCenterCommand.h"
 
 @interface HYSearchServiceViewController () <UITableViewDelegate,UITableViewDataSource,HYDatePickerDelegate,HYSelectServiceDelegate,HYSelectIndustryDelegate>
 

@@ -6,6 +6,7 @@
 //
 
 #import "BusRouteBusCollectionViewCell.h"
+#import "HYCivicCenterCommand.h"
 
 @interface BusRouteBusCollectionViewCell ()
 

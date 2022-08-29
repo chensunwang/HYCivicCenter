@@ -6,6 +6,7 @@
 //
 
 #import "HYServiceContentTableViewCell.h"
+#import "HYCivicCenterCommand.h"
 
 @interface HYServiceContentTableViewCell ()
 

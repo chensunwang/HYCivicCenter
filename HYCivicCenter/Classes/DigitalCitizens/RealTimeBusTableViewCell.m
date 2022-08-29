@@ -6,6 +6,7 @@
 //
 
 #import "RealTimeBusTableViewCell.h"
+#import "HYCivicCenterCommand.h"
 
 @interface RealTimeBusTableViewCell ()
 

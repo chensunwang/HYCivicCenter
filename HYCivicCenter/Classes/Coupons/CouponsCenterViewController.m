@@ -9,6 +9,7 @@
 #import "CouponsCenterTableViewCell.h"
 #import "MyCouponDetailViewController.h"
 #import "HYCouponModel.h"
+#import "HYCivicCenterCommand.h"
 
 @interface CouponsCenterViewController ()<UITableViewDelegate,UITableViewDataSource,HYCouponDelegate>
 

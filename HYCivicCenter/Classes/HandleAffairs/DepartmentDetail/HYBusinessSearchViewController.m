@@ -11,6 +11,7 @@
 #import "FaceTipViewController.h"
 #import "HYHandleAffairsWebVIewController.h"
 #import "HYOnLineBusinessMainViewController.h"
+#import "HYCivicCenterCommand.h"
 
 @interface HYBusinessSearchViewController () <UITableViewDelegate, UITableViewDataSource, FaceResultDelegate, UITextFieldDelegate>
 

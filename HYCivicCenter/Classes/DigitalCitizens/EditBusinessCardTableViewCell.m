@@ -6,6 +6,7 @@
 //
 
 #import "EditBusinessCardTableViewCell.h"
+#import "HYCivicCenterCommand.h"
 
 @interface EditBusinessCardTableViewCell ()
 

@@ -13,6 +13,7 @@
 #import "HYEmptyView.h"
 #import "FaceTipViewController.h"
 #import "HYOnLineBusinessMainViewController.h"
+#import "HYCivicCenterCommand.h"
 
 @interface HYHomeSearchViewController () <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, FaceResultDelegate>
 

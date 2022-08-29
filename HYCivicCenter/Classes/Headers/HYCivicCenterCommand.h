@@ -1,22 +1,18 @@
 //
-//  HYCCPrefixHeader.pch
+//  HYCivicCenterCommand.h
 //  HYCivicCenter
 //
-//  Created by 谌孙望 on 2022/8/26.
+//  Created by 谌孙望 on 2022/8/29.
 //
 
-#ifndef HYCCPrefixHeader_pch
-#define HYCCPrefixHeader_pch
+#ifndef HYCivicCenterCommand_h
+#define HYCivicCenterCommand_h
 
-// Include any system framework and library headers here that should be included in all compilation units.
-// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
-
-#import "Masonry.h"
-#import "UIView+YXAdd.h"
+#import "Masonry/Masonry.h"
 #import "AFNetworking/AFNetworking.h"
-#import "UIImageView+WebCache.h"
-#import "SDImageCache.h"
-#import "SDWebImageManager.h"
+#import "SDWebImage/UIImageView+WebCache.h"
+#import "SDWebImage/SDImageCache.h"
+#import "SDWebImage/SDWebImageManager.h"
 #import "MJRefresh/MJRefresh.h"
 #import "MJExtension/MJExtension.h"
 #import "TZImageManager.h"
@@ -82,4 +78,4 @@
 
 #define BundleFile(FileName) [@"SZSMFramework.bundle" stringByAppendingPathComponent:FileName]
 
-#endif /* HYCCPrefixHeader_pch */
+#endif /* HYCivicCenterCommand_h */

@@ -6,6 +6,7 @@
 //
 
 #import "RideRecordTableViewCell.h"
+#import "HYCivicCenterCommand.h"
 
 @implementation RideRecordModel
 

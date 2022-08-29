@@ -7,6 +7,7 @@
 
 #import "RideRecordViewController.h"
 #import "RideRecordTableViewCell.h"
+#import "HYCivicCenterCommand.h"
 
 @interface RideRecordViewController () <UITableViewDelegate,UITableViewDataSource>
 

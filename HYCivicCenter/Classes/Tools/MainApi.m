@@ -7,6 +7,7 @@
 
 #import "MainApi.h"
 #import "HYSystemInfo.h"
+#import "HYCivicCenterCommand.h"
 
 @interface MainApi ()
 

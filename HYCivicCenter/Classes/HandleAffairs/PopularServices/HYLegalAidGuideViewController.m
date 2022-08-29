@@ -9,6 +9,7 @@
 #import "HYLegalAidGuideViewController.h"
 #import "HYLegalAidTableViewCell.h"
 #import <objc/runtime.h>
+#import "HYCivicCenterCommand.h"
 
 char * const buttonKey = "buttonKey";
 

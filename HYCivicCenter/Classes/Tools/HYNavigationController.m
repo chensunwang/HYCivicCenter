@@ -6,6 +6,7 @@
 //
 
 #import "HYNavigationController.h"
+#import "HYCivicCenterCommand.h"
 
 @interface HYNavigationController () <UINavigationControllerDelegate, UIGestureRecognizerDelegate>
 

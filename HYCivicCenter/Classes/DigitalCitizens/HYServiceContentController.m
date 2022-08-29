@@ -8,6 +8,7 @@
 #import "HYServiceContentController.h"
 #import "HYGovServiceTableViewCell.h"
 #import "HYServiceWebViewController.h"
+#import "HYCivicCenterCommand.h"
 
 @interface HYServiceContentController () <UITableViewDelegate,UITableViewDataSource>
 

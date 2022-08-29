@@ -7,6 +7,7 @@
 
 #import "HYHandleAffairsWebVIewController.h"
 #import <WebKit/WebKit.h>
+#import "HYCivicCenterCommand.h"
 
 @interface HYHandleAffairsWebVIewController () <WKUIDelegate, WKNavigationDelegate>
 

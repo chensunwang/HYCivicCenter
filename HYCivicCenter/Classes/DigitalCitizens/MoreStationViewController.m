@@ -9,6 +9,7 @@
 #import "SearchStationTableViewCell.h"
 #import "BusRouteViewController.h"
 #import "RealTimeBusViewController.h"
+#import "HYCivicCenterCommand.h"
 
 @interface MoreStationViewController () <UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate>
 

@@ -6,6 +6,7 @@
 //
 
 #import "AddHonorCollectionViewCell.h"
+#import "HYCivicCenterCommand.h"
 
 @implementation AddHonorCollectionViewCell
 

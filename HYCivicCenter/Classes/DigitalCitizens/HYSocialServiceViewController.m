@@ -7,6 +7,8 @@
 
 #import "HYSocialServiceViewController.h"
 #import "HYServiceContentController.h"
+#import "HYCivicCenterCommand.h"
+#import "UIView+YXAdd.h"
 
 @interface HYSocialServiceViewController () <UIScrollViewDelegate>
 

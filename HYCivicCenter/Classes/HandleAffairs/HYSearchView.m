@@ -6,6 +6,7 @@
 //
 
 #import "HYSearchView.h"
+#import "HYCivicCenterCommand.h"
 
 @interface HYSearchView ()
 

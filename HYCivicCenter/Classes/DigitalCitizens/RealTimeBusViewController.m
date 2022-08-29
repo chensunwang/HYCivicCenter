@@ -10,6 +10,7 @@
 #import "HYBusinfoModel.h"
 #import "SearchStationViewController.h"
 #import "BusRouteViewController.h"
+#import "HYCivicCenterCommand.h"
 
 @interface RealTimeBusViewController () <UITableViewDelegate,UITableViewDataSource>
 

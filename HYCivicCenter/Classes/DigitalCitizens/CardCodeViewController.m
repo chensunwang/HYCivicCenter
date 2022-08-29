@@ -6,6 +6,7 @@
 //
 
 #import "CardCodeViewController.h"
+#import "HYCivicCenterCommand.h"
 
 @interface CardCodeViewController ()
 

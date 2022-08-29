@@ -7,6 +7,7 @@
 //  实名认证弹窗
 
 #import "HYRealNameAlertView.h"
+#import "HYCivicCenterCommand.h"
 
 #define AlertW 230
 

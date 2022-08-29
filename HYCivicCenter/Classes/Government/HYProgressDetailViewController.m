@@ -10,6 +10,7 @@
 #import "HYProgressDetailTableViewCell.h"
 #import "HYServiceProgressModel.h"
 #import "HYItemTotalInfoModel.h"
+#import "HYCivicCenterCommand.h"
 
 @interface HYProgressDetailViewController () <UITableViewDelegate, UITableViewDataSource>
 

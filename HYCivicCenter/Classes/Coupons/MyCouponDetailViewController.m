@@ -6,6 +6,7 @@
 //
 
 #import "MyCouponDetailViewController.h"
+#import "HYCivicCenterCommand.h"
 
 @interface MyCouponDetailViewController () <UIScrollViewDelegate>
 

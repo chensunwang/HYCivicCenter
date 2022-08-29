@@ -23,6 +23,7 @@
 #import "HYLegalAidGuideViewController.h"
 #import "FaceTipViewController.h"
 #import "HYRealNameAlertView.h"
+#import "HYCivicCenterCommand.h"
 
 @interface HYHandleAffairsViewController ()<UITableViewDelegate, UITableViewDataSource, FaceResultDelegate, UITextFieldDelegate>
 

@@ -7,6 +7,7 @@
 
 #import "CardDetailTableViewCell.h"
 #import "HYAesUtil.h"
+#import "HYCivicCenterCommand.h"
 
 @implementation CardDetailTableViewCell
 

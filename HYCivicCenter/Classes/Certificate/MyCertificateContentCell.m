@@ -6,6 +6,7 @@
 //
 
 #import "MyCertificateContentCell.h"
+#import "HYCivicCenterCommand.h"
 
 @interface MyCertificateContentCell ()
 

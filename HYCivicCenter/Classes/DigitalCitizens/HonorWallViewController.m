@@ -9,6 +9,7 @@
 #import "HonorWallTableViewCell.h"
 #import "AddHonorViewController.h"
 #import "HonorwallDetailViewController.h"
+#import "HYCivicCenterCommand.h"
 
 @interface HonorWallViewController () <UITableViewDelegate,UITableViewDataSource,HonorDeleteDelegate,HonorDetailDeleteDelegate,AddHonorDelegate>
 

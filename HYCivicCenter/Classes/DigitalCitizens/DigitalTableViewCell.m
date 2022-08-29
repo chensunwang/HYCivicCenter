@@ -6,6 +6,7 @@
 //
 
 #import "DigitalTableViewCell.h"
+#import "HYCivicCenterCommand.h"
 
 @implementation DigitalTableViewCell
 

@@ -11,6 +11,7 @@
 #import "ChooseIndusreyViewController.h"
 #import "ChooseCityView.h"
 #import "HYAesUtil.h"
+#import "HYCivicCenterCommand.h"
 
 @interface EditBusinessCardViewController () <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, ChooseIndustryDelegate, ChooseCityDelegate, UITextFieldDelegate>
 

@@ -6,6 +6,7 @@
 //
 
 #import "MyCardDataCollectionViewCell.h"
+#import "HYCivicCenterCommand.h"
 
 @implementation MyCardDataCollectionViewCell
 

@@ -14,6 +14,7 @@
 #import "HYSocialServiceViewController.h"
 #import "HYObtainCertiViewController.h"
 #import "HYSearchServiceViewController.h"
+#import "HYCivicCenterCommand.h"
 
 @interface HYServiceTableViewCell () <UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 

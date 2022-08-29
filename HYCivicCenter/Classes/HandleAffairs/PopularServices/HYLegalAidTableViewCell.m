@@ -6,6 +6,7 @@
 //
 
 #import "HYLegalAidTableViewCell.h"
+#import "HYCivicCenterCommand.h"
 
 @interface HYLegalAidTableViewCell ()
 

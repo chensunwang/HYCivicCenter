@@ -6,6 +6,7 @@
 //
 
 #import "XFSpecialButton.h"
+#import "HYCivicCenterCommand.h"
 
 @implementation XFSpecialButton
 

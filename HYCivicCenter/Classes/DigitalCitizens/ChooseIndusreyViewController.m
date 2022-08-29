@@ -9,6 +9,7 @@
 #import "ChooseIndustryModel.h"
 #import "IndustryLeftTableViewCell.h"
 #import "IndustryRightTableViewCell.h"
+#import "HYCivicCenterCommand.h"
 
 @interface ChooseIndusreyViewController () <UITableViewDelegate,UITableViewDataSource>
 

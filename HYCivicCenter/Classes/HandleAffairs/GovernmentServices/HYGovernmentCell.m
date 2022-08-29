@@ -10,6 +10,7 @@
 #import "HYMyServiceViewController.h" // 我的服务
 #import "HYServiceProgressViewController.h" // 进度查询
 #import "HYRealNameAlertView.h"
+#import "HYCivicCenterCommand.h"
 
 @interface HYGovernmentCell ()
 

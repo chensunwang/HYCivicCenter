@@ -14,6 +14,7 @@
 #import "HYServiceProgressModel.h"
 #import "HYHomeSearchViewController.h"
 #import "HYProgressDetailViewController.h"
+#import "HYCivicCenterCommand.h"
 
 @interface HYGovernmentViewController ()<UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
 

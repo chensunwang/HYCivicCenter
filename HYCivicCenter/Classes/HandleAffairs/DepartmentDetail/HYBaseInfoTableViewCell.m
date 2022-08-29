@@ -6,6 +6,7 @@
 //
 
 #import "HYBaseInfoTableViewCell.h"
+#import "HYCivicCenterCommand.h"
 
 @interface HYBaseInfoTableViewCell ()<UITextFieldDelegate>
 

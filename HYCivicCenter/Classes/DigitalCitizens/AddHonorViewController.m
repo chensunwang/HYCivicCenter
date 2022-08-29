@@ -7,8 +7,9 @@
 
 #import "AddHonorViewController.h"
 #import "AddHonorCollectionViewCell.h"
+#import "HYCivicCenterCommand.h"
 
-@interface AddHonorViewController () <UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,TZImagePickerControllerDelegate>
+@interface AddHonorViewController () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, TZImagePickerControllerDelegate>
 
 @property (nonatomic, strong) UITextField *nameTF;
 @property (nonatomic, strong) UITextView *contentTV;

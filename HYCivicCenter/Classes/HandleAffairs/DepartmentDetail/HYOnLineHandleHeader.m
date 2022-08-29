@@ -6,6 +6,7 @@
 //
 
 #import "HYOnLineHandleHeader.h"
+#import "HYCivicCenterCommand.h"
 
 @interface HYOnLineHandleHeader ()
 

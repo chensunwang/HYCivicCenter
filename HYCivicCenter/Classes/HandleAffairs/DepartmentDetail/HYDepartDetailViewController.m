@@ -12,6 +12,7 @@
 #import "HYHotHandleAffairsModel.h"
 #import "HYDepartDetailHotCell.h"
 #import "HYDepartDetailBusinessCell.h"
+#import "HYCivicCenterCommand.h"
 
 @interface HYDepartDetailViewController ()<UITableViewDelegate, UITableViewDataSource>
 

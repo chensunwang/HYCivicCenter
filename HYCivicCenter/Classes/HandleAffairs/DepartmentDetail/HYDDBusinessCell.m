@@ -8,6 +8,7 @@
 
 #import "HYDDBusinessCell.h"
 #import "HYBusinessSearchViewController.h"
+#import "HYCivicCenterCommand.h"
 
 @interface HYDDBusinessCell ()
 

@@ -24,6 +24,7 @@
 
 #import "HYServiceTableViewCell.h"
 #import "HYServiceClassifyModel.h"
+#import "HYCivicCenterCommand.h"
 
 @interface BusTransportViewController () <UITableViewDelegate,UITableViewDataSource,GetQRCodeDelegate,CLLocationManagerDelegate>
 

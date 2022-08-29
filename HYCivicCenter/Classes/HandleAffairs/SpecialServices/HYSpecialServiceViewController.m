@@ -12,6 +12,7 @@
 #import "XFSpecialButton.h"
 #import "HYServiceContentTableViewCell.h"
 #import "UIButton+WebCache.h"
+#import "HYCivicCenterCommand.h"
 
 @interface HYSpecialServiceViewController () <UIScrollViewDelegate>
 

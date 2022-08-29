@@ -6,6 +6,7 @@
 //
 
 #import "UILabel+XFExtension.h"
+#import "HYCivicCenterCommand.h"
 
 @implementation UILabel (XFExtension)
 

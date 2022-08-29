@@ -10,6 +10,8 @@
 #import "UIView+YXAdd.h"
 #import "MyCouponsMainViewController.h"
 #import "CouponClassifyModel.h"
+#import "HYCivicCenterCommand.h"
+#import "UIView+YXAdd.h"
 
 @interface CouponMainViewController () <UIScrollViewDelegate>
 

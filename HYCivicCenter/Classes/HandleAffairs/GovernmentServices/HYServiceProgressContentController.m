@@ -9,6 +9,7 @@
 #import "HYServiceProgressTableViewCell.h"
 #import "HYServiceProgressModel.h"
 #import "HYProgressDetailViewController.h"
+#import "HYCivicCenterCommand.h"
 
 @interface HYServiceProgressContentController () <UITableViewDelegate, UITableViewDataSource>
 

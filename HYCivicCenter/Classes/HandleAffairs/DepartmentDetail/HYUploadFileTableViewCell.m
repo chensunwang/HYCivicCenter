@@ -7,6 +7,7 @@
 
 #import "HYUploadFileTableViewCell.h"
 #import "HYUploadImageCollectionViewCell.h"
+#import "HYCivicCenterCommand.h"
 
 @interface HYUploadFileTableViewCell() <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 

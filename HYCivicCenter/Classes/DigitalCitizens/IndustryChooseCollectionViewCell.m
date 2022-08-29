@@ -6,6 +6,8 @@
 //
 
 #import "IndustryChooseCollectionViewCell.h"
+#import "HYCivicCenterCommand.h"
+
 @class IndustryChooseModel;
 
 @implementation IndustryChooseModel

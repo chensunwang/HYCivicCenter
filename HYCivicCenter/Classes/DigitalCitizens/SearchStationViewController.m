@@ -12,6 +12,7 @@
 #import "MoreStationViewController.h"
 #import "MoreRouteViewController.h"
 #import "RealTimeBusViewController.h"
+#import "HYCivicCenterCommand.h"
 
 @interface SearchStationViewController () <UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate>
 

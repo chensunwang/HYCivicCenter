@@ -6,6 +6,7 @@
 //
 
 #import "HYButton.h"
+#import "HYCivicCenterCommand.h"
 
 @implementation HYButton
 

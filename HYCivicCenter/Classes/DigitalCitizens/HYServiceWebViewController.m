@@ -7,6 +7,7 @@
 
 #import "HYServiceWebViewController.h"
 #import <WebKit/WebKit.h>
+#import "HYCivicCenterCommand.h"
 
 @interface HYServiceWebViewController () <WKUIDelegate,WKNavigationDelegate>
 

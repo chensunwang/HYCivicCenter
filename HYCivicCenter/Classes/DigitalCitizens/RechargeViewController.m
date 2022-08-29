@@ -9,6 +9,7 @@
 #import "RechargeCollectionViewCell.h"
 #import "RechargeResultController.h"
 #import <AlipaySDK/AlipaySDK.h>
+#import "HYCivicCenterCommand.h"
 
 @interface RechargeViewController () <UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,RechargeDelegate>
 

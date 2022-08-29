@@ -6,6 +6,7 @@
 //
 
 #import "HYGovServiceTableViewCell.h"
+#import "HYCivicCenterCommand.h"
 
 @interface HYGovServiceTableViewCell ()
 

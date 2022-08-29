@@ -6,6 +6,7 @@
 //
 
 #import "HYHandleGuideMateraCell.h"
+#import "HYCivicCenterCommand.h"
 
 @interface HYHandleGuideMateraCell ()<UITableViewDelegate, UITableViewDataSource>
 

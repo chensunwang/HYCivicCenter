@@ -16,6 +16,7 @@
 #import "EditBusinessCardTableViewCell.h"
 #import "WXApi.h"
 #import "WXApiObject.h"
+#import "HYCivicCenterCommand.h"
 
 @interface MyBusinessCardController () <UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,EditDelegate>
 

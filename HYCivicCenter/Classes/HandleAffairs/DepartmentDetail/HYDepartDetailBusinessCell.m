@@ -13,6 +13,7 @@
 #import "FaceTipViewController.h"
 #import "HYEmptyView.h"
 #import "HYOnLineBusinessMainViewController.h"
+#import "HYCivicCenterCommand.h"
 
 @interface HYDepartDetailBusinessCell ()<UITableViewDelegate, UITableViewDataSource, FaceResultDelegate>
 

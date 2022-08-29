@@ -8,6 +8,7 @@
 
 #import "HYGoveHeaderView.h"
 #import "HYServiceProgressModel.h"
+#import "HYCivicCenterCommand.h"
 
 @interface HYGoveHeaderView ()
 

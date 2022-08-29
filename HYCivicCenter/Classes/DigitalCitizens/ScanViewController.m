@@ -8,6 +8,7 @@
 #import "ScanViewController.h"
 #import "XFUDButton.h"
 #import "CardDetailViewController.h"
+#import "HYCivicCenterCommand.h"
 
 @interface ScanViewController () <AVCaptureMetadataOutputObjectsDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 

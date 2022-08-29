@@ -10,6 +10,7 @@
 #import <CTID_Verification/CTID_Verification.h>
 #import "FaceTipViewController.h"
 #import "OpenIDCardViewController.h"
+#import "HYCivicCenterCommand.h"
 
 @interface CertificateDetailViewController () <FaceResultDelegate>
 

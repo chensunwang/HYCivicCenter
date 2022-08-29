@@ -8,6 +8,7 @@
 #import "BusinessCardViewController.h"
 #import "BusinessCardTableViewCell.h"
 #import "CardDetailViewController.h"
+#import "HYCivicCenterCommand.h"
 
 @interface BusinessCardViewController () <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, CardDeleteDelegate>
 

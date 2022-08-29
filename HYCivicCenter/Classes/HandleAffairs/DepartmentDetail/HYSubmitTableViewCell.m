@@ -6,6 +6,7 @@
 //
 
 #import "HYSubmitTableViewCell.h"
+#import "HYCivicCenterCommand.h"
 
 @interface HYSubmitTableViewCell ()
 

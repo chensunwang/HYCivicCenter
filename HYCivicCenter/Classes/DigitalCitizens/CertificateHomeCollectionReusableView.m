@@ -8,6 +8,7 @@
 #import "CertificateHomeCollectionReusableView.h"
 #import "HYButton.h"
 #import "BusTransportViewController.h"
+#import "HYCivicCenterCommand.h"
 
 @interface CertificateHomeCollectionReusableView ()
 

@@ -11,6 +11,7 @@
 #import "HYHandleGuideMateraCell.h"
 #import <objc/runtime.h>
 #import "HYItemTotalInfoModel.h"
+#import "HYCivicCenterCommand.h"
 
 @interface HYHandleGuideViewController () <UITableViewDelegate, UITableViewDataSource>
 

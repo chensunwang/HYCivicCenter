@@ -6,6 +6,7 @@
 //
 
 #import "HYGuessBusinessTableViewCell.h"
+#import "HYCivicCenterCommand.h"
 
 @interface HYGuessBusinessTableViewCell ()
 

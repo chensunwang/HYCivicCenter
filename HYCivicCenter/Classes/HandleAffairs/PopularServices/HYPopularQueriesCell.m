@@ -8,6 +8,7 @@
 
 #import "HYPopularQueriesCell.h"
 #import "HYPQCollectionViewCell.h"
+#import "HYCivicCenterCommand.h"
 
 @interface HYPopularQueriesCell ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 

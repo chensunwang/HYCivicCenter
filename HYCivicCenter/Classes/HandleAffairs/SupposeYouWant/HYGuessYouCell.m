@@ -7,6 +7,7 @@
 //  猜你想办cell
 
 #import "HYGuessYouCell.h"
+#import "HYCivicCenterCommand.h"
 
 @interface HYGuessYouCell ()
 

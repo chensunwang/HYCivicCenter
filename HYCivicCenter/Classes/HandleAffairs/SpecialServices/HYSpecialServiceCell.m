@@ -13,6 +13,7 @@
 #import "HYAreaServiceViewController.h"
 #import "HYDepartDetailViewController.h"
 #import "HYRealNameAlertView.h"
+#import "HYCivicCenterCommand.h"
 
 @interface HYSpecialServiceCell ()<UITableViewDelegate, UITableViewDataSource>
 

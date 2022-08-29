@@ -1,7 +1,7 @@
 {
   "name": "HYCivicCenter",
   "version": "0.1.1",
-  "summary": "A short description of HYCivicCenter.",
+  "summary": "HYCivicCenter.",
   "description": "TODO: Add long description of the pod here.",
   "homepage": "https://github.com/chensunwang/HYCivicCenter",
   "license": {
@@ -24,7 +24,9 @@
   "public_header_files": "HYCivicCenter/Classes/Headers/*.h",
   "resource_bundles": {
     "HYCivicCenter": [
-      "HYCivicCenter/Assets/*.png"
+      "HYCivicCenter/Assets/*.png",
+      "HYCivicCenter/Assets/CTID.bundle",
+      "HYCivicCenter/Assets/HYCivicCenter.bundle"
     ]
   },
   "ios": {
@@ -32,7 +34,8 @@
   },
   "vendored_libraries": "HYCivicCenter/Classes/BDFaceSDK/libFaceSSDKLib.a",
   "xcconfig": {
-    "USER_HEADER_SEARCH_PATHS": "HYCivicCenter/Classes/BDFaceSDK/include/*.{h}"
+    "USER_HEADER_SEARCH_PATHS": "HYCivicCenter/Classes/BDFaceSDK/include/*.{h}",
+    "OTHER_LDFLAGS": "$(inherited) -ObjC"
   },
   "dependencies": {
     "AFNetworking": [

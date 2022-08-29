@@ -6,6 +6,7 @@
 //
 
 #import "ChooseCityTableViewCell.h"
+#import "HYCivicCenterCommand.h"
 
 @interface ChooseCityTableViewCell ()
 

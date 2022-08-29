@@ -11,6 +11,8 @@
 #import "HYCommonProblemViewController.h"
 #import "HYHandleGuideViewController.h"
 #import "HYItemTotalInfoModel.h"
+#import "HYCivicCenterCommand.h"
+#import "UIView+YXAdd.h"
 
 @interface HYOnLineBusinessMainViewController () <UIScrollViewDelegate>
 

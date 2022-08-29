@@ -8,6 +8,7 @@
 
 #import "HYCommonProblemViewController.h"
 #import "HYCommonProblemTableViewCell.h"
+#import "HYCivicCenterCommand.h"
 
 @interface HYCommonProblemViewController () <UITableViewDelegate, UITableViewDataSource>
 

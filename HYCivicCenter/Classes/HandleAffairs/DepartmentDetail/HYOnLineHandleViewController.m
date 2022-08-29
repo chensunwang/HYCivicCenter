@@ -14,6 +14,7 @@
 #import "HYItemTotalInfoModel.h"
 #import "HYOnLineHandleHeader.h"
 #import "HYServiceProgressViewController.h"
+#import "HYCivicCenterCommand.h"
 
 @interface HYOnLineHandleViewController () <UITableViewDelegate, UITableViewDataSource>
 

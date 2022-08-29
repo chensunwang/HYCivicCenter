@@ -6,6 +6,7 @@
 //
 
 #import "HYPQCollectionViewCell.h"
+#import "HYCivicCenterCommand.h"
 
 @interface HYPQCollectionViewCell ()
 

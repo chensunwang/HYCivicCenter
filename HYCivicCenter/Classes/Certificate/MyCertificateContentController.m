@@ -7,6 +7,7 @@
 
 #import "MyCertificateContentController.h"
 #import "MyCertificateContentCell.h"
+#import "HYCivicCenterCommand.h"
 
 @interface MyCertificateContentController () <UITableViewDelegate,UITableViewDataSource>
 

@@ -7,7 +7,6 @@
 //
 
 #import "HYViewController.h"
-#import "HYCivicCenter/HYCivicCenter-umbrella.h"
 
 @interface HYViewController ()
 

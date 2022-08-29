@@ -7,6 +7,7 @@
 
 #import "CertificateInfoViewController.h"
 #import <WebKit/WebKit.h>
+#import "HYCivicCenterCommand.h"
 
 @interface CertificateInfoViewController () <WKUIDelegate,WKNavigationDelegate>
 

@@ -6,6 +6,7 @@
 //
 
 #import "HYObtainCertiTableViewCell.h"
+#import "HYCivicCenterCommand.h"
 
 @interface HYObtainCertiTableViewCell ()
 

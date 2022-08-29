@@ -10,6 +10,7 @@
 #import "CertificateDetailViewController.h"
 #import <CTID_Verification/CTID_Verification.h>
 #import "MyCtidViewController.h"
+#import "HYCivicCenterCommand.h"
 
 @interface CertificateLibraryViewController () <UITableViewDelegate,UITableViewDataSource>
 

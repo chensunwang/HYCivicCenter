@@ -6,6 +6,7 @@
 //
 
 #import "HYEmptyView.h"
+#import "HYCivicCenterCommand.h"
 
 @interface HYEmptyView ()  // 155 * 204
 

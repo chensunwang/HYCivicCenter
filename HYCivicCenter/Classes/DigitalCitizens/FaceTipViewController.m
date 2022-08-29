@@ -12,6 +12,7 @@
 #import "BDFaceLivingConfigModel.h"
 #import "BDFaceAdjustParamsTool.h"
 #import "BDFaceColorfulViewController.h"
+#import "HYCivicCenterCommand.h"
 
 @interface FaceTipViewController () <BDFaceColorfulVCDelegate>
 

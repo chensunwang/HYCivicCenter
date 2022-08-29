@@ -8,6 +8,8 @@
 
 #import "HYServiceProgressViewController.h"
 #import "HYServiceProgressContentController.h"
+#import "HYCivicCenterCommand.h"
+#import "UIView+YXAdd.h"
 
 @interface HYServiceProgressViewController () <UIScrollViewDelegate>
 

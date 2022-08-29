@@ -9,6 +9,7 @@
 #import "HYObtainCertiTableViewCell.h"
 #import "HYGovServiceTableViewCell.h"
 #import "HYServiceWebViewController.h"
+#import "HYCivicCenterCommand.h"
 
 @interface HYObtainCertiViewController () <UITableViewDelegate,UITableViewDataSource>
 

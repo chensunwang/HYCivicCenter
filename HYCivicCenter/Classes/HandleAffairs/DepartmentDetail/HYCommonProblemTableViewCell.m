@@ -6,6 +6,8 @@
 //
 
 #import "HYCommonProblemTableViewCell.h"
+#import "HYCivicCenterCommand.h"
+#import "HYCivicCenterCommand.h"
 
 @interface HYCommonProblemTableViewCell ()
 

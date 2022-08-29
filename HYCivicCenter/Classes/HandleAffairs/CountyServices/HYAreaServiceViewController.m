@@ -10,6 +10,7 @@
 #import "HYAreaServiceTableViewCell.h"
 #import "HYDepartDetailViewController.h"
 #import "HYEmptyView.h"
+#import "HYCivicCenterCommand.h"
 
 @interface HYAreaServiceViewController () <UITableViewDelegate, UITableViewDataSource>
 

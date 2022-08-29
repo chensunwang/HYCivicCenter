@@ -6,6 +6,7 @@
 //
 
 #import "CouponsCenterTableViewCell.h"
+#import "HYCivicCenterCommand.h"
 
 @interface CouponsCenterTableViewCell()
 

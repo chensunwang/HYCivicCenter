@@ -7,6 +7,8 @@
 
 #import "HYSelectIndustry.h"
 #import "HYSearchServiceModel.h"
+#import "HYCivicCenterCommand.h"
+#import "UIView+YXAdd.h"
 
 @interface HYSelectIndustry () <UIPickerViewDelegate,UIPickerViewDataSource>
 

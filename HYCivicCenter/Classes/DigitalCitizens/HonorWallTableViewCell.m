@@ -6,6 +6,8 @@
 //
 
 #import "HonorWallTableViewCell.h"
+#import "HYCivicCenterCommand.h"
+
 @class HonorWallModel;
 
 @interface HonorWallTableViewCell ()
