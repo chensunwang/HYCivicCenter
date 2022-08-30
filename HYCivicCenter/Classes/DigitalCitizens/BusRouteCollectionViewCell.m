@@ -7,6 +7,7 @@
 
 #import "BusRouteCollectionViewCell.h"
 #import "HYCivicCenterCommand.h"
+#import "UILabel+XFExtension.h"
 
 @implementation BusRouteCollectionViewCell
 

@@ -109,7 +109,7 @@ NSString *const busRouteBusCell = @"routeBusCell";
 //                NSInteger  (((a)>(b))?(b):(a))
                 NSInteger count = self.willArriveBusArr.count > 3 ? 3 : self.willArriveBusArr.count;
                 
-                CGFloat buttonWidth = (SCREEN_WIDTH - 32) / count;
+                CGFloat buttonWidth = ([UIScreen mainScreen].bounds.size.width - 32) / count;
                 for (NSInteger i = 0; i < count; i++) {
                     HYBusinfoModel *busModel = self.willArriveBusArr[i];
                     CommintStationView *stationView = [[CommintStationView alloc]init];
@@ -310,7 +310,7 @@ NSString *const busRouteBusCell = @"routeBusCell";
         make.height.mas_equalTo(66);
     }];
     
-    CGFloat buttonWidth = (SCREEN_WIDTH - 32)/2.0;
+    CGFloat buttonWidth = ([UIScreen mainScreen].bounds.size.width - 32)/2.0;
     [turnBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.top.bottom.equalTo(self.bottomView);
         make.width.mas_equalTo(buttonWidth);

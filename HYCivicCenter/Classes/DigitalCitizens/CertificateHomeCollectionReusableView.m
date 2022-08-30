@@ -29,7 +29,7 @@
         
         NSArray *imagesArr = @[@"citizen",@"transit",@"travel",@"payment"];
         NSArray *titlesArr = @[@"市民码",@"乘车",@"旅游",@"支付"];
-        CGFloat padding = (SCREEN_WIDTH - 64 - 48 * 4) / 3;
+        CGFloat padding = ([UIScreen mainScreen].bounds.size.width - 64 - 48 * 4) / 3;
         for (NSInteger i = 0; i < 4; i ++ ) {
             
             HYButton *button = [[HYButton alloc]init];

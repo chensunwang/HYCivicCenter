@@ -27,6 +27,7 @@
 #import "FaceTipViewController.h"
 #import "HYCivicCenterCommand.h"
 #import "UIView+YXAdd.h"
+#import "UILabel+XFExtension.h"
 
 @interface DigitalcitizenViewController () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, FaceResultDelegate>
 
@@ -108,18 +109,18 @@ NSString *const serviceCell = @"serviceCell";
     BusTransportViewController *busVC = [[BusTransportViewController alloc]init];
     [self addChildViewController:busVC];
     
-    self.scrollView.contentSize = CGSizeMake(SCREEN_WIDTH * 3, 0);
+    self.scrollView.contentSize = CGSizeMake([UIScreen mainScreen].bounds.size.width * 3, 0);
     
 }
 
 - (void)setupTitleView {
     
-    self.titleView = [[UIView alloc]initWithFrame:CGRectMake(0, kTopNavHeight, SCREEN_WIDTH, 50)];
+    self.titleView = [[UIView alloc]initWithFrame:CGRectMake(0, kTopNavHeight, [UIScreen mainScreen].bounds.size.width, 50)];
     self.titleView.backgroundColor = UIColorFromRGB(0x157AFF);
     [self.view addSubview:self.titleView];
     
     UIButton *firstBtn = nil;
-    CGFloat buttonWidth = SCREEN_WIDTH / 4;
+    CGFloat buttonWidth = [UIScreen mainScreen].bounds.size.width / 4;
     for (int i = 0; i < self.titleArr.count; i++) {
         NSString *title = self.titleArr[i];
         UIButton *button = [[UIButton alloc]init];
@@ -229,7 +230,7 @@ NSString *const serviceCell = @"serviceCell";
     }];
     
     CGPoint offset = self.scrollView.contentOffset;
-    offset.x = SCREEN_WIDTH * (button.tag - 100);
+    offset.x = [UIScreen mainScreen].bounds.size.width * (button.tag - 100);
     [self.scrollView setContentOffset:offset animated:YES];
     
 }
@@ -276,7 +277,7 @@ NSString *const serviceCell = @"serviceCell";
 }
 
 - (int)getTheCurrentIndex {
-    return self.scrollView.contentOffset.x / SCREEN_WIDTH;
+    return self.scrollView.contentOffset.x / [UIScreen mainScreen].bounds.size.width;
 }
 
 - (NSArray *)titleArr {
@@ -292,7 +293,7 @@ NSString *const serviceCell = @"serviceCell";
     
     if (!_scrollView) {
         _scrollView = [[UIScrollView alloc] init];
-        _scrollView.frame = CGRectMake(0, kTopNavHeight + 50, SCREEN_WIDTH, SCREEN_HEIGHT -  50 - kTopNavHeight - kBottomTabBarHeight);
+        _scrollView.frame = CGRectMake(0, kTopNavHeight + 50, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height -  50 - kTopNavHeight - kBottomTabBarHeight);
         _scrollView.backgroundColor = [UIColor whiteColor];
         _scrollView.showsVerticalScrollIndicator = NO;
         _scrollView.showsHorizontalScrollIndicator = NO;
@@ -312,7 +313,7 @@ NSString *const serviceCell = @"serviceCell";
     
     self.flowLayout = [[UICollectionViewFlowLayout alloc]init];
     self.flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
-    self.flowLayout.headerReferenceSize = CGSizeMake(SCREEN_WIDTH, 660);
+    self.flowLayout.headerReferenceSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, 660);
     
     self.collectionView = [[UICollectionView alloc]initWithFrame:self.view.frame collectionViewLayout:self.flowLayout];
     self.collectionView.backgroundColor = [UIColor whiteColor];
@@ -413,7 +414,7 @@ NSString *const serviceCell = @"serviceCell";
 //    if (indexPath.section == 0) {
 //        return CGSizeMake(([UIScreen mainScreen].bounds.size.width - 32 - 44*4) / 4, 80);
 //    }
-    return CGSizeMake((SCREEN_WIDTH - 32) / 2, 64);
+    return CGSizeMake(([UIScreen mainScreen].bounds.size.width - 32) / 2, 64);
     
 }
 

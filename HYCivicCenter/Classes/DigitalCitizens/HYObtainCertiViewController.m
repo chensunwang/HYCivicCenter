@@ -10,6 +10,7 @@
 #import "HYGovServiceTableViewCell.h"
 #import "HYServiceWebViewController.h"
 #import "HYCivicCenterCommand.h"
+#import "UILabel+XFExtension.h"
 
 @interface HYObtainCertiViewController () <UITableViewDelegate,UITableViewDataSource>
 
@@ -113,7 +114,7 @@ static NSString *serviceCell = @"ServiceCell";
         return nil;
     }
 
-    UIView *contentView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH - 32, 50)];
+    UIView *contentView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width - 32, 50)];
     contentView.backgroundColor = [UIColor whiteColor];
     
     UILabel *nameLabel = [[UILabel alloc]init];

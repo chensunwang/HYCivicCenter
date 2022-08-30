@@ -280,23 +280,23 @@ NSString *const handleGuideCell = @"guideCell";
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if ([_titleArray[indexPath.section] isEqualToString:@"基本信息"] || [_titleArray[indexPath.section] isEqualToString:@"咨询途径"] || [_titleArray[indexPath.section] isEqualToString:@"监督投诉"]) {
         HYGuideItemInfoModel *model = _dataArray[indexPath.section][indexPath.row];
-        CGFloat height = [model.value heightForStringWithFont:MFONT(14) width:(SCREEN_WIDTH - 170)];
+        CGFloat height = [model.value heightForStringWithFont:MFONT(14) width:([UIScreen mainScreen].bounds.size.width - 170)];
         return height + 30;
     }
     if ([_titleArray[indexPath.section] isEqualToString:@"收费明细"]) {
         HYChargeModel *model = _dataArray[indexPath.section][indexPath.row];
-        CGFloat height = [model.standard heightForStringWithFont:MFONT(14) width:(SCREEN_WIDTH - 170)];
+        CGFloat height = [model.standard heightForStringWithFont:MFONT(14) width:([UIScreen mainScreen].bounds.size.width - 170)];
         return height + 30;
     }
     if ([_titleArray[indexPath.section] isEqualToString:@"办理流程"]) {
         HYHandlingProcessModel *model = _dataArray[indexPath.section][indexPath.row];
-        CGFloat height = [model.content heightForStringWithFont:MFONT(14) width:(SCREEN_WIDTH - 170)];
+        CGFloat height = [model.content heightForStringWithFont:MFONT(14) width:([UIScreen mainScreen].bounds.size.width - 170)];
         return height + 30;
     }
     if ([_titleArray[indexPath.section] isEqualToString:@"受理条件"]) {
         HYConditionModel *model = _dataArray[indexPath.section][indexPath.row];
         NSString *string = [model.name stringByReplacingOccurrencesOfString:@"\r\n" withString:@""];
-        CGFloat height = [string heightForStringWithFont:MFONT(14) width:(SCREEN_WIDTH - 64)];
+        CGFloat height = [string heightForStringWithFont:MFONT(14) width:([UIScreen mainScreen].bounds.size.width - 64)];
         return height + 36;
     }
     if ([_titleArray[indexPath.section] isEqualToString:@"办理材料"]) {
@@ -307,7 +307,7 @@ NSString *const handleGuideCell = @"guideCell";
         HYOutMapModel *model = _dataArray[indexPath.section][indexPath.row];
         if (![model.webUrl isEqualToString:@""]) {
             UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:model.webUrl]]];
-            CGFloat imgHeight = image.size.height * (SCREEN_WIDTH - 32) / image.size.width;  // 手动计算image高度
+            CGFloat imgHeight = image.size.height * ([UIScreen mainScreen].bounds.size.width - 32) / image.size.width;  // 手动计算image高度
             SLog(@"流程图的高度:%f", imgHeight);
             imgHeight = imgHeight >= 0 ? imgHeight : 0;  // 防止计算出负数高度 导致闪退
             return imgHeight + 32;

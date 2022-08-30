@@ -131,7 +131,7 @@
     [self.rightLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self.contentView.mas_right).offset(-20);
         make.centerY.equalTo(self.contentView.mas_centerY);
-        make.width.mas_equalTo(SCREEN_WIDTH - 106 - 32 - 32);
+        make.width.mas_equalTo([UIScreen mainScreen].bounds.size.width - 106 - 32 - 32);
     }];
     
     [self.contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {

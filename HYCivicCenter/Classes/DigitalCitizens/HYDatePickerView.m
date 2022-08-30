@@ -140,7 +140,7 @@
     
     [UIView animateWithDuration:0.25 animations:^{
         self.alpha = 0;
-        self.contentView.kTop = SCREEN_HEIGHT;
+        self.contentView.kTop = [UIScreen mainScreen].bounds.size.height;
     } completion:^(BOOL finished) {
         [self removeFromSuperview];
     }];

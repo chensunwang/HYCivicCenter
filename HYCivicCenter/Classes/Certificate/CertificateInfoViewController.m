@@ -33,7 +33,7 @@
 }
 
 - (void)configUI {
-    
+        
     [self.view addSubview:self.progressView];
     
     self.webView = [[WKWebView alloc]init];
@@ -70,7 +70,8 @@
 - (UIProgressView *)progressView {
     
     if (!_progressView) {
-        _progressView = [[UIProgressView alloc]initWithFrame:CGRectMake(0, kTopNavHeight, SCREEN_WIDTH, 2)];
+        CGFloat kscreenWith = [UIScreen mainScreen].bounds.size.width;
+        _progressView = [[UIProgressView alloc]initWithFrame:CGRectMake(0, kTopNavHeight, kscreenWith, 2)];
         _progressView.tintColor = [UIColor blueColor];
         _progressView.trackTintColor = [UIColor clearColor];
     }

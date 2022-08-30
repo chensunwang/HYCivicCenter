@@ -75,7 +75,7 @@
     [self.personalBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.equalTo(self.headerView);
         make.height.mas_equalTo(40);
-        make.width.mas_equalTo(SCREEN_WIDTH*0.5);
+        make.width.mas_equalTo([UIScreen mainScreen].bounds.size.width*0.5);
     }];
     [self.personalBtn setTitleEdgeInsets:UIEdgeInsetsMake(-5, 0, 0, 0)];
     [self.personalBtn setTitle:@"个人业务" forState:UIControlStateNormal];
@@ -83,7 +83,7 @@
     [self.personalBtn addTarget:self action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
     
     [self.companyBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.mas_equalTo(SCREEN_WIDTH*0.5);
+        make.width.mas_equalTo([UIScreen mainScreen].bounds.size.width*0.5);
         make.top.right.equalTo(self.headerView);
         make.height.mas_equalTo(40);
     }];
@@ -115,7 +115,7 @@
     [self.contentView addSubview:self.emptyView];
     [self.emptyView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.contentView);
-        make.centerY.equalTo(self.contentView).offset(SCREEN_HEIGHT/3);
+        make.centerY.equalTo(self.contentView).offset([UIScreen mainScreen].bounds.size.height/3);
         make.width.mas_equalTo(155);
         make.height.mas_equalTo(204);
     }];
@@ -275,7 +275,7 @@
     paraStyle.lineSpacing = 4; //设置行间距
     paraStyle.minimumLineHeight = 10;
     NSDictionary *attribtDic = @{NSFontAttributeName:MFONT(16), NSUnderlineStyleAttributeName: [NSNumber numberWithInteger:NSUnderlineStyleSingle], NSParagraphStyleAttributeName:paraStyle};
-    CGRect rect = [model.name boundingRectWithSize:CGSizeMake(SCREEN_WIDTH - 72 - 32, MAXFLOAT)
+    CGRect rect = [model.name boundingRectWithSize:CGSizeMake([UIScreen mainScreen].bounds.size.width - 72 - 32, MAXFLOAT)
                                            options:NSStringDrawingUsesLineFragmentOrigin
                                         attributes:attribtDic
                                            context:nil];
@@ -286,7 +286,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     HYBusinessInfoModel * infoModel = _dataArray[section];
     // 计算出littleTitle字符串的高度
-    CGFloat height = [infoModel.littleTitle heightForStringWithFont:MFONT(12) width:(SCREEN_WIDTH - 54 - 32)];
+    CGFloat height = [infoModel.littleTitle heightForStringWithFont:MFONT(12) width:([UIScreen mainScreen].bounds.size.width - 54 - 32)];
     return 64 + height;
 }
 

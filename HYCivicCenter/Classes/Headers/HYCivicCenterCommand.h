@@ -15,11 +15,10 @@
 #import "SDWebImage/SDWebImageManager.h"
 #import "MJRefresh/MJRefresh.h"
 #import "MJExtension/MJExtension.h"
-#import "TZImageManager.h"
+#import "TZImagePickerController/TZImageManager.h"
 #import "TZImagePickerController/TZImagePickerController.h"
 #import "MainApi.h"
 #import "SVProgressHUD/SVProgressHUD.h"
-#import "UILabel+XFExtension.h"
 #import "HYSystemInfo.h"
 #import "NSString+Category.h"
 #import "UIButton+Gradient.h"
@@ -32,7 +31,6 @@
 //#define ZWBaseApi @""  //
 //#define ZWBSBaseApi @"http://192.168.1.151:15001/"  // 政务办事
 
-
 // **********************************  正式环境  ***************************************
 #define BaseApi @"https://nccsdn.yunshangnc.com/mixPanel/app/" //
 #define BusBaseApi @"https://nccsdn.yunshangnc.com/mixPanel/app/phone/v1/api"  //
@@ -43,12 +41,8 @@
 // *********************************  正式内网环境  **************************************
 //#define BaseApi @"http://172.30.129.83:80"
 
-
 #define XFLog(...) NSLog(@"%s 第%d行 \n %@\n\n",__func__,__LINE__,[NSString stringWithFormat:__VA_ARGS__])
 #define SLog(format, ...) printf("class: <%p %s:(%d) > method: %s \n%s\n", self, [[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String], __LINE__, __PRETTY_FUNCTION__, [[NSString stringWithFormat:(format), ##__VA_ARGS__] UTF8String] )
-
-#define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
-#define SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
 
 #define RFONT(size) [UIFont systemFontOfSize:size weight:UIFontWeightRegular]
 #define BFONT(size) [UIFont systemFontOfSize:size weight:UIFontWeightBold]
@@ -76,6 +70,6 @@
 
 #define kBottomTabBarHeight    (kSafeAreaBottomHeight + 49.f)
 
-#define BundleFile(FileName) [@"SZSMFramework.bundle" stringByAppendingPathComponent:FileName]
+#define BundleFile(FileName) [@"HYCivicCenter.bundle" stringByAppendingPathComponent:FileName]
 
 #endif /* HYCivicCenterCommand_h */

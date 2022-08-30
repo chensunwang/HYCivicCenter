@@ -72,7 +72,7 @@ NSString *const cardDetailCell = @"cardDetail";
 
 - (UIView *)headerView {
     
-    self.topView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 216)];
+    self.topView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 216)];
     self.topView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.topView];
     
@@ -170,7 +170,7 @@ NSString *const cardDetailCell = @"cardDetail";
 
 - (UIView *)footerView {
     
-    UIView *footerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 20)];
+    UIView *footerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 20)];
     footerView.backgroundColor = UIColorFromRGB(0xF5F5F5);
     return footerView;
     
@@ -208,7 +208,7 @@ NSString *const cardDetailCell = @"cardDetail";
         make.height.mas_equalTo(60);
     }];
     
-    CGFloat width = (SCREEN_WIDTH - 60) / 2;
+    CGFloat width = ([UIScreen mainScreen].bounds.size.width - 60) / 2;
     [saveBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.bottomView.mas_left).offset(16);
         make.centerY.equalTo(self.bottomView.mas_centerY);
@@ -256,7 +256,7 @@ NSString *const cardDetailCell = @"cardDetail";
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     
-    UIView *contentView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 76)];
+    UIView *contentView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 76)];
     contentView.backgroundColor = UIColorFromRGB(0xF5F5F5);
     
     UIView *whiteView = [[UIView alloc]init];

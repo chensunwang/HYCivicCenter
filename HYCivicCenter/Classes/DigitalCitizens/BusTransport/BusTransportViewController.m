@@ -212,14 +212,14 @@ NSString *const busTransPortCell = @"busCell";
 
 - (UIView *)headerView {
     
-    UIView *contentView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 496)];
+    UIView *contentView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 496)];
     contentView.backgroundColor = UIColorFromRGB(0xF5F5F5);
     
-    UIImageView *bgIV = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 145)];
+    UIImageView *bgIV = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 145)];
     bgIV.image = [UIImage imageNamed:@"businessBG"];
     [contentView addSubview:bgIV];
     
-    UIView *topView = [[UIView alloc]initWithFrame:CGRectMake(16, 16, SCREEN_WIDTH - 32, 480)];
+    UIView *topView = [[UIView alloc]initWithFrame:CGRectMake(16, 16, [UIScreen mainScreen].bounds.size.width - 32, 480)];
     topView.layer.cornerRadius = 8;
     topView.clipsToBounds = YES;
     topView.backgroundColor = [UIColor whiteColor];
@@ -411,12 +411,12 @@ NSString *const busTransPortCell = @"busCell";
     
     [riderecordBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.bottom.equalTo(topView);
-        make.size.mas_equalTo(CGSizeMake((SCREEN_WIDTH - 32)/2, 56));
+        make.size.mas_equalTo(CGSizeMake(([UIScreen mainScreen].bounds.size.width - 32)/2, 56));
     }];
     
     [rechargeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.bottom.equalTo(topView);
-        make.size.mas_equalTo(CGSizeMake((SCREEN_WIDTH - 32)/2, 56));
+        make.size.mas_equalTo(CGSizeMake(([UIScreen mainScreen].bounds.size.width - 32)/2, 56));
     }];
     
     [lineView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -470,7 +470,7 @@ NSString *const busTransPortCell = @"busCell";
 
 - (UIView *)footerView {
     
-    UIView *contentView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 16)];
+    UIView *contentView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 16)];
     contentView.backgroundColor = UIColorFromRGB(0xF5F5F5);
     return contentView;
     
@@ -593,7 +593,7 @@ NSString *const busTransPortCell = @"busCell";
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     
     if (section == 0 && self.stationName.length > 0) {
-        UIView *contentView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 186 + 29)];
+        UIView *contentView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 186 + 29)];
         contentView.backgroundColor = UIColorFromRGB(0xF5F5F5);
         
         UIView *busInfoView = [[UIView alloc]init];
@@ -636,7 +636,7 @@ NSString *const busTransPortCell = @"busCell";
         [busInfoView addSubview:self.busHolderIV];
         
         for (NSInteger i = 0; i < self.busInfoArr.count; i++) {
-            CGFloat width = (SCREEN_WIDTH - 32 - 44 - 13) / 2.0;
+            CGFloat width = ([UIScreen mainScreen].bounds.size.width - 32 - 44 - 13) / 2.0;
     //        HYBusinfoModel *infoModel = self.busInfoDic[self.allkeysArr[i]][0];
             NSArray *busArr = self.busInfoDic[self.allkeysArr[i]];
             NSDictionary *busDic = busArr[0];
@@ -714,7 +714,7 @@ NSString *const busTransPortCell = @"busCell";
         return contentView;
     }
     
-    UIView *contentView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 45)];
+    UIView *contentView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 45)];
     contentView.backgroundColor = UIColorFromRGB(0xF5F5F5);
     
     UIImageView *headerIV = [[UIImageView alloc]init];

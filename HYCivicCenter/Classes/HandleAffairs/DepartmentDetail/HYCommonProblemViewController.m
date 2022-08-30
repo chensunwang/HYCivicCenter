@@ -87,11 +87,11 @@ NSString *const commonProblemCell = @"questionCell";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     HYQuestionModel *model = self.datasArr[indexPath.row];
-    CGRect questionRect = [model.question boundingRectWithSize:CGSizeMake(SCREEN_WIDTH - 94, MAXFLOAT)
+    CGRect questionRect = [model.question boundingRectWithSize:CGSizeMake([UIScreen mainScreen].bounds.size.width - 94, MAXFLOAT)
                                                        options:NSStringDrawingUsesLineFragmentOrigin
                                                     attributes:@{NSFontAttributeName: MFONT(14)}
                                                        context:nil];
-    CGRect answerRect = [model.answer boundingRectWithSize:CGSizeMake(SCREEN_WIDTH - 94, MAXFLOAT)
+    CGRect answerRect = [model.answer boundingRectWithSize:CGSizeMake([UIScreen mainScreen].bounds.size.width - 94, MAXFLOAT)
                                                    options:NSStringDrawingUsesLineFragmentOrigin
                                                 attributes:@{NSFontAttributeName: MFONT(15)} context:nil];
     return questionRect.size.height + answerRect.size.height + 68;

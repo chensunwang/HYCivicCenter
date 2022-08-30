@@ -227,12 +227,12 @@
         make.width.mas_equalTo(1);
     }];
     
+    CGFloat kscreenWith = [UIScreen mainScreen].bounds.size.width;
     [self.mainIV mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.edges.mas_equalTo(UIEdgeInsetsMake(10, 16, 10, 16));
         make.top.equalTo(self.timeLineIV.mas_bottom).offset(17);
         make.left.equalTo(self.contentView.mas_left).offset(64);
         make.right.equalTo(self.contentView.mas_right).offset(-26);
-        make.height.mas_equalTo((SCREEN_WIDTH - 90) * 0.41);
+        make.height.mas_equalTo((kscreenWith - 90) * 0.41);
     }];
     
     [self.headerIV mas_makeConstraints:^(MASConstraintMaker *make) {

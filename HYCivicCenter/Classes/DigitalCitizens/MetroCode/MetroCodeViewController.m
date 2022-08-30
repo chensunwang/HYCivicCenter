@@ -85,14 +85,14 @@ NSString *const metroCell = @"metroCell";
 
 - (UIView *)headerView {
     
-    UIView *contentView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 374)];
+    UIView *contentView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 374)];
     contentView.backgroundColor = UIColorFromRGB(0xF5F5F5);
     
-    UIImageView *bgIV = [[UIImageView alloc]initWithFrame:CGRectMake(0, -40, SCREEN_WIDTH, 145)];
+    UIImageView *bgIV = [[UIImageView alloc]initWithFrame:CGRectMake(0, -40, [UIScreen mainScreen].bounds.size.width, 145)];
     bgIV.image = [UIImage imageNamed:@"businessBG"];
     [contentView addSubview:bgIV];
     
-    UIView *topView = [[UIView alloc]initWithFrame:CGRectMake(16, 16, SCREEN_WIDTH - 32, 358)];
+    UIView *topView = [[UIView alloc]initWithFrame:CGRectMake(16, 16, [UIScreen mainScreen].bounds.size.width - 32, 358)];
     topView.backgroundColor = [UIColor whiteColor];
     topView.layer.cornerRadius = 8;
     topView.clipsToBounds = YES;
@@ -172,7 +172,7 @@ NSString *const metroCell = @"metroCell";
 
 - (UIView *)footerView {
     
-    UIView *contentView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 16)];
+    UIView *contentView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 16)];
     contentView.backgroundColor = UIColorFromRGB(0xF5F5F5);
     return contentView;
     
@@ -230,7 +230,7 @@ NSString *const metroCell = @"metroCell";
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     
-    UIView *contentView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 45)];
+    UIView *contentView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 45)];
     contentView.backgroundColor = UIColorFromRGB(0xF5F5F5);
     
     UIImageView *headerIV = [[UIImageView alloc]init];

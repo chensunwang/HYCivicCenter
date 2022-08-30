@@ -25,7 +25,7 @@ NSString *const certificateCellLibrary = @"certificateCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+        
     self.view.backgroundColor = [UIColor whiteColor];
     
     [self configUI];
@@ -67,20 +67,6 @@ NSString *const certificateCellLibrary = @"certificateCell";
 
 - (void)configUI {
     
-//    UIButton *rightbutton = [UIButton buttonWithType:UIButtonTypeCustom];
-//    [rightbutton addTarget:self action:@selector(rightClicked) forControlEvents:UIControlEventTouchUpInside];
-//    [rightbutton setTitle:@"亮证设置" forState:UIControlStateNormal];
-//    [rightbutton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-//    rightbutton.titleLabel.font = RFONT(15);
-//    rightbutton.frame = CGRectMake(0 , 0, 60, 44);
-//
-//    UIBarButtonItem *rightItem =[[UIBarButtonItem alloc] initWithCustomView:rightbutton];
-//
-//    UIBarButtonItem *spaceItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
-//
-//    spaceItem.width = -15;
-//    self.navigationItem.rightBarButtonItems = @[spaceItem,rightItem];
-    
     [self.view addSubview:self.tableView];
     [self.tableView registerClass:[CertificateLibraryTableViewCell class] forCellReuseIdentifier:certificateCellLibrary];
     
@@ -93,7 +79,7 @@ NSString *const certificateCellLibrary = @"certificateCell";
 #pragma TableView
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     
-    UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 20)];
+    UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 20)];
     headerView.backgroundColor = [UIColor whiteColor];
     return headerView;
     
@@ -168,7 +154,7 @@ NSString *const certificateCellLibrary = @"certificateCell";
         _tableView.backgroundColor = [UIColor whiteColor];
         _tableView.delegate = self;
         _tableView.dataSource = self;
-        _tableView.rowHeight = (SCREEN_WIDTH - 90) * 0.41 + 52;
+        _tableView.rowHeight = ([UIScreen mainScreen].bounds.size.width - 90) * 0.41 + 52;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableView.tableFooterView = [[UIView alloc] init];
     }

@@ -194,7 +194,7 @@ NSString *const citizenCell = @"citizenCell";
 
 - (void)configUI {
     
-    UIImageView *bgIV = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 85)];
+    UIImageView *bgIV = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 85)];
     bgIV.image = [UIImage imageNamed:@"balanceBg"];
     [self.view addSubview:bgIV];
     
@@ -208,15 +208,15 @@ NSString *const citizenCell = @"citizenCell";
 
 - (UIView *)headerView {
     
-    UIView *contentView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 490)];
+    UIView *contentView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 490)];
     contentView.backgroundColor = UIColorFromRGB(0xF5F5F5);
     
-    UIImageView *bgIV = [[UIImageView alloc]initWithFrame:CGRectMake(0, -40, SCREEN_WIDTH, 145)];
+    UIImageView *bgIV = [[UIImageView alloc]initWithFrame:CGRectMake(0, -40, [UIScreen mainScreen].bounds.size.width, 145)];
     bgIV.image = [UIImage imageNamed:@"businessBG"];
     [contentView addSubview:bgIV];
     
     UIView *topView = [[UIView alloc]init];
-    topView.frame = CGRectMake(0, 16, SCREEN_WIDTH - 32, 400);
+    topView.frame = CGRectMake(0, 16, [UIScreen mainScreen].bounds.size.width - 32, 400);
     topView.layer.cornerRadius = 8;
     topView.clipsToBounds = YES;
     topView.backgroundColor = [UIColor whiteColor];
@@ -375,7 +375,7 @@ NSString *const citizenCell = @"citizenCell";
 
 - (UIView *)footerView {
     
-    UIView *contentView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 16)];
+    UIView *contentView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 16)];
     contentView.backgroundColor = UIColorFromRGB(0xF5F5F5);
     return contentView;
     
@@ -498,7 +498,7 @@ NSString *const citizenCell = @"citizenCell";
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     
-    UIView *contentView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 45)];
+    UIView *contentView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 45)];
     contentView.backgroundColor = UIColorFromRGB(0xF5F5F5);
     
     UIImageView *headerIV = [[UIImageView alloc]init];

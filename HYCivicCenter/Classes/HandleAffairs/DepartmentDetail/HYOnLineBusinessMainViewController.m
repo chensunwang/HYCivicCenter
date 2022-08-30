@@ -13,6 +13,7 @@
 #import "HYItemTotalInfoModel.h"
 #import "HYCivicCenterCommand.h"
 #import "UIView+YXAdd.h"
+#import "UILabel+XFExtension.h"
 
 @interface HYOnLineBusinessMainViewController () <UIScrollViewDelegate>
 
@@ -79,7 +80,7 @@
     self.scrollView.bounces = NO;
     self.scrollView.delegate = self;
     
-    CGFloat buttonWidth = SCREEN_WIDTH / 3.0;
+    CGFloat buttonWidth = [UIScreen mainScreen].bounds.size.width / 3.0;
     for (int i = 0; i < self.titleArr.count; i++) {
         NSString *title = self.titleArr[i];
         UIButton *button = [[UIButton alloc] init];
@@ -269,7 +270,7 @@
 }
 
 - (int)getTheCurrentIndex {
-    return self.scrollView.contentOffset.x / SCREEN_WIDTH;
+    return self.scrollView.contentOffset.x / [UIScreen mainScreen].bounds.size.width;
 }
 
 #pragma UIScrollView
@@ -299,7 +300,7 @@
     }];
     
     CGPoint offset = self.scrollView.contentOffset;
-    offset.x = SCREEN_WIDTH * (button.tag - 100);
+    offset.x = [UIScreen mainScreen].bounds.size.width * (button.tag - 100);
     [self.scrollView setContentOffset:offset animated:YES];
 }
 

@@ -38,19 +38,19 @@
 
 - (void)configUI {
     
-    CGFloat scanW = SCREEN_WIDTH * 0.65;
+    CGFloat scanW = [UIScreen mainScreen].bounds.size.width * 0.65;
     CGFloat padding = 10.0f;
     CGFloat cornerW = 26.0f;
-    CGFloat marginX = (SCREEN_WIDTH - scanW) * 0.5;
-//    CGFloat marginY = (SCREEN_HEIGHT - scanW - padding - kTopNavHeight) * 0.5;
+    CGFloat marginX = ([UIScreen mainScreen].bounds.size.width - scanW) * 0.5;
+//    CGFloat marginY = ([UIScreen mainScreen].bounds.size.height - scanW - padding - kTopNavHeight) * 0.5;
     CGFloat marginY = 150;
     
     //遮盖视图
     for (int i = 0; i < 4; i++) {
-        UIView *cover = [[UIView alloc] initWithFrame:CGRectMake(0, (marginY + scanW) * i + kTopNavHeight, SCREEN_WIDTH, marginY + padding * i)];//marginY + padding * i
-        // SCREEN_HEIGHT - marginY - scanW - kTopNavHeight
+        UIView *cover = [[UIView alloc] initWithFrame:CGRectMake(0, (marginY + scanW) * i + kTopNavHeight, [UIScreen mainScreen].bounds.size.width, marginY + padding * i)];//marginY + padding * i
+        // [UIScreen mainScreen].bounds.size.height - marginY - scanW - kTopNavHeight
         if (i == 1) {
-            cover.frame = CGRectMake(0, (marginY + scanW) * i + kTopNavHeight, SCREEN_WIDTH, SCREEN_HEIGHT - marginY - scanW - kTopNavHeight);
+            cover.frame = CGRectMake(0, (marginY + scanW) * i + kTopNavHeight, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - marginY - scanW - kTopNavHeight);
         }
         if (i == 2 || i == 3) {
             cover.frame = CGRectMake((marginX + scanW) * (i - 2), marginY + kTopNavHeight, marginX, scanW);
@@ -157,7 +157,7 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             self.preview = [AVCaptureVideoPreviewLayer layerWithSession:self.session];
             self.preview.videoGravity = AVLayerVideoGravityResizeAspectFill;
-            self.preview.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+            self.preview.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
             [self.view.layer insertSublayer:self.preview atIndex:0];
             [self.session startRunning];
         });
@@ -173,8 +173,8 @@
 
 - (void)timerAction
 {
-    if (self.distance++ > SCREEN_WIDTH * 0.65) self.distance = 0;
-    self.line.frame = CGRectMake(0, self.distance, SCREEN_WIDTH * 0.65, 2);
+    if (self.distance++ > [UIScreen mainScreen].bounds.size.width * 0.65) self.distance = 0;
+    self.line.frame = CGRectMake(0, self.distance, [UIScreen mainScreen].bounds.size.width * 0.65, 2);
 }
 
 - (void)removeTimer

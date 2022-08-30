@@ -108,7 +108,7 @@ NSString *const businessCardCell = @"cardCell";
 
 - (void)configSearchView {
     
-    UIView *contentView = [[UIView alloc]initWithFrame:CGRectMake(0, kTopNavHeight, SCREEN_WIDTH, 50)];
+    UIView *contentView = [[UIView alloc]initWithFrame:CGRectMake(0, kTopNavHeight, [UIScreen mainScreen].bounds.size.width, 50)];
     contentView.backgroundColor = UIColorFromRGB(0x157AFF);
     [self.view addSubview:contentView];
     

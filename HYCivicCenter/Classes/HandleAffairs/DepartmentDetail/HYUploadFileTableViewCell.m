@@ -120,7 +120,7 @@ NSString *uploadImageCell = @"imagecella";
     [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.contentView.mas_left).offset(16);
         make.top.equalTo(self.nameLabel.mas_bottom).offset(16);
-        make.width.mas_equalTo(SCREEN_WIDTH - 64 - 90);
+        make.width.mas_equalTo([UIScreen mainScreen].bounds.size.width - 64 - 90);
         make.bottom.equalTo(self).offset(-20);
     }];
     

@@ -65,7 +65,7 @@
         make.left.equalTo(self.view.mas_left).offset(16);
         make.top.mas_equalTo(self.view.mas_top).offset(kTopNavHeight + 16);
         make.right.equalTo(self.view.mas_right).offset(-16);
-        make.height.mas_equalTo((SCREEN_WIDTH - 32) * 0.64);
+        make.height.mas_equalTo(([UIScreen mainScreen].bounds.size.width - 32) * 0.64);
     }];
     
     [receiveBtn mas_makeConstraints:^(MASConstraintMaker *make) {

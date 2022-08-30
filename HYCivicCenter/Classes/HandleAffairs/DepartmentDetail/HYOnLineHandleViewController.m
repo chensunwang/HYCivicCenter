@@ -379,7 +379,7 @@
         return 55;
     } else if (indexPath.section == 1) {
         HYFormInfoModel *formModel = self.fieldsArr[indexPath.row];
-        CGFloat height = [formModel.fieldName heightForStringWithFont:MFONT(14) width:(SCREEN_WIDTH - 64)];
+        CGFloat height = [formModel.fieldName heightForStringWithFont:MFONT(14) width:([UIScreen mainScreen].bounds.size.width - 64)];
         if ([formModel.fieldType isEqualToString:@"text"]) {
             if ([formModel.readOnly integerValue] == 1) {  //
                 return height + 40;
@@ -393,7 +393,7 @@
         }
     } else if (indexPath.section == 2) {
         HYMaterialModel *model = _materailsArr[indexPath.row];
-        CGFloat height = [model.name heightForStringWithFont:MFONT(14) width:(SCREEN_WIDTH - 64)];
+        CGFloat height = [model.name heightForStringWithFont:MFONT(14) width:([UIScreen mainScreen].bounds.size.width - 64)];
 //        CGFloat rowHeight = [[_rowHeightDic valueForKey:[NSString stringWithFormat:@"%ld-%ld", (long)indexPath.section, (long)indexPath.row]] floatValue];
 //        return 36 + height + (rowHeight != 0 ? rowHeight : 88);  // collectionViewCell行高 68 间距10
         return 124 + height;

@@ -17,6 +17,7 @@
 #import "WXApi.h"
 #import "WXApiObject.h"
 #import "HYCivicCenterCommand.h"
+#import "UILabel+XFExtension.h"
 
 @interface MyBusinessCardController () <UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,EditDelegate>
 
@@ -105,7 +106,7 @@ NSString *const mycardCell = @"mycardCell";
 
 - (void)configUI {
     
-    self.topView = [[UIView alloc]initWithFrame:CGRectMake(0, kTopNavHeight, SCREEN_WIDTH, 216)];
+    self.topView = [[UIView alloc]initWithFrame:CGRectMake(0, kTopNavHeight, [UIScreen mainScreen].bounds.size.width, 216)];
     self.topView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.topView];
     
@@ -158,7 +159,7 @@ NSString *const mycardCell = @"mycardCell";
     NSArray *imagesArr = @[@"editCard",@"cards",@"share"];
     NSArray *titlesArr = @[@"编辑名片",@"名片夹",@"分享名片"];
     // 35
-    CGFloat padding = (SCREEN_WIDTH - 32 - 70 - 60 * 3) / 2;
+    CGFloat padding = ([UIScreen mainScreen].bounds.size.width - 32 - 70 - 60 * 3) / 2;
     for (NSInteger i = 0; i < titlesArr.count; i++) {
         
         XFUDButton *button = [[XFUDButton alloc]init];
@@ -203,7 +204,7 @@ NSString *const mycardCell = @"mycardCell";
     myDataLabel.font = RFONT(15);
     [dataView addSubview:myDataLabel];
     
-//    CGRect rect = [detailString boundingRectWithSize:CGSizeMake(SCREEN_WIDTH - 64, MAXFLOAT)             options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:RFONT(12)}
+//    CGRect rect = [detailString boundingRectWithSize:CGSizeMake([UIScreen mainScreen].bounds.size.width - 64, MAXFLOAT)             options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:RFONT(12)}
 //                                         context:nil];
     [dataView addSubview:self.collectionView];
     [self.collectionView registerClass:[MyCardDataCollectionViewCell class] forCellWithReuseIdentifier:mycardCell];
@@ -517,7 +518,7 @@ NSString *const mycardCell = @"mycardCell";
         _flowLayout = [[UICollectionViewFlowLayout alloc] init];
         _flowLayout.minimumInteritemSpacing = 0;
         _flowLayout.minimumLineSpacing = 20;
-        CGFloat itemW = (SCREEN_WIDTH - 20 - 64)/ 2.0;
+        CGFloat itemW = ([UIScreen mainScreen].bounds.size.width - 20 - 64)/ 2.0;
         CGFloat itemH = 70;
         _flowLayout.itemSize = CGSizeMake(itemW, itemH);
         _flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;

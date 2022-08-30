@@ -47,14 +47,13 @@
 }
 
 - (void)configUI {
-    
+    CGFloat kscreenWith = [UIScreen mainScreen].bounds.size.width;
     UIView *contentView = [[UIView alloc]init];
     contentView.backgroundColor = [UIColor whiteColor];
     contentView.layer.cornerRadius = 8;
     contentView.clipsToBounds = YES;
     [self.view addSubview:contentView];
     
-    // (SCREEN_WIDTH - 64) * 0.41 + 16 + 16 + 50 + (SCREEN_WIDTH - 32- 80) + 50
     UIImageView *cardBgIV = [[UIImageView alloc]init];
     cardBgIV.image = [UIImage imageNamed:@"idcard1"];
     [contentView addSubview:cardBgIV];
@@ -72,7 +71,6 @@
     UILabel *cardNumLabel = [[UILabel alloc]init];
     cardNumLabel.textColor = UIColorFromRGB(0x666666);
     cardNumLabel.font = RFONT(12);
-//    cardNumLabel.text = self.cardNum;
     if (self.cardNum.length > 9) {
         cardNumLabel.text = [self setNoSeeText:self.cardNum first:6 last:3];
     }
@@ -88,7 +86,6 @@
     codeLabel.text = [NSString stringWithFormat:@"%@二维码",self.cardName];
     [contentView addSubview:codeLabel];
     
-//    NSString *CTID = [[NSUserDefaults standardUserDefaults]objectForKey:@"CTID"];
     NSString *imgStream = [[NSUserDefaults standardUserDefaults]objectForKey:@"imgStream"];
     NSString *imgWidth = [[NSUserDefaults standardUserDefaults]objectForKey:@"imgwidth"];
     
@@ -156,7 +153,7 @@
     rightIV.image = [UIImage imageNamed:@"enter"];
     [bottomBtn addSubview:rightIV];
     
-    CGFloat contentHeight = (SCREEN_WIDTH - 64) * 0.41 + 16 + 50 + 206 + 50 + 16;
+    CGFloat contentHeight = (kscreenWith - 64) * 0.41 + 16 + 50 + 206 + 50 + 16;
     [contentView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view.mas_left).offset(16);
         make.right.equalTo(self.view.mas_right).offset(-16);
@@ -168,7 +165,7 @@
         make.left.equalTo(contentView.mas_left).offset(16);
         make.top.equalTo(contentView.mas_top).offset(16);
         make.right.equalTo(contentView.mas_right).offset(-16);
-        make.height.mas_equalTo((SCREEN_WIDTH - 64) * 0.41);
+        make.height.mas_equalTo((kscreenWith - 64) * 0.41);
     }];
     
     [headerIV mas_makeConstraints:^(MASConstraintMaker *make) {

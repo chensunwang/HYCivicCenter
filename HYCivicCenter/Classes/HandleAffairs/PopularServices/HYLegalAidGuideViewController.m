@@ -10,6 +10,7 @@
 #import "HYLegalAidTableViewCell.h"
 #import <objc/runtime.h>
 #import "HYCivicCenterCommand.h"
+#import "UILabel+XFExtension.h"
 
 char * const buttonKey = "buttonKey";
 
@@ -93,11 +94,11 @@ NSString *const legalAidCell = @"legalCell";
     [button setTitleEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 60)];
     [button addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchUpInside];
     
-    UIView *line1 = [[UIView alloc]initWithFrame:CGRectMake(16, 0, SCREEN_WIDTH - 32, 0.5)];
+    UIView *line1 = [[UIView alloc]initWithFrame:CGRectMake(16, 0, [UIScreen mainScreen].bounds.size.width - 32, 0.5)];
     line1.backgroundColor = UIColorFromRGB(0xF5F5F5);
     [button addSubview:line1];
     
-    UIView *line2 = [[UIView alloc]initWithFrame:CGRectMake(0, button.frame.size.height - 0.5, SCREEN_WIDTH - 32, 0.5)];
+    UIView *line2 = [[UIView alloc]initWithFrame:CGRectMake(0, button.frame.size.height - 0.5, [UIScreen mainScreen].bounds.size.width - 32, 0.5)];
     line2.backgroundColor = UIColorFromRGB(0xF5F5F5);
     [button addSubview:line2];
     
@@ -117,7 +118,7 @@ NSString *const legalAidCell = @"legalCell";
         objc_setAssociatedObject(button, buttonKey, _imgView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }
     
-    UILabel *tlabel = [[UILabel alloc]initWithFrame:CGRectMake(16, (44-20)/2, SCREEN_WIDTH - 32, 20)];
+    UILabel *tlabel = [[UILabel alloc]initWithFrame:CGRectMake(16, (44-20)/2, [UIScreen mainScreen].bounds.size.width - 32, 20)];
     [tlabel setBackgroundColor:[UIColor clearColor]];
     [tlabel setFont:[UIFont systemFontOfSize:14]];
     [tlabel setTextColor:UIColorFromRGB(0x333333)];
@@ -132,7 +133,7 @@ NSString *const legalAidCell = @"legalCell";
     ExpandModel *sectionModel = self.datasArr[indexPath.section];
     ExpandModel *model = sectionModel.datasArr[indexPath.row];
     
-    CGRect rect = [model.name boundingRectWithSize:CGSizeMake(SCREEN_WIDTH - 32, MAXFLOAT)
+    CGRect rect = [model.name boundingRectWithSize:CGSizeMake([UIScreen mainScreen].bounds.size.width - 32, MAXFLOAT)
                                          options:NSStringDrawingUsesLineFragmentOrigin
                                       attributes:@{NSFontAttributeName:RFONT(14)}
                                          context:nil];

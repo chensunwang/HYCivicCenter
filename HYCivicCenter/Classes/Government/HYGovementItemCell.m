@@ -45,7 +45,7 @@
     self.leftLineView = [[UIView alloc] init];
     self.rightLineView = [[UIView alloc] init];
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
-    flowLayout.itemSize = CGSizeMake((SCREEN_WIDTH - 32 - 8)*0.5, 146);
+    flowLayout.itemSize = CGSizeMake(([UIScreen mainScreen].bounds.size.width - 32 - 8)*0.5, 146);
     flowLayout.minimumLineSpacing = 8;
     flowLayout.minimumInteritemSpacing = 8;
     self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:flowLayout];
@@ -64,7 +64,7 @@
     
     [self.leftButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.top.bottom.equalTo(self.headerView);
-        make.width.mas_equalTo(SCREEN_WIDTH * 0.5);
+        make.width.mas_equalTo([UIScreen mainScreen].bounds.size.width * 0.5);
     }];
     self.leftButton.selected = YES;
     self.leftButton.titleLabel.font = MFONT(15);
@@ -79,7 +79,7 @@
     
     [self.rightButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.right.bottom.equalTo(self.headerView);
-        make.width.mas_equalTo(SCREEN_WIDTH * 0.5);
+        make.width.mas_equalTo([UIScreen mainScreen].bounds.size.width * 0.5);
     }];
     self.rightButton.titleLabel.font = MFONT(15);
     [self.rightButton setTitle:@"区县单位" forState:UIControlStateNormal];

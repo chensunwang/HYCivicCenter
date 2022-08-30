@@ -59,7 +59,7 @@
     self.titleLab.text = @"猜你想办";
     self.titleLab.font = MFONT(17);
     
-    CGFloat bgWidth = (SCREEN_WIDTH - 20 - 30 - 26);
+    CGFloat bgWidth = ([UIScreen mainScreen].bounds.size.width - 20 - 30 - 26);
     self.business1 = [[UIButton alloc] initWithFrame:CGRectZero];
     [self.bgView addSubview:self.business1];
     [self.business1 mas_makeConstraints:^(MASConstraintMaker *make) {

@@ -8,6 +8,7 @@
 #import "HonorwallDetailViewController.h"
 #import "HonorWallTableViewCell.h"
 #import "HYCivicCenterCommand.h"
+#import "UILabel+XFExtension.h"
 
 @interface HonorwallDetailViewController ()
 
@@ -158,8 +159,8 @@
         make.left.equalTo(contentView.mas_left).offset(16);
         make.right.equalTo(contentView.mas_right).offset(-16);
         make.top.equalTo(self.describLabel.mas_bottom).offset(20);
-//        make.height.equalTo((SCREEN_WIDTH - 64) * 0.58);
-        make.height.mas_equalTo(imageSize1.height / imageSize1.width * (SCREEN_WIDTH - 32));
+//        make.height.equalTo(([UIScreen mainScreen].bounds.size.width - 64) * 0.58);
+        make.height.mas_equalTo(imageSize1.height / imageSize1.width * ([UIScreen mainScreen].bounds.size.width - 32));
     }];
     
     NSData *data2 = [NSData dataWithContentsOfURL:[NSURL URLWithString:self.honorModel.honorPhotoOne]];
@@ -169,8 +170,8 @@
         make.left.equalTo(contentView.mas_left).offset(16);
         make.right.equalTo(contentView.mas_right).offset(-16);
         make.top.equalTo(self.photoOneIV.mas_bottom).offset(20);
-//        make.height.equalTo((SCREEN_WIDTH - 64) * 0.58);
-        make.height.mas_equalTo(imageSize2.height / imageSize2.width * (SCREEN_WIDTH - 32));
+//        make.height.equalTo(([UIScreen mainScreen].bounds.size.width - 64) * 0.58);
+        make.height.mas_equalTo(imageSize2.height / imageSize2.width * ([UIScreen mainScreen].bounds.size.width - 32));
     }];
     
     
@@ -181,8 +182,8 @@
         make.left.equalTo(contentView.mas_left).offset(16);
         make.right.equalTo(contentView.mas_right).offset(-16);
         make.top.equalTo(self.photoTwoIV.mas_bottom).offset(20);
-//        make.height.equalTo((SCREEN_WIDTH - 64) * 0.58);
-        make.height.mas_equalTo(imageSize3.height / imageSize3.width * (SCREEN_WIDTH - 32));
+//        make.height.equalTo(([UIScreen mainScreen].bounds.size.width - 64) * 0.58);
+        make.height.mas_equalTo(imageSize3.height / imageSize3.width * ([UIScreen mainScreen].bounds.size.width - 32));
     }];
     
     UIImageView *lastIV = self.photoOneIV;

@@ -15,6 +15,7 @@
 #import "HYBusinessServiceViewController.h"
 #import "HYObtainCertiViewController.h"
 #import "HYCivicCenterCommand.h"
+#import "UILabel+XFExtension.h"
 
 @interface HYSearchServiceViewController () <UITableViewDelegate,UITableViewDataSource,HYDatePickerDelegate,HYSelectServiceDelegate,HYSelectIndustryDelegate>
 
@@ -99,7 +100,7 @@
 
 - (UIView *)footerView {
     
-    UIView *contentView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH - 32, 118)];
+    UIView *contentView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width - 32, 118)];
     contentView.backgroundColor = UIColorFromRGB(0xF5F5F5);
     
     UIButton *searchBtn = [[UIButton alloc]init];
@@ -266,10 +267,10 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     
-    UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH - 32, 71)];
+    UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width - 32, 71)];
     headerView.backgroundColor = UIColorFromRGB(0xF5F5F5);
     
-    UIView *contentView = [[UIView alloc]initWithFrame:CGRectMake(0, 16, SCREEN_WIDTH - 32, 55)];
+    UIView *contentView = [[UIView alloc]initWithFrame:CGRectMake(0, 16, [UIScreen mainScreen].bounds.size.width - 32, 55)];
     contentView.backgroundColor = [UIColor whiteColor];
     [headerView addSubview:contentView];
     
@@ -330,7 +331,7 @@
         
         if (indexPath.row == 3) { // 国籍
             
-            HYServiceSelectView *selectView = [[HYServiceSelectView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+            HYServiceSelectView *selectView = [[HYServiceSelectView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
             selectView.type = 100;
             selectView.delegate = self;
             selectView.datasArr = self.nationalityArr;
@@ -342,7 +343,7 @@
             
         }else if (indexPath.row == 4) { // 区域
             
-            HYServiceSelectView *selectView = [[HYServiceSelectView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+            HYServiceSelectView *selectView = [[HYServiceSelectView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
             selectView.type = 101;
             selectView.delegate = self;
             selectView.datasArr = self.areaArr;
@@ -358,7 +359,7 @@
         
 //        if (indexPath.row == 2) { // 入学时间
 //
-//            HYDatePickerView *pickerView = [[HYDatePickerView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+//            HYDatePickerView *pickerView = [[HYDatePickerView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
 //            pickerView.type = 201;
 //            pickerView.delegate = self;
 //            if (@available(iOS 13.0,*)) {
@@ -369,7 +370,7 @@
 //
 //        }else if (indexPath.row == 3) { // 毕业时间
 //
-//            HYDatePickerView *pickerView = [[HYDatePickerView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+//            HYDatePickerView *pickerView = [[HYDatePickerView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
 //            pickerView.type = 202;
 //            pickerView.delegate = self;
 //            if (@available(iOS 13.0,*)) {
@@ -384,7 +385,7 @@
         
         if (indexPath.row == 0) { // 选择行业
             
-            HYSelectIndustry *industryView = [[HYSelectIndustry alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+            HYSelectIndustry *industryView = [[HYSelectIndustry alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
             industryView.delegate = self;
             industryView.datasArr = self.industryArr;
             if (@available(iOS 13.0,*)) {
@@ -399,7 +400,7 @@
         
         if (indexPath.row == 0) { // 是否残疾人士
             
-            HYServiceSelectView *selectView = [[HYServiceSelectView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+            HYServiceSelectView *selectView = [[HYServiceSelectView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
             selectView.type = 102;
             selectView.delegate = self;
             selectView.datasArr = self.disableArr;
@@ -412,7 +413,7 @@
         }
 //        else if (indexPath.row == 1) { // 是否盲人
 //
-//            HYServiceSelectView *selectView = [[HYServiceSelectView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+//            HYServiceSelectView *selectView = [[HYServiceSelectView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
 //            selectView.type = 103;
 //            selectView.delegate = self;
 //            selectView.datasArr = self.blindArr;

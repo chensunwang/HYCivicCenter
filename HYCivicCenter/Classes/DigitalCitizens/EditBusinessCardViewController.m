@@ -81,7 +81,7 @@
     [self.view addSubview:self.bottomView];
     
     UIButton *saveBtn = [[UIButton alloc]init];
-    saveBtn.frame = CGRectMake(24, 24, SCREEN_WIDTH - 48, 46);
+    saveBtn.frame = CGRectMake(24, 24, [UIScreen mainScreen].bounds.size.width - 48, 46);
     [saveBtn setTitle:@"保存" forState:UIControlStateNormal];
     [saveBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     saveBtn.titleLabel.font = RFONT(15);
@@ -237,7 +237,7 @@
     }else if (indexPath.section == 1) {
         if (indexPath.row == 3) { // 选择城市
             
-            ChooseCityView *cityView = [[ChooseCityView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+            ChooseCityView *cityView = [[ChooseCityView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
             cityView.delegate = self;
             if (@available(iOS 13.0,*)) {
                 [[UIApplication sharedApplication].windows[0] addSubview:cityView];
@@ -256,7 +256,7 @@
 //                if ([responseObject[@"code"] intValue] == 200) {
 //
 ////                    self.industryArr = [IndustryChooseModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
-////                    IndustryChooseView *chooseView = [[IndustryChooseView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+////                    IndustryChooseView *chooseView = [[IndustryChooseView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
 ////                    chooseView.industryArr = self.industryArr;
 ////                    chooseView.delegate = self;
 ////                    [[UIApplication sharedApplication].windows.firstObject addSubview:chooseView];
@@ -278,7 +278,7 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     
-    UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 55)];
+    UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 55)];
     headerView.backgroundColor = [UIColor whiteColor];
     
     UILabel *nameLabel = [[UILabel alloc]init];

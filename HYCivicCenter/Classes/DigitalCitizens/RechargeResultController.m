@@ -73,7 +73,7 @@
     [self.backHomeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.resultLabel.mas_bottom).offset(66);
         make.centerX.equalTo(self.view.mas_centerX);
-        make.size.mas_equalTo(CGSizeMake(SCREEN_WIDTH - 100, 46));
+        make.size.mas_equalTo(CGSizeMake([UIScreen mainScreen].bounds.size.width - 100, 46));
     }];
     
     [self.backHomeBtn layoutIfNeeded]; // 重点

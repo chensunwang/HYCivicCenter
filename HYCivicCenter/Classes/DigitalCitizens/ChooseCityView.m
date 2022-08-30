@@ -99,7 +99,7 @@ NSString *const areaCell = @"areaCell";
             make.centerY.equalTo(self.topView.mas_centerY);
         }];
         
-        CGFloat width = SCREEN_WIDTH / 3.0;
+        CGFloat width = [UIScreen mainScreen].bounds.size.width / 3.0;
         [self.provinceTableView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self.contentView.mas_left);
             make.top.equalTo(self.topView.mas_bottom);
@@ -144,7 +144,7 @@ NSString *const areaCell = @"areaCell";
     
     [UIView animateWithDuration:0.25 animations:^{
         self.alpha = 0;
-        self.contentView.kTop = SCREEN_HEIGHT;
+        self.contentView.kTop = [UIScreen mainScreen].bounds.size.height;
     } completion:^(BOOL finished) {
         [self removeFromSuperview];
     }];

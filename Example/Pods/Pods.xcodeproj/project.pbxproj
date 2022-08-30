@@ -15,6 +15,7 @@
 			dependencies = (
 			);
 			name = "AlipaySDK-iOS";
+			productName = "AlipaySDK-iOS";
 		};
 		8554F6236D2AA202CF58503D2DF29730 /* WechatOpenSDK */ = {
 			isa = PBXAggregateTarget;
@@ -24,6 +25,7 @@
 			dependencies = (
 			);
 			name = WechatOpenSDK;
+			productName = WechatOpenSDK;
 		};
 /* End PBXAggregateTarget section */
 
@@ -1037,7 +1039,7 @@
 		142A5A4BA6614B8484053050373B8F20 /* NSImage+Compatibility.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSImage+Compatibility.m"; path = "SDWebImage/Core/NSImage+Compatibility.m"; sourceTree = "<group>"; };
 		14370DE7A3C84DD8F37081B7D4F018BC /* AFNetworking-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AFNetworking-umbrella.h"; sourceTree = "<group>"; };
 		144E5D84656FACA4F2DA9A752D4185D8 /* SDWebImageCompat.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageCompat.h; path = SDWebImage/Core/SDWebImageCompat.h; sourceTree = "<group>"; };
-		14741BF8F4D5FA3C30B341F4F528E5D5 /* CodeResources */ = {isa = PBXFileReference; includeInIndex = 1; path = CodeResources; sourceTree = "<group>"; };
+		14741BF8F4D5FA3C30B341F4F528E5D5 /* CodeResources */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; path = CodeResources; sourceTree = "<group>"; };
 		15651FA2B3642E874F1DE82DCEC41432 /* UIImage+Metadata.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Metadata.m"; path = "SDWebImage/Core/UIImage+Metadata.m"; sourceTree = "<group>"; };
 		15A84A12CFECD9CD85D2650A4CB6B3DA /* HYOnLineHandleViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HYOnLineHandleViewController.m; sourceTree = "<group>"; };
 		15AEE9C691C207EAE4E0858302018E77 /* HYServiceProgressContentController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HYServiceProgressContentController.m; sourceTree = "<group>"; };
@@ -1078,7 +1080,7 @@
 		208CA0811168CDB4071F940BB1554D66 /* HYGuessBusinessModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HYGuessBusinessModel.m; sourceTree = "<group>"; };
 		20AA1D67C36DE322ECA5C3A380BDAE5C /* BDFaceSelectRadio.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BDFaceSelectRadio.h; sourceTree = "<group>"; };
 		20E879DDC6F2ADB09350BC3CD5C0655A /* OpenIDCardViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = OpenIDCardViewController.h; sourceTree = "<group>"; };
-		2189E622D7BE7BE237A654B473CFA62C /* CodeRequirements */ = {isa = PBXFileReference; includeInIndex = 1; path = CodeRequirements; sourceTree = "<group>"; };
+		2189E622D7BE7BE237A654B473CFA62C /* CodeRequirements */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; path = CodeRequirements; sourceTree = "<group>"; };
 		21CAC53237E9C7C1309CFBC33778DB60 /* HYAgentInfoModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HYAgentInfoModel.m; sourceTree = "<group>"; };
 		222E6AEB48D2465AB6523A4D79F34BE7 /* WXApiObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WXApiObject.h; path = OpenSDK1.8.7.1/WXApiObject.h; sourceTree = "<group>"; };
 		224EF83EADC6E46BFC907C94CE2F5981 /* CTID_Encrypt.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CTID_Encrypt.h; sourceTree = "<group>"; };
@@ -1101,7 +1103,7 @@
 		260E9B58F8B4B66DD879DD87C2AE8702 /* Pods-HYCivicCenter_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-HYCivicCenter_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		2816C23FF0A28FF0A2F055397F2546A4 /* MyCertificateMainViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MyCertificateMainViewController.m; sourceTree = "<group>"; };
 		2837AE7F86D055FFF739998834007CBB /* MyCardDataCollectionViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MyCardDataCollectionViewCell.m; sourceTree = "<group>"; };
-		283DCF4EDE64FFBBB848BC2EC7F9929B /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		283DCF4EDE64FFBBB848BC2EC7F9929B /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		28706B4B393F1C81D35095E431305483 /* CertificateInfoViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CertificateInfoViewController.h; sourceTree = "<group>"; };
 		28733AF95C09C5883240D69FDCBBDE5F /* BDFaceImageUtils.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = BDFaceImageUtils.m; sourceTree = "<group>"; };
 		2894E32D7DB434EAD73C5FFD87C9855F /* BDFaceAdjustParamsRootController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BDFaceAdjustParamsRootController.h; sourceTree = "<group>"; };
@@ -1114,7 +1116,7 @@
 		2B0DFC220A029E87883D5987F1B6F7B6 /* SDWebImageOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageOperation.m; path = SDWebImage/Core/SDWebImageOperation.m; sourceTree = "<group>"; };
 		2B276B0A79173A1D6E83C9B4FB9A4A57 /* MJExtension */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MJExtension; path = MJExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B3FFD0E5E59495D1860E65F43E909D7 /* HYGovServiceTableViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HYGovServiceTableViewCell.h; sourceTree = "<group>"; };
-		2B698F84B66026B355D25D8C0265E92B /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		2B698F84B66026B355D25D8C0265E92B /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		2BD7B1496AA97374F5F2483E98EAC141 /* SDWebImageTransition.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageTransition.m; path = SDWebImage/Core/SDWebImageTransition.m; sourceTree = "<group>"; };
 		2C8CF3AC83B51C9721FEB18BE0ED8372 /* CertificateInfoViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CertificateInfoViewController.m; sourceTree = "<group>"; };
 		2D3781CE87FEFFDB830E15E7442FF33C /* TZProgressView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TZProgressView.m; path = TZImagePickerController/TZImagePickerController/TZProgressView.m; sourceTree = "<group>"; };
@@ -1225,7 +1227,7 @@
 		4EDF19123BD8FFDFF94B9EC43B2AF4FB /* RechargeCollectionViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = RechargeCollectionViewCell.m; sourceTree = "<group>"; };
 		4FE9172D76D8692F5EFBA6E00230FE57 /* UIColor+SDHexString.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIColor+SDHexString.h"; path = "SDWebImage/Private/UIColor+SDHexString.h"; sourceTree = "<group>"; };
 		5023112BEC9D10FD961D5244E0308DEC /* BusTransportViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BusTransportViewController.h; sourceTree = "<group>"; };
-		5126F049C41081735050C4A9F507C323 /* idl-key.face-ios */ = {isa = PBXFileReference; includeInIndex = 1; path = "idl-key.face-ios"; sourceTree = "<group>"; };
+		5126F049C41081735050C4A9F507C323 /* idl-key.face-ios */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; path = "idl-key.face-ios"; sourceTree = "<group>"; };
 		513A0CE8528E8B624E86F15E8293FF7C /* HYCivicCenter */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = HYCivicCenter; path = HYCivicCenter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		51500549B4C825FAF8702979EF927A40 /* HYSocialServiceViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HYSocialServiceViewController.m; sourceTree = "<group>"; };
 		51D642ABFBDF6D23B4AA74E69E6917D9 /* SDWebImageDownloaderOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageDownloaderOperation.m; path = SDWebImage/Core/SDWebImageDownloaderOperation.m; sourceTree = "<group>"; };
@@ -1258,7 +1260,7 @@
 		596BA47FAF93E60C88F46225DEB30D8D /* SDAsyncBlockOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDAsyncBlockOperation.m; path = SDWebImage/Private/SDAsyncBlockOperation.m; sourceTree = "<group>"; };
 		59C49D2854D7A27875EAA6A60C89B381 /* SDmetamacros.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDmetamacros.h; path = SDWebImage/Private/SDmetamacros.h; sourceTree = "<group>"; };
 		59CCE286BD0AFEC34424A4DD7FAAD85D /* BDFaceSelectConfigModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = BDFaceSelectConfigModel.m; sourceTree = "<group>"; };
-		5A294E17FD9AC7DB0A8C678EDAEB6F6F /* CodeDirectory */ = {isa = PBXFileReference; includeInIndex = 1; path = CodeDirectory; sourceTree = "<group>"; };
+		5A294E17FD9AC7DB0A8C678EDAEB6F6F /* CodeDirectory */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; path = CodeDirectory; sourceTree = "<group>"; };
 		5A8DC44EBBAB6A42902EC7938D8F88F0 /* Masonry-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Masonry-dummy.m"; sourceTree = "<group>"; };
 		5A9B488273851E49F23E7DCD650187FE /* ViewController+MASAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "ViewController+MASAdditions.h"; path = "Masonry/ViewController+MASAdditions.h"; sourceTree = "<group>"; };
 		5AD28DC99A07BAC23C09B4C44CA35A98 /* AddHonorViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = AddHonorViewController.m; sourceTree = "<group>"; };
@@ -1282,7 +1284,7 @@
 		5DD90812D6EFE6151B7F9F7022194A3D /* CardDetailTableViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CardDetailTableViewCell.h; sourceTree = "<group>"; };
 		5E2F6C061791122894CF7B7A88C3902B /* NSObject+MJProperty.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSObject+MJProperty.m"; path = "MJExtension/NSObject+MJProperty.m"; sourceTree = "<group>"; };
 		5E83E84DC76C2C2ACC2C7C50E36CE3A9 /* TZAssetCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TZAssetCell.m; path = TZImagePickerController/TZImagePickerController/TZAssetCell.m; sourceTree = "<group>"; };
-		5F744DFE40351796014C215B9A4CB6F9 /* HYCivicCenter.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = HYCivicCenter.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		5F744DFE40351796014C215B9A4CB6F9 /* HYCivicCenter.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = HYCivicCenter.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		5F8DD72412A037FD85027F409BAEE2EA /* SDWebImage-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SDWebImage-Info.plist"; sourceTree = "<group>"; };
 		5FD1F9CF8460CAC4628D656C267617DA /* SDWebImageDownloaderRequestModifier.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageDownloaderRequestModifier.h; path = SDWebImage/Core/SDWebImageDownloaderRequestModifier.h; sourceTree = "<group>"; };
 		600782EBBC0132707A8BD9F110EA3004 /* HYServiceCollectionViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HYServiceCollectionViewCell.m; sourceTree = "<group>"; };
@@ -1411,7 +1413,7 @@
 		8A2E0868EF4615E9E8C080CE6A7DFF7D /* MJRefreshBackNormalFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshBackNormalFooter.h; path = MJRefresh/Custom/Footer/Back/MJRefreshBackNormalFooter.h; sourceTree = "<group>"; };
 		8A44EF501FAB9E777C558E4D7FB70649 /* CertificateDetailViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CertificateDetailViewController.h; sourceTree = "<group>"; };
 		8A4E12C012388398DC96CC76B0B55292 /* HYHotServiceModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HYHotServiceModel.h; sourceTree = "<group>"; };
-		8AA022A56CB8A4A754DDF3C9DE0ECBC3 /* CTID_Verification */ = {isa = PBXFileReference; includeInIndex = 1; path = CTID_Verification; sourceTree = "<group>"; };
+		8AA022A56CB8A4A754DDF3C9DE0ECBC3 /* CTID_Verification */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; path = CTID_Verification; sourceTree = "<group>"; };
 		8BDC1FC306B1F989EAE09D6CEE66D388 /* HYGovServiceViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HYGovServiceViewController.m; sourceTree = "<group>"; };
 		8C14E393A8B052B8DECE2F4431F141F1 /* SDWebImageDownloaderConfig.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageDownloaderConfig.h; path = SDWebImage/Core/SDWebImageDownloaderConfig.h; sourceTree = "<group>"; };
 		8C2216B493B9011F9263C7E6B8B55D4C /* UIView+TZLayout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+TZLayout.m"; path = "TZImagePickerController/TZImagePickerController/UIView+TZLayout.m"; sourceTree = "<group>"; };
@@ -1475,7 +1477,7 @@
 		9CE05EE6EE37F59448FDD121DAC48FD5 /* HYServiceProgressTableViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HYServiceProgressTableViewCell.m; sourceTree = "<group>"; };
 		9D099892D6FF3620C82E020761A0F90F /* AddHonorCollectionViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = AddHonorCollectionViewCell.h; sourceTree = "<group>"; };
 		9D2F2395DF0D97470AB952E108624249 /* ScanViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ScanViewController.h; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9DBC96F746C2B460FF3CAF90B0E91FE0 /* HYDepartDetailBusinessCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HYDepartDetailBusinessCell.m; sourceTree = "<group>"; };
 		9E95AD44372175224D546D4F7373AC46 /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+WebCacheOperation.h"; path = "SDWebImage/Core/UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		9EA9FB99ED09DFD171CB2F4F7F0872D9 /* SDWebImageDownloaderResponseModifier.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageDownloaderResponseModifier.m; path = SDWebImage/Core/SDWebImageDownloaderResponseModifier.m; sourceTree = "<group>"; };
@@ -1494,7 +1496,7 @@
 		A18E4A6FF2ACE4DC75D1B4B9ABA4B011 /* BDFaceSelectConfigCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BDFaceSelectConfigCell.h; sourceTree = "<group>"; };
 		A1C632E441DB875A8B1E23065F6B51B5 /* EditBusinessCardViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = EditBusinessCardViewController.m; sourceTree = "<group>"; };
 		A1ED01761F4966854811ED5055EAE2FA /* HYFormInfoModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HYFormInfoModel.h; sourceTree = "<group>"; };
-		A20599D147F27A2676F1D8FB4F2DB0E1 /* CodeSignature */ = {isa = PBXFileReference; includeInIndex = 1; path = CodeSignature; sourceTree = "<group>"; };
+		A20599D147F27A2676F1D8FB4F2DB0E1 /* CodeSignature */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; path = CodeSignature; sourceTree = "<group>"; };
 		A2A9695E388229163D8C704C266E4A1D /* BDFaceCircleView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BDFaceCircleView.h; sourceTree = "<group>"; };
 		A37A7852F8A0F31D284FDA38CE87D685 /* SDImageTransformer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDImageTransformer.h; path = SDWebImage/Core/SDImageTransformer.h; sourceTree = "<group>"; };
 		A3971D159DC1796CF41E7918F141E4EF /* MJFoundation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJFoundation.m; path = MJExtension/MJFoundation.m; sourceTree = "<group>"; };
@@ -1503,7 +1505,7 @@
 		A45E6B96079B524B65DD8C1A350B6F5E /* RealTimeBusViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RealTimeBusViewController.h; sourceTree = "<group>"; };
 		A4933AC4F81D01989EBF89EA031FA1E9 /* SDImageIOCoder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDImageIOCoder.h; path = SDWebImage/Core/SDImageIOCoder.h; sourceTree = "<group>"; };
 		A4A09AF8D442AC1E263F597B89AE0C50 /* TZPhotoPreviewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TZPhotoPreviewCell.h; path = TZImagePickerController/TZImagePickerController/TZPhotoPreviewCell.h; sourceTree = "<group>"; };
-		A4A19664E4D31A45A0A2F5A6BC63FF05 /* CodeRequirements-1 */ = {isa = PBXFileReference; includeInIndex = 1; path = "CodeRequirements-1"; sourceTree = "<group>"; };
+		A4A19664E4D31A45A0A2F5A6BC63FF05 /* CodeRequirements-1 */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; path = "CodeRequirements-1"; sourceTree = "<group>"; };
 		A4CFD9C76292415F8FEA3A6D5DA38264 /* TZImagePickerController.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TZImagePickerController.release.xcconfig; sourceTree = "<group>"; };
 		A4E3209B9EBDDA5F7B41F200564DB56A /* TZImageManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TZImageManager.m; path = TZImagePickerController/TZImagePickerController/TZImageManager.m; sourceTree = "<group>"; };
 		A4FA15D44DF6BAC7550EDEED10862AA3 /* AFNetworking */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = AFNetworking; path = AFNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1594,7 +1596,7 @@
 		BCEDE9AC7F62A688A5E197641A21842F /* MJRefreshAutoStateFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshAutoStateFooter.m; path = MJRefresh/Custom/Footer/Auto/MJRefreshAutoStateFooter.m; sourceTree = "<group>"; };
 		BD118B0C14A4B6EECE16F372475A2EA2 /* CertificateLibraryTableViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CertificateLibraryTableViewCell.h; sourceTree = "<group>"; };
 		BD22FFD4D41377735E59385D130537B7 /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlipaySDK.framework; sourceTree = "<group>"; };
-		BD30DD497585564756982300CDEC4E1F /* idl-license.vis-var */ = {isa = PBXFileReference; includeInIndex = 1; path = "idl-license.vis-var"; sourceTree = "<group>"; };
+		BD30DD497585564756982300CDEC4E1F /* idl-license.vis-var */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "idl-license.vis-var"; sourceTree = "<group>"; };
 		BD6E500A144FF6188869B4EB01335AD6 /* BusinessCardViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BusinessCardViewController.h; sourceTree = "<group>"; };
 		BD7BE8691B74CC4EDADCE8FDADB81E15 /* Masonry.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Masonry.modulemap; sourceTree = "<group>"; };
 		BDCC6D137E4CA2F4687E0DA86796EF79 /* NSBezierPath+SDRoundedCorners.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSBezierPath+SDRoundedCorners.m"; path = "SDWebImage/Private/NSBezierPath+SDRoundedCorners.m"; sourceTree = "<group>"; };
@@ -1746,7 +1748,7 @@
 		EAD2F48DAD5E919F1D3578357757A001 /* HYObtainCertiViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HYObtainCertiViewController.h; sourceTree = "<group>"; };
 		EB65AE9D8B0FA25B78899C978901867C /* Pods-HYCivicCenter_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-HYCivicCenter_Example-umbrella.h"; sourceTree = "<group>"; };
 		EB984485BCE49804FED34544CC1B7C1D /* AFNetworkActivityIndicatorManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFNetworkActivityIndicatorManager.m; path = "UIKit+AFNetworking/AFNetworkActivityIndicatorManager.m"; sourceTree = "<group>"; };
-		EB9CA3A59AEBCFA60C714D473B822CF0 /* BDFaceParamsConfig.json */ = {isa = PBXFileReference; includeInIndex = 1; path = BDFaceParamsConfig.json; sourceTree = "<group>"; };
+		EB9CA3A59AEBCFA60C714D473B822CF0 /* BDFaceParamsConfig.json */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.json; path = BDFaceParamsConfig.json; sourceTree = "<group>"; };
 		EBD4EE9B761BBD225D478C7328CA2C7E /* HYSubmitTableViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HYSubmitTableViewCell.h; sourceTree = "<group>"; };
 		EC07670D6DD4DCCEE1B22DCCC3E24072 /* SVProgressHUD.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVProgressHUD.m; path = SVProgressHUD/SVProgressHUD.m; sourceTree = "<group>"; };
 		EC19BA0FBA1E2DD44E382DD023254015 /* CardDetailTableViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CardDetailTableViewCell.m; sourceTree = "<group>"; };
@@ -1919,7 +1921,6 @@
 				B92AF7D1BD684A7270007009C4D25ACC /* BDFaceLivingConfigModel.h */,
 				FBABE99FF7D5BF3469085EFAC9F7491F /* BDFaceLivingConfigModel.m */,
 			);
-			name = Model;
 			path = Model;
 			sourceTree = "<group>";
 		};
@@ -2013,7 +2014,6 @@
 				5023112BEC9D10FD961D5244E0308DEC /* BusTransportViewController.h */,
 				D72C68A400289CB910A3B0BB75BC1384 /* BusTransportViewController.m */,
 			);
-			name = BusTransport;
 			path = BusTransport;
 			sourceTree = "<group>";
 		};
@@ -2054,7 +2054,6 @@
 				5AD366C5467075EC0937D7D9E0232A85 /* HYGuessYouCell.h */,
 				C0CD4CBB88BC2005D4E3BED82B575466 /* HYGuessYouCell.m */,
 			);
-			name = SupposeYouWant;
 			path = SupposeYouWant;
 			sourceTree = "<group>";
 		};
@@ -2090,7 +2089,6 @@
 				67AC0DC611615F5524AF0AFFC7BC9E98 /* Support Files */,
 				7FBFECAFF448BDFADE3FB62B001DFDE6 /* UIKit */,
 			);
-			name = AFNetworking;
 			path = AFNetworking;
 			sourceTree = "<group>";
 		};
@@ -2111,7 +2109,6 @@
 			children = (
 				AE7324518BD7505CE6BDACE8008DF239 /* module.modulemap */,
 			);
-			name = Modules;
 			path = Modules;
 			sourceTree = "<group>";
 		};
@@ -2127,7 +2124,6 @@
 				F664528E887D6BC3F4C65931788247B7 /* BDFaceSelectConfigController.h */,
 				3CB8EDF3239F82A556CE4F963DA8F8A9 /* BDFaceSelectConfigController.m */,
 			);
-			name = Controller;
 			path = Controller;
 			sourceTree = "<group>";
 		};
@@ -2145,7 +2141,6 @@
 				94879169D410AC0167569A8A29F3A355 /* Resources */,
 				B5A6158F189BD64361BBC78ED6E6CE3F /* Support Files */,
 			);
-			name = SVProgressHUD;
 			path = SVProgressHUD;
 			sourceTree = "<group>";
 		};
@@ -2163,7 +2158,6 @@
 				0389D337E2184F1714DDD3CE47D47402 /* UIView+YZApperance.h */,
 				B633E6A57E6E3134C3C303BA2A2525BC /* UIView+YZApperance.m */,
 			);
-			name = BDFaceTools;
 			path = BDFaceTools;
 			sourceTree = "<group>";
 		};
@@ -2173,7 +2167,6 @@
 				0060944058CA2D785402903F8B18CB69 /* Model */,
 				52F07CEE4CD5BCED650A976AB822F737 /* Util */,
 			);
-			name = Public;
 			path = Public;
 			sourceTree = "<group>";
 		};
@@ -2201,7 +2194,6 @@
 				D519284CDE8330E6D9F8E1015BB5752A /* Frameworks */,
 				F10C6303B7423981C94F741751C17C95 /* Support Files */,
 			);
-			name = WechatOpenSDK;
 			path = WechatOpenSDK;
 			sourceTree = "<group>";
 		};
@@ -2212,7 +2204,6 @@
 				9AA8C7C14C848BEB70529E34D2A59FA5 /* Model */,
 				4C3A6F3945B188A794826D6735A55D12 /* View */,
 			);
-			name = BDFaceAdjustParams;
 			path = BDFaceAdjustParams;
 			sourceTree = "<group>";
 		};
@@ -2222,7 +2213,6 @@
 				9989B99C9DBF01717C0BF26CDA8A9E60 /* CitizenCodeViewController.h */,
 				806230F3133F218A9D23F4F125869E2B /* CitizenCodeViewController.m */,
 			);
-			name = CitizenCode;
 			path = CitizenCode;
 			sourceTree = "<group>";
 		};
@@ -2238,7 +2228,6 @@
 				20AA1D67C36DE322ECA5C3A380BDAE5C /* BDFaceSelectRadio.h */,
 				79F583C353A145B2482B9FD08DA0E25D /* BDFaceSelectRadio.m */,
 			);
-			name = View;
 			path = View;
 			sourceTree = "<group>";
 		};
@@ -2313,7 +2302,6 @@
 				82B09387164900BE5B1B96202A60B9E8 /* Resources */,
 				424A3A4CEF8A4470F80CF86C18DB0862 /* Support Files */,
 			);
-			name = MJRefresh;
 			path = MJRefresh;
 			sourceTree = "<group>";
 		};
@@ -2333,7 +2321,6 @@
 				935158294CA70E1C9E9C4F26161B8A9C /* BDFaceRemindView.h */,
 				E83602876D0CEC47B59C518AF808A662 /* BDFaceRemindView.m */,
 			);
-			name = View;
 			path = View;
 			sourceTree = "<group>";
 		};
@@ -2345,7 +2332,6 @@
 				A0EA9E5348C4DD981452CC86CA2EADAE /* Headers */,
 				2FA0BB3D595BA4CA20CEDC4271A172A8 /* Modules */,
 			);
-			name = CTID_Verification.framework;
 			path = CTID_Verification.framework;
 			sourceTree = "<group>";
 		};
@@ -2358,7 +2344,6 @@
 				28733AF95C09C5883240D69FDCBBDE5F /* BDFaceImageUtils.m */,
 				12AE76D04972D61DEC401B213E481EC0 /* BDUIConstant.h */,
 			);
-			name = Util;
 			path = Util;
 			sourceTree = "<group>";
 		};
@@ -2380,7 +2365,6 @@
 				708A7D37AD15B8B3A510683BC1435275 /* SSFaceDetectionManager.h */,
 				B07A1F511D31828F93926EF70ACF21C8 /* SSFaceSDK.h */,
 			);
-			name = include;
 			path = include;
 			sourceTree = "<group>";
 		};
@@ -2404,7 +2388,6 @@
 				9E61BD7C775BED03D6BCE052C888CE7C /* Core */,
 				C6E846A3824F0B962942633ED65F468F /* Support Files */,
 			);
-			name = SDWebImage;
 			path = SDWebImage;
 			sourceTree = "<group>";
 		};
@@ -2475,7 +2458,6 @@
 				E20FD7E8B94C5E610F1FF42E8C4B69C4 /* HYServiceProgressViewController.h */,
 				4BC13D1271408E20A7605CB9923C9C3B /* HYServiceProgressViewController.m */,
 			);
-			name = GovernmentServices;
 			path = GovernmentServices;
 			sourceTree = "<group>";
 		};
@@ -2509,7 +2491,6 @@
 				BE8B6C59BC9782F37E3232831ACD6278 /* ViewController+MASAdditions.m */,
 				0AC220585FA800169455EB50E155C994 /* Support Files */,
 			);
-			name = Masonry;
 			path = Masonry;
 			sourceTree = "<group>";
 		};
@@ -2542,7 +2523,6 @@
 				F49F1E97C33180C92B8BCEB9AEDB3D72 /* Resources */,
 				D6910139AA54D9D3BE0F2FC98BFE94E0 /* Support Files */,
 			);
-			name = "AlipaySDK-iOS";
 			path = "AlipaySDK-iOS";
 			sourceTree = "<group>";
 		};
@@ -2626,7 +2606,6 @@
 				AD790144488C84A51B0860AD935DF5FF /* HYAreaServiceViewController.h */,
 				B0E7E49292B8B99BA9174163D781A9FB /* HYAreaServiceViewController.m */,
 			);
-			name = CountyServices;
 			path = CountyServices;
 			sourceTree = "<group>";
 		};
@@ -2864,7 +2843,6 @@
 				DD0838EF7FCB4BE7BF4D10EF7DF79237 /* BDFaceSelectItem.h */,
 				03534CD4F4A1EB873B57109282FA21DE /* BDFaceSelectItem.m */,
 			);
-			name = Model;
 			path = Model;
 			sourceTree = "<group>";
 		};
@@ -2888,7 +2866,6 @@
 				7CC4070CBE8BE33FB8CA2ED7FE891B3C /* BDFaceSuccessViewController+BDCheckFace.h */,
 				558CAA25ED132B7521654800002C91E4 /* BDFaceSuccessViewController+BDCheckFace.m */,
 			);
-			name = Controller;
 			path = Controller;
 			sourceTree = "<group>";
 		};
@@ -3060,7 +3037,6 @@
 				36D1875E25BE5D84624380DA42FC1745 /* CTIDReq.h */,
 				846BB38D3DA6CC29FA2B8F4195CB31DC /* CtidVerifySdk.h */,
 			);
-			name = Headers;
 			path = Headers;
 			sourceTree = "<group>";
 		};
@@ -3114,7 +3090,6 @@
 				477C84CAA3B503DB9FCEE4DC3BFC06DA /* HYUploadImageCollectionViewCell.h */,
 				A785E55B8D366EE01DF72E26F5D514F9 /* HYUploadImageCollectionViewCell.m */,
 			);
-			name = DepartmentDetail;
 			path = DepartmentDetail;
 			sourceTree = "<group>";
 		};
@@ -3127,7 +3102,6 @@
 				F79F6D13C49A3971276F2DE450B487FC /* Interface */,
 				4FB11BC284B0C5E1E52D3C182C2FD78E /* View */,
 			);
-			name = UI;
 			path = UI;
 			sourceTree = "<group>";
 		};
@@ -3205,7 +3179,6 @@
 				2DDCCA8180278C478144DD4F3FD4FA8B /* NSString+MJExtension.m */,
 				BC3699EED469EF751F8F648A7EBA8B29 /* Support Files */,
 			);
-			name = MJExtension;
 			path = MJExtension;
 			sourceTree = "<group>";
 		};
@@ -3230,7 +3203,6 @@
 				C93DEB16C4F05FD4B6195267ED5A6543 /* MetroCodeViewController.h */,
 				13193E1AC3834E1923AA7413A6421A94 /* MetroCodeViewController.m */,
 			);
-			name = MetroCode;
 			path = MetroCode;
 			sourceTree = "<group>";
 		};
@@ -3258,7 +3230,6 @@
 				14741BF8F4D5FA3C30B341F4F528E5D5 /* CodeResources */,
 				A20599D147F27A2676F1D8FB4F2DB0E1 /* CodeSignature */,
 			);
-			name = _CodeSignature;
 			path = _CodeSignature;
 			sourceTree = "<group>";
 		};
@@ -3323,7 +3294,6 @@
 				168CFC05092C979A01E1855EF8AB0045 /* HYPQCollectionViewCell.h */,
 				CE7E99FADD3B84A9A99A065DCDB3F067 /* HYPQCollectionViewCell.m */,
 			);
-			name = PopularServices;
 			path = PopularServices;
 			sourceTree = "<group>";
 		};
@@ -3369,7 +3339,6 @@
 				F8C0245A1AF6871D7B3F1BE6D9C0AEE4 /* HYSSTableViewCell.h */,
 				AB94799D9D0CD102DB57BB01067D960A /* HYSSTableViewCell.m */,
 			);
-			name = SpecialServices;
 			path = SpecialServices;
 			sourceTree = "<group>";
 		};
@@ -3430,7 +3399,6 @@
 				22FD5FF2CDBC8A96975B2BF43D63FFF4 /* BDFaceAdjustParamsTool.h */,
 				8476B33D74061C7D4148C69ABBC1E2BE /* BDFaceAdjustParamsTool.m */,
 			);
-			name = Interface;
 			path = Interface;
 			sourceTree = "<group>";
 		};
@@ -3466,7 +3434,6 @@
 				55B59C93904102F7B8AAFF86DC09A3B2 /* Location */,
 				6372963BAB73A2E811F3ED7C21501F37 /* Support Files */,
 			);
-			name = TZImagePickerController;
 			path = TZImagePickerController;
 			sourceTree = "<group>";
 		};
@@ -4160,7 +4127,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1240;
-				LastUpgradeCheck = 1240;
+				LastUpgradeCheck = 1340;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -4865,7 +4832,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -4933,6 +4900,38 @@
 			};
 			name = Debug;
 		};
+		08238BAABE8AD116D2838B67268E412F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F027AC1DC8694A1EBE24A8D346E5083C /* Pods-HYCivicCenter_Example.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-HYCivicCenter_Example/Pods-HYCivicCenter_Example-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-HYCivicCenter_Example/Pods-HYCivicCenter_Example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 		0A56AE27921C88F17A29956C11F2A030 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 53E9F5D421C7642BDB143EF21AA09C9E /* MJRefresh.release.xcconfig */;
@@ -4963,6 +4962,105 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
+		};
+		22A054842780AA191B91475B1E0ED7F6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D0A0C38230C22EE6DB51CC85DD5D4DD4 /* Pods-HYCivicCenter_Example.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-HYCivicCenter_Example/Pods-HYCivicCenter_Example-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-HYCivicCenter_Example/Pods-HYCivicCenter_Example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		25AD9454612BF454A1E3DC4CD4FA8C6D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
 		};
 		272D1D69DE703AFF0FAAD1CDA8C522C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -5026,6 +5124,38 @@
 			};
 			name = Release;
 		};
+		42000ECB8BC016C58686507DB50CE723 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0025FC84CB5EE3BE330DBF17BABD2927 /* Pods-HYCivicCenter_Tests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-HYCivicCenter_Tests/Pods-HYCivicCenter_Tests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-HYCivicCenter_Tests/Pods-HYCivicCenter_Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 		497A2DB7EE06262E55B2CC2BCA9E9110 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0D983AFB89D3CB5137D02F47EBB62393 /* HYCivicCenter.debug.xcconfig */;
@@ -5048,7 +5178,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -5093,7 +5223,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -5145,7 +5275,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/TZImagePickerController/TZImagePickerController-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/TZImagePickerController/TZImagePickerController-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/TZImagePickerController/TZImagePickerController.modulemap";
 				PRODUCT_MODULE_NAME = TZImagePickerController;
@@ -5175,7 +5305,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Masonry/Masonry-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Masonry/Masonry-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/Masonry/Masonry.modulemap";
 				PRODUCT_MODULE_NAME = Masonry;
@@ -5184,102 +5314,6 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		7EE7A78859F657F6BEFC651185B43192 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"POD_CONFIGURATION_RELEASE=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				MTL_FAST_MATH = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				SWIFT_VERSION = 5.0;
-				SYMROOT = "${SRCROOT}/../build";
-			};
-			name = Release;
-		};
-		8240CA15D43A21F0CC7BB28B63722318 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 71F811B9DDBEDAB9CA8F1C9715810F5A /* Pods-HYCivicCenter_Tests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-HYCivicCenter_Tests/Pods-HYCivicCenter_Tests-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-HYCivicCenter_Tests/Pods-HYCivicCenter_Tests.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -5332,7 +5366,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/SVProgressHUD/SVProgressHUD-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/SVProgressHUD/SVProgressHUD-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/SVProgressHUD/SVProgressHUD.modulemap";
 				PRODUCT_MODULE_NAME = SVProgressHUD;
@@ -5347,39 +5381,6 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
-		};
-		9763210B8E138BD4698BA2B91E8E9373 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0025FC84CB5EE3BE330DBF17BABD2927 /* Pods-HYCivicCenter_Tests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-HYCivicCenter_Tests/Pods-HYCivicCenter_Tests-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-HYCivicCenter_Tests/Pods-HYCivicCenter_Tests.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
 		};
 		AFFA089861A5A525FBAA5AC3C3EA0D22 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -5396,7 +5397,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/TZImagePickerController/TZImagePickerController-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/TZImagePickerController/TZImagePickerController-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/TZImagePickerController/TZImagePickerController.modulemap";
 				PRODUCT_MODULE_NAME = TZImagePickerController;
@@ -5427,7 +5428,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Masonry/Masonry-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Masonry/Masonry-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/Masonry/Masonry.modulemap";
 				PRODUCT_MODULE_NAME = Masonry;
@@ -5436,39 +5437,6 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		C51602060B1D5667A6FA930DC3EBF177 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = F027AC1DC8694A1EBE24A8D346E5083C /* Pods-HYCivicCenter_Example.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-HYCivicCenter_Example/Pods-HYCivicCenter_Example-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-HYCivicCenter_Example/Pods-HYCivicCenter_Example.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -5506,53 +5474,7 @@
 			};
 			name = Release;
 		};
-		CC8F8C9B6294763DB43FB428AC51987A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 678626213CB397CDC65A66F25DD0BB70 /* SVProgressHUD.debug.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/SVProgressHUD/SVProgressHUD-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SVProgressHUD/SVProgressHUD-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/SVProgressHUD/SVProgressHUD.modulemap";
-				PRODUCT_MODULE_NAME = SVProgressHUD;
-				PRODUCT_NAME = SVProgressHUD;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		D10BF9A6DC3902A994D16CC36F82817A /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = CD39EB8E4FA80B874A9B2E543E44B816 /* HYCivicCenter.release.xcconfig */;
-			buildSettings = {
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/HYCivicCenter";
-				IBSC_MODULE = HYCivicCenter;
-				INFOPLIST_FILE = "Target Support Files/HYCivicCenter/ResourceBundle-HYCivicCenter-HYCivicCenter-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				PRODUCT_NAME = HYCivicCenter;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Release;
-		};
-		D299434AB35E7FD6F7921C8EF24742FF /* Debug */ = {
+		CA547D2C7E9A8A153DC2B27FBE00B112 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -5587,16 +5509,13 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
-					"POD_CONFIGURATION_DEBUG=1",
-					"DEBUG=1",
+					"POD_CONFIGURATION_RELEASE=1",
 					"$(inherited)",
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -5605,39 +5524,21 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};
-			name = Debug;
-		};
-		D3C6594EAE79D3F1DF68DB19E0F4A9B9 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B5EC4FEB76AA9D0D37F601F0C02A7FB7 /* AlipaySDK-iOS.release.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
 			name = Release;
 		};
-		DB48BC314AD689043B42885367C2917B /* Release */ = {
+		CC8F8C9B6294763DB43FB428AC51987A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D0A0C38230C22EE6DB51CC85DD5D4DD4 /* Pods-HYCivicCenter_Example.release.xcconfig */;
+			baseConfigurationReference = 678626213CB397CDC65A66F25DD0BB70 /* SVProgressHUD.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -5646,12 +5547,43 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-HYCivicCenter_Example/Pods-HYCivicCenter_Example-Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/SVProgressHUD/SVProgressHUD-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SVProgressHUD/SVProgressHUD-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SVProgressHUD/SVProgressHUD.modulemap";
+				PRODUCT_MODULE_NAME = SVProgressHUD;
+				PRODUCT_NAME = SVProgressHUD;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		CCA18F5FCBCB1E1D1B726F9DBF1715FF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 71F811B9DDBEDAB9CA8F1C9715810F5A /* Pods-HYCivicCenter_Tests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-HYCivicCenter_Tests/Pods-HYCivicCenter_Tests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-HYCivicCenter_Example/Pods-HYCivicCenter_Example.modulemap";
+				MODULEMAP_FILE = "Target Support Files/Pods-HYCivicCenter_Tests/Pods-HYCivicCenter_Tests.modulemap";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -5663,6 +5595,36 @@
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		D10BF9A6DC3902A994D16CC36F82817A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CD39EB8E4FA80B874A9B2E543E44B816 /* HYCivicCenter.release.xcconfig */;
+			buildSettings = {
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/HYCivicCenter";
+				IBSC_MODULE = HYCivicCenter;
+				INFOPLIST_FILE = "Target Support Files/HYCivicCenter/ResourceBundle-HYCivicCenter-HYCivicCenter-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				PRODUCT_NAME = HYCivicCenter;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		D3C6594EAE79D3F1DF68DB19E0F4A9B9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B5EC4FEB76AA9D0D37F601F0C02A7FB7 /* AlipaySDK-iOS.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
@@ -5739,8 +5701,8 @@
 		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D299434AB35E7FD6F7921C8EF24742FF /* Debug */,
-				7EE7A78859F657F6BEFC651185B43192 /* Release */,
+				25AD9454612BF454A1E3DC4CD4FA8C6D /* Debug */,
+				CA547D2C7E9A8A153DC2B27FBE00B112 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -5784,8 +5746,8 @@
 		AA50527008B4799029D0ADC223C04D02 /* Build configuration list for PBXNativeTarget "Pods-HYCivicCenter_Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C51602060B1D5667A6FA930DC3EBF177 /* Debug */,
-				DB48BC314AD689043B42885367C2917B /* Release */,
+				08238BAABE8AD116D2838B67268E412F /* Debug */,
+				22A054842780AA191B91475B1E0ED7F6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -5820,8 +5782,8 @@
 		DA362D319BE981DA94F398D3B8674FF1 /* Build configuration list for PBXNativeTarget "Pods-HYCivicCenter_Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9763210B8E138BD4698BA2B91E8E9373 /* Debug */,
-				8240CA15D43A21F0CC7BB28B63722318 /* Release */,
+				42000ECB8BC016C58686507DB50CE723 /* Debug */,
+				CCA18F5FCBCB1E1D1B726F9DBF1715FF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

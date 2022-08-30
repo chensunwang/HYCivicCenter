@@ -144,7 +144,7 @@ NSString *const honorCell = @"honorCell";
     
     [addCardBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self.view.mas_right).offset(-16);
-        make.bottom.equalTo(self.view.mas_bottom).offset(-SCREEN_HEIGHT * 0.4);
+        make.bottom.equalTo(self.view.mas_bottom).offset(-[UIScreen mainScreen].bounds.size.height * 0.4);
         make.size.mas_equalTo(CGSizeMake(60, 60));
     }];
     
@@ -192,11 +192,11 @@ NSString *const honorCell = @"honorCell";
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     HonorWallModel *model = self.datasArr[indexPath.row];
-    CGRect rect = [model.honorRemark boundingRectWithSize:CGSizeMake(SCREEN_WIDTH - 64, MAXFLOAT)
+    CGRect rect = [model.honorRemark boundingRectWithSize:CGSizeMake([UIScreen mainScreen].bounds.size.width - 64, MAXFLOAT)
                                          options:NSStringDrawingUsesLineFragmentOrigin
                                       attributes:@{NSFontAttributeName:RFONT(12)}
                                          context:nil];
-    return 136 + rect.size.height + (SCREEN_WIDTH - 64) * 0.58;
+    return 136 + rect.size.height + ([UIScreen mainScreen].bounds.size.width - 64) * 0.58;
     
 }
 

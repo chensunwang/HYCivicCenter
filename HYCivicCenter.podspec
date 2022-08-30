@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+                        HYCivicCenter: 数字市民.
                        DESC
 
   # 主页
@@ -45,9 +45,6 @@ TODO: Add long description of the pod here.
   
   # arc和mrc选项
   s.requires_arc = true
-  
-  # 链接设置 重要
-  # s.xcconfig = {'OTHER_LDFLAGS' => '-ObjC'}
 
   # 你的源码位置，源文件 包含 h、m
   s.source_files = 'HYCivicCenter/Classes/**/*'
@@ -59,8 +56,7 @@ TODO: Add long description of the pod here.
   s.public_header_files = 'HYCivicCenter/Classes/Headers/*.h'
     
   # 资源、比如图片、音频文件等
-  s.resource_bundles = {
-    # 这是个数组，可以添加其他bundle
+  s.resource_bundles = {  # 这是个数组，可以添加其他bundle
     'HYCivicCenter' => ['HYCivicCenter/Assets/*.png',
                         'HYCivicCenter/Assets/CTID.bundle',
                         'HYCivicCenter/Assets/HYCivicCenter.bundle']
@@ -75,17 +71,18 @@ TODO: Add long description of the pod here.
   # 依赖的第三方/自己的framework
   s.ios.vendored_frameworks = 'HYCivicCenter/Classes/NetWorkIDCard/CTID_Verification.framework'
   
-  # 表示依赖第三方/自己的静态库（比如libWeChatSDK.a）
-  # 依赖的第三方的或者自己的静态库文件必须以lib为前缀进行命名，否则会出现找不到的情况，这一点非常重要
-  # s.vendored_libraries = 'HYCivicCenter/Classes/libFaceSSDKLib.a'
+  # 依赖的第三方/自己的静态库文件 必须以lib为前缀进行命名，否则会出现找不到的情况，这一点非常重要（比如libWeChatSDK.a）
+  # s.vendored_libraries = 'HYCivicCenter/Classes/libWeChatSDK.a'
   # s.vendored_libraries = 'HYCivicCenter/Classes/openssl/include/*.{a}'
-  s.vendored_libraries = 'HYCivicCenter/Classes/BDFaceSDK/libFaceSSDKLib.a'
+  s.vendored_libraries = 'HYCivicCenter/Classes/BDFaceSDK/*.{a}'
   
-  # 载入第三方.a头文件
+  # target 项⽬目配置
   s.xcconfig = {
-      'USER_HEADER_SEARCH_PATHS' => 'HYCivicCenter/Classes/BDFaceSDK/include/*.{h}',  # 载入第三方.a头文件
-      "OTHER_LDFLAGS" => "$(inherited) -ObjC" # target 项⽬目配置 如果有分类加上
+      "OTHER_LDFLAGS" => "$(inherited) -ObjC", # 如果有分类加上
+      'USER_HEADER_SEARCH_PATHS' => 'HYCivicCenter/Classes/BDFaceSDK/include/*.{h}'  # 载入第三方.a头文件
   }
+  
+  s.pod_target_xcconfig = { 'VALID_ARCHS' => 'arm64 armv7' }  # libFaceSSDKLib.a库只支持真机架构 所以必须加这句话
   
   # 依赖第三方开源框架(多个)
    s.dependency 'AFNetworking'
@@ -110,7 +107,7 @@ end
 
 # 4.验证类库  cd 到含有HYCivicCenter.podspec 文件下
 ## 4.1  本地校验  pod lib lint HYCivicCenter.podspec --use-libraries --allow-warnings --verbose --no-clean
-## 4.2  远程校验  pod spec lint HYCivicCenter.podspec --use-libraries --allow-warnings
+## 4.2  远程校验  pod spec lint HYCivicCenter.podspec --use-libraries --allow-warnings --verbose --no-clean
 
 # 5.提交代码并打对应的tag（tag和podspec文件中保持一致）
 ## 5.1  git add .

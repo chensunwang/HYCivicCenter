@@ -109,7 +109,7 @@ NSString *const searchStationCell = @"searchStationCell";
     [self.holderIV mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(self.view);
         make.centerY.equalTo(self.view.mas_centerY);
-        make.height.mas_equalTo(SCREEN_WIDTH * 0.588);
+        make.height.mas_equalTo([UIScreen mainScreen].bounds.size.width * 0.588);
     }];
     
     [self.noResultIV mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -247,7 +247,7 @@ NSString *const searchStationCell = @"searchStationCell";
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
 
-    UIView *titleView = [[UIView alloc]initWithFrame:CGRectMake(16, 0, SCREEN_WIDTH - 32, 50)];
+    UIView *titleView = [[UIView alloc]initWithFrame:CGRectMake(16, 0, [UIScreen mainScreen].bounds.size.width - 32, 50)];
     titleView.backgroundColor = UIColorFromRGB(0xF5F5F5);
     
     UILabel *titleLabel = [[UILabel alloc]init];
@@ -272,7 +272,7 @@ NSString *const searchStationCell = @"searchStationCell";
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
 
-    UIView *contentView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 59)];
+    UIView *contentView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 59)];
     contentView.backgroundColor = UIColorFromRGB(0xF5F5F5);
     
     UIButton *moreBtn = [[UIButton alloc]init];

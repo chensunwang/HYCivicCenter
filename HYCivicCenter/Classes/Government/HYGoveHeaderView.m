@@ -93,7 +93,7 @@
         make.centerX.equalTo(self);
         make.height.mas_equalTo(17);
         make.top.mas_equalTo(kStatusBarHeight + 14);
-        make.width.mas_equalTo(SCREEN_WIDTH - 50);
+        make.width.mas_equalTo([UIScreen mainScreen].bounds.size.width - 50);
     }];
     self.titleLabel.text = @"政务服务";
     self.titleLabel.font = MFONT(18);
@@ -155,7 +155,7 @@
         make.left.mas_equalTo(13);
         make.centerY.equalTo(self.firstView);
         make.height.mas_equalTo(12);
-        make.width.mas_equalTo(SCREEN_WIDTH - 90 - 100);
+        make.width.mas_equalTo([UIScreen mainScreen].bounds.size.width - 90 - 100);
     }];
     self.firstTitleLab.font = MFONT(12);
     self.firstTitleLab.text = @"暂无更多数据";
@@ -184,7 +184,7 @@
         make.left.mas_equalTo(13);
         make.centerY.equalTo(self.secondView);
         make.height.mas_equalTo(12);
-        make.width.mas_equalTo(SCREEN_WIDTH - 90 - 100);
+        make.width.mas_equalTo([UIScreen mainScreen].bounds.size.width - 90 - 100);
     }];
     self.secondTitleLab.font = MFONT(12);
     self.secondTitleLab.text = @"暂无更多数据";

@@ -119,7 +119,7 @@
         make.left.equalTo(self.contentV.mas_left).offset(16);
         make.right.equalTo(self.contentV.mas_right).offset(-16);
         make.bottom.equalTo(self.contentV.mas_bottom).offset(-16);
-        make.height.mas_equalTo((SCREEN_WIDTH - 64) * 0.58);
+        make.height.mas_equalTo(([UIScreen mainScreen].bounds.size.width - 64) * 0.58);
     }];
     
     [self.describLabel mas_makeConstraints:^(MASConstraintMaker *make) {

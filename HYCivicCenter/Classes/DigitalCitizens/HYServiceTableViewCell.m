@@ -104,7 +104,7 @@ NSString *serviceCollectionCell = @"serviceCell";
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    CGFloat width = (SCREEN_WIDTH - 32) / 2.0;
+    CGFloat width = ([UIScreen mainScreen].bounds.size.width - 32) / 2.0;
     return CGSizeMake(width, 80);
     
 }

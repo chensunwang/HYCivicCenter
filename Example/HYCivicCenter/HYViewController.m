@@ -7,6 +7,11 @@
 //
 
 #import "HYViewController.h"
+#import "DigitalcitizenViewController.h"
+#import "HYNavigationController.h"
+#import "HYGovernmentViewController.h"
+#import "HYHandleAffairsViewController.h"
+#import "MainApi.h"
 
 @interface HYViewController ()
 
@@ -19,7 +24,32 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-    
+    MainApi *mainApi = [MainApi sharedInstance];
+    mainApi.token = @"s9P41NF3pK-yVpNc3DtZK3i5rIw";
+
+    UIButton *clicked = [[UIButton alloc] initWithFrame:CGRectMake(100, 200, 100, 40)];
+    [clicked setTitle:@"政务办事" forState:UIControlStateNormal];
+    [clicked setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    [clicked addTarget:self action:@selector(clicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:clicked];
+
+    UIButton *zhengwu = [[UIButton alloc] initWithFrame:CGRectMake(100, 400, 100, 40)];
+    [zhengwu setTitle:@"政务服务" forState:UIControlStateNormal];
+    [zhengwu setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    [zhengwu addTarget:self action:@selector(zhengwu) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:zhengwu];
+}
+
+- (void)clicked {
+    DigitalcitizenViewController *vc = [[DigitalcitizenViewController alloc] init];
+//    HYHandleAffairsViewController *vc = [[HYHandleAffairsViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)zhengwu {
+    HYGovernmentViewController *vc = [[HYGovernmentViewController alloc] init];
+    vc.hyTitleColor = UIColor.blackColor;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)didReceiveMemoryWarning

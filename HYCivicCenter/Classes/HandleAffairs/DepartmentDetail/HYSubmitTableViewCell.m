@@ -35,7 +35,7 @@
     [self.submitBtn setTitle:@"开始提交" forState:UIControlStateNormal];
     self.submitBtn.layer.cornerRadius = 23;
     self.submitBtn.layer.masksToBounds = YES;
-    [self.submitBtn gradientButtonWithSize:CGSizeMake(SCREEN_WIDTH - 52, 46) colorArray:@[UIColorFromRGB(0x1991F1), UIColorFromRGB(0x0F5CFF)] percentageArray:@[@(0.5),@(1)] gradientType:GradientFromLeftToRight];
+    [self.submitBtn gradientButtonWithSize:CGSizeMake([UIScreen mainScreen].bounds.size.width - 52, 46) colorArray:@[UIColorFromRGB(0x1991F1), UIColorFromRGB(0x0F5CFF)] percentageArray:@[@(0.5),@(1)] gradientType:GradientFromLeftToRight];
     [self.submitBtn addTarget:self action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
 }
 

@@ -82,7 +82,7 @@
         
     }
     
-    self.scrollView.contentSize = CGSizeMake(SCREEN_WIDTH * self.titlesArr.count, 0);
+    self.scrollView.contentSize = CGSizeMake([UIScreen mainScreen].bounds.size.width * self.titlesArr.count, 0);
     
 }
 
@@ -165,7 +165,7 @@
 }
 
 - (int)getTheCurrentIndex {
-    return self.scrollView.contentOffset.x / SCREEN_WIDTH;
+    return self.scrollView.contentOffset.x / [UIScreen mainScreen].bounds.size.width;
 }
 
 // 我的券
@@ -193,7 +193,7 @@
     }];
     
     CGPoint offset = self.scrollView.contentOffset;
-    offset.x = SCREEN_WIDTH * (button.tag - 100);
+    offset.x = [UIScreen mainScreen].bounds.size.width * (button.tag - 100);
     [self.scrollView setContentOffset:offset animated:YES];
     
     
@@ -222,7 +222,7 @@
     
     if (!_scrollView) {
         _scrollView = [[UIScrollView alloc] init];
-        _scrollView.frame = CGRectMake(0, kTopNavHeight+49, SCREEN_WIDTH, SCREEN_HEIGHT -  49 - kTopNavHeight);
+        _scrollView.frame = CGRectMake(0, kTopNavHeight+49, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height -  49 - kTopNavHeight);
         _scrollView.backgroundColor = [UIColor whiteColor];
         _scrollView.showsVerticalScrollIndicator = NO;
         _scrollView.showsHorizontalScrollIndicator = NO;
@@ -240,7 +240,7 @@
     
     if (!_titleScrollView) {
         _titleScrollView = [[UIScrollView alloc] init];
-        _titleScrollView.frame = CGRectMake(0, kTopNavHeight,SCREEN_WIDTH,49);
+        _titleScrollView.frame = CGRectMake(0, kTopNavHeight,[UIScreen mainScreen].bounds.size.width,49);
         _titleScrollView.backgroundColor = [UIColor whiteColor];
         _titleScrollView.showsVerticalScrollIndicator = NO;
         _titleScrollView.showsHorizontalScrollIndicator = NO;

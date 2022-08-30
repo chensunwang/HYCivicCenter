@@ -11,6 +11,7 @@
 #import "HYServiceProgressModel.h"
 #import "HYItemTotalInfoModel.h"
 #import "HYCivicCenterCommand.h"
+#import "UILabel+XFExtension.h"
 
 @interface HYProgressDetailViewController () <UITableViewDelegate, UITableViewDataSource>
 

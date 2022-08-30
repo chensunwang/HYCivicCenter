@@ -27,7 +27,7 @@
 
 - (void)configUI {
     
-    self.scrollView.contentSize = CGSizeMake(SCREEN_WIDTH, SCREEN_HEIGHT);
+    self.scrollView.contentSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
     
     UIImageView *codeIV = [[UIImageView alloc]init];
     codeIV.userInteractionEnabled = YES;
@@ -73,7 +73,7 @@
     [codeIV mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.scrollView.mas_left).offset(16);
         make.top.equalTo(self.scrollView.mas_top).offset(16);
-        make.size.mas_equalTo(CGSizeMake(SCREEN_WIDTH - 32, 428));
+        make.size.mas_equalTo(CGSizeMake([UIScreen mainScreen].bounds.size.width - 32, 428));
     }];
     
     [pricceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -137,14 +137,14 @@
     detailLabel.text = detailString;
     [bottomView addSubview:detailLabel];
     
-    CGRect rect = [detailString boundingRectWithSize:CGSizeMake(SCREEN_WIDTH - 64, MAXFLOAT)
+    CGRect rect = [detailString boundingRectWithSize:CGSizeMake([UIScreen mainScreen].bounds.size.width - 64, MAXFLOAT)
                                          options:NSStringDrawingUsesLineFragmentOrigin
                                       attributes:@{NSFontAttributeName:RFONT(11)}
                                          context:nil];
     
     [bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.scrollView.mas_left).offset(16);
-        make.width.mas_equalTo(SCREEN_WIDTH - 32);
+        make.width.mas_equalTo([UIScreen mainScreen].bounds.size.width - 32);
         make.top.equalTo(codeIV.mas_bottom);
         make.height.mas_equalTo(110+rect.size.height);
     }];
@@ -180,7 +180,7 @@
 - (UIScrollView *)scrollView {
     if (!_scrollView) {
         _scrollView = [[UIScrollView alloc] init];
-        _scrollView.frame = CGRectMake(0, 88, SCREEN_WIDTH, SCREEN_HEIGHT - 88);
+        _scrollView.frame = CGRectMake(0, 88, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - 88);
         _scrollView.backgroundColor = UIColorFromRGB(0x157AFF);
         _scrollView.showsVerticalScrollIndicator = NO;
         _scrollView.showsHorizontalScrollIndicator = NO;

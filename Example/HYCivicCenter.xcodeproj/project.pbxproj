@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2884A13DDBC5A454871081E5 /* Pods_HYCivicCenter_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 743D40F4C5B7B6EE30B0DB80 /* Pods_HYCivicCenter_Example.framework */; };
+		37668A0128BD9A7D00CE530D /* HYCivicCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37668A0028BD9A7D00CE530D /* HYCivicCenter.framework */; };
 		4E9FBA3399805E8ED59F7841 /* Pods_HYCivicCenter_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3A68687F4049E9CE8A8DDD /* Pods_HYCivicCenter_Tests.framework */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
@@ -38,6 +39,7 @@
 
 /* Begin PBXFileReference section */
 		348010E11FE744FAE41F7637 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		37668A0028BD9A7D00CE530D /* HYCivicCenter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = HYCivicCenter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		51895835F905B6186548049C /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* HYCivicCenter_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HYCivicCenter_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -74,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37668A0128BD9A7D00CE530D /* HYCivicCenter.framework in Frameworks */,
 				6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */,
 				6003F592195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F58E195388D20070C39A /* Foundation.framework in Frameworks */,
@@ -119,6 +122,7 @@
 		6003F58C195388D20070C39A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				37668A0028BD9A7D00CE530D /* HYCivicCenter.framework */,
 				6003F58D195388D20070C39A /* Foundation.framework */,
 				6003F58F195388D20070C39A /* CoreGraphics.framework */,
 				6003F591195388D20070C39A /* UIKit.framework */,
@@ -560,6 +564,7 @@
 			baseConfigurationReference = 719ADF7057D4D07824253D08 /* Pods-HYCivicCenter_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				DEVELOPMENT_TEAM = 43DT5Z45J4;
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -578,6 +583,7 @@
 			baseConfigurationReference = AE967F4CAFAF5FAD527C934A /* Pods-HYCivicCenter_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				DEVELOPMENT_TEAM = 43DT5Z45J4;
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

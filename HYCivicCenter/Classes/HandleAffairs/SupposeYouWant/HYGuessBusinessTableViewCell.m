@@ -62,7 +62,7 @@
     [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self).offset(16);
         make.centerY.equalTo(self);
-        make.width.mas_equalTo(SCREEN_WIDTH - 32 - 44);
+        make.width.mas_equalTo([UIScreen mainScreen].bounds.size.width - 32 - 44);
     }];
     
     [self.indicateIV mas_makeConstraints:^(MASConstraintMaker *make) {

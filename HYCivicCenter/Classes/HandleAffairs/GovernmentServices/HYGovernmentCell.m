@@ -105,7 +105,7 @@
     [self.leftBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(10);
         make.top.equalTo(self.topImgV.mas_bottom);
-        make.width.mas_equalTo(SCREEN_WIDTH * 0.5 - 10);
+        make.width.mas_equalTo([UIScreen mainScreen].bounds.size.width * 0.5 - 10);
         make.bottom.equalTo(self.bgView);
     }];
     [self.leftBtn addTarget:self action:@selector(leftBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
@@ -153,7 +153,7 @@
     [self.rightBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self.bgView).offset(-10);
         make.top.equalTo(self.topImgV.mas_bottom);
-        make.width.mas_equalTo(SCREEN_WIDTH * 0.5 - 10);
+        make.width.mas_equalTo([UIScreen mainScreen].bounds.size.width * 0.5 - 10);
         make.bottom.equalTo(self.bgView);
     }];
     [self.rightBtn addTarget:self action:@selector(rightBtnClicked:) forControlEvents:UIControlEventTouchUpInside];

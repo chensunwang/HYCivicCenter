@@ -9,6 +9,7 @@
 #import "HYServiceContentController.h"
 #import "HYCivicCenterCommand.h"
 #import "UIView+YXAdd.h"
+#import "UILabel+XFExtension.h"
 
 @interface HYSocialServiceViewController () <UIScrollViewDelegate>
 
@@ -61,18 +62,18 @@
         [self addChildViewController:contentVC];
         
     }
-    self.scrollView.contentSize = CGSizeMake(SCREEN_WIDTH * self.titlesArr.count, 0);
+    self.scrollView.contentSize = CGSizeMake([UIScreen mainScreen].bounds.size.width * self.titlesArr.count, 0);
     
 }
 
 - (void)setupTitleView {
     
-    self.titleView = [[UIView alloc]initWithFrame:CGRectMake(0, kTopNavHeight, SCREEN_WIDTH, 49)];
+    self.titleView = [[UIView alloc]initWithFrame:CGRectMake(0, kTopNavHeight, [UIScreen mainScreen].bounds.size.width, 49)];
     self.titleView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.titleView];
     
     UIButton *firstBtn = nil;
-    CGFloat buttonWidth = SCREEN_WIDTH / self.titlesArr.count;
+    CGFloat buttonWidth = [UIScreen mainScreen].bounds.size.width / self.titlesArr.count;
     for (int i = 0; i < self.titlesArr.count; i++) {
         NSString *title = self.titlesArr[i];
         UIButton *button = [[UIButton alloc]init];
@@ -129,7 +130,7 @@
     }];
     
     CGPoint offset = self.scrollView.contentOffset;
-    offset.x = SCREEN_WIDTH * (button.tag - 100);
+    offset.x = [UIScreen mainScreen].bounds.size.width * (button.tag - 100);
     [self.scrollView setContentOffset:offset animated:YES];
     
 }
@@ -160,7 +161,7 @@
 }
 
 - (int)getTheCurrentIndex {
-    return self.scrollView.contentOffset.x / SCREEN_WIDTH;
+    return self.scrollView.contentOffset.x / [UIScreen mainScreen].bounds.size.width;
 }
 
 - (NSArray *)titlesArr {
@@ -176,7 +177,7 @@
     
     if (!_scrollView) {
         _scrollView = [[UIScrollView alloc] init];
-        _scrollView.frame = CGRectMake(0, kTopNavHeight + 49, SCREEN_WIDTH, SCREEN_HEIGHT -  49 - kTopNavHeight);
+        _scrollView.frame = CGRectMake(0, kTopNavHeight + 49, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height -  49 - kTopNavHeight);
         _scrollView.backgroundColor = [UIColor whiteColor];
         _scrollView.showsVerticalScrollIndicator = NO;
         _scrollView.showsHorizontalScrollIndicator = NO;

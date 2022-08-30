@@ -151,7 +151,7 @@ NSString *const industryCell = @"industryCell";
     
     [UIView animateWithDuration:0.25 animations:^{
         self.alpha = 0;
-        self.collectionView.kTop = SCREEN_HEIGHT;
+        self.collectionView.kTop = [UIScreen mainScreen].bounds.size.height;
     } completion:^(BOOL finished) {
         [self removeFromSuperview];
     }];
@@ -178,7 +178,7 @@ NSString *const industryCell = @"industryCell";
         _flowLayout = [[UICollectionViewFlowLayout alloc] init];
         _flowLayout.minimumInteritemSpacing = 20;
         _flowLayout.minimumLineSpacing = 20;
-        CGFloat itemW = (SCREEN_WIDTH - 32 - 40)/ 3.0;
+        CGFloat itemW = ([UIScreen mainScreen].bounds.size.width - 32 - 40)/ 3.0;
         CGFloat itemH = 48;
         _flowLayout.itemSize = CGSizeMake(itemW, itemH);
         _flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;

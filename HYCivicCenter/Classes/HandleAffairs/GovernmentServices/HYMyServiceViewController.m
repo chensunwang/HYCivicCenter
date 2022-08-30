@@ -13,6 +13,7 @@
 #import "FaceTipViewController.h"
 #import "HYOnLineBusinessMainViewController.h"
 #import "HYCivicCenterCommand.h"
+#import "UILabel+XFExtension.h"
 
 @interface HYMyServiceViewController () <UITableViewDelegate, UITableViewDataSource, FaceResultDelegate>
 

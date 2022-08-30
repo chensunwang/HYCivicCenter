@@ -13,6 +13,7 @@
 #import "HYDepartDetailHotCell.h"
 #import "HYDepartDetailBusinessCell.h"
 #import "HYCivicCenterCommand.h"
+#import "UILabel+XFExtension.h"
 
 @interface HYDepartDetailViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -184,7 +185,7 @@
 - (CGFloat)caculateHeightForSectionWithArray:(NSMutableArray *)array {
     CGFloat totalHeight = 0;
     for (HYBusinessInfoModel * model in array) {
-        CGFloat height = [model.littleTitle heightForStringWithFont:MFONT(12) width:(SCREEN_WIDTH - 54 - 32)];
+        CGFloat height = [model.littleTitle heightForStringWithFont:MFONT(12) width:([UIScreen mainScreen].bounds.size.width - 54 - 32)];
         height += 64;
         totalHeight += height;
     }
@@ -202,7 +203,7 @@
             paraStyle.lineSpacing = 4; //设置行间距
             paraStyle.minimumLineHeight = 10;
             NSDictionary *attribtDic = @{NSFontAttributeName:MFONT(16), NSUnderlineStyleAttributeName: [NSNumber numberWithInteger:NSUnderlineStyleSingle], NSParagraphStyleAttributeName:paraStyle};
-            CGRect rect = [mo.name boundingRectWithSize:CGSizeMake(SCREEN_WIDTH - 72 - 32, MAXFLOAT)
+            CGRect rect = [mo.name boundingRectWithSize:CGSizeMake([UIScreen mainScreen].bounds.size.width - 72 - 32, MAXFLOAT)
                                                 options:NSStringDrawingUsesLineFragmentOrigin
                                              attributes:attribtDic
                                                 context:nil];
