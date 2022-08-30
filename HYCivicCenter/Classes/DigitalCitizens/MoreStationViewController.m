@@ -10,6 +10,7 @@
 #import "BusRouteViewController.h"
 #import "RealTimeBusViewController.h"
 #import "HYCivicCenterCommand.h"
+#import "UILabel+XFExtension.h"
 
 @interface MoreStationViewController () <UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate>
 
@@ -28,7 +29,8 @@ NSString *const moreStationCell = @"stationCell";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.title = @"站点";
+//    self.title = @"站点";
+    self.navigationItem.titleView = [UILabel xf_labelWithText:@"站点"];
     
     self.view.backgroundColor = UIColorFromRGB(0xF5F5F5);
     
@@ -85,6 +87,7 @@ NSString *const moreStationCell = @"stationCell";
     [self.view addSubview:self.tableView];
     
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.edges.mas_equalTo(UIEdgeInsetsZero);
         make.left.right.equalTo(self.view);
         make.top.equalTo(self.searchView.mas_bottom);
         make.bottom.equalTo(self.view.mas_bottom).offset(-kSafeAreaBottomHeight);
@@ -100,7 +103,7 @@ NSString *const moreStationCell = @"stationCell";
     
     UIView *leftView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 36, 32)];
     UIImageView *searchIV = [[UIImageView alloc]initWithFrame:CGRectMake(15, 8, 16, 16)];
-    searchIV.image = [UIImage imageNamed:@"search"];
+    searchIV.image = [UIImage imageNamed:BundleFile(@"search")];
     [leftView addSubview:searchIV];
     
     UITextField *searchTF = [[UITextField alloc]init];
@@ -162,16 +165,9 @@ NSString *const moreStationCell = @"stationCell";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-//    BusRouteViewController *routeVC = [[BusRouteViewController alloc]init];
-//    HYSearchStationModel *stationModel = self.datasArr[indexPath.row];
-//    routeVC.lineNo = stationModel.lineNo;
-//    routeVC.stationName = stationModel.stationName;
-//    routeVC.isUpDown = stationModel.isUpDown;
-//    [self.navigationController pushViewController:routeVC animated:YES];
     RealTimeBusViewController *realtimeVC = [[RealTimeBusViewController alloc]init];
     HYSearchStationModel *stationModel = self.datasArr[indexPath.row];
     realtimeVC.keyword = stationModel.stationName;
-    realtimeVC.navigationItem.rightBarButtonItems = nil;
     [self.navigationController pushViewController:realtimeVC animated:YES];
     
     

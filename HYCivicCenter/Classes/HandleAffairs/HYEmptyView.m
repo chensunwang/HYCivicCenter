@@ -34,7 +34,7 @@
         make.width.mas_equalTo(155);
         make.height.mas_equalTo(139);
     }];
-    self.iconImageView.image = [UIImage imageNamed:@"cardHolder"];
+    self.iconImageView.image = [UIImage imageNamed:BundleFile(@"cardHolder")];
     
     self.titleLabel = [[UILabel alloc] init];
     [self addSubview:self.titleLabel];

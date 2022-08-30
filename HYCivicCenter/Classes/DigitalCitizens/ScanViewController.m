@@ -9,6 +9,7 @@
 #import "XFUDButton.h"
 #import "CardDetailViewController.h"
 #import "HYCivicCenterCommand.h"
+#import "UILabel+XFExtension.h"
 
 @interface ScanViewController () <AVCaptureMetadataOutputObjectsDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 
@@ -29,7 +30,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.title = @"扫码加名片";
+//    self.title = @"扫码加名片";
+    self.navigationItem.titleView = [UILabel xf_labelWithText:@"扫码加名片"];
+    
     self.view.backgroundColor = [UIColor whiteColor];
     
     [self configUI];
@@ -91,7 +94,7 @@
     
     //library
     self.libraryBtn = [[XFUDButton alloc]init];
-    [self.libraryBtn setImage:[UIImage imageNamed:@"library"] forState:UIControlStateNormal];
+    [self.libraryBtn setImage:[UIImage imageNamed:BundleFile(@"library")] forState:UIControlStateNormal];
     [self.libraryBtn setTitle:@"相册" forState:UIControlStateNormal];
     self.libraryBtn.padding = 10;
     self.libraryBtn.titleLabel.font = RFONT(12);
@@ -266,6 +269,25 @@
     }
     
 }
+
+//- (NSDictionary *)dictionaryWithJsonString:(NSString *)jsonString
+//{
+//    if (jsonString == nil) {
+//        return nil;
+//    }
+//
+//    NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
+//    NSError *err;
+//    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:jsonData
+//                                                        options:NSJSONReadingMutableContainers
+//                                                          error:&err];
+//    if(err)
+//    {
+//        NSLog(@"json解析失败：%@",err);
+//        return nil;
+//    }
+//    return dic;
+//}
 
 // 相册
 - (void)libraryClicked {

@@ -69,7 +69,7 @@
         make.left.top.right.equalTo(self.bgView);
         make.height.mas_equalTo(125);
     }];
-    self.topImgV.image = [UIImage imageNamed:@"hotServiceBG"];
+    self.topImgV.image = [UIImage imageNamed:BundleFile(@"hotServiceBG")];
     
     self.leftImgV = [[UIImageView alloc] initWithFrame:CGRectZero];
     [self.bgView addSubview:self.leftImgV];
@@ -78,7 +78,7 @@
         make.bottom.equalTo(self.bgView).offset(-23);
         make.width.height.mas_equalTo(30);
     }];
-    self.leftImgV.image = [UIImage imageNamed:@"icon_progressService"];
+    self.leftImgV.image = [UIImage imageNamed:BundleFile(@"icon_progressService")];
     
     self.leftTitleLab = [[UILabel alloc] initWithFrame:CGRectZero];
     [self.bgView addSubview:self.leftTitleLab];
@@ -118,7 +118,7 @@
         make.bottom.equalTo(self.bgView).offset(-18);
         make.width.mas_equalTo(1);
     }];
-    self.middleImgV.image = [UIImage imageNamed:@"icon_banshi_middle"];
+    self.middleImgV.image = [UIImage imageNamed:BundleFile(@"icon_banshi_middle")];
     
     self.rightImgV = [[UIImageView alloc] initWithFrame:CGRectZero];
     [self.bgView addSubview:self.rightImgV];
@@ -126,7 +126,7 @@
         make.left.equalTo(self.middleImgV.mas_right).offset(39);
         make.top.width.height.equalTo(self.leftImgV);
     }];
-    self.rightImgV.image = [UIImage imageNamed:@"icon_myService"];
+    self.rightImgV.image = [UIImage imageNamed:BundleFile(@"icon_myService")];
     
     self.rightTitleLab = [[UILabel alloc] initWithFrame:CGRectZero];
     [self.bgView addSubview:self.rightTitleLab];

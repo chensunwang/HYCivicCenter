@@ -21,7 +21,7 @@
         [self.contentView addSubview:self.contentIV];
         
         self.addIV = [[UIImageView alloc]init];
-        self.addIV.image = [UIImage imageNamed:@"addCard"];
+        self.addIV.image = [UIImage imageNamed:BundleFile(@"addCard")];
         self.addIV.backgroundColor = UIColorFromRGB(0x999999);
         [self.contentView addSubview:self.addIV];
         
@@ -32,7 +32,7 @@
         [self.contentView addSubview:self.addLabel];
         
         self.delBtn = [[UIButton alloc]init];
-        [self.delBtn setImage:[UIImage imageNamed:@"deleteHonor"] forState:UIControlStateNormal];
+        [self.delBtn setImage:[UIImage imageNamed:BundleFile(@"deleteHonor")] forState:UIControlStateNormal];
 //        [self.delBtn setBackgroundColor:[UIColor redColor]];
         self.delBtn.layer.cornerRadius = 10;
         self.delBtn.clipsToBounds = YES;

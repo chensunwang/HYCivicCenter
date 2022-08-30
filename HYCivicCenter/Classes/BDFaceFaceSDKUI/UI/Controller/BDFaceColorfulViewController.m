@@ -465,15 +465,15 @@
                 if (weakSelf.delegate && [weakSelf.delegate respondsToSelector:@selector(completeWithImageString:skey:deviceId:)]) {
                     [weakSelf.delegate completeWithImageString:imageString skey:sKey deviceId:deviceId];
                 }
+                
+                if (weakSelf.type == 1){
+                    [[NSNotificationCenter defaultCenter]postNotificationName:@"FaceResultNoti" object:self.resultDic];
+                }else if (weakSelf.type == 2) {
+                    [[NSNotificationCenter defaultCenter]postNotificationName:@"certiFaceResult" object:self.resultDic];
+                }
+                
             }];
-            
-            if (weakSelf.type == 1){
-                [[NSNotificationCenter defaultCenter]postNotificationName:@"FaceResultNoti" object:self.resultDic];
-            }else if (weakSelf.type == 2) {
-                [[NSNotificationCenter defaultCenter]postNotificationName:@"certiFaceResult" object:self.resultDic];
-            }
         });
-
         
 //        [self persentToVc:self.resultDic success:YES];
 

@@ -9,6 +9,7 @@
 #import <WebKit/WebKit.h>
 #import "HYCivicCenterCommand.h"
 #import "UILabel+XFExtension.h"
+#import "UILabel+XFExtension.h"
 
 @interface HYServiceWebViewController () <WKUIDelegate,WKNavigationDelegate>
 

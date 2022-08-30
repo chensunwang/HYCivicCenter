@@ -8,6 +8,7 @@
 #import "MyCouponsMainViewController.h"
 #import "MyCouponsViewController.h"
 #import "HYCivicCenterCommand.h"
+#import "UILabel+XFExtension.h"
 
 @interface MyCouponsMainViewController () <UIScrollViewDelegate>
 
@@ -24,13 +25,27 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.title = @"我的优惠券";
+    self.navigationItem.titleView = [UILabel xf_labelWithText:@"我的优惠券"];
     
     [self configUI];
     
 }
 
 - (void)configUI {
+    
+//    UIButton *rightbutton = [UIButton buttonWithType:UIButtonTypeCustom];
+//    [rightbutton addTarget:self action:@selector(rightClicked) forControlEvents:UIControlEventTouchUpInside];
+//    [rightbutton setTitle:@"领券中心" forState:UIControlStateNormal];
+//    [rightbutton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+//    rightbutton.titleLabel.font = RFONT(15);
+//    rightbutton.frame = CGRectMake(0 , 0, 60, 44);
+//
+//    UIBarButtonItem *rightItem =[[UIBarButtonItem alloc] initWithCustomView:rightbutton];
+//
+//    UIBarButtonItem *spaceItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+//
+//    spaceItem.width = -15;
+//    self.navigationItem.rightBarButtonItems = @[spaceItem,rightItem];
     
     [self setupChildsVC];
     

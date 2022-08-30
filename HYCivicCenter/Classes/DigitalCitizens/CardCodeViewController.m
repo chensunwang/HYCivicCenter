@@ -7,6 +7,7 @@
 
 #import "CardCodeViewController.h"
 #import "HYCivicCenterCommand.h"
+#import "UILabel+XFExtension.h"
 
 @interface CardCodeViewController ()
 
@@ -24,7 +25,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.title = @"名片码";
+//    self.title = @"";
+    
+    self.navigationItem.titleView = [UILabel xf_labelWithText:@"名片码"];
+    
     self.view.backgroundColor = UIColorFromRGB(0xF5F5F5);
     
     [self configUI];
@@ -145,7 +149,7 @@
     [img drawInRect:CGRectMake(0, 0, img.size.width, img.size.height)];
     //7.3在中心划入其他图片
     
-    UIImage *centerImg = [UIImage imageNamed:@"citizenBg"];
+    UIImage *centerImg = [UIImage imageNamed:BundleFile(@"citizenBg")];
     
     CGFloat centerW = 48;
     CGFloat centerH = 48;

@@ -31,8 +31,15 @@
 NSString *const provinceCell = @"province";
 NSString *const citycell = @"cityCell";
 NSString *const areaCell = @"areaCell";
-
 @implementation ChooseCityView
+
+/*
+// Only override drawRect: if you perform custom drawing.
+// An empty implementation adversely affects performance during animation.
+- (void)drawRect:(CGRect)rect {
+    // Drawing code
+}
+*/
 
 - (instancetype)initWithFrame:(CGRect)frame {
     
@@ -121,7 +128,7 @@ NSString *const areaCell = @"areaCell";
             make.bottom.equalTo(self.contentView.mas_bottom);
         }];
         
-        NSDictionary *dic = [self readLocalFileWithName:@"city_code"];
+        NSDictionary *dic = [self readLocalFileWithName];
         self.provinceArr = [ProvinceModel mj_objectArrayWithKeyValuesArray:dic];
         [self.provinceTableView reloadData];
         
@@ -131,9 +138,9 @@ NSString *const areaCell = @"areaCell";
 }
 
 // 读取本地JSON文件
-- (NSDictionary *)readLocalFileWithName:(NSString *)name {
+- (NSDictionary *)readLocalFileWithName {
     // 获取文件路径
-    NSString *path = [[NSBundle mainBundle] pathForResource:name ofType:@"json"];
+    NSString *path = [[NSBundle mainBundle]pathForResource:@"city_code" ofType:@"json" inDirectory:@"SZSMFramework.bundle"];
     // 将文件数据化
     NSData *data = [[NSData alloc] initWithContentsOfFile:path];
     // 对数据进行JSON格式化并返回字典形式

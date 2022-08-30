@@ -49,7 +49,6 @@
 @property (nonatomic, assign) BOOL isApply;
 @property (nonatomic, strong) UIImageView *busHolderIV;
 @property (nonatomic, strong) NSMutableArray *myArr;
-//@property (nonatomic, strong) NSMutableArray *datasArr;
 
 @end
 
@@ -104,7 +103,7 @@ NSString *const busTransPortCell = @"busCell";
     
     [HttpRequest getPath:@"/phone/v2/service/getAvailableService" params:nil resultBlock:^(id  _Nullable responseObject, NSError * _Nullable error) {
        
-        SLog(@" 获取分类 == %@ ",responseObject);
+//        SLog(@" 获取分类 == %@ ",responseObject);
         if ([responseObject[@"code"] intValue] == 200) {
             self.datasArr = [HYServiceClassifyModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
             [self.tableView reloadData];
@@ -167,20 +166,17 @@ NSString *const busTransPortCell = @"busCell";
             self.stationDistance = responseObject[@"data"][@"distanceMeter"];
             [HttpRequest getPath:@"/phone/v2/bus/getNearestBusLine" params:@{@"stationName":stationName,@"pageNum":@"1",@"pageSize":@"2"} resultBlock:^(id  _Nullable responseObject, NSError * _Nullable error) {
 
-//                SLog(@" 最近的公交== %@ == %@ ",responseObject,[responseObject[@"data"] allKeys]);
                 self.busInfoDic = responseObject[@"data"];
                 [self.allkeysArr removeAllObjects];
                 [self.busInfoArr removeAllObjects];
                 NSArray *arr = [responseObject[@"data"] allKeys];
                 [self.allkeysArr addObjectsFromArray:arr];
                 for (NSInteger i = 0; i < arr.count; i++) {
-//                    responseObject[@"data"]
                     NSMutableArray *busInfoArr = [HYBusinfoModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"][arr[i]]];
                     [self.busInfoArr addObject:busInfoArr];
                 }
-//                NSLog(@" 数组== %@ ",busArr);
                 [self.tableView reloadData];
-                
+
             }];
         }
         
@@ -205,7 +201,6 @@ NSString *const busTransPortCell = @"busCell";
     [self.tableView registerClass:[HYServiceTableViewCell class] forCellReuseIdentifier:busTransPortCell];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(UIEdgeInsetsZero);
-//        make.edges.mas_equalTo(UIEdgeInsetsMake(16, 16, 0, 16));
     }];
 
 }
@@ -216,7 +211,7 @@ NSString *const busTransPortCell = @"busCell";
     contentView.backgroundColor = UIColorFromRGB(0xF5F5F5);
     
     UIImageView *bgIV = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 145)];
-    bgIV.image = [UIImage imageNamed:@"businessBG"];
+    bgIV.image = [UIImage imageNamed:BundleFile(@"businessBG")];
     [contentView addSubview:bgIV];
     
     UIView *topView = [[UIView alloc]initWithFrame:CGRectMake(16, 16, [UIScreen mainScreen].bounds.size.width - 32, 480)];
@@ -227,7 +222,7 @@ NSString *const busTransPortCell = @"busCell";
     
     UIButton *titleBtn = [[UIButton alloc]init];
     [titleBtn setBackgroundColor:UIColorFromRGB(0xF8FCFF)];
-    [titleBtn setImage:[UIImage imageNamed:@"scene"] forState:UIControlStateNormal];
+    [titleBtn setImage:[UIImage imageNamed:BundleFile(@"scene")] forState:UIControlStateNormal];
     [titleBtn setTitle:@" 洪城一卡通" forState:UIControlStateNormal];
     titleBtn.titleLabel.font = RFONT(12);
     [titleBtn setTitleColor:UIColorFromRGB(0xFE8601) forState:UIControlStateNormal];
@@ -240,17 +235,18 @@ NSString *const busTransPortCell = @"busCell";
 //    [topView addSubview:titleLabel];
     
     self.codeIV = [[UIImageView alloc]init];
+//    self.codeIV.backgroundColor = [UIColor blueColor];
     self.codeIV.image = [self createQRCodeWithCodeStr:@"O862ssJuMeiUQthakzaluAQsUhl/2AS9jMs=O862ssJuMeiUQthakzaluAQsUhl/2AS9jMs=O862ssJuMeiUQthakzaluAQsUhl/2AS9jMs=O862ssJuMeiUQthakzaluAQsUhl/2AS9jMs=O862ssJuMeiUQthakzaluAQsUhl/2AS9jMs=O862ssJuMeiUQthakzaluAQsUhl/2AS9jMs=O862ssJuMeiUQthakzaluAQsUhl/2AS9jMs="];
     self.codeIV.userInteractionEnabled = YES;
     self.codeIV.alpha = 0.5;
     [topView addSubview:self.codeIV];
     
     UIImageView *busIV = [[UIImageView alloc]init];
-    busIV.image = [UIImage imageNamed:@"bus"];
+    busIV.image = [UIImage imageNamed:BundleFile(@"bus")];
     [self.codeIV addSubview:busIV];
     
     self.maskView = [[UIImageView alloc]init];
-    self.maskView.image = [UIImage imageNamed:@"busMask"];
+    self.maskView.image = [UIImage imageNamed:BundleFile(@"busMask")];
     self.maskView.userInteractionEnabled = YES;
     self.maskView.hidden = YES;
     [topView addSubview:self.maskView];
@@ -294,7 +290,7 @@ NSString *const busTransPortCell = @"busCell";
     [topView addSubview:tipLabel];
     
     UIButton *refreshBtn = [[UIButton alloc]init];
-    [refreshBtn setImage:[UIImage imageNamed:@"refresh"] forState:UIControlStateNormal];
+    [refreshBtn setImage:[UIImage imageNamed:BundleFile(@"refresh")] forState:UIControlStateNormal];
     [refreshBtn setTitle:@" 刷新二维码" forState:UIControlStateNormal];
     [refreshBtn setTitleColor:UIColorFromRGB(0x157AFF) forState:UIControlStateNormal];
     [refreshBtn setBackgroundColor:UIColorFromRGB(0xE5F1FF)];
@@ -309,7 +305,7 @@ NSString *const busTransPortCell = @"busCell";
     [topView addSubview:lineView];
     
     UIButton *riderecordBtn = [[UIButton alloc]init];
-    [riderecordBtn setImage:[UIImage imageNamed:@"busRecord"] forState:UIControlStateNormal];
+    [riderecordBtn setImage:[UIImage imageNamed:BundleFile(@"busRecord")] forState:UIControlStateNormal];
     [riderecordBtn setTitle:@"乘车记录" forState:UIControlStateNormal];
     [riderecordBtn setTitleColor:UIColorFromRGB(0x333333) forState:UIControlStateNormal];
     riderecordBtn.titleLabel.font = RFONT(14);
@@ -317,39 +313,12 @@ NSString *const busTransPortCell = @"busCell";
     [topView addSubview:riderecordBtn];
     
     UIButton *rechargeBtn = [[UIButton alloc]init];
-    [rechargeBtn setImage:[UIImage imageNamed:@"myBalance"] forState:UIControlStateNormal];
+    [rechargeBtn setImage:[UIImage imageNamed:BundleFile(@"myBalance")] forState:UIControlStateNormal];
     [rechargeBtn setTitle:@"我的余额" forState:UIControlStateNormal];
     [rechargeBtn setTitleColor:UIColorFromRGB(0x333333) forState:UIControlStateNormal];
     rechargeBtn.titleLabel.font = RFONT(14);
     [rechargeBtn addTarget:self action:@selector(rechargeClicked) forControlEvents:UIControlEventTouchUpInside];
     [topView addSubview:rechargeBtn];
-    
-//    UIView *maskView = [[UIView alloc]init];
-//    maskView.backgroundColor = [UIColor whiteColor];
-//    [topView addSubview:maskView];
-//    self.maskView = maskView;
-//
-//    UIImageView *cardIV = [[UIImageView alloc]init];
-//    cardIV.image = [UIImage imageNamed:@"busCard"];
-//    [maskView addSubview:cardIV];
-//
-//    UIButton *receiveBtn = [[UIButton alloc]init];
-//    [receiveBtn setTitle:@"立即领卡" forState:UIControlStateNormal];
-//    [receiveBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-//    receiveBtn.titleLabel.font = RFONT(16);
-//    receiveBtn.layer.cornerRadius = 8;
-//    receiveBtn.clipsToBounds = YES;
-//    [maskView addSubview:receiveBtn];
-//
-//    UIImageView *holderIV = [[UIImageView alloc]init];
-//    holderIV.image = [UIImage imageNamed:@"busHolder"];
-//    [maskView addSubview:holderIV];
-//
-//    UILabel *holderLabel = [[UILabel alloc]init];
-//    holderLabel.text = @"敬请期待...";
-//    holderLabel.font = RFONT(15);
-//    holderLabel.textColor = UIColorFromRGB(0x157AFF);
-//    [maskView addSubview:holderLabel];
     
     [titleBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(topView.mas_top).offset(40);
@@ -426,44 +395,6 @@ NSString *const busTransPortCell = @"busCell";
         make.height.mas_equalTo(0.5);
     }];
     
-//    [maskView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.edges.mas_equalTo(UIEdgeInsetsMake(0, 16, 16, 0));
-//    }];
-//
-//    [cardIV mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.centerX.equalTo(maskView.mas_centerX);
-//        make.centerY.equalTo(maskView.mas_centerY).offset(-35);
-//        make.size.mas_equalTo(CGSizeMake(257, 164));
-//    }];
-//
-//    [receiveBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.equalTo(maskView.mas_left).offset(40);
-//        make.top.equalTo(cardIV.mas_bottom).offset(40);
-//        make.right.equalTo(maskView.mas_right).offset(-40);
-//        make.height.mas_equalTo(46);
-//    }];
-    
-//    [receiveBtn layoutIfNeeded]; // 重点
-//    CAGradientLayer *gradientLayer = [CAGradientLayer layer];
-//    gradientLayer.frame = receiveBtn.bounds;
-//
-//    [receiveBtn.layer insertSublayer:gradientLayer atIndex:0];
-//    gradientLayer.colors = @[(__bridge id)UIColorFromRGB(0x1991FF).CGColor,(__bridge id)UIColorFromRGB(0x0F5CFF).CGColor];
-//    gradientLayer.startPoint = CGPointMake(0, 0.5);
-//    gradientLayer.endPoint = CGPointMake(1, 0.5);
-    
-//
-//    [holderIV mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.equalTo(maskView.mas_top).offset(123);
-//        make.centerX.equalTo(maskView.mas_centerX);
-//        make.size.mas_equalTo(CGSizeMake(192, 171));
-//    }];
-//
-//    [holderLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.equalTo(holderIV.mas_bottom).offset(26);
-//        make.centerX.equalTo(maskView.mas_centerX);
-//    }];
-    
     return contentView;
     
 }
@@ -509,6 +440,7 @@ NSString *const busTransPortCell = @"busCell";
     
     [img drawInRect:CGRectMake(0, 0, img.size.width, img.size.height)];
     //7.3在中心划入其他图片
+    
     //7.4获取绘制好的图片
     UIImage *finalImg=UIGraphicsGetImageFromCurrentImageContext();
     
@@ -626,12 +558,12 @@ NSString *const busTransPortCell = @"busCell";
         [moreBusBtn setTitle:@"更多实时公交" forState:UIControlStateNormal];
         [moreBusBtn setTitleColor:UIColorFromRGB(0x999999) forState:UIControlStateNormal];
         moreBusBtn.titleLabel.font = RFONT(12);
-        [moreBusBtn setImage:[UIImage imageNamed:@"moreBus"] forState:UIControlStateNormal];
+        [moreBusBtn setImage:[UIImage imageNamed:BundleFile(@"moreBus")] forState:UIControlStateNormal];
         [moreBusBtn addTarget:self action:@selector(moreBusClicked) forControlEvents:UIControlEventTouchUpInside];
         [busInfoView addSubview:moreBusBtn];
         
         self.busHolderIV = [[UIImageView alloc]init];
-        self.busHolderIV.image = [UIImage imageNamed:@"busHolderIV"];
+        self.busHolderIV.image = [UIImage imageNamed:BundleFile(@"busHolderIV")];
         self.busHolderIV.hidden = self.busInfoArr.count > 0;
         [busInfoView addSubview:self.busHolderIV];
         
@@ -660,7 +592,7 @@ NSString *const busTransPortCell = @"busCell";
         [contentView addSubview:titleInfoView];
         
         UIImageView *headerIV = [[UIImageView alloc]init];
-        headerIV.image = [UIImage imageNamed:@"myService"];
+        headerIV.image = [UIImage imageNamed:BundleFile(@"myService")];
         [contentView addSubview:headerIV];
         
         UILabel *titleName = [[UILabel alloc]init];
@@ -727,7 +659,7 @@ NSString *const busTransPortCell = @"busCell";
     
     NSArray *imagesArr = @[@"myService",@"currenService"];
     NSArray *namesArr = @[@"我的",@"可享服务"];
-    headerIV.image = [UIImage imageNamed:imagesArr[section]];
+    headerIV.image = [UIImage imageNamed:BundleFile(imagesArr[section])];
     nameLabel.text = namesArr[section];
     
     [headerIV mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -757,73 +689,6 @@ NSString *const busTransPortCell = @"busCell";
     return 45;
     
 }
-
-//- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    CGFloat cornerRadius = 8.f;
-//    // 设置cell的背景色为透明，如果不设置这个的话，则原来的背景色不会被覆盖
-//    cell.backgroundColor = UIColor.clearColor;
-//
-//    CAShapeLayer *layer = [[CAShapeLayer alloc] init];
-//    CGMutablePathRef pathRef = CGPathCreateMutable();
-//    CGRect bounds = CGRectInset(cell.bounds, 16, 0);
-//
-//    if (indexPath.row == 0) {
-//        CGPathMoveToPoint(pathRef, nil, CGRectGetMinX(bounds), CGRectGetMaxY(bounds));
-//        CGPathAddArcToPoint(pathRef, nil, CGRectGetMinX(bounds), CGRectGetMinY(bounds), CGRectGetMidX(bounds), CGRectGetMinY(bounds), cornerRadius);
-//        CGPathAddArcToPoint(pathRef, nil, CGRectGetMaxX(bounds), CGRectGetMinY(bounds), CGRectGetMaxX(bounds), CGRectGetMidY(bounds), cornerRadius);
-//        CGPathAddLineToPoint(pathRef, nil, CGRectGetMaxX(bounds), CGRectGetMaxY(bounds));
-//
-//    } else if (indexPath.row == [tableView numberOfRowsInSection:indexPath.section]-1) {
-//        // 初始起点为cell的左上角坐标
-//        CGPathMoveToPoint(pathRef, nil, CGRectGetMinX(bounds), CGRectGetMinY(bounds));
-//        CGPathAddArcToPoint(pathRef, nil, CGRectGetMinX(bounds), CGRectGetMaxY(bounds), CGRectGetMidX(bounds), CGRectGetMaxY(bounds), cornerRadius);
-//        CGPathAddArcToPoint(pathRef, nil, CGRectGetMaxX(bounds), CGRectGetMaxY(bounds), CGRectGetMaxX(bounds), CGRectGetMidY(bounds), cornerRadius);
-//        // 添加一条直线，终点坐标为右下角坐标点并放到路径中去
-//        CGPathAddLineToPoint(pathRef, nil, CGRectGetMaxX(bounds), CGRectGetMinY(bounds));
-//    } else {
-//        // 添加cell的rectangle信息到path中（不包括圆角）
-//        CGPathAddRect(pathRef, nil, bounds);
-//    }
-//    // 把已经绘制好的可变图像路径赋值给图层，然后图层根据这图像path进行图像渲染render
-//    layer.path = pathRef;
-//    // 注意：但凡通过Quartz2D中带有creat/copy/retain方法创建出来的值都必须要释放
-//    CFRelease(pathRef);
-//    // 按照shape layer的path填充颜色，类似于渲染render
-//    // layer.fillColor = [UIColor colorWithWhite:1.f alpha:0.8f].CGColor;
-//    layer.fillColor = [UIColor whiteColor].CGColor;
-//
-//    // view大小与cell一致
-//    UIView *roundView = [[UIView alloc] initWithFrame:bounds];
-//    // 添加自定义圆角后的图层到roundView中
-//    [roundView.layer insertSublayer:layer atIndex:0];
-//    roundView.backgroundColor = UIColor.clearColor;
-//    // cell的背景view
-//    cell.backgroundView = roundView;
-//
-//    // 以上方法存在缺陷当点击cell时还是出现cell方形效果，因此还需要添加以下方法
-//    // 如果你 cell 已经取消选中状态的话,那以下方法是不需要的.
-//    UIView *selectedBackgroundView = [[UIView alloc] initWithFrame:bounds];
-//    selectedBackgroundView.backgroundColor = UIColor.clearColor;
-//    cell.selectedBackgroundView = selectedBackgroundView;
-//
-//}
-
-//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-//
-//    if (indexPath.row == 0) {
-//
-//        MyBusinessCardController *businessVC = [[MyBusinessCardController alloc]init];
-//        [self.navigationController pushViewController:businessVC animated:YES];
-//
-//    } else {
-//
-//        HonorWallViewController *honorVC = [[HonorWallViewController alloc]init];
-//        [self.navigationController pushViewController:honorVC animated:YES];
-//
-//    }
-//
-//}
 
 #pragma LocationDelegate
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {

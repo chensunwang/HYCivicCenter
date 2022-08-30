@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface CouponsCenterTableViewCell : UITableViewCell
 
-@property (nonatomic, weak) id<HYCouponDelegate>delegate;
+@property (nonatomic, weak) id<HYCouponDelegate> delegate;
 @property (nonatomic, strong) HYCouponModel *couponModel;
 
 @end

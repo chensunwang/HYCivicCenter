@@ -55,11 +55,11 @@
     [self.view addSubview:contentView];
     
     UIImageView *cardBgIV = [[UIImageView alloc]init];
-    cardBgIV.image = [UIImage imageNamed:@"idcard1"];
+    cardBgIV.image = [UIImage imageNamed:BundleFile(@"idcard1")];
     [contentView addSubview:cardBgIV];
     
     UIImageView *headerIV = [[UIImageView alloc]init];
-    headerIV.image = [UIImage imageNamed:@"idcardHeader1"];
+    headerIV.image = [UIImage imageNamed:BundleFile(@"idcardHeader1")];
     [cardBgIV addSubview:headerIV];
     
     UILabel *cardNameLabel = [[UILabel alloc]init];
@@ -97,7 +97,7 @@
     self.codeIV = codeIV;
     
     self.centerIV = [[UIImageView alloc]init];
-    self.centerIV.image = [UIImage imageNamed:@"citizenBg"];
+    self.centerIV.image = [UIImage imageNamed:BundleFile(@"citizenBg")];
     self.centerIV.hidden = YES;
     [codeIV addSubview:self.centerIV];
     
@@ -110,13 +110,12 @@
     }
     
     self.maskView = [[UIImageView alloc]init];
-//    self.maskView.image = [UIImage imageNamed:@"homeMask"];
     self.maskView.userInteractionEnabled = YES;
     self.maskView.hidden = api.isShow;
     [contentView addSubview:self.maskView];
     
     UIImageView *citizenIV = [[UIImageView alloc]init];
-    citizenIV.image = [UIImage imageNamed:@"citizenBg"];
+    citizenIV.image = [UIImage imageNamed:BundleFile(@"citizenBg")];
     [self.maskView addSubview:citizenIV];
     
     UIButton *downloadBtn = [[UIButton alloc]init];
@@ -126,7 +125,6 @@
     downloadBtn.titleLabel.font = RFONT(15);
     downloadBtn.layer.cornerRadius = 4;
     downloadBtn.clipsToBounds = YES;
-//    downloadBtn.hidden = CTID.length > 0;
     [downloadBtn addTarget:self action:@selector(netCardDownload) forControlEvents:UIControlEventTouchUpInside];
     [self.maskView addSubview:downloadBtn];
     
@@ -231,7 +229,6 @@
     }];
     
     [self.maskView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.edges.mas_equalTo(UIEdgeInsetsZero);
         make.top.equalTo(codeLabel.mas_bottom).offset(16);
         make.centerX.equalTo(contentView.mas_centerX);
         make.size.mas_equalTo(CGSizeMake(206, 206));
@@ -322,7 +319,6 @@
     CIFilter *filter=[CIFilter filterWithName:@"CIQRCodeGenerator"];
     [filter setDefaults];
     
-//    NSString *str = codeStr;
     [filter setValue:[codeStr dataUsingEncoding:NSUTF8StringEncoding] forKey:@"inputMessage"];
     //4.获取生成的图片
     CIImage *ciImg= filter.outputImage;
@@ -405,7 +401,6 @@
     }];
     
     [HttpRequest postPath:@"/phone/v2/idPhoto/getIdPhotoPdf" params:@{@"holder_identity_num_encrypt":self.holder_identity_num,@"license_item_code":self.license_item_code,@"idPhotoType":self.idPhoneType} resultBlock:^(id  _Nullable responseObject, NSError * _Nullable error) {
-//        NSLog(@" 证件pdf == %@ ",responseObject);
         SLog(@" 证件数据== %@ ",responseObject);
         if ([responseObject[@"code"] intValue] == 200) {
             if ([responseObject[@"data"] count] > 0) {
@@ -469,7 +464,6 @@
                 }
             };
             [ctidVerifyTool getAuthIDCardData:req];
-//            [self faceColor];
             [self faceScan];
         }
     }];
@@ -479,7 +473,6 @@
 - (void)faceScan {
     
     FaceTipViewController *faceTipVC = [[FaceTipViewController alloc]init];
-//        faceTipVC.type = 1;
     faceTipVC.delegate = self;
     [self.navigationController pushViewController:faceTipVC animated:YES];
     
@@ -487,9 +480,6 @@
 
 - (void)getFaceResultWithImageStr:(NSString *)imageStr deviceId:(NSString *)deviceid skey:(NSString *)skey {
     
-//    self.image_str = imageStr;
-//    self.skey = skey;
-//    self.deviceID = deviceid;
     [[NSUserDefaults standardUserDefaults]setValue:imageStr?:@"" forKey:@"HYImageStr"];
     [[NSUserDefaults standardUserDefaults]setValue:skey?:@"" forKey:@"HYSkey"];
     [[NSUserDefaults standardUserDefaults]setValue:deviceid?:@"" forKey:@"HYDeviceid"];
@@ -592,15 +582,5 @@
     NSString *encodeString = [urlStr stringByAddingPercentEncodingWithAllowedCharacters:[[NSCharacterSet characterSetWithCharactersInString:@"!*'();:@&=+$,/?%#[]"] invertedSet]];
     return encodeString;
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

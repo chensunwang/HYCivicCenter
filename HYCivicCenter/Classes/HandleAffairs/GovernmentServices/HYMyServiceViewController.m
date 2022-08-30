@@ -14,6 +14,7 @@
 #import "HYOnLineBusinessMainViewController.h"
 #import "HYCivicCenterCommand.h"
 #import "UILabel+XFExtension.h"
+#import "UILabel+XFExtension.h"
 
 @interface HYMyServiceViewController () <UITableViewDelegate, UITableViewDataSource, FaceResultDelegate>
 
@@ -50,7 +51,7 @@ NSString *const myServiceCell = @"HYMyserviceCell";
     self.tableView.tableFooterView = [[UIView alloc] init];
     
     self.holderIV = [[UIImageView alloc]init];
-    self.holderIV.image = [UIImage imageNamed:@"cardHolder"];
+    self.holderIV.image = [UIImage imageNamed:BundleFile(@"cardHolder")];
     [self.view addSubview:self.holderIV];
     
     self.holderLabel = [[UILabel alloc]init];

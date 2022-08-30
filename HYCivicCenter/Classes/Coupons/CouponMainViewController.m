@@ -12,6 +12,7 @@
 #import "CouponClassifyModel.h"
 #import "HYCivicCenterCommand.h"
 #import "UIView+YXAdd.h"
+#import "UILabel+XFExtension.h"
 
 @interface CouponMainViewController () <UIScrollViewDelegate>
 
@@ -29,7 +30,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.title = @"领券中心";
+    self.navigationItem.titleView = [UILabel xf_labelWithText:@"领券中心"];
+    
     self.view.backgroundColor = [UIColor whiteColor];
     
     [self loadData];

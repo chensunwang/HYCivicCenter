@@ -25,7 +25,7 @@ NSString *const certificateCellLibrary = @"certificateCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-        
+    
     self.view.backgroundColor = [UIColor whiteColor];
     
     [self configUI];
@@ -66,6 +66,20 @@ NSString *const certificateCellLibrary = @"certificateCell";
 }
 
 - (void)configUI {
+    
+//    UIButton *rightbutton = [UIButton buttonWithType:UIButtonTypeCustom];
+//    [rightbutton addTarget:self action:@selector(rightClicked) forControlEvents:UIControlEventTouchUpInside];
+//    [rightbutton setTitle:@"亮证设置" forState:UIControlStateNormal];
+//    [rightbutton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+//    rightbutton.titleLabel.font = RFONT(15);
+//    rightbutton.frame = CGRectMake(0 , 0, 60, 44);
+//
+//    UIBarButtonItem *rightItem =[[UIBarButtonItem alloc] initWithCustomView:rightbutton];
+//
+//    UIBarButtonItem *spaceItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+//
+//    spaceItem.width = -15;
+//    self.navigationItem.rightBarButtonItems = @[spaceItem,rightItem];
     
     [self.view addSubview:self.tableView];
     [self.tableView registerClass:[CertificateLibraryTableViewCell class] forCellReuseIdentifier:certificateCellLibrary];

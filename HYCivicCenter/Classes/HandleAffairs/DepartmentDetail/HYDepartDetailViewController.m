@@ -14,6 +14,7 @@
 #import "HYDepartDetailBusinessCell.h"
 #import "HYCivicCenterCommand.h"
 #import "UILabel+XFExtension.h"
+#import "UILabel+XFExtension.h"
 
 @interface HYDepartDetailViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -44,7 +45,7 @@
         make.left.right.equalTo(self.view);
         make.height.mas_equalTo(110);
     }];
-    self.headerBgImgV.image = [UIImage imageNamed:@"icon_depart_bg"];
+    self.headerBgImgV.image = [UIImage imageNamed:BundleFile(@"icon_depart_bg")];
     
     self.logoImgV = [[UIImageView alloc] init];
     [self.headerBgImgV addSubview:self.logoImgV];

@@ -60,7 +60,6 @@
 @end
 
 NSString *const citizenCell = @"citizenCell";
-
 @implementation CitizenCodeViewController
 
 - (void)viewDidLoad {
@@ -86,7 +85,7 @@ NSString *const citizenCell = @"citizenCell";
     
     [HttpRequest getPath:@"/phone/v2/service/getAvailableService" params:nil resultBlock:^(id  _Nullable responseObject, NSError * _Nullable error) {
         
-        SLog(@" 获取分类 == %@ ",responseObject);
+        NSLog(@" 获取分类 == %@ ",responseObject);
         if ([responseObject[@"code"] intValue] == 200) {
             self.datasArr = [HYServiceClassifyModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
             [self.tableView reloadData];
@@ -103,7 +102,7 @@ NSString *const citizenCell = @"citizenCell";
     if (api.token.length > 0) {
         [self loadData];
     }
-
+    
     if (api.isShow) {
         NSString *imgStream = [[NSUserDefaults standardUserDefaults]objectForKey:@"imgStream"];
         NSString *imgWidth = [[NSUserDefaults standardUserDefaults]objectForKey:@"imgwidth"];
@@ -131,8 +130,8 @@ NSString *const citizenCell = @"citizenCell";
     [[NSUserDefaults standardUserDefaults]setValue:self.faceDic forKey:@"FaceDic"];
     
     // 网证下载
-    [HttpRequest postPathGov:@"" params:@{@"uri":@"/apiFile/haiDunBase/downloadNet", @"file":resultDic[@"image_string"], @"nickname":self.name?:@"", @"idCard":self.idCard?:@"", @"bsn":self.bsn, @"idcardAuthData":self.idcardAuthInfo?:@"", @"source":@"2", @"skey":resultDic[@"skey"], @"deviceId":resultDic[@"device_id"], @"app":@"ios"} resultBlock:^(id  _Nullable responseObject, NSError * _Nullable error) {
-        SLog(@" 网证下载33== %@ ",responseObject);
+    [HttpRequest postPathGov:@"" params:@{@"uri":@"/apiFile/haiDunBase/downloadNet",@"file":resultDic[@"image_string"],@"nickname":self.name?:@"",@"idCard":self.idCard?:@"",@"bsn":self.bsn,@"idcardAuthData":self.idcardAuthInfo?:@"",@"source":@"2",@"skey":resultDic[@"skey"],@"deviceId":resultDic[@"device_id"],@"app":@"ios"} resultBlock:^(id  _Nullable responseObject, NSError * _Nullable error) {
+        NSLog(@" 网证下载33== %@ ",responseObject);
         
         if ([responseObject[@"success"] intValue] == 1) {
             
@@ -164,9 +163,12 @@ NSString *const citizenCell = @"citizenCell";
 
 - (void)loadData {
     
+//    NSString *urlString = @"/api/users/current";
+//    NSString *encodeString = [urlString stringEncode];
+    
     [HttpRequest postPath:@"/phone/v2/getUserByToken" params:nil resultBlock:^(id  _Nullable responseObject, NSError * _Nullable error) {
         
-        SLog(@" 获取当前用户信息== %@ ",responseObject);
+        NSLog(@" 获取当前用户信息== %@ ",responseObject);
         if ([responseObject[@"code"] intValue] == 200) {
             self.idCard = responseObject[@"data"][@"idCard"];
             self.name = responseObject[@"data"][@"nickName"];
@@ -194,8 +196,9 @@ NSString *const citizenCell = @"citizenCell";
 
 - (void)configUI {
     
+    // businessBG 145
     UIImageView *bgIV = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 85)];
-    bgIV.image = [UIImage imageNamed:@"balanceBg"];
+    bgIV.image = [UIImage imageNamed:BundleFile(@"balanceBg")];
     [self.view addSubview:bgIV];
     
     [self.view addSubview:self.tableView];
@@ -212,7 +215,7 @@ NSString *const citizenCell = @"citizenCell";
     contentView.backgroundColor = UIColorFromRGB(0xF5F5F5);
     
     UIImageView *bgIV = [[UIImageView alloc]initWithFrame:CGRectMake(0, -40, [UIScreen mainScreen].bounds.size.width, 145)];
-    bgIV.image = [UIImage imageNamed:@"businessBG"];
+    bgIV.image = [UIImage imageNamed:BundleFile(@"businessBG")];
     [contentView addSubview:bgIV];
     
     UIView *topView = [[UIView alloc]init];
@@ -229,12 +232,12 @@ NSString *const citizenCell = @"citizenCell";
     [contentView addSubview:contentIV];
     
     UIImageView *netCerIV = [[UIImageView alloc]init];
-    netCerIV.image = [UIImage imageNamed:@"netCerti"];
+    netCerIV.image = [UIImage imageNamed:BundleFile(@"netCerti")];
     [contentIV addSubview:netCerIV];
     
     UIButton *sceneBtn = [[UIButton alloc]init];
     [sceneBtn setBackgroundColor:UIColorFromRGB(0xF8FCFF)];
-    [sceneBtn setImage:[UIImage imageNamed:@"scene"] forState:UIControlStateNormal];
+    [sceneBtn setImage:[UIImage imageNamed:BundleFile(@"scene")] forState:UIControlStateNormal];
     [sceneBtn setTitle:@" 使用场景介绍" forState:UIControlStateNormal];
     sceneBtn.titleLabel.font = RFONT(12);
     [sceneBtn setTitleColor:UIColorFromRGB(0xFE8601) forState:UIControlStateNormal];
@@ -246,7 +249,7 @@ NSString *const citizenCell = @"citizenCell";
     [topView addSubview:self.codeIV];
     
     self.citizenIV = [[UIImageView alloc]init];
-    self.citizenIV.image = [UIImage imageNamed:@"citizenBg"];
+    self.citizenIV.image = [UIImage imageNamed:BundleFile(@"citizenBg")];
     self.citizenIV.hidden = YES;
     [self.codeIV addSubview:self.citizenIV];
     
@@ -258,7 +261,7 @@ NSString *const citizenCell = @"citizenCell";
     [topView addSubview:tipLabel];
     
     UIButton *refreshBtn = [[UIButton alloc]init];
-    [refreshBtn setImage:[UIImage imageNamed:@"refresh"] forState:UIControlStateNormal];
+    [refreshBtn setImage:[UIImage imageNamed:BundleFile(@"refresh")] forState:UIControlStateNormal];
     [refreshBtn setTitle:@" 刷新二维码" forState:UIControlStateNormal];
     [refreshBtn setTitleColor:UIColorFromRGB(0x157AFF) forState:UIControlStateNormal];
     refreshBtn.titleLabel.font = RFONT(12);
@@ -269,12 +272,12 @@ NSString *const citizenCell = @"citizenCell";
     [topView addSubview:refreshBtn];
     
     self.homeMaskIV = [[UIImageView alloc]init];
-    self.homeMaskIV.image = [UIImage imageNamed:@"homeMask"];
+    self.homeMaskIV.image = [UIImage imageNamed:BundleFile(@"homeMask")];
     self.homeMaskIV.userInteractionEnabled = YES;
     [contentView addSubview:self.homeMaskIV];
     
     UIImageView *mainIV = [[UIImageView alloc]init];
-    mainIV.image = [UIImage imageNamed:@"citizenBg"];
+    mainIV.image = [UIImage imageNamed:BundleFile(@"citizenBg")];
     [self.homeMaskIV addSubview:mainIV];
     
     NSString *CTID = [[NSUserDefaults standardUserDefaults]valueForKey:@"CTID"];
@@ -415,7 +418,7 @@ NSString *const citizenCell = @"citizenCell";
     [img drawInRect:CGRectMake(0, 0, img.size.width, img.size.height)];
     //7.3在中心划入其他图片
     
-//    UIImage *centerImg = [UIImage imageNamed:@"citizenBg"];
+//    UIImage *centerImg = [UIImage imageNamed:BundleFile(@"citizenBg")];
 //    
 //    CGFloat centerW = 36;
 //    CGFloat centerH = 36;
@@ -511,7 +514,7 @@ NSString *const citizenCell = @"citizenCell";
     
     NSArray *imagesArr = @[@"myService",@"currenService"];
     NSArray *namesArr = @[@"我的",@"可享服务"];
-    headerIV.image = [UIImage imageNamed:imagesArr[section]];
+    headerIV.image = [UIImage imageNamed:BundleFile(imagesArr[section])];
     nameLabel.text = namesArr[section];
     
     [headerIV mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -540,8 +543,8 @@ NSString *const citizenCell = @"citizenCell";
     
     NSString *urlString = @"/apiFile/haiDunBase/applyNet?source=2";
     NSString *encodeUrl = [urlString stringByAddingPercentEncodingWithAllowedCharacters:[[NSCharacterSet URLQueryAllowedCharacterSet] invertedSet]];
-    [HttpRequest postPathGov:@"" params:@{@"uri": encodeUrl} resultBlock:^(id  _Nullable responseObject, NSError * _Nullable error) {
-        SLog(@" 网证下载申请 == %@ ",responseObject);
+    [HttpRequest postPathGov:@"" params:@{@"uri":encodeUrl} resultBlock:^(id  _Nullable responseObject, NSError * _Nullable error) {
+        NSLog(@" 网证下载申请 == %@ ",responseObject);
         if ([responseObject[@"code"] intValue] == 200 && [responseObject[@"success"] intValue] == 1) {
             self.bsn = responseObject[@"data"][@"bsn"];
             self.randomNum = responseObject[@"data"][@"randomNum"];
@@ -553,7 +556,7 @@ NSString *const citizenCell = @"citizenCell";
             req.appId = @"0002";
             req.type = 3;
             ctidVerifyTool.resultDictBlock = ^(NSDictionary *resultDict) {
-                SLog(@" 获取身份认证数据== %@ ",resultDict);
+                NSLog(@" 获取身份认证数据== %@ ",resultDict);
                 if ([resultDict[@"resultCode"] intValue] == 0) {
         //            resultDict[@"resultInfo"]
                     self.idcardAuthInfo = resultDict[@"resultInfo"];
@@ -566,7 +569,7 @@ NSString *const citizenCell = @"citizenCell";
     }];
 //    [HttpRequest postHttpBodyGov:@"" params:@{@"uri":encodeUrl} resultBlock:^(id  _Nullable responseObject, NSError * _Nullable error) {
 //
-//        SLog(@" 网证下载申请 == %@ ",responseObject);
+//        NSLog(@" 网证下载申请 == %@ ",responseObject);
 //        if ([responseObject[@"code"] intValue] == 200 && [responseObject[@"success"] intValue] == 1) {
 //            self.bsn = responseObject[@"data"][@"bsn"];
 //            self.randomNum = responseObject[@"data"][@"randomNum"];
@@ -578,7 +581,7 @@ NSString *const citizenCell = @"citizenCell";
 //            req.appId = @"0002";
 //            req.type = 3;
 //            ctidVerifyTool.resultDictBlock = ^(NSDictionary *resultDict) {
-//                SLog(@" 获取身份认证数据== %@ ",resultDict);
+//                NSLog(@" 获取身份认证数据== %@ ",resultDict);
 //                if ([resultDict[@"resultCode"] intValue] == 0) {
 //        //            resultDict[@"resultInfo"]
 //                    self.idcardAuthInfo = resultDict[@"resultInfo"];
@@ -596,8 +599,8 @@ NSString *const citizenCell = @"citizenCell";
 // 人脸识别
 - (void)faceScan {
     
-    [HttpRequest postPathPointParams:@{@"buriedPointType": @"click", @"eventId": @"E0020", @"applicationId": @"H002"} resuleBlock:^(id  _Nullable responseObject, NSError * _Nullable error) {
-//        SLog(@" 埋点 == %@ ",responseObject);
+    [HttpRequest postPathPointParams:@{@"buriedPointType": @"click",@"eventId": @"E0020",@"applicationId":@"H002"} resuleBlock:^(id  _Nullable responseObject, NSError * _Nullable error) {
+//        NSLog(@" 埋点 == %@ ",responseObject);
     }];
     
     FaceTipViewController *faceTipVC = [[FaceTipViewController alloc]init];
@@ -609,8 +612,8 @@ NSString *const citizenCell = @"citizenCell";
 
 - (void)getFaceResultWithImageStr:(NSString *)imageStr deviceId:(NSString *)deviceid skey:(NSString *)skey {
     
-    [HttpRequest postPathPointParams:@{@"buriedPointType": @"click", @"eventId": @"E0020", @"applicationId": @"H001"} resuleBlock:^(id  _Nullable responseObject, NSError * _Nullable error) {
-        SLog(@" 埋点 == %@ ",responseObject);
+    [HttpRequest postPathPointParams:@{@"buriedPointType": @"click",@"eventId": @"E0020",@"applicationId":@"H001"} resuleBlock:^(id  _Nullable responseObject, NSError * _Nullable error) {
+        NSLog(@" 埋点 == %@ ",responseObject);
     }];
     
     [[NSUserDefaults standardUserDefaults]setValue:imageStr?:@"" forKey:@"HYImageStr"];
@@ -618,35 +621,29 @@ NSString *const citizenCell = @"citizenCell";
     [[NSUserDefaults standardUserDefaults]setValue:deviceid?:@"" forKey:@"HYDeviceid"];
     if (self.showCodetype == 2) {
         [self applyQrcodeWithImageStr:imageStr withSkey:skey withDeviceId:deviceid];
-    } else {
+    }else {
         // 网证下载
-        [HttpRequest postPathGov:@"" params:@{@"uri": @"/apiFile/haiDunBase/downloadNet",
-                                              @"file": imageStr,
-                                              @"nickname": self.name ? : @"",
-                                              @"idCard": self.idCard ? : @"",
-                                              @"bsn": self.bsn,
-                                              @"idcardAuthData": self.idcardAuthInfo ? : @"",
-                                              @"source": @"2",
-                                              @"skey": skey,
-                                              @"deviceId": deviceid,
-                                              @"app": @"ios"} resultBlock:^(id  _Nullable responseObject, NSError * _Nullable error) {
-            SLog(@" 网证下载33== %@ ",responseObject);
+        [HttpRequest postPathGov:@"" params:@{@"uri":@"/apiFile/haiDunBase/downloadNet",@"file":imageStr,@"nickname":self.name?:@"",@"idCard":self.idCard?:@"",@"bsn":self.bsn,@"idcardAuthData":self.idcardAuthInfo?:@"",@"source":@"2",@"skey":skey,@"deviceId":deviceid,@"app":@"ios"} resultBlock:^(id  _Nullable responseObject, NSError * _Nullable error) {
+            NSLog(@" 网证下载33== %@ ",responseObject);
             
             if ([responseObject[@"success"] intValue] == 1) {
                 
-                [[NSUserDefaults standardUserDefaults]setValue:responseObject[@"data"][@"ctid"] ? : @"" forKey: @"CTID"];
+                [[NSUserDefaults standardUserDefaults]setValue:responseObject[@"data"][@"ctid"]?:@"" forKey:@"CTID"];
                 [self applyQrcodeWithImageStr:imageStr withSkey:skey withDeviceId:deviceid];
                 
             }else if ([responseObject[@"code"] intValue] == 500 && [responseObject[@"message"] isEqualToString:@"continue"]) {
                 // 跳转开通网证
-                OpenIDCardViewController *idcardVC = [[OpenIDCardViewController alloc] init];
+                
+                OpenIDCardViewController *idcardVC = [[OpenIDCardViewController alloc]init];
                 idcardVC.bsn = self.bsn;
                 idcardVC.phone = self.phone;
                 [self.navigationController pushViewController:idcardVC animated:YES];
                 
-            } else if ([responseObject[@"success"] intValue] == 0) {
+            }else if ([responseObject[@"success"] intValue] == 0) {
+                
                 [SVProgressHUD showWithStatus:responseObject[@"message"]];
                 [SVProgressHUD dismissWithDelay:1];
+                
             }
             
         }];
@@ -676,7 +673,7 @@ NSString *const citizenCell = @"citizenCell";
     req.appId = @"0002";
     req.type = 0;
     NSDictionary *resultDic = [ctidVerifyTool getApplyData:req];
-    SLog(@" 二维码赋码数据==%@ ",resultDic);
+    NSLog(@" 二维码赋码数据==%@ ",resultDic);
     if ([resultDic[@"resultCode"]intValue] == 0) {
         self.codeAuthInfo = resultDic[@"resultInfo"];
     }
@@ -687,10 +684,10 @@ NSString *const citizenCell = @"citizenCell";
     NSDictionary *dic = @{
         @"uri":tempString
     };
-    SLog(@" 赋码申请参数 == %@ ",dic);
+    NSLog(@" 赋码申请参数 == %@ ",dic);
     // @{@"source":@"2",@"applyData":self.codeAuthInfo}
     [HttpRequest postPathGov:@"" params:dic resultBlock:^(id  _Nullable responseObject, NSError * _Nullable error) {
-        SLog(@" 赋码申请== %@ ",responseObject);
+        NSLog(@" 赋码申请== %@ ",responseObject);
         if ([responseObject[@"success"] intValue] == 1) {
             self.qrcodeBsn = responseObject[@"data"][@"bsn"]?:@"";
             self.qrRandomNum = responseObject[@"data"][@"randomNum"]?:@"";
@@ -703,9 +700,9 @@ NSString *const citizenCell = @"citizenCell";
             ctidReq.randomNumber = self.qrRandomNum;
             ctidReq.ctid = ctid;
             NSDictionary *resultDic = [ctidVerifyTool getReqQRCodeData:ctidReq];
-            SLog(@" 网证获取二维码赋码数据== %@ ",resultDic);
+            NSLog(@" 网证获取二维码赋码数据== %@ ",resultDic);
             if ([resultDic[@"resultCode"] isEqualToString:@"0"]) {
-        //        SLog(@" 网证获取二维码赋码数据== %@ ",resultDic);
+        //        NSLog(@" 网证获取二维码赋码数据== %@ ",resultDic);
             }
             
             if ([self.faceDic allKeys].count == 0) {
@@ -714,7 +711,7 @@ NSString *const citizenCell = @"citizenCell";
             }
             [SVProgressHUD showWithStatus:@"正在加载中"];
             [HttpRequest postPathGov:@"" params:@{@"uri":@"/apiFile/haiDunBase/assignOrCode",@"app":@"ios",@"authMode":@"G120",@"bsn":self.qrcodeBsn,@"checkData":resultDic[@"resultInfo"],@"deviceId":device_id,@"file":image_str,@"skey":skey,@"source":@"2"} resultBlock:^(id  _Nullable responseObject, NSError * _Nullable error) {
-                SLog(@" 二维码赋码== %@ ",responseObject);
+                NSLog(@" 二维码赋码== %@ ",responseObject);
                     if ([responseObject[@"success"] intValue] == 1) {
                         dispatch_async(dispatch_get_main_queue(), ^{
                             self.homeMaskIV.hidden = YES;
@@ -728,7 +725,6 @@ NSString *const citizenCell = @"citizenCell";
                             [[NSUserDefaults standardUserDefaults]setValue:responseObject[@"data"][@"width"] forKey:@"imgwidth"];
                             MainApi *api = [MainApi sharedInstance];
                             api.isShow = YES;
-        //                     self.codeIV.image = [self createQRCodeWithCodeStr:responseObject[@"data"][@"imgStream"]];
                         });
                     }
                 [SVProgressHUD dismiss];
@@ -736,22 +732,12 @@ NSString *const citizenCell = @"citizenCell";
         }
     }];
     
-//    [HttpRequest postHttpBodyGov:urlString params:nil resultBlock:^(id  _Nullable responseObject, NSError * _Nullable error) {
-//
-//        SLog(@" 二维码赋码申请 == %@ ",responseObject);
-//        if ([responseObject[@"success"] intValue] == 1) {
-//            self.qrcodeBsn = responseObject[@"data"][@"bsn"]?:@"";
-//            self.qrRandomNum = responseObject[@"data"][@"randomNum"]?:@"";
-//            [self getQrcode];
-//        }
-//
-//    }];
-    
 }
 
 - (NSString *)URLEncodedString:(NSString*)urlStr {
     
     NSString *encodeString = [urlStr stringByAddingPercentEncodingWithAllowedCharacters:[[NSCharacterSet characterSetWithCharactersInString:@"!*'();:@&=+$,/?%#[]"] invertedSet]];
+//    NSString *encodeString = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,(CFStringRef)urlStr,NULL,(CFStringRef)@"!*'();:@&=+$,/?%#[]",kCFStringEncodingUTF8));
     return encodeString;
 }
 
@@ -766,21 +752,23 @@ NSString *const citizenCell = @"citizenCell";
     req.randomNumber = self.qrRandomNum;
     req.ctid = ctid;
     NSDictionary *resultDic = [ctidVerifyTool getReqQRCodeData:req];
-    SLog(@" 网证获取二维码赋码数据== %@ ",resultDic);
+    NSLog(@" 网证获取二维码赋码数据== %@ ",resultDic);
     if ([resultDic[@"resultCode"] isEqualToString:@"0"]) {
-//        SLog(@" 网证获取二维码赋码数据== %@ ",resultDic);
+//        NSLog(@" 网证获取二维码赋码数据== %@ ",resultDic);
     }
     
     if ([self.faceDic allKeys].count == 0) {
         NSDictionary *faceDic = [[NSUserDefaults standardUserDefaults]valueForKey:@"FaceDic"];
         self.faceDic = faceDic;
     }
+    
+    SLog(@" 二维码赋码参数== %@ == %@ == %@ == %@ == %@ ",self.qrcodeBsn,resultDic[@"resultInfo"],self.deviceID,self.image_str,self.skey);
     [SVProgressHUD showWithStatus:@"正在加载中"];
     NSString *imageStr = [[NSUserDefaults standardUserDefaults]objectForKey:@"HYImageStr"];
     NSString *skey = [[NSUserDefaults standardUserDefaults]objectForKey:@"HYSkey"];
     NSString *deviceID = [[NSUserDefaults standardUserDefaults]objectForKey:@"HYDeviceid"];
     [HttpRequest postPathGov:@"" params:@{@"uri":@"/apiFile/haiDunBase/assignOrCode",@"app":@"ios",@"authMode":@"G120",@"bsn":self.qrcodeBsn,@"checkData":resultDic[@"resultInfo"],@"deviceId":deviceID,@"file":imageStr,@"skey":skey,@"source":@"2"} resultBlock:^(id  _Nullable responseObject, NSError * _Nullable error) {
-        SLog(@" 二维码赋码== %@ ",responseObject);
+        NSLog(@" 二维码赋码== %@ ",responseObject);
             if ([responseObject[@"success"] intValue] == 1) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     self.homeMaskIV.hidden = YES;
@@ -797,7 +785,7 @@ NSString *const citizenCell = @"citizenCell";
     }];
 //    [HttpRequest postHttpBodyGov:@"" params:@{@"uri":@"/apiFile/haiDunBase/assignOrCode",@"app":@"ios",@"authMode":@"G120",@"bsn":self.qrcodeBsn,@"checkData":resultDic[@"resultInfo"],@"deviceId":self.faceDic[@"device_id"],@"file":self.faceDic[@"image_string"],@"skey":self.faceDic[@"skey"],@"source":@"2"} resultBlock:^(id  _Nullable responseObject, NSError * _Nullable error) {
 //
-//        SLog(@" 二维码赋码 == %@ ",responseObject);
+//        NSLog(@" 二维码赋码 == %@ ",responseObject);
 //        if ([responseObject[@"success"] intValue] == 1) {
 //            dispatch_async(dispatch_get_main_queue(), ^{
 //                self.homeMaskIV.hidden = YES;
@@ -828,12 +816,12 @@ NSString *const citizenCell = @"citizenCell";
 }
 
 //- (void)faceResultWithDic:(NSDictionary *)resultDic {
-//    SLog(@" ==人脸认证结果==  ");
+//    NSLog(@" ==人脸认证结果==  ");
 //    self.faceDic = resultDic;
 //
 //    // 网证下载
 //    [HttpRequest postHttpBodyGov:@"/apiFile/haiDunBase/downloadNet" params:@{@"file":resultDic[@"image_string"],@"nickname":self.name?:@"",@"idCard":self.idCard?:@"",@"bsn":self.bsn,@"idcardAuthData":self.idcardAuthInfo?:@"",@"source":@"2",@"skey":resultDic[@"skey"],@"deviceId":resultDic[@"device_id"],@"app":@"ios"} resultBlock:^(id  _Nullable responseObject, NSError * _Nullable error) {
-//        SLog(@" 网证下载22== %@ ",responseObject);
+//        NSLog(@" 网证下载22== %@ ",responseObject);
 //
 //        if ([responseObject[@"success"] intValue] == 1) {
 //
@@ -862,7 +850,7 @@ NSString *const citizenCell = @"citizenCell";
 - (void) initSDK {
     
     if (![[FaceSDKManager sharedInstance] canWork]){
-        SLog(@"授权失败，请检测ID 和 授权文件是否可用");
+        NSLog(@"授权失败，请检测ID 和 授权文件是否可用");
         return;
     }
     

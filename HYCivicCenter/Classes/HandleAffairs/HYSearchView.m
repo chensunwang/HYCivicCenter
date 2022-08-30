@@ -43,7 +43,7 @@
         make.left.mas_equalTo(15);
         make.width.height.mas_equalTo(16);
     }];
-    self.searchImgV.image = [UIImage imageNamed:@"search"];
+    self.searchImgV.image = [UIImage imageNamed:BundleFile(@"search")];
     
     self.searchTF = [[UITextField alloc] initWithFrame:CGRectZero];
     [self.searchView addSubview:self.searchTF];

@@ -8,6 +8,7 @@
 #import "CertificateInfoViewController.h"
 #import <WebKit/WebKit.h>
 #import "HYCivicCenterCommand.h"
+#import "UILabel+XFExtension.h"
 
 @interface CertificateInfoViewController () <WKUIDelegate,WKNavigationDelegate>
 
@@ -33,9 +34,7 @@
 }
 
 - (void)configUI {
-        
     [self.view addSubview:self.progressView];
-    
     self.webView = [[WKWebView alloc]init];
     self.webView.UIDelegate = self;
     self.webView.navigationDelegate = self;
@@ -46,7 +45,6 @@
     NSLog(@" 加载的url== %@ ",self.urlString);
     
     [self.webView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.edges.mas_equalTo(UIEdgeInsetsZero);
         make.edges.mas_equalTo(UIEdgeInsetsMake(2, 0, 0, 0));
     }];
     
@@ -61,8 +59,8 @@
                 self.progressView.progress = 0;
             });
         }
-    }else if ([keyPath isEqualToString:@"title"] && object == self.webView) {
-        self.title = self.webView.title;
+    } else if ([keyPath isEqualToString:@"title"] && object == self.webView) {
+        self.navigationItem.titleView = [UILabel xf_labelWithText:self.webView.title];
     }
     
 }
@@ -70,8 +68,7 @@
 - (UIProgressView *)progressView {
     
     if (!_progressView) {
-        CGFloat kscreenWith = [UIScreen mainScreen].bounds.size.width;
-        _progressView = [[UIProgressView alloc]initWithFrame:CGRectMake(0, kTopNavHeight, kscreenWith, 2)];
+        _progressView = [[UIProgressView alloc]initWithFrame:CGRectMake(0, kTopNavHeight, [UIScreen mainScreen].bounds.size.width, 2)];
         _progressView.tintColor = [UIColor blueColor];
         _progressView.trackTintColor = [UIColor clearColor];
     }

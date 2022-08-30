@@ -54,7 +54,7 @@
         [self.contentIV addSubview:self.timeLabel];
         
         self.receivedIV = [[UIImageView alloc]init];
-        self.receivedIV.image = [UIImage imageNamed:@"received"];
+        self.receivedIV.image = [UIImage imageNamed:BundleFile(@"received")];
         self.receivedIV.hidden = YES;
         [self.contentIV addSubview:self.receivedIV];
         
@@ -84,7 +84,7 @@
         self.toUseBtn.hidden = YES;
         [self.contentIV addSubview:self.toUseBtn];
         
-        self.contentIV.image = [UIImage imageNamed:@"background"];
+        self.contentIV.image = [UIImage imageNamed:BundleFile(@"background")];
         self.nameLabel.text = @"打车出行代金券";
         self.useLabel.text = @"仅限滴滴打车可用";
         self.timeLabel.text = @"有效期至：2021-07-29 13:00:00";

@@ -30,7 +30,7 @@
 - (void)setModel:(HYHotServiceModel *)model {
     if (model) {
         if ([model.logoUrl isEqualToString:@"legalAid"] || [model.logoUrl isEqualToString:@"moreService"]) {
-            self.imgV.image = [UIImage imageNamed:model.logoUrl];
+            self.imgV.image = [UIImage imageNamed:BundleFile(model.logoUrl)];
         } else {
             [self.imgV sd_setImageWithURL:[NSURL URLWithString:model.logoUrl]];
         }
@@ -46,7 +46,7 @@
         make.centerX.equalTo(self);
         make.width.height.mas_equalTo(39);
     }];
-    self.imgV.image = [UIImage imageNamed:@"legalAid"];
+    self.imgV.image = [UIImage imageNamed:BundleFile(@"legalAid")];
     
     self.titleLab = [[UILabel alloc] initWithFrame:CGRectZero];
     [self addSubview:self.titleLab];

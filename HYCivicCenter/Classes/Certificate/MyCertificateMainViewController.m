@@ -11,6 +11,7 @@
 #import "HYCivicCenterCommand.h"
 #import "UIView+YXAdd.h"
 #import "UILabel+XFExtension.h"
+#import "UILabel+XFExtension.h"
 
 @interface MyCertificateMainViewController ()<UIScrollViewDelegate>
 
@@ -31,18 +32,23 @@
     self.navigationItem.titleView = [UILabel xf_labelWithText:@"电子证照"];
     
     [self configUI];
+    
 }
 
 - (void)configUI {
+    
     [self setupChildsVC];
     [self setupTitilsView];
+    
 }
 
 - (void)setupChildsVC {
+    
     for (NSInteger i = 0; i < self.titlesArr.count; i++) {
         CertificateLibraryViewController *libraryVC = [[CertificateLibraryViewController alloc]init];
         libraryVC.type = i;
         [self addChildViewController:libraryVC];
+        
     }
     
     self.scrollView.contentSize = CGSizeMake([UIScreen mainScreen].bounds.size.width * self.titlesArr.count, 0);
@@ -72,7 +78,7 @@
         [self.titleView addSubview:button];
     }
     
-    self.signView = [[UIView alloc]init];
+    self.signView = [[UIView alloc] init];
     self.signView.backgroundColor = UIColorFromRGB(0x157AFF);
     [self.titleView addSubview:self.signView];
     

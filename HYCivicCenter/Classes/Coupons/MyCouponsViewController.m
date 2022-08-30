@@ -36,16 +36,21 @@ NSString *const couponCenterCell = @"couponCenter";
     
     MJRefreshAutoFooter *footer = [MJRefreshAutoFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
     self.tableView.mj_footer = footer;
+    
 }
 
 - (void)loadNewData {
+    
     self.currentPage = 1;
     [self loadDataWithPage:self.currentPage];
+    
 }
 
 - (void)loadMoreData {
+    
     self.currentPage ++;
     [self loadDataWithPage:self.currentPage];
+    
 }
 
 - (void)loadDataWithPage:(NSInteger)page {
@@ -70,6 +75,7 @@ NSString *const couponCenterCell = @"couponCenter";
 }
 
 - (void)configUI {
+    
     [self.view addSubview:self.tableView];
     [self.tableView registerClass:[CouponsCenterTableViewCell class] forCellReuseIdentifier:couponCenterCell];
     
@@ -81,7 +87,9 @@ NSString *const couponCenterCell = @"couponCenter";
 
 #pragma tableview
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
     return self.datasArr.count;
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -95,6 +103,9 @@ NSString *const couponCenterCell = @"couponCenter";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+//    MyCouponDetailViewController *detailVC = [[MyCouponDetailViewController alloc]init];
+//    [self.navigationController pushViewController:detailVC animated:YES];
     
 }
 
@@ -121,5 +132,15 @@ NSString *const couponCenterCell = @"couponCenter";
     return _datasArr;
     
 }
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
 
 @end

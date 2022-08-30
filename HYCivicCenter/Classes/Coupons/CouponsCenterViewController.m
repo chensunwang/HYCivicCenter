@@ -66,8 +66,8 @@ NSString *const couponCell = @"couponCell";
 
 - (void)loadDataWithPage:(NSInteger)page {
     
-    [HttpRequest postPath:@"phone/v1/coupon/getCouponListByType" params:@{@"couponType":self.couponType,@"pageSize":@"20",@"pageNum":@(page)} resultBlock:^(id  _Nullable responseObject, NSError * _Nullable error) {
-//        NSLog(@" 当前page == %ld ",(long)page);
+    [HttpRequest postPath:@"phone/v1/coupon/getCouponListByType" params:@{@"couponType":self.couponType,@"pageSize":@"20",@"pageNumber":@(page)} resultBlock:^(id  _Nullable responseObject, NSError * _Nullable error) {
+        
         if ([responseObject[@"code"] intValue] == 200) {
             if (self.currentPage == 1) {
                 [self.datasArr removeAllObjects];
@@ -78,7 +78,7 @@ NSString *const couponCell = @"couponCell";
             
         }
         
-//        NSLog(@" 当前优惠券  == %@ === %@",responseObject,self.couponType);
+        NSLog(@" 当前优惠券  == %@ === %@",responseObject,self.couponType);
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         
@@ -111,11 +111,11 @@ NSString *const couponCell = @"couponCell";
     
 }
 
-#pragma HYcouponDelegate
+#pragma HYCouponDelegate
 - (void)receiveCouponWithCell:(CouponsCenterTableViewCell *)cell withModel:(HYCouponModel *)model {
     
     [HttpRequest postPath:@"phone/v1/coupon/receiveCoupon" params:@{@"issueCode":model.issueCode} resultBlock:^(id  _Nullable responseObject, NSError * _Nullable error) {
-        NSLog(@" 领取== %@ ",responseObject);
+//        NSLog(@" 领取== %@ ",responseObject);
         [SVProgressHUD showWithStatus:@"正在领取"];
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
            // 需要延迟执行的代码

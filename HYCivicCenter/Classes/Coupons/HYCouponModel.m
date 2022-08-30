@@ -1,8 +1,8 @@
 //
 //  HYCouponModel.m
-//  HelloFrame
+//  SZSMFramework
 //
-//  Created by nuchina on 2021/9/28.
+//  Created by nuchina on 2021/9/29.
 //
 
 #import "HYCouponModel.h"

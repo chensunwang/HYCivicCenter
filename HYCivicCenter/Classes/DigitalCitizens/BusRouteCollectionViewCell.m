@@ -17,7 +17,7 @@
         
         self.carIV = [[UIImageView alloc]init];
         self.carIV.hidden = YES;
-        self.carIV.image = [UIImage imageNamed:@"busCar"];
+        self.carIV.image = [UIImage imageNamed:BundleFile(@"busCar")];
         [self.contentView addSubview:self.carIV];
         
         self.circleIV = [[UIImageView alloc]init];
@@ -42,41 +42,13 @@
     
 }
 
-- (void)setStationString:(NSString *)station withStationNum:(NSString *)stationNum withCurrentStation:(NSInteger)currentIndex totalStation:(NSInteger)total withBusInfoArr:(nonnull NSArray *)busInfoArr {
-    
-    self.circleIV.image = [UIImage imageNamed:@"circle2"];
-    self.routeIV.image = [UIImage imageNamed:@"route"];
-    self.stationLabel.verticalText = station;
-    
-    if (currentIndex == 0) {
-        self.circleIV.image = [UIImage imageNamed:@"circle1"];
-    }
-    
-    if (currentIndex == total - 1) {
-        self.circleIV.image = [UIImage imageNamed:@"circle1"];
-        self.routeIV.image = [UIImage imageNamed:@""];
-    }
-    
-//    __weak typeof(self) weakSelf = self;
-    [busInfoArr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-         
-        HYBusinfoModel *busInfoModel = obj;
-        if ([stationNum isEqualToString:@(abs(busInfoModel.stationNo.intValue)).stringValue]) {
-//            self.circleIV.image = [UIImage imageNamed:@"circle3"];
-            self.carIV.hidden = NO;
-        }
-        
-    }];
-    
-}
-
 - (void)currentIndex:(NSInteger)index totalStation:(NSInteger)total withBusInfoArr:(NSArray *)busInfoArr {
     
     if (index == 0) {
-        self.circleIV.image = [UIImage imageNamed:@"circle1"];
+        self.circleIV.image = [UIImage imageNamed:BundleFile(@"circle1")];
         self.routeIV.hidden = NO;
     }else if (index == total - 1) {
-        self.circleIV.image = [UIImage imageNamed:@"circle1"];
+        self.circleIV.image = [UIImage imageNamed:BundleFile(@"circle1")];
         self.routeIV.hidden = YES;
     }else {
         self.routeIV.hidden = NO;
@@ -89,12 +61,12 @@
     _stationModel = stationModel;
     
     if ([stationModel.currentBus isEqualToString:@"1"]) {
-        self.circleIV.image = [UIImage imageNamed:@"circle3"];
+        self.circleIV.image = [UIImage imageNamed:BundleFile(@"circle3")];
     }else {
-        self.circleIV.image = [UIImage imageNamed:@"circle2"];
+        self.circleIV.image = [UIImage imageNamed:BundleFile(@"circle2")];
     }
-//    self.circleIV.image = [UIImage imageNamed:@"circle2"];
-    self.routeIV.image = [UIImage imageNamed:@"route"];
+//    self.circleIV.image = [UIImage imageNamed:BundleFile(@"circle2")];
+    self.routeIV.image = [UIImage imageNamed:BundleFile(@"route")];
 //    self.stationNumLabel.text = stationModel.labelNo;
     self.stationLabel.verticalText = stationModel.stationName;
     self.carIV.hidden = [stationModel.stationHaveCar isEqualToString:@"1"]?NO:YES;

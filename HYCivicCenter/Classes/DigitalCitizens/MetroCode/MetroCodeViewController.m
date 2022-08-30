@@ -15,19 +15,9 @@
 #import "HYServiceCollectionViewCell.h"
 #import "HYServiceTableViewCell.h"
 #import "HYServiceClassifyModel.h"
-
-#import "HYMyServiceViewController.h" // 我的服务
-#import "HYServiceProgressViewController.h" // 进度查询
-#import "HYHotServiceViewController.h" // 热门服务
-#import "HYSpecialServiceViewController.h" // 专项服务
-#import "HYAreaServiceViewController.h" // 县区服务
-#import "HYGuessBusinessViewController.h"
-#import "HYHomeSearchViewController.h"
-#import "HYHandleAffairsViewController.h"
-#import "HYHandleAffairsViewController.h"
 #import "HYCivicCenterCommand.h"
 
-@interface MetroCodeViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface MetroCodeViewController () <UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) UICollectionView *collectionView;
@@ -75,12 +65,6 @@ NSString *const metroCell = @"metroCell";
         make.edges.mas_equalTo(UIEdgeInsetsZero);
     }];
     
-//    [self.view addSubview:self.collectionView];
-//    [self.collectionView registerClass:[HYServiceCollectionViewCell class] forCellWithReuseIdentifier:metroCell];
-//    [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.edges.mas_equalTo(UIEdgeInsetsZero);
-//    }];
-    
 }
 
 - (UIView *)headerView {
@@ -89,7 +73,7 @@ NSString *const metroCell = @"metroCell";
     contentView.backgroundColor = UIColorFromRGB(0xF5F5F5);
     
     UIImageView *bgIV = [[UIImageView alloc]initWithFrame:CGRectMake(0, -40, [UIScreen mainScreen].bounds.size.width, 145)];
-    bgIV.image = [UIImage imageNamed:@"businessBG"];
+    bgIV.image = [UIImage imageNamed:BundleFile(@"businessBG")];
     [contentView addSubview:bgIV];
     
     UIView *topView = [[UIView alloc]initWithFrame:CGRectMake(16, 16, [UIScreen mainScreen].bounds.size.width - 32, 358)];
@@ -109,7 +93,7 @@ NSString *const metroCell = @"metroCell";
     [topView addSubview:lineView];
     
     UIImageView *metroIV = [[UIImageView alloc]init];
-    metroIV.image = [UIImage imageNamed:@"metro"];
+    metroIV.image = [UIImage imageNamed:BundleFile(@"metro")];
     [topView addSubview:metroIV];
     
     UILabel *tipLabel = [[UILabel alloc]init];
@@ -194,6 +178,9 @@ NSString *const metroCell = @"metroCell";
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (indexPath.section == 0 ) {
+//        NSArray *arr;
+//        int a = arr.count % 2 == 0 ? arr.count / 2 : (arr.count + 1) / 2;
+        
         return 80;
     }
     return 160;
@@ -243,7 +230,7 @@ NSString *const metroCell = @"metroCell";
     
     NSArray *imagesArr = @[@"myService",@"currenService"];
     NSArray *namesArr = @[@"我的",@"可享服务"];
-    headerIV.image = [UIImage imageNamed:imagesArr[section]];
+    headerIV.image = [UIImage imageNamed:BundleFile(imagesArr[section])];
     nameLabel.text = namesArr[section];
     
     [headerIV mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -267,41 +254,74 @@ NSString *const metroCell = @"metroCell";
     
 }
 
+//- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    CGFloat cornerRadius = 8.f;
+//    // 设置cell的背景色为透明，如果不设置这个的话，则原来的背景色不会被覆盖
+//    cell.backgroundColor = UIColor.clearColor;
+//
+//    CAShapeLayer *layer = [[CAShapeLayer alloc] init];
+//    CGMutablePathRef pathRef = CGPathCreateMutable();
+//    CGRect bounds = CGRectInset(cell.bounds, 16, 0);
+//
+//    if (indexPath.row == 0) {
+//        CGPathMoveToPoint(pathRef, nil, CGRectGetMinX(bounds), CGRectGetMaxY(bounds));
+//        CGPathAddArcToPoint(pathRef, nil, CGRectGetMinX(bounds), CGRectGetMinY(bounds), CGRectGetMidX(bounds), CGRectGetMinY(bounds), cornerRadius);
+//        CGPathAddArcToPoint(pathRef, nil, CGRectGetMaxX(bounds), CGRectGetMinY(bounds), CGRectGetMaxX(bounds), CGRectGetMidY(bounds), cornerRadius);
+//        CGPathAddLineToPoint(pathRef, nil, CGRectGetMaxX(bounds), CGRectGetMaxY(bounds));
+//
+//    } else if (indexPath.row == [tableView numberOfRowsInSection:indexPath.section]-1) {
+//        // 初始起点为cell的左上角坐标
+//        CGPathMoveToPoint(pathRef, nil, CGRectGetMinX(bounds), CGRectGetMinY(bounds));
+//        CGPathAddArcToPoint(pathRef, nil, CGRectGetMinX(bounds), CGRectGetMaxY(bounds), CGRectGetMidX(bounds), CGRectGetMaxY(bounds), cornerRadius);
+//        CGPathAddArcToPoint(pathRef, nil, CGRectGetMaxX(bounds), CGRectGetMaxY(bounds), CGRectGetMaxX(bounds), CGRectGetMidY(bounds), cornerRadius);
+//        // 添加一条直线，终点坐标为右下角坐标点并放到路径中去
+//        CGPathAddLineToPoint(pathRef, nil, CGRectGetMaxX(bounds), CGRectGetMinY(bounds));
+//    } else {
+//        // 添加cell的rectangle信息到path中（不包括圆角）
+//        CGPathAddRect(pathRef, nil, bounds);
+//    }
+//    // 把已经绘制好的可变图像路径赋值给图层，然后图层根据这图像path进行图像渲染render
+//    layer.path = pathRef;
+//    // 注意：但凡通过Quartz2D中带有creat/copy/retain方法创建出来的值都必须要释放
+//    CFRelease(pathRef);
+//    // 按照shape layer的path填充颜色，类似于渲染render
+//    // layer.fillColor = [UIColor colorWithWhite:1.f alpha:0.8f].CGColor;
+//    layer.fillColor = [UIColor whiteColor].CGColor;
+//
+//    // view大小与cell一致
+//    UIView *roundView = [[UIView alloc] initWithFrame:bounds];
+//    // 添加自定义圆角后的图层到roundView中
+//    [roundView.layer insertSublayer:layer atIndex:0];
+//    roundView.backgroundColor = UIColor.clearColor;
+//    // cell的背景view
+//    cell.backgroundView = roundView;
+//
+//    // 以上方法存在缺陷当点击cell时还是出现cell方形效果，因此还需要添加以下方法
+//    // 如果你 cell 已经取消选中状态的话,那以下方法是不需要的.
+//    UIView *selectedBackgroundView = [[UIView alloc] initWithFrame:bounds];
+//    selectedBackgroundView.backgroundColor = UIColor.clearColor;
+//    cell.selectedBackgroundView = selectedBackgroundView;
+//
+//}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+//    if (indexPath.row == 0) {
+//
+//        MyBusinessCardController *cardVC = [[MyBusinessCardController alloc]init];
+//        [self.navigationController pushViewController:cardVC animated:YES];
+//
+//    } else if (indexPath.row == 1) {
+//
+//        HonorWallViewController *honorVC = [[HonorWallViewController alloc]init];
+//        [self.navigationController pushViewController:honorVC animated:YES];
+//
+//    }
+    
+}
+
 - (void)goMetroApp {
-    
-    // 办事首页
-    HYHandleAffairsViewController *handleVC = [[HYHandleAffairsViewController alloc] init];
-    [self.navigationController pushViewController:handleVC animated:YES];
-    
-    // 我的服务
-//    HYMyServiceViewController *myserviceVC = [[HYMyServiceViewController alloc]init];
-//    [self.navigationController pushViewController:myserviceVC animated:YES];
-    
-    // 进度查询
-//    HYServiceProgressViewController *serviceVC = [[HYServiceProgressViewController alloc]init];
-//    [self.navigationController pushViewController:serviceVC animated:YES];
-    
-    // 热门服务
-//    HYHotServiceViewController *hotServiceVC = [[HYHotServiceViewController alloc]init];
-//    [self.navigationController pushViewController:hotServiceVC animated:YES];
-    
-    // 专项服务
-//    HYSpecialServiceViewController *serviceVC = [[HYSpecialServiceViewController alloc]init];
-//    [self.navigationController pushViewController:serviceVC animated:YES];
-    
-    // 县区服务
-//    HYAreaServiceViewController *areaVC = [[HYAreaServiceViewController alloc]init];
-//    [self.navigationController pushViewController:areaVC animated:YES];
-    
-    // 猜你想办
-//    HYGuessBusinessViewController *guessVC = [[HYGuessBusinessViewController alloc]init];
-//    [self.navigationController pushViewController:guessVC animated:YES];
-    
-    // 搜索
-//    HYHomeSearchViewController *homeSearchVC = [[HYHomeSearchViewController alloc]init];
-//    [self.navigationController pushViewController:homeSearchVC animated:YES];
-    
-    return;
     
     [HttpRequest postPathPointParams:@{@"buriedPointType": @"moduleVisit",@"eventId": @"E0023",@"applicationId":@"H022"} resuleBlock:^(id  _Nullable responseObject, NSError * _Nullable error) {
         NSLog(@" 埋点 == %@ ",responseObject);

@@ -79,7 +79,7 @@
         make.left.top.right.equalTo(self);
         make.height.mas_equalTo(174 + kTopNavHeight);
     }];
-    self.headerImgV.image = [UIImage imageNamed:@"icon_gove_home"];
+    self.headerImgV.image = [UIImage imageNamed:BundleFile(@"icon_gove_home")];
     self.headerImgV.userInteractionEnabled = YES;
     
     [self.backBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -87,7 +87,7 @@
         make.top.mas_equalTo(kStatusBarHeight + 13);
         make.width.height.mas_equalTo(18);
     }];
-    [self.backBtn setImage:[UIImage imageNamed:@"naviBack"] forState:UIControlStateNormal];
+    [self.backBtn setImage:[UIImage imageNamed:BundleFile(@"naviBack")] forState:UIControlStateNormal];
     
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self);
@@ -121,7 +121,7 @@
         make.left.mas_equalTo(17);
         make.top.width.height.mas_equalTo(18);
     }];
-    self.trackImgV.image = [UIImage imageNamed:@"icon_gove_percent"];
+    self.trackImgV.image = [UIImage imageNamed:BundleFile(@"icon_gove_percent")];
     
     [self.trackLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.trackImgV.mas_right).offset(6);
@@ -136,7 +136,7 @@
     }];
     self.moreButton.titleLabel.font = MFONT(12);
     [self.moreButton setTitle:@"查看更多" forState:UIControlStateNormal];
-    [self.moreButton setImage:[UIImage imageNamed:@"icon_gov_more"] forState:UIControlStateNormal];
+    [self.moreButton setImage:[UIImage imageNamed:BundleFile(@"icon_gov_more")] forState:UIControlStateNormal];
     [self.moreButton setTitleEdgeInsets:UIEdgeInsetsMake(0, -17, 0, 17)];
     [self.moreButton setImageEdgeInsets:UIEdgeInsetsMake(0, 45, 0, -45)];
     
@@ -205,7 +205,7 @@
         make.width.mas_equalTo(70);
         make.height.mas_equalTo(60);
     }];
-    self.emptyImageView.image = [UIImage imageNamed:@"cardHolder"];
+    self.emptyImageView.image = [UIImage imageNamed:BundleFile(@"cardHolder")];
     
     [self.emptyLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.scheduleView);

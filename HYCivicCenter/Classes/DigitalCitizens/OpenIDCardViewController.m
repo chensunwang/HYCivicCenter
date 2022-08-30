@@ -8,6 +8,7 @@
 #import "OpenIDCardViewController.h"
 #import "HYAesUtil.h"
 #import "HYCivicCenterCommand.h"
+#import "UILabel+XFExtension.h"
 
 @interface OpenIDCardViewController ()
 
@@ -22,7 +23,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.title = @"开通网证";
+    self.navigationItem.titleView = [UILabel xf_labelWithText:@"开通网证"];
     
     self.view.backgroundColor = UIColorFromRGB(0xF5F5F5);
     
@@ -33,7 +34,7 @@
 - (void)configUI {
     
     UIImageView *bgIV = [[UIImageView alloc]init];
-    bgIV.image = [UIImage imageNamed:@"openCertiBg"];
+    bgIV.image = [UIImage imageNamed:BundleFile(@"openCertiBg")];
     [self.view addSubview:bgIV];
     
     UIView *contentView = [[UIView alloc]init];
@@ -79,23 +80,6 @@
     UIView *line2 = [[UIView alloc]init];
     line2.backgroundColor = UIColorFromRGB(0xF5F5F5);
     [contentView addSubview:line2];
-    
-//    UIButton *checkBtn = [[UIButton alloc]init];
-//    checkBtn.layer.borderWidth = 1;
-//    checkBtn.layer.borderColor = UIColorFromRGB(0x999999).CGColor;
-//    checkBtn.layer.cornerRadius = 2;
-//    checkBtn.clipsToBounds = YES;
-//    [checkBtn addTarget:self action:@selector(checkClicked:) forControlEvents:UIControlEventTouchUpInside];
-//    [contentView addSubview:checkBtn];
-//
-//    UILabel *agreeLabel = [[UILabel alloc] init];
-//    agreeLabel.numberOfLines = 0;
-//    [contentView addSubview:agreeLabel];
-//
-//    NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:@"登录即代表你同意《用户协议》和《隐私政策》" attributes:@{NSFontAttributeName: RFONT(11),NSForegroundColorAttributeName: UIColorFromRGB(0x999999)}];
-//    [string addAttributes:@{NSForegroundColorAttributeName: [UIColor colorWithRed:17/255.0 green:100/255.0 blue:255/255.0 alpha:1.0]} range:NSMakeRange(8, 6)];
-//    [string addAttributes:@{NSForegroundColorAttributeName: [UIColor colorWithRed:22/255.0 green:131/255.0 blue:255/255.0 alpha:1.0]} range:NSMakeRange(15, 6)];
-//    agreeLabel.attributedText = string;
     
     UIButton *submitBtn = [[UIButton alloc]init];
     [submitBtn setTitle:@"提交" forState:UIControlStateNormal];
@@ -167,7 +151,9 @@
 }
 
 - (void)checkClicked:(UIButton *)buton {
-        
+    
+    
+    
 }
 
 // 获取验证码
@@ -176,7 +162,7 @@
     NSString *phoneEncrypt = [[NSUserDefaults standardUserDefaults]objectForKey:@"HYPhoneEncrypt"];
     NSString *phone = [HYAesUtil aesDecrypt:phoneEncrypt];
     
-    [HttpRequest postPathGov:@"" params:@{@"uri": @"/apiFile/haiDunBase/sendSms",@"bsn":self.bsn?:@"",@"phone":phone?:@"",@"source":@"2"} resultBlock:^(id  _Nullable responseObject, NSError * _Nullable error) {
+    [HttpRequest postPathGov:@"" params:@{@"uri":@"/apiFile/haiDunBase/sendSms",@"bsn":self.bsn?:@"",@"phone":phone?:@"",@"source":@"2"} resultBlock:^(id  _Nullable responseObject, NSError * _Nullable error) {
             //304460
         if ([responseObject[@"success"] intValue] == 1) {
             [SVProgressHUD showWithStatus:@"获取验证码成功"];
@@ -192,7 +178,7 @@
                         [self.getCodeBtn setTitle:@"重新获取" forState:UIControlStateNormal];
                         self.getCodeBtn.userInteractionEnabled = YES;
                     });
-                } else {
+                }else {
                     int seconds = timeout % 60;
                     NSString *strTime = [NSString stringWithFormat:@"%.2d",seconds];
                     dispatch_async(dispatch_get_main_queue(), ^{
@@ -205,22 +191,40 @@
             });
             dispatch_resume(_timer);
             [SVProgressHUD dismiss];
-        } else if ([responseObject[@"success"] intValue] == 0) {
+        }else if ([responseObject[@"success"] intValue] == 0) {
+            
             [SVProgressHUD showWithStatus:responseObject[@"message"]];
             [SVProgressHUD dismissWithDelay:0.5];
+            
         }
+        
     }];
+    
 }
 
 // 提交/验证短信验证码
 - (void)submitClicked {
     
-    [HttpRequest postPathGov:@"" params:@{@"uri": @"/apiFile/haiDunBase/matcheCode", @"bsn": self.bsn ? : @"", @"phone": self.phone ? : @"", @"vcode": self.veriCodeTF.text, @"source": @"2"} resultBlock:^(id  _Nullable responseObject, NSError * _Nullable error) {
+    [HttpRequest postPathGov:@"" params:@{@"uri":@"/apiFile/haiDunBase/matcheCode",@"bsn":self.bsn?:@"",@"phone":self.phone?:@"",@"vcode":self.veriCodeTF.text,@"source":@"2"} resultBlock:^(id  _Nullable responseObject, NSError * _Nullable error) {
         
         if ([responseObject[@"success"] intValue] == 1) {
+            
             [self.navigationController popViewControllerAnimated:YES];
+            
         }
+        
     }];
+    
 }
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
 
 @end

@@ -9,6 +9,7 @@
 #import "HonorWallTableViewCell.h"
 #import "HYCivicCenterCommand.h"
 #import "UILabel+XFExtension.h"
+#import "UILabel+XFExtension.h"
 
 @interface HonorwallDetailViewController ()
 
@@ -90,7 +91,7 @@
     [contentView addSubview:self.timeLabel];
     
     self.deleteBtn = [[UIButton alloc]init];
-    [self.deleteBtn setImage:[UIImage imageNamed:@"delete"] forState:UIControlStateNormal];
+    [self.deleteBtn setImage:[UIImage imageNamed:BundleFile(@"delete")] forState:UIControlStateNormal];
     [self.deleteBtn addTarget:self action:@selector(deleteClicked) forControlEvents:UIControlEventTouchUpInside];
     [contentView addSubview:self.deleteBtn];
     
@@ -107,7 +108,6 @@
     self.photoOneIV.clipsToBounds = YES;
     self.photoOneIV.contentMode = UIViewContentModeScaleAspectFill;
     [contentView addSubview:self.photoOneIV];
-    
     
     self.photoTwoIV = [[UIImageView alloc]init];
     [self.photoTwoIV sd_setImageWithURL:[NSURL URLWithString:self.honorModel.honorPhotoTwo]];

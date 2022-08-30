@@ -9,6 +9,7 @@
 #import "BusinessCardTableViewCell.h"
 #import "CardDetailViewController.h"
 #import "HYCivicCenterCommand.h"
+#import "UILabel+XFExtension.h"
 
 @interface BusinessCardViewController () <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, CardDeleteDelegate>
 
@@ -27,14 +28,14 @@ NSString *const businessCardCell = @"cardCell";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.title = @"名片夹";
+//    self.title = @"";
+    self.navigationItem.titleView = [UILabel xf_labelWithText:@"名片夹"];
     
     [self configSearchView];
     
     [self configUI];
     
 //    [self loadData];
-    
     MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadData)];
     self.tableView.mj_header = header;
     [self.tableView.mj_header beginRefreshing];
@@ -114,7 +115,7 @@ NSString *const businessCardCell = @"cardCell";
     
     UIView *leftView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 36, 32)];
     UIImageView *searchIV = [[UIImageView alloc]initWithFrame:CGRectMake(15, 8, 16, 16)];
-    searchIV.image = [UIImage imageNamed:@"search"];
+    searchIV.image = [UIImage imageNamed:BundleFile(@"search")];
     [leftView addSubview:searchIV];
     
     UITextField *searchTF = [[UITextField alloc]init];
@@ -162,7 +163,7 @@ NSString *const businessCardCell = @"cardCell";
     }];
     
     self.holderIV = [[UIImageView alloc]init];
-    self.holderIV.image = [UIImage imageNamed:@"cardHolder"];
+    self.holderIV.image = [UIImage imageNamed:BundleFile(@"cardHolder")];
     [self.view addSubview:self.holderIV];
     
     self.holderLabel = [[UILabel alloc]init];
@@ -243,9 +244,8 @@ NSString *const businessCardCell = @"cardCell";
     
     BusinessCardModel *model = self.datasArr[indexPath.section][indexPath.row];
     CardDetailViewController *cardVC = [[CardDetailViewController alloc]init];
-    cardVC.delegate = self;
     cardVC.cardID = model.uuid;
-    
+    cardVC.delegate = self;
     [self.navigationController pushViewController:cardVC animated:YES];
     
 }
@@ -258,7 +258,7 @@ NSString *const businessCardCell = @"cardCell";
     
 }
 
-#pragma cardDelegate
+#pragma cardDeleteDelegate
 - (void)cardReload {
     
     [self loadData];

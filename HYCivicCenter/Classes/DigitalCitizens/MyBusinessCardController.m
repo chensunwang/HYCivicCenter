@@ -18,8 +18,9 @@
 #import "WXApiObject.h"
 #import "HYCivicCenterCommand.h"
 #import "UILabel+XFExtension.h"
+#import "UILabel+XFExtension.h"
 
-@interface MyBusinessCardController () <UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,EditDelegate>
+@interface MyBusinessCardController() <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, EditDelegate>
 
 @property (nonatomic, strong) UIView *topView;
 @property (nonatomic, strong) UILabel *companyLabel;
@@ -46,8 +47,8 @@ NSString *const mycardCell = @"mycardCell";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-//    self.title = @"我的名片";
     self.navigationItem.titleView = [UILabel xf_labelWithText:@"我的名片"];
+    
     self.view.backgroundColor = UIColorFromRGB(0xF5F5F5);
     
     [self configNavi];
@@ -68,7 +69,7 @@ NSString *const mycardCell = @"mycardCell";
             NSDictionary *dataDic = responseObject[@"data"];
             self.companyLabel.text = dataDic[@"companyName"]?dataDic[@"companyName"]:@"";
 //            self.headerIV.backgroundColor = [UIColor redColor];
-            [self.headerIV sd_setImageWithURL:[NSURL URLWithString:self.cardModel.headPhoto] placeholderImage:[UIImage imageNamed:@"touxiang"]];
+            [self.headerIV sd_setImageWithURL:[NSURL URLWithString:self.cardModel.headPhoto] placeholderImage:[UIImage imageNamed:BundleFile(@"touxiang")]];
             self.nameLabel.text = dataDic[@"name"];
             self.jobLabel.text = dataDic[@"duty"];
             self.phoneLabel.text = dataDic[@"phone"];
@@ -91,9 +92,11 @@ NSString *const mycardCell = @"mycardCell";
     [rightbutton addTarget:self action:@selector(scanClicked:) forControlEvents:UIControlEventTouchUpInside];
     [rightbutton setTitle:@"扫一扫" forState:UIControlStateNormal];
     [rightbutton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [rightbutton setImage:[UIImage imageNamed:@"scan"] forState:UIControlStateNormal];
+    [rightbutton setImage:[UIImage imageNamed:BundleFile(@"scan")] forState:UIControlStateNormal];
     rightbutton.titleLabel.font = RFONT(15);
     rightbutton.frame = CGRectMake(0 , 0, 80, 44);
+//    [rightbutton setTitleEdgeInsets:UIEdgeInsetsMake(0, -rightbutton.imageView.frame.size.width, 0, rightbutton.imageView.frame.size.width)];
+//    [rightbutton setImageEdgeInsets:UIEdgeInsetsMake(0, rightbutton.titleLabel.bounds.size.width + 10, 0, - rightbutton.titleLabel.bounds.size.width)];
     
     UIBarButtonItem *rightItem =[[UIBarButtonItem alloc] initWithCustomView:rightbutton];
 
@@ -111,11 +114,11 @@ NSString *const mycardCell = @"mycardCell";
     [self.view addSubview:self.topView];
     
     UIImageView *bgIV = [[UIImageView alloc]init];
-    bgIV.image = [UIImage imageNamed:@"businessBG"];
+    bgIV.image = [UIImage imageNamed:BundleFile(@"businessBG")];
     [self.topView addSubview:bgIV];
     
     UIImageView *contentIV = [[UIImageView alloc]init];
-    contentIV.image = [UIImage imageNamed:@"busiContent"];
+    contentIV.image = [UIImage imageNamed:BundleFile(@"busiContent")];
     contentIV.userInteractionEnabled = YES;
     [self.topView addSubview:contentIV];
     
@@ -137,7 +140,7 @@ NSString *const mycardCell = @"mycardCell";
     self.headerIV = [[UIImageView alloc]init];
     self.headerIV.layer.cornerRadius = 8;
     self.headerIV.clipsToBounds = YES;
-    self.headerIV.image = [UIImage imageNamed:@"touxiang"];
+    self.headerIV.image = [UIImage imageNamed:BundleFile(@"touxiang")];
     [contentIV addSubview:self.headerIV];
     
     self.phoneLabel = [[UILabel alloc]init];
@@ -167,7 +170,7 @@ NSString *const mycardCell = @"mycardCell";
         [button setTitle:titlesArr[i] forState:UIControlStateNormal];
         [button setTitleColor:UIColorFromRGB(0x333333) forState:UIControlStateNormal];
         button.titleLabel.font = RFONT(12);
-        [button setImage:[UIImage imageNamed:imagesArr[i]] forState:UIControlStateNormal];
+        [button setImage:[UIImage imageNamed:BundleFile(imagesArr[i])] forState:UIControlStateNormal];
         button.tag = 100 + i;
         [button addTarget:self action:@selector(cardClicked:) forControlEvents:UIControlEventTouchUpInside];
         button.frame = CGRectMake(35 + (padding + 60) * i, 7, 60, 70);
@@ -189,7 +192,7 @@ NSString *const mycardCell = @"mycardCell";
     [cardCodeView addSubview:showCodeLabel];
     
     UIImageView *codeIV = [[UIImageView alloc]init];
-    codeIV.image = [UIImage imageNamed:@"cardCode"];
+    codeIV.image = [UIImage imageNamed:BundleFile(@"cardCode")];
     [cardCodeView addSubview:codeIV];
     
     UIView *dataView = [[UIView alloc]init];
@@ -331,6 +334,7 @@ NSString *const mycardCell = @"mycardCell";
         [HttpRequest postPathPointParams:@{@"buriedPointType": @"moduleVisit",@"eventId": @"E0061",@"applicationId":@"H020"} resuleBlock:^(id  _Nullable responseObject, NSError * _Nullable error) {
             NSLog(@" 埋点 == %@ ",responseObject);
         }];
+        
         if (self.uuid.length == 0) {
             return;
         }
@@ -352,117 +356,15 @@ NSString *const mycardCell = @"mycardCell";
                 
             }
         }];
-//        SendMessageToWXReq *sendReq = [[SendMessageToWXReq alloc]init];
-//        sendReq.scene = WXSceneSession;
-//        sendReq.bText = NO;
-//        WXMediaMessage *mediaMessage = [WXMediaMessage message];
-//        WXImageObject *imageObject = [[WXImageObject alloc]init];
-//        NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:self.cardModel.qrCodeUrl]];
-//        imageObject.imageData = data;
-//        mediaMessage.mediaObject = imageObject;
-//        sendReq.message = mediaMessage;
-//        [WXApi sendReq:sendReq completion:nil];
         
     }
     
-}
-
-#pragma mark - 压缩图片
-- (UIImage *)compressImage:(UIImage *)image toByte:(NSUInteger)maxLength {
-    // Compress by quality
-    CGFloat compression = 1;
-    NSData *data = UIImageJPEGRepresentation(image, compression);
-    if (data.length < maxLength) return image;
-    
-    CGFloat max = 1;
-    CGFloat min = 0;
-    for (int i = 0; i < 6; ++i) {
-        compression = (max + min) / 2;
-        data = UIImageJPEGRepresentation(image, compression);
-        if (data.length < maxLength * 0.9) {
-            min = compression;
-        } else if (data.length > maxLength) {
-            max = compression;
-        } else {
-            break;
-        }
-    }
-    UIImage *resultImage = [UIImage imageWithData:data];
-    if (data.length < maxLength) return resultImage;
-    
-    // Compress by size
-    NSUInteger lastDataLength = 0;
-    while (data.length > maxLength && data.length != lastDataLength) {
-        lastDataLength = data.length;
-        CGFloat ratio = (CGFloat)maxLength / data.length;
-        CGSize size = CGSizeMake((NSUInteger)(resultImage.size.width * sqrtf(ratio)),
-                                 (NSUInteger)(resultImage.size.height * sqrtf(ratio))); // Use NSUInteger to prevent white blank
-        UIGraphicsBeginImageContext(size);
-        [resultImage drawInRect:CGRectMake(0, 0, size.width, size.height)];
-        resultImage = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
-        data = UIImageJPEGRepresentation(resultImage, compression);
-    }
-    
-    return resultImage;
 }
 
 #pragma EditDelegate
 - (void)editCardReload {
     
     [self loadData];
-    
-}
-
-- (UIImage *)createQRCodeWithCodeStr:(NSString *)codeStr {
-    
-    //1.生成coreImage框架中的滤镜来生产二维码
-    CIFilter *filter=[CIFilter filterWithName:@"CIQRCodeGenerator"];
-    [filter setDefaults];
-    
-//    NSString *str = codeStr;
-    [filter setValue:[codeStr dataUsingEncoding:NSUTF8StringEncoding] forKey:@"inputMessage"];
-    //4.获取生成的图片
-    CIImage *ciImg= filter.outputImage;
-    //放大ciImg,默认生产的图片很小
-    
-    //5.设置二维码的前景色和背景颜色
-    CIFilter *colorFilter=[CIFilter filterWithName:@"CIFalseColor"];
-    //5.1设置默认值
-    [colorFilter setDefaults];
-    [colorFilter setValue:ciImg forKey:@"inputImage"];
-    [colorFilter setValue:[CIColor colorWithRed:0 green:0 blue:0] forKey:@"inputColor0"];
-    [colorFilter setValue:[CIColor colorWithRed:1 green:1 blue:1] forKey:@"inputColor1"];
-    //5.3获取生存的图片
-    ciImg = colorFilter.outputImage;
-    
-    CGAffineTransform scale=CGAffineTransformMakeScale(10, 10);
-    ciImg = [ciImg imageByApplyingTransform:scale];
-    
-    //6.在中心增加一张图片
-    UIImage *img=[UIImage imageWithCIImage:ciImg];
-    //7.生存图片
-    //7.1开启图形上下文
-    UIGraphicsBeginImageContext(img.size);
-    
-    [img drawInRect:CGRectMake(0, 0, img.size.width, img.size.height)];
-    //7.3在中心划入其他图片
-    
-//    UIImage *centerImg = [UIImage imageNamed:@"citizenBg"];
-//
-//    CGFloat centerW = 36;
-//    CGFloat centerH = 36;
-//    CGFloat centerX = (img.size.width)*0.5;
-//    CGFloat centerY = (img.size.height)*0.5;
-//
-//    [centerImg drawInRect:CGRectMake(centerX - 18, centerY - 18, centerW, centerH)];
-    
-    //7.4获取绘制好的图片
-    UIImage *finalImg=UIGraphicsGetImageFromCurrentImageContext();
-    
-    //7.5关闭图像上下文
-    UIGraphicsEndImageContext();
-    return finalImg;
     
 }
 

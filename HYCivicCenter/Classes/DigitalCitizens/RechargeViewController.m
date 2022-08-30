@@ -10,6 +10,7 @@
 #import "RechargeResultController.h"
 #import <AlipaySDK/AlipaySDK.h>
 #import "HYCivicCenterCommand.h"
+#import "UILabel+XFExtension.h"
 
 @interface RechargeViewController () <UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,RechargeDelegate>
 
@@ -30,7 +31,8 @@ NSString *const rechargeCell = @"rechargeCell";
     // Do any additional setup after loading the view.
     
     self.view.backgroundColor = UIColorFromRGB(0xF5F5F5);
-    self.title = @"我的余额";
+    
+    self.navigationItem.titleView = [UILabel xf_labelWithText:@"我的余额"];
     
     [self configUI];
     
@@ -105,7 +107,7 @@ NSString *const rechargeCell = @"rechargeCell";
 - (void)configUI {
     
     UIImageView *bgIV = [[UIImageView alloc]init];
-    bgIV.image = [UIImage imageNamed:@"balanceBg"];
+    bgIV.image = [UIImage imageNamed:BundleFile(@"balanceBg")];
     [self.view addSubview:bgIV];
     
     UIView *balanceView = [[UIView alloc]init];
@@ -127,7 +129,7 @@ NSString *const rechargeCell = @"rechargeCell";
     [balanceView addSubview:self.moneyLabel];
     
     UIImageView *balanceIV = [[UIImageView alloc]init];
-    balanceIV.image = [UIImage imageNamed:@"money"];
+    balanceIV.image = [UIImage imageNamed:BundleFile(@"money")];
     [balanceView addSubview:balanceIV];
     
     UIView *rechargeView = [[UIView alloc]init];
@@ -186,6 +188,7 @@ NSString *const rechargeCell = @"rechargeCell";
     
     [self.moneyLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(balanceView.mas_left).offset(25);
+//        make.bottom.equalTo(balanceView.mas_bottom).offset(-28);
         make.top.equalTo(balanceLabel.mas_bottom).offset(18);
     }];
     
@@ -273,7 +276,7 @@ NSString *const rechargeCell = @"rechargeCell";
         if ([responseObject[@"success"] intValue] == 1) {
             self.orderNo = responseObject[@"data"][@"orderNo"];
             dispatch_async(dispatch_get_main_queue(), ^{
-                [[AlipaySDK defaultService]payOrder:responseObject[@"data"][@"orderInfo"][@"ali_order_info"] fromScheme:@"nccb" callback:nil];
+                [[AlipaySDK defaultService]payOrder:responseObject[@"data"][@"orderInfo"][@"ali_order_info"] fromScheme:@"nccsdnali" callback:nil];
             });
         }
     }];

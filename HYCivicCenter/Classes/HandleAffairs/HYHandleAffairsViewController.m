@@ -25,6 +25,7 @@
 #import "HYRealNameAlertView.h"
 #import "HYCivicCenterCommand.h"
 #import "UILabel+XFExtension.h"
+#import "UILabel+XFExtension.h"
 
 @interface HYHandleAffairsViewController ()<UITableViewDelegate, UITableViewDataSource, FaceResultDelegate, UITextFieldDelegate>
 

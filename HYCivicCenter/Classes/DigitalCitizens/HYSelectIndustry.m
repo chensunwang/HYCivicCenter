@@ -111,7 +111,7 @@
 
 - (void)setDatasArr:(NSArray *)datasArr {
     _datasArr = datasArr;
-//    NSLog(@" 行业数组== %@ ",datasArr);
+    NSLog(@" 行业数组== %@ ",datasArr);
     [self pickerView:self.pickerView didSelectRow:0 inComponent:0];
     [self.pickerView reloadAllComponents];
     

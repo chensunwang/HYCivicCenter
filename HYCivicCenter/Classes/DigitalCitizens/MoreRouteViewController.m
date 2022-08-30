@@ -9,6 +9,7 @@
 #import "SearchStationTableViewCell.h"
 #import "BusRouteViewController.h"
 #import "HYCivicCenterCommand.h"
+#import "UILabel+XFExtension.h"
 
 @interface MoreRouteViewController () <UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate>
 
@@ -27,7 +28,8 @@ NSString *const moreRouteCell = @"moreRouteCell";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.title = @"线路";
+//    self.title = @"线路";
+    self.navigationItem.titleView = [UILabel xf_labelWithText:@"线路"];
     
     self.view.backgroundColor = UIColorFromRGB(0xF5F5F5);
     
@@ -100,7 +102,7 @@ NSString *const moreRouteCell = @"moreRouteCell";
     
     UIView *leftView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 36, 32)];
     UIImageView *searchIV = [[UIImageView alloc]initWithFrame:CGRectMake(15, 8, 16, 16)];
-    searchIV.image = [UIImage imageNamed:@"search"];
+    searchIV.image = [UIImage imageNamed:BundleFile(@"search")];
     [leftView addSubview:searchIV];
     
     UITextField *searchTF = [[UITextField alloc]init];

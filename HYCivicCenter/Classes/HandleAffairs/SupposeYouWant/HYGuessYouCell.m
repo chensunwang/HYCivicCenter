@@ -69,7 +69,7 @@
         make.height.mas_equalTo(61);
     }];
     self.business1.tag = 1111;
-    [self.business1 setImage:[UIImage imageNamed:@"guess01"] forState:UIControlStateNormal];
+    [self.business1 setImage:[UIImage imageNamed:BundleFile(@"guess01")] forState:UIControlStateNormal];
     [self.business1 addTarget:self action:@selector(businessBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     
     self.business2 = [[UIButton alloc] initWithFrame:CGRectZero];
@@ -79,7 +79,7 @@
         make.bottom.width.height.equalTo(self.business1);
     }];
     self.business2.tag = 1112;
-    [self.business2 setImage:[UIImage imageNamed:@"guess02"] forState:UIControlStateNormal];
+    [self.business2 setImage:[UIImage imageNamed:BundleFile(@"guess02")] forState:UIControlStateNormal];
     [self.business2 addTarget:self action:@selector(businessBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     
     self.business3 = [[UIButton alloc] initWithFrame:CGRectZero];
@@ -89,7 +89,7 @@
         make.bottom.width.height.equalTo(self.business1);
     }];
     self.business3.tag = 1113;
-    [self.business3 setImage:[UIImage imageNamed:@"guess03"] forState:UIControlStateNormal];
+    [self.business3 setImage:[UIImage imageNamed:BundleFile(@"guess03")] forState:UIControlStateNormal];
     [self.business3 addTarget:self action:@selector(businessBtnClick:) forControlEvents:UIControlEventTouchUpInside];
 }
 

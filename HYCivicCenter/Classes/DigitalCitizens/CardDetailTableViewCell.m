@@ -123,7 +123,6 @@
 - (void)reproduceClicked:(UIButton *)button {
     
     NSString *string = [HYAesUtil aesDecrypt:self.cardModel.emailEncrypt];
-    NSLog(@"解密邮箱== %@",string);
     
     UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
     pasteboard.string = string;

@@ -13,6 +13,7 @@
 #import "MoreRouteViewController.h"
 #import "RealTimeBusViewController.h"
 #import "HYCivicCenterCommand.h"
+#import "UILabel+XFExtension.h"
 
 @interface SearchStationViewController () <UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate>
 
@@ -35,7 +36,8 @@ NSString *const searchStationCell = @"searchStationCell";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.title = @"搜索";
+//    self.title = @"搜索";
+    self.navigationItem.titleView = [UILabel xf_labelWithText:@"搜索"];
     
     self.view.backgroundColor = UIColorFromRGB(0xF5F5F5);
     
@@ -49,7 +51,7 @@ NSString *const searchStationCell = @"searchStationCell";
 
 - (void)pointData {
     
-    [HttpRequest postPathPointParams:@{@"buriedPointType": @"moduleVisit", @"eventId": @"E0064", @"applicationId": @"H025"} resuleBlock:^(id  _Nullable responseObject, NSError * _Nullable error) {
+    [HttpRequest postPathPointParams:@{@"buriedPointType": @"moduleVisit",@"eventId": @"E0064",@"applicationId":@"H025"} resuleBlock:^(id  _Nullable responseObject, NSError * _Nullable error) {
         NSLog(@" 埋点 == %@ ",responseObject);
     }];
     
@@ -57,13 +59,14 @@ NSString *const searchStationCell = @"searchStationCell";
 
 - (void)loadDataWithKeyword:(NSString *)keyword {
     
-    [HttpRequest getPath:@"/phone/v2/bus/searchBus" params:@{@"keyword": keyword, @"pageNum": @"1", @"pageSize": @"3"} resultBlock:^(id  _Nullable responseObject, NSError * _Nullable error) {
+    [HttpRequest getPath:@"/phone/v2/bus/searchBus" params:@{@"keyword":keyword,@"pageNum":@"1",@"pageSize":@"3"} resultBlock:^(id  _Nullable responseObject, NSError * _Nullable error) {
         SLog(@" 搜索线路或站点 == %@ ",responseObject);
         
         if ([responseObject[@"code"] intValue] == 200) {
             self.holderIV.hidden = YES;
             self.linesArr = [HYSearchLineModel mj_objectArrayWithKeyValuesArray: responseObject[@"data"][@"line"][@"records"]];
             self.stationsArr = [HYSearchStationModel mj_objectArrayWithKeyValuesArray: responseObject[@"data"][@"stationList"][@"records"]];
+            
             if (self.linesArr.count == 0 && self.stationsArr.count == 0) {
                 self.noResultIV.hidden = NO;
                 self.noresultLabel.hidden = NO;
@@ -85,11 +88,11 @@ NSString *const searchStationCell = @"searchStationCell";
     [self.view addSubview:self.tableView];
     
     self.holderIV = [[UIImageView alloc]init];
-    self.holderIV.image = [UIImage imageNamed:@"searchBusHolder"];
+    self.holderIV.image = [UIImage imageNamed:BundleFile(@"searchBusHolder")];
     [self.view addSubview:self.holderIV];
     
     self.noResultIV = [[UIImageView alloc]init];
-    self.noResultIV.image = [UIImage imageNamed:@"searchNoResult"];
+    self.noResultIV.image = [UIImage imageNamed:BundleFile(@"searchNoResult")];
     self.noResultIV.hidden = YES;
     [self.view addSubview:self.noResultIV];
     
@@ -123,7 +126,6 @@ NSString *const searchStationCell = @"searchStationCell";
         make.top.equalTo(self.noResultIV.mas_bottom).offset(20);
     }];
     
-    
 }
 
 - (void)configSearchView {
@@ -134,7 +136,7 @@ NSString *const searchStationCell = @"searchStationCell";
     
     UIView *leftView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 36, 32)];
     UIImageView *searchIV = [[UIImageView alloc]initWithFrame:CGRectMake(15, 8, 16, 16)];
-    searchIV.image = [UIImage imageNamed:@"search"];
+    searchIV.image = [UIImage imageNamed:BundleFile(@"search")];
     [leftView addSubview:searchIV];
     
     UITextField *searchTF = [[UITextField alloc]init];
@@ -231,7 +233,6 @@ NSString *const searchStationCell = @"searchStationCell";
         HYSearchLineModel *lineModel = self.linesArr[indexPath.row];
         routeVC.lineNo = lineModel.lineNo;
         routeVC.isUpDown = lineModel.isUpDown?:@"1";
-//        routeVC.stationName = self.keyword;
         [self.navigationController pushViewController:routeVC animated:YES];
         
     }else if (indexPath.section == 1) {
@@ -294,7 +295,7 @@ NSString *const searchStationCell = @"searchStationCell";
     [moreBtn addSubview:nameLabel];
     
     UIImageView *moreIV = [[UIImageView alloc]init];
-    moreIV.image = [UIImage imageNamed:@"moreIndicator"];
+    moreIV.image = [UIImage imageNamed:BundleFile(@"moreIndicator")];
     [moreBtn addSubview:moreIV];
     
     [moreBtn mas_makeConstraints:^(MASConstraintMaker *make) {

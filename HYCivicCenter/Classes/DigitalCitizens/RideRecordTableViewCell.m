@@ -72,7 +72,7 @@
         self.payTimeLabel.font = RFONT(13);
         [self.bgView addSubview:self.payTimeLabel];
      
-        self.headerIV.image = [UIImage imageNamed:@"ride"];
+        self.headerIV.image = [UIImage imageNamed:BundleFile(@"ride")];
         self.nameLabel.text = @"公交";
         self.rideTimeLabel.text = @"乘车时间：2021-07-10 19:39:18 ~ 19:55:16";
         self.payTimeLabel.text = @"支付时间：2021-07-10 19:55:17";

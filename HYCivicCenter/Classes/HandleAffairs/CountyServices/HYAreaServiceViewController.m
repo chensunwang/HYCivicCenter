@@ -12,6 +12,7 @@
 #import "HYEmptyView.h"
 #import "HYCivicCenterCommand.h"
 #import "UILabel+XFExtension.h"
+#import "UILabel+XFExtension.h"
 
 @interface HYAreaServiceViewController () <UITableViewDelegate, UITableViewDataSource>
 

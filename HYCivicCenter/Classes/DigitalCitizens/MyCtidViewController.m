@@ -8,6 +8,8 @@
 #import "MyCtidViewController.h"
 #import "FaceTipViewController.h"
 #import "HYCivicCenterCommand.h"
+#import "UILabel+XFExtension.h"
+#import "OpenIDCardViewController.h"
 
 @interface MyCtidViewController () <FaceResultDelegate>
 
@@ -33,7 +35,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.title = @"我的CTID";
+    self.navigationItem.titleView = [UILabel xf_labelWithText:@"我的CTID"];
+    
     self.view.backgroundColor = UIColorFromRGB(0xF5F5F5);
     
     [self configUI];
@@ -42,7 +45,7 @@
 
 - (void)configUI {
     
-    NSString *CTID = [[NSUserDefaults standardUserDefaults] objectForKey:@"CTID"];
+    NSString *CTID = [[NSUserDefaults standardUserDefaults]objectForKey:@"CTID"];
     CtidVerifySdk *ctidVerifyTool = [[CtidVerifySdk alloc]init];
     NSDictionary *dict = [ctidVerifyTool getCtidNum:CTID];
     
@@ -59,11 +62,11 @@
     [contentView addSubview:nameLabel];
     
     UIImageView *cardBgIV = [[UIImageView alloc]init];
-    cardBgIV.image = [UIImage imageNamed:@"netCardBg"];
+    cardBgIV.image = [UIImage imageNamed:BundleFile(@"netCardBg")];
     [contentView addSubview:cardBgIV];
     
     UIImageView *headerIV = [[UIImageView alloc]init];
-    headerIV.image = [UIImage imageNamed:@"netCerti"];
+    headerIV.image = [UIImage imageNamed:BundleFile(@"netCerti")];
     [cardBgIV addSubview:headerIV];
     
     UILabel *cardNameLabel = [[UILabel alloc]init];
@@ -139,17 +142,13 @@
         codeIV.image = imageView.image;
     }
     
-//    UIImageView *mainIV = [[UIImageView alloc]init];
-//    mainIV.image = [UIImage imageNamed:@"citizenBg"];
-//    [codeIV addSubview:mainIV];
-    
     self.maskView = [[UIView alloc]init];
 //    self.maskView.backgroundColor = [UIColor whiteColor];
     self.maskView.hidden = api.isShow;
     [codeView addSubview:self.maskView];
     
     UIImageView *citizenIV = [[UIImageView alloc]init];
-    citizenIV.image = [UIImage imageNamed:@"citizenBg"];
+    citizenIV.image = [UIImage imageNamed:BundleFile(@"citizenBg")];
     [self.maskView addSubview:citizenIV];
     
     UIButton *downloadBtn = [[UIButton alloc]init];
@@ -274,10 +273,12 @@
             ctidVerifyTool.resultDictBlock = ^(NSDictionary *resultDict) {
                 NSLog(@" 获取身份认证数据== %@ ",resultDict);
                 if ([resultDict[@"resultCode"] intValue] == 0) {
+        //            resultDict[@"resultInfo"]
                     self.idcardAuthInfo = resultDict[@"resultInfo"];
                 }
             };
             [ctidVerifyTool getAuthIDCardData:req];
+//            [self faceColor];
             [self faceScan];
         }
     }];
@@ -287,6 +288,7 @@
 - (void)faceScan {
     
     FaceTipViewController *faceTipVC = [[FaceTipViewController alloc]init];
+//        faceTipVC.type = 1;
     faceTipVC.delegate = self;
     [self.navigationController pushViewController:faceTipVC animated:YES];
     
@@ -309,7 +311,11 @@
         }else if ([responseObject[@"code"] intValue] == 500) {
             // 跳转开通网证
             
-            
+            NSString *phone = [[NSUserDefaults standardUserDefaults]objectForKey:@"HYPhone"];
+            OpenIDCardViewController *idcardVC = [[OpenIDCardViewController alloc]init];
+            idcardVC.bsn = self.bsn;
+            idcardVC.phone = phone;
+            [self.navigationController pushViewController:idcardVC animated:YES];
             
         }
         

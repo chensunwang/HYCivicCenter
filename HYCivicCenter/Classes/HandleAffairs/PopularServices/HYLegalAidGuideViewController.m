@@ -11,6 +11,7 @@
 #import <objc/runtime.h>
 #import "HYCivicCenterCommand.h"
 #import "UILabel+XFExtension.h"
+#import "UILabel+XFExtension.h"
 
 char * const buttonKey = "buttonKey";
 
@@ -105,7 +106,7 @@ NSString *const legalAidCell = @"legalCell";
     ExpandModel *model = self.datasArr[section];
     if ([@(model.type).stringValue isEqualToString:@"1"]) {
         UIImageView *_imgView = [[UIImageView alloc]initWithFrame:CGRectMake(self.view.frame.size.width-30, (44-6)/2, 10, 6)];
-        _imgView.image = [UIImage imageNamed:@"ico_listdown"];
+        _imgView.image = [UIImage imageNamed:BundleFile(@"ico_listdown")];
         [button addSubview:_imgView];
         CGAffineTransform currentTransform = _imgView.transform;
         CGAffineTransform newTransform = CGAffineTransformRotate(currentTransform, M_PI);
@@ -113,7 +114,7 @@ NSString *const legalAidCell = @"legalCell";
         objc_setAssociatedObject(button, buttonKey, _imgView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }else if ([@(model.type).stringValue isEqualToString:@"0"]) {
         UIImageView *_imgView = [[UIImageView alloc]initWithFrame:CGRectMake(self.view.frame.size.width-30, (44-6)/2, 10, 6)];
-        _imgView.image = [UIImage imageNamed:@"ico_listup"];
+        _imgView.image = [UIImage imageNamed:BundleFile(@"ico_listup")];
         [button addSubview:_imgView];
         objc_setAssociatedObject(button, buttonKey, _imgView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }

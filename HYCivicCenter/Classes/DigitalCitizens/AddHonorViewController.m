@@ -8,6 +8,7 @@
 #import "AddHonorViewController.h"
 #import "AddHonorCollectionViewCell.h"
 #import "HYCivicCenterCommand.h"
+#import "UILabel+XFExtension.h"
 
 @interface AddHonorViewController () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, TZImagePickerControllerDelegate>
 
@@ -30,7 +31,9 @@ NSString *const honorPhotoCell = @"honorCell";
     // Do any additional setup after loading the view.
     
     self.view.backgroundColor = UIColorFromRGB(0xF5F5F5);
-    self.title = @"新增荣誉";
+    
+    self.navigationItem.titleView = [UILabel xf_labelWithText:@"新增荣誉"];
+    
     [self configUI];
     
 }
@@ -268,6 +271,7 @@ NSString *const honorPhotoCell = @"honorCell";
         return 3;
     }
 //    return MAX(1, self.photosArr.count);
+    
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {

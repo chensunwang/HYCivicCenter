@@ -47,7 +47,7 @@
         [self.containView addSubview:self.busNumLabel];
         
         self.terminalIV = [[UIImageView alloc]init];
-        self.terminalIV.image = [UIImage imageNamed:@"terminal"];
+        self.terminalIV.image = [UIImage imageNamed:BundleFile(@"terminal")];
         [self.containView addSubview:self.terminalIV];
         
         self.terminalLabel = [[UILabel alloc]init];
@@ -77,6 +77,12 @@
         self.comingStationLabel.hidden = YES;
         [self.containView addSubview:self.comingStationLabel];
         
+//        self.waitLabel = [[UILabel alloc]init];
+//        self.waitLabel.font = RFONT(17);
+//        self.waitLabel.textColor = UIColorFromRGB(0xFF8F1F);
+//        self.waitLabel.text = @"等待发车";
+//        [self.containView addSubview:self.waitLabel];
+        
     }
     return self;
     
@@ -97,6 +103,9 @@
         [string addAttributes:@{NSFontAttributeName: RFONT(14)} range:NSMakeRange(busInfoModel.currentBusMinute.length, 2)];
         self.timeLabel.attributedText = string;
     }
+//    self.nextTimeLabel.text = [NSString stringWithFormat:@"下一站 %@",busInfoModel.nextStation.stationName];
+    
+    
 }
 
 - (void)setNextTime:(NSString *)nextTime {
@@ -148,6 +157,13 @@
         make.right.equalTo(self.containView.mas_right).offset(-16);
         make.top.equalTo(self.containView.mas_top).offset(9);
     }];
+    
+//    [self.waitLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.right.equalTo(self.containView.mas_right).offset(-16);
+//        make.centerY.equalTo(self.containView.mas_centerY);
+//    }];
+    
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

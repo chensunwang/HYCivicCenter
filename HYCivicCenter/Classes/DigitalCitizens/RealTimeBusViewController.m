@@ -11,6 +11,7 @@
 #import "SearchStationViewController.h"
 #import "BusRouteViewController.h"
 #import "HYCivicCenterCommand.h"
+#import "UILabel+XFExtension.h"
 
 @interface RealTimeBusViewController () <UITableViewDelegate,UITableViewDataSource>
 
@@ -27,7 +28,8 @@ NSString *const realtimeBusCell = @"realtimecell";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.title = self.keyword;
+//    self.title = self.keyword;
+    self.navigationItem.titleView = [UILabel xf_labelWithText:self.keyword?:@""];
     
     [self configUI];
     
@@ -149,7 +151,7 @@ NSString *const realtimeBusCell = @"realtimecell";
 - (void)rightClicked {
     
     SearchStationViewController *searchVC = [[SearchStationViewController alloc]init];
-    searchVC.keyword = self.keyword;
+    searchVC.keyword = self.keyword?:@"";
     [self.navigationController pushViewController:searchVC animated:YES];
     
 }

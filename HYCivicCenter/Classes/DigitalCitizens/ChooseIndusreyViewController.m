@@ -10,6 +10,7 @@
 #import "IndustryLeftTableViewCell.h"
 #import "IndustryRightTableViewCell.h"
 #import "HYCivicCenterCommand.h"
+#import "UILabel+XFExtension.h"
 
 @interface ChooseIndusreyViewController () <UITableViewDelegate,UITableViewDataSource>
 
@@ -32,7 +33,7 @@ NSString *const rightCell = @"rightCell";
     
     self.view.backgroundColor = [UIColor whiteColor];
     
-    self.title = @"所属行业";
+    self.navigationItem.titleView = [UILabel xf_labelWithText:@"所属行业"];
     
     [self configUI];
     
@@ -150,6 +151,7 @@ NSString *const rightCell = @"rightCell";
         [self.delegate chooseIndustryWithName:self.chooseName andIndustryID:self.chooseID];
     }
     [self.navigationController popViewControllerAnimated:YES];
+    
     
 }
 

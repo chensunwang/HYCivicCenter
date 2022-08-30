@@ -11,6 +11,7 @@
 #import "HYServiceWebViewController.h"
 #import "HYCivicCenterCommand.h"
 #import "UILabel+XFExtension.h"
+#import "UILabel+XFExtension.h"
 
 @interface HYGovServiceViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -102,7 +103,7 @@ NSString *const HYGovServiceCell = @"govService";
     NSArray *classifyArr = [self.datasArr[indexPath.section] children];
     HYServiceClassifyModel *classifyModel = classifyArr[indexPath.row];
     [HttpRequest getPath:@"/phone/v2/service/buildServiceUrl" params:@{@"serviceName":classifyModel.serviceName} resultBlock:^(id  _Nullable responseObject, NSError * _Nullable error) {
-        SLog(@" 返回== %@ ",responseObject[@"data"]);
+        NSLog(@" 返回== %@ ",responseObject[@"data"]);
         if ([responseObject[@"code"] intValue] == 200) {
             
             HYServiceWebViewController *webVC = [[HYServiceWebViewController alloc]init];

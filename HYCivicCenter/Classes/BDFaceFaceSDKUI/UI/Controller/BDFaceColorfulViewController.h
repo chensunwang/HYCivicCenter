@@ -19,10 +19,11 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)completeWithImageString:(NSString *)imageString skey:(NSString *)skey deviceId:(NSString *)deviceId;
 
 @end
+
 @interface BDFaceColorfulViewController : BDFaceBaseViewController
 
 @property (nonatomic, assign) NSInteger type;
-@property (nonatomic, weak) id <BDFaceColorfulVCDelegate> delegate;
+@property (nonatomic, weak) id<BDFaceColorfulVCDelegate> delegate;
 
 - (void)livenesswithList:(NSArray *)livenessArray order:(BOOL)order numberOfLiveness:(NSInteger)numberOfLiveness;
 

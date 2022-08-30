@@ -14,6 +14,7 @@
 #import "HYOnLineBusinessMainViewController.h"
 #import "HYCivicCenterCommand.h"
 #import "UILabel+XFExtension.h"
+#import "UILabel+XFExtension.h"
 
 @interface HYHotServiceViewController () <UITableViewDelegate, UITableViewDataSource, FaceResultDelegate>
 

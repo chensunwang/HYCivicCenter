@@ -10,6 +10,7 @@
 #import "AddHonorViewController.h"
 #import "HonorwallDetailViewController.h"
 #import "HYCivicCenterCommand.h"
+#import "UILabel+XFExtension.h"
 
 @interface HonorWallViewController () <UITableViewDelegate,UITableViewDataSource,HonorDeleteDelegate,HonorDetailDeleteDelegate,AddHonorDelegate>
 
@@ -27,7 +28,9 @@ NSString *const honorCell = @"honorCell";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.title = @"荣誉墙";
+//    self.title = @"";
+    self.navigationItem.titleView = [UILabel xf_labelWithText:@"荣誉墙"];
+    
     self.view.backgroundColor = [UIColor whiteColor];
     
     [self configUI];
@@ -45,32 +48,6 @@ NSString *const honorCell = @"honorCell";
     [HttpRequest postPathPointParams:@{@"buriedPointType": @"moduleVisit",@"eventId": @"E0022",@"applicationId":@"H017"} resuleBlock:^(id  _Nullable responseObject, NSError * _Nullable error) {
         NSLog(@" 埋点 == %@ ",responseObject);
     }];
-//    NSDictionary *infoDictionary = [[NSBundle mainBundle]infoDictionary];
-//    [HttpRequest postPath:@"/phone/v2/mixPanel/save" params:@{
-//        @"appKey": @"APP_CITYBRAND",
-////        @"applicationId": @"H017", // 应用ID
-//        @"applicationVersionNumber": [infoDictionary objectForKey:@"CFBundleShortVersionString"], // 当前版本号
-//        @"buriedPointType": @"moduleVisit", // 埋点类型
-//        @"clientType": @"ios",
-////        @"dateString": @"",
-//        @"eventId": @"H017", // 事件ID
-//        @"ipAddress": @"",
-//        @"jumpApplicationName": @"鹭鹭行",
-//        @"latitude": @"",
-//        @"longitude": @"",
-//        @"moduleId": @"M0003",  // 模块ID
-//        @"networkStatus": @"",
-//        @"operatingSystemVersion": @"",  // 操作系统版本
-//        @"param": @{},
-//        @"phoneModel": @"",  // 手机型号
-////        @"residenceTimeOfApplication": @"",  // 停留时间
-//        @"screenResolution": @"", // 屏幕分辨率
-//        @"telphone": @"",
-//        @"timestamp": @"", // 时间戳
-//        @"useId": @""  // 用户UUID
-//      } resultBlock:^(id  _Nullable responseObject, NSError * _Nullable error) {
-//
-//    }];
     
 }
 
@@ -108,7 +85,7 @@ NSString *const honorCell = @"honorCell";
     [self.view addSubview:addCardBtn];
     
     UIImageView *addIV = [[UIImageView alloc]init];
-    addIV.image = [UIImage imageNamed:@"addCard"];
+    addIV.image = [UIImage imageNamed:BundleFile(@"addCard")];
     [addCardBtn addSubview:addIV];
     
     UILabel *nameLabel = [[UILabel alloc]init];
@@ -118,7 +95,7 @@ NSString *const honorCell = @"honorCell";
     [addCardBtn addSubview:nameLabel];
     
     self.holderIV = [[UIImageView alloc]init];
-    self.holderIV.image = [UIImage imageNamed:@"cardHolder"];
+    self.holderIV.image = [UIImage imageNamed:BundleFile(@"cardHolder")];
     [self.view addSubview:self.holderIV];
     
     self.holderLabel = [[UILabel alloc]init];

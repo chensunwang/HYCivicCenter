@@ -23,7 +23,7 @@
     if (self = [super initWithFrame:frame]) {
         
         self.homeBG = [[UIImageView alloc]init];
-        self.homeBG.image = [UIImage imageNamed:@"homebg"];
+        self.homeBG.image = [UIImage imageNamed:BundleFile(@"homebg")];
         self.homeBG.userInteractionEnabled = YES;
         [self addSubview:self.homeBG];
         
@@ -34,7 +34,7 @@
             
             HYButton *button = [[HYButton alloc]init];
             button.nameLabel.text = titlesArr[i];
-            button.headerIV.image = [UIImage imageNamed:imagesArr[i]];
+            button.headerIV.image = [UIImage imageNamed:BundleFile(imagesArr[i])];
             button.frame = CGRectMake(32 + (padding + 48) * i , 0, 48, 105);
             if (i>0) {
                 button.bgView.alpha = 0.2;
@@ -52,7 +52,7 @@
             HYButton *button = [[HYButton alloc]init];
             button.nameLabel.text = titlesArr1[i];
             button.nameLabel.textColor = UIColorFromRGB(0x333333);
-            button.headerIV.image = [UIImage imageNamed:imagesArr1[i]];
+            button.headerIV.image = [UIImage imageNamed:BundleFile(imagesArr1[i])];
             button.frame = CGRectMake(32 + (padding +48) *i, self.frame.size.height - 105, 48, 105);
             button.tag = 888 + i;
             [button addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];

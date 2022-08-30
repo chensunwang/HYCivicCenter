@@ -145,8 +145,8 @@
         HYFormInfoModel *fieldModel = infoModel.fieldValueList[i];
         
         UIButton *button = [[UIButton alloc] init];
-        [button setImage:[UIImage imageNamed:@"radio_unSel"] forState:UIControlStateNormal];
-        [button setImage:[UIImage imageNamed:@"radio_sel"] forState:UIControlStateSelected];
+        [button setImage:[UIImage imageNamed:BundleFile(@"radio_unSel")] forState:UIControlStateNormal];
+        [button setImage:[UIImage imageNamed:BundleFile(@"radio_sel")] forState:UIControlStateSelected];
         [button setTitle:fieldModel.fieldKey forState:UIControlStateNormal];
         [button setTitleColor:UIColorFromRGB(0x333333) forState:UIControlStateNormal];
         button.titleLabel.font = MFONT(14);

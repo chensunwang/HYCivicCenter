@@ -55,7 +55,7 @@
         [self.contentV addSubview:self.timeLabel];
         
         self.deleteBtn = [[UIButton alloc]init];
-        [self.deleteBtn setImage:[UIImage imageNamed:@"delete"] forState:UIControlStateNormal];
+        [self.deleteBtn setImage:[UIImage imageNamed:BundleFile(@"delete")] forState:UIControlStateNormal];
         [self.deleteBtn addTarget:self action:@selector(deleteClicked) forControlEvents:UIControlEventTouchUpInside];
         [self.contentV addSubview:self.deleteBtn];
         

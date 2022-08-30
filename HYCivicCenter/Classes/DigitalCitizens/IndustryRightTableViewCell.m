@@ -34,7 +34,7 @@
         [self.contentView addSubview:self.nameLabel];
         
         self.chooseIV = [[UIImageView alloc]init];
-        self.chooseIV.image = [UIImage imageNamed:@"chooseIndu"];
+        self.chooseIV.image = [UIImage imageNamed:BundleFile(@"chooseIndu")];
         self.chooseIV.hidden = YES;
         [self.contentView addSubview:self.chooseIV];
         

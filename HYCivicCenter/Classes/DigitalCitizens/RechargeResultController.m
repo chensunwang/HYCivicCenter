@@ -7,6 +7,7 @@
 
 #import "RechargeResultController.h"
 #import "HYCivicCenterCommand.h"
+#import "UILabel+XFExtension.h"
 
 @interface RechargeResultController ()
 
@@ -22,7 +23,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.title = @"充值结果";
+    self.navigationItem.titleView = [UILabel xf_labelWithText:@"充值结果"];
+    
     self.view.backgroundColor = [UIColor whiteColor];
     
     [self configUI];
@@ -33,9 +35,9 @@
     
     self.resultIV = [[UIImageView alloc]init];
     if (self.type == 1) {
-        self.resultIV.image = [UIImage imageNamed:@"rechargeSuccess"];
+        self.resultIV.image = [UIImage imageNamed:BundleFile(@"rechargeSuccess")];
     }else {
-        self.resultIV.image = [UIImage imageNamed:@"rechargefail"];
+        self.resultIV.image = [UIImage imageNamed:BundleFile(@"rechargefail")];
     }
     [self.view addSubview:self.resultIV];
     
@@ -61,7 +63,7 @@
     
     [self.resultIV mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.view.mas_centerX);
-        make.top.mas_equalTo(self.view.mas_top).offset(kTopNavHeight + 50);
+        make.top.equalTo(self.view.mas_top).offset(kTopNavHeight + 50);
         make.size.mas_equalTo(CGSizeMake(150, 130));
     }];
     

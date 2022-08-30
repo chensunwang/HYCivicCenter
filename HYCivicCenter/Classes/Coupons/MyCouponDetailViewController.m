@@ -7,6 +7,7 @@
 
 #import "MyCouponDetailViewController.h"
 #import "HYCivicCenterCommand.h"
+#import "UILabel+XFExtension.h"
 
 @interface MyCouponDetailViewController () <UIScrollViewDelegate>
 
@@ -20,9 +21,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.title = @"优惠券详情";
+    self.navigationItem.titleView = [UILabel xf_labelWithText:@"优惠券详情"];
     
     [self configUI];
+    
 }
 
 - (void)configUI {
@@ -31,7 +33,7 @@
     
     UIImageView *codeIV = [[UIImageView alloc]init];
     codeIV.userInteractionEnabled = YES;
-    codeIV.image = [UIImage imageNamed:@"coupons"];
+    codeIV.image = [UIImage imageNamed:BundleFile(@"coupons")];
     [self.scrollView addSubview:codeIV];
     
     UILabel *pricceLabel = [[UILabel alloc] init];
@@ -73,6 +75,8 @@
     [codeIV mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.scrollView.mas_left).offset(16);
         make.top.equalTo(self.scrollView.mas_top).offset(16);
+//        make.right.equalTo(self.scrollView.mas_right).offset(-16);
+//        make.height.mas_equalTo(428);
         make.size.mas_equalTo(CGSizeMake([UIScreen mainScreen].bounds.size.width - 32, 428));
     }];
     
@@ -175,15 +179,18 @@
     [filter setValue:[string dataUsingEncoding:NSUTF8StringEncoding] forKey:@"inputMessage"];
     CIImage *ciImg = filter.outputImage;
     return ciImg;
+    
 }
 
 - (UIScrollView *)scrollView {
+    
     if (!_scrollView) {
         _scrollView = [[UIScrollView alloc] init];
         _scrollView.frame = CGRectMake(0, 88, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - 88);
         _scrollView.backgroundColor = UIColorFromRGB(0x157AFF);
         _scrollView.showsVerticalScrollIndicator = NO;
         _scrollView.showsHorizontalScrollIndicator = NO;
+//        _scrollView.pagingEnabled = YES;
         _scrollView.scrollsToTop = NO;
         _scrollView.bounces = YES;
         _scrollView.delegate = self;
@@ -192,5 +199,15 @@
     return _scrollView;
     
 }
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
 
 @end

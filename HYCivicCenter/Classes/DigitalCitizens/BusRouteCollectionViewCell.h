@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UILabel *stationLabel;
 @property (nonatomic, strong) HYSearchStationModel *stationModel;
 
-//- (void)setStationString:(NSString *)station withStationNum:(NSString *)stationNum withCurrentStation:(NSInteger)currentIndex totalStation:(NSInteger)total withBusInfoArr:(NSArray *)busInfoArr;
+//- (void)setStationString:(NSString *)station withCurrentStation:(NSInteger)currentIndex totalStation:(NSInteger)total;
 
 - (void)currentIndex:(NSInteger)index totalStation:(NSInteger)total withBusInfoArr:(NSArray *)busInfoArr;
 

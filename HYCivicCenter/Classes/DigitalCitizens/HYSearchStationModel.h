@@ -16,7 +16,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *lineName;
 @property (nonatomic, copy) NSString *stationName;
 @property (nonatomic, copy) NSString *labelNo;
-@property (nonatomic, copy) NSString *stationNo;
 @property (nonatomic, copy) NSString *stationHaveCar;
 @property (nonatomic, copy) NSString *currentBus;
 

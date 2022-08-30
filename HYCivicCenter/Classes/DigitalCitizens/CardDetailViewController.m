@@ -12,6 +12,7 @@
 #import "HYContactManager.h"
 #import "HYAesUtil.h"
 #import "HYCivicCenterCommand.h"
+#import "UILabel+XFExtension.h"
 
 @interface CardDetailViewController () <UITableViewDelegate,UITableViewDataSource>
 
@@ -36,7 +37,8 @@ NSString *const cardDetailCell = @"cardDetail";
     // Do any additional setup after loading the view.
     
     self.view.backgroundColor = UIColorFromRGB(0xF5F5F5);
-    self.title = @"名片详情";
+    
+    self.navigationItem.titleView = [UILabel xf_labelWithText:@"名片详情"];
     
     [self configBottomView];
     
@@ -54,7 +56,7 @@ NSString *const cardDetailCell = @"cardDetail";
     
     [HttpRequest postPath:@"/phone/v2/card/getCardByUuid" params:@{@"uuid":self.cardID?self.cardID:@""} resultBlock:^(id  _Nullable responseObject, NSError * _Nullable error) {
         
-        SLog(@" 名片详情 == %@ ",responseObject);
+        NSLog(@" 名片详情 == %@ ",responseObject);
         if ([responseObject[@"code"] intValue] == 200) {
             self.cardModel = [EditBusinessCardModel mj_objectWithKeyValues:responseObject[@"data"]];
             self.companyLabel.text = self.cardModel.companyName;
@@ -77,11 +79,11 @@ NSString *const cardDetailCell = @"cardDetail";
     [self.view addSubview:self.topView];
     
     UIImageView *bgIV = [[UIImageView alloc]init];
-    bgIV.image = [UIImage imageNamed:@"businessBG"];
+    bgIV.image = [UIImage imageNamed:BundleFile(@"businessBG")];
     [self.topView addSubview:bgIV];
     
     UIImageView *contentIV = [[UIImageView alloc]init];
-    contentIV.image = [UIImage imageNamed:@"busiContent"];
+    contentIV.image = [UIImage imageNamed:BundleFile(@"busiContent")];
     contentIV.userInteractionEnabled = YES;
     [self.topView addSubview:contentIV];
     
@@ -158,12 +160,12 @@ NSString *const cardDetailCell = @"cardDetail";
         make.bottom.equalTo(self.jobLabel.mas_top).offset(-12);
     }];
     
-    self.companyLabel.text = @"南昌****有限公司";
-    self.headerIV.backgroundColor = [UIColor redColor];
-    self.nameLabel.text = @"张三";
-    self.jobLabel.text = @"总经理";
-    self.phoneLabel.text = @"137219291203";
-    self.mailBoxLabel.text = @"andone@163.com";
+//    self.companyLabel.text = @"南昌****有限公司";
+//    self.headerIV.backgroundColor = [UIColor redColor];
+//    self.nameLabel.text = @"张三";
+//    self.jobLabel.text = @"总经理";
+//    self.phoneLabel.text = @"137219291203";
+//    self.mailBoxLabel.text = @"andone@163.com";
     return self.topView;
     
 }
@@ -310,7 +312,7 @@ NSString *const cardDetailCell = @"cardDetail";
     if (indexPath.section == 0) {
         NSArray *imagesArr = @[@"info1",@"info2",@"info3",@"info4"];
         NSArray *titlesArr = @[@"电话",@"微信",@"邮箱",@"地址"];
-        cell.headerIV.image = [UIImage imageNamed:imagesArr[indexPath.row]];
+        cell.headerIV.image = [UIImage imageNamed:BundleFile(imagesArr[indexPath.row])];
         cell.nameLabel.text = titlesArr[indexPath.row];
         
         NSArray *contentArr = @[self.cardModel.phone?:@"",self.cardModel.weChat?:@"",self.cardModel.email?:@"",self.cardModel.address?:@""];
@@ -337,7 +339,7 @@ NSString *const cardDetailCell = @"cardDetail";
         NSArray *titlesArr = @[@"公司",@"职位",@"行业"];
         NSArray *contentArr = @[self.cardModel.companyName?:@"",self.cardModel.duty?:@"",self.cardModel.industryName?:@""];
         cell.reproduceBtn.hidden = NO;
-        cell.headerIV.image = [UIImage imageNamed:imagesArr[indexPath.row]];
+        cell.headerIV.image = [UIImage imageNamed:BundleFile(imagesArr[indexPath.row])];
         cell.nameLabel.text = titlesArr[indexPath.row];
         cell.contentLabel.text = contentArr[indexPath.row];
         
@@ -377,7 +379,8 @@ NSString *const cardDetailCell = @"cardDetail";
                         [SVProgressHUD showWithStatus:@"保存成功"];
                         [SVProgressHUD dismissWithDelay:0.5];
                     }
-                     
+                    
+                    
                 }else {
                     
                     [SVProgressHUD showWithStatus:@"号码已经存在"];

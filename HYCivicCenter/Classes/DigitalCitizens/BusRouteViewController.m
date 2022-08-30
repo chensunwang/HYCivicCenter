@@ -13,6 +13,7 @@
 #import "HYSearchStationModel.h"
 #import "HYBusinfoModel.h"
 #import "HYCivicCenterCommand.h"
+#import "UILabel+XFExtension.h"
 
 @interface BusRouteViewController () <UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 
@@ -44,7 +45,8 @@ NSString *const busRouteBusCell = @"routeBusCell";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.title = @"公交线路";
+//    self.title = @"公交线路";
+    
     self.view.backgroundColor = UIColorFromRGB(0xF5F5F5);
     
     [self configUI];
@@ -78,7 +80,7 @@ NSString *const busRouteBusCell = @"routeBusCell";
                     HYSearchStationModel *lastStationModel = [self.datasArr lastObject];
                     self.directionLabel.text = [NSString stringWithFormat:@"方向：%@",firstStaionModel.stationName];
                     self.endStationLabel.text = lastStationModel.stationName;
-                    self.title = firstStaionModel.lineName;
+                    self.navigationItem.titleView = [UILabel xf_labelWithText:firstStaionModel.lineName];
                 }
                 
                 [self.datasArr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -149,7 +151,6 @@ NSString *const busRouteBusCell = @"routeBusCell";
                     stationModel.stationHaveCar = @"1";
                 }
                 
-                
             }];
             
             
@@ -187,7 +188,7 @@ NSString *const busRouteBusCell = @"routeBusCell";
     [self.busInfoView addSubview:self.directionLabel];
     
     UIImageView *turnToIV = [[UIImageView alloc]init];
-    turnToIV.image = [UIImage imageNamed:@"turnTo"];
+    turnToIV.image = [UIImage imageNamed:BundleFile(@"turnTo")];
     [self.busInfoView addSubview:turnToIV];
     
     self.endStationLabel = [[UILabel alloc]init];
@@ -196,7 +197,7 @@ NSString *const busRouteBusCell = @"routeBusCell";
     [self.busInfoView addSubview:self.endStationLabel];
     
     self.startIV = [[UIImageView alloc]init];
-    self.startIV.image = [UIImage imageNamed:@"busStart"];
+    self.startIV.image = [UIImage imageNamed:BundleFile(@"busStart")];
     self.startIV.hidden = YES;
     [self.busInfoView addSubview:self.startIV];
     
@@ -206,8 +207,8 @@ NSString *const busRouteBusCell = @"routeBusCell";
     [self.busInfoView addSubview:self.startTimeLabel];
     
     self.endIV = [[UIImageView alloc]init];
-    self.endIV.image = [UIImage imageNamed:@"busEnd"];
     self.endIV.hidden = YES;
+    self.endIV.image = [UIImage imageNamed:BundleFile(@"busEnd")];
     [self.busInfoView addSubview:self.endIV];
     
     self.endTimeLabel = [[UILabel alloc]init];
@@ -287,7 +288,7 @@ NSString *const busRouteBusCell = @"routeBusCell";
     
     XFUDButton *turnBtn = [[XFUDButton alloc]init];
     turnBtn.padding = 8;
-    [turnBtn setImage:[UIImage imageNamed:@"turnRound"] forState:UIControlStateNormal];
+    [turnBtn setImage:[UIImage imageNamed:BundleFile(@"turnRound")] forState:UIControlStateNormal];
     [turnBtn setTitle:@"转向" forState:UIControlStateNormal];
     [turnBtn setTitleColor:UIColorFromRGB(0x333333) forState:UIControlStateNormal];
     turnBtn.titleLabel.font = RFONT(12);
@@ -296,7 +297,7 @@ NSString *const busRouteBusCell = @"routeBusCell";
     
     XFUDButton *refreshBtn = [[XFUDButton alloc]init];
     refreshBtn.padding = 8;
-    [refreshBtn setImage:[UIImage imageNamed:@"busRefresh"] forState:UIControlStateNormal];
+    [refreshBtn setImage:[UIImage imageNamed:BundleFile(@"busRefresh")] forState:UIControlStateNormal];
     [refreshBtn setTitle:@"刷新" forState:UIControlStateNormal];
     [refreshBtn setTitleColor:UIColorFromRGB(0x333333) forState:UIControlStateNormal];
     refreshBtn.titleLabel.font = RFONT(12);
@@ -331,6 +332,17 @@ NSString *const busRouteBusCell = @"routeBusCell";
     self.commingBusView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.commingBusView];
     
+//    CGFloat buttonWidth = ([UIScreen mainScreen].bounds.size.width - 32) / 3.0;
+////    NSInteger  (((a)>(b))?(b):(a))
+//    for (NSInteger i = 0; i < 3; i++) {
+//
+//        CommintStationView *stationView = [[CommintStationView alloc]init];
+//        stationView.frame = CGRectMake(i * buttonWidth, 0, buttonWidth, 100);
+//        [stationView setTimeString:@"dasd" speed:@"sdas" stationNum:@"ads"];
+//        [self.commingBusView addSubview:stationView];
+//
+//    }
+    
     self.busHolderLabel = [[UILabel alloc]init];
     self.busHolderLabel.text = @"暂无实时公交数据";
     self.busHolderLabel.textColor = UIColorFromRGB(0x666666);
@@ -363,11 +375,8 @@ NSString *const busRouteBusCell = @"routeBusCell";
     BusRouteCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:busRouteCell forIndexPath:indexPath];
     
     cell.stationModel = self.datasArr[indexPath.row];
-////    [cell setStationString:self.datasArr[indexPath.row] withCurrentStation:indexPath.row totalStation:self.datasArr.count];
+//    [cell setStationString:self.datasArr[indexPath.row] withCurrentStation:indexPath.row totalStation:self.datasArr.count];
     [cell currentIndex:indexPath.row totalStation:self.datasArr.count withBusInfoArr:self.busInfoArr];
-    
-//    HYSearchStationModel *stationModel = self.datasArr[indexPath.row];
-//    [cell setStationString:stationModel.stationName withStationNum:stationModel.labelNo withCurrentStation:indexPath.row totalStation:self.datasArr.count withBusInfoArr:self.busInfoArr];
     
     return cell;
     
@@ -385,7 +394,6 @@ NSString *const busRouteBusCell = @"routeBusCell";
 #pragma Clicked
 - (void)turnClicked {
     
-        NSLog(@"转向== %ld",(long)self.currentDirection);
     if (self.currentDirection == 1) {
         [self loadDataWithUpOrDown:@"0"];
         self.currentDirection = 0;
@@ -398,7 +406,6 @@ NSString *const busRouteBusCell = @"routeBusCell";
 
 - (void)refreshClicked {
     
-        NSLog(@"刷新== %ld",(long)self.currentDirection);
     [self loadDataWithUpOrDown:@(self.currentDirection).stringValue];
     
 }

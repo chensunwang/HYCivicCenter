@@ -4,7 +4,6 @@
 //
 //  Created by nuchina on 2021/8/4.
 //
-//  数字市民页面
 
 #import "DigitalcitizenViewController.h"
 #import "CertificateCollectionViewCell.h"
@@ -28,6 +27,8 @@
 #import "HYCivicCenterCommand.h"
 #import "UIView+YXAdd.h"
 #import "UILabel+XFExtension.h"
+#import "UILabel+XFExtension.h"
+#import "WechatOpenSDK/WXApi.h""
 
 @interface DigitalcitizenViewController () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, FaceResultDelegate>
 
@@ -45,7 +46,6 @@
 NSString *const certificateHomeHeader = @"homeHeader";
 NSString *const certificateCell = @"certificateCell";
 NSString *const serviceCell = @"serviceCell";
-
 @implementation DigitalcitizenViewController
 
 - (void)viewDidLoad {
@@ -62,6 +62,10 @@ NSString *const serviceCell = @"serviceCell";
     [self setupChildVC];
     
     [self setupTitleView];
+    
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(faceResult:) name:@"certiFaceResult" object:nil];
+    
+    [WXApi registerApp:@"wx523265a0e1fc5f22" universalLink:@"https://citybrain.yunshangnc.com/"];
 
 }
 
@@ -77,14 +81,14 @@ NSString *const serviceCell = @"serviceCell";
         NSString *nickname = [[NSUserDefaults standardUserDefaults]objectForKey:@"HYName"];
         NSDictionary *faceDic = noti.object;
         [HttpRequest postPathGov:@"" params:@{@"uri":@"/apiFile/discernFace",@"app":@"ios",@"nickname":nickname,@"idCard":idCard,@"file":faceDic[@"image_string"],@"deviceId":faceDic[@"device_id"],@"skey":faceDic[@"skey"]} resultBlock:^(id  _Nullable responseObject, NSError * _Nullable error) {
-            SLog(@" 人脸识别== %@ ",responseObject);
+            NSLog(@" 人脸识别== %@ ",responseObject);
             if ([responseObject[@"success"] intValue] == 1) {
                 MyCertificateMainViewController *mainVC = [[MyCertificateMainViewController alloc]init];
                 [self.navigationController pushViewController:mainVC animated:YES];
             }
         }];
 //        [HttpRequest postHttpBodyGov:@"/apiFile/discernFace" params:@{@"app":@"ios",@"nickname":nickname,@"idCard":idCard,@"file":faceDic[@"image_string"],@"deviceId":faceDic[@"device_id"],@"skey":faceDic[@"skey"]} resultBlock:^(id  _Nullable responseObject, NSError * _Nullable error) {
-//            SLog(@" 人脸识别== %@ ",responseObject);
+//            NSLog(@" 人脸识别== %@ ",responseObject);
 //            if ([responseObject[@"success"] intValue] == 1) {
 //                MyCertificateMainViewController *mainVC = [[MyCertificateMainViewController alloc]init];
 //                [self.navigationController pushViewController:mainVC animated:YES];
@@ -159,7 +163,7 @@ NSString *const serviceCell = @"serviceCell";
     
     [HttpRequest postPath:@"/phone/v2/getUserByToken" params:nil resultBlock:^(id  _Nullable responseObject, NSError * _Nullable error) {
         
-        SLog(@" 请求返回== %@ ",responseObject);
+        NSLog(@" 请求返回== %@ ",responseObject);
         
     }];
     
@@ -244,8 +248,8 @@ NSString *const serviceCell = @"serviceCell";
     
     NSString *idCard = [[NSUserDefaults standardUserDefaults]objectForKey:@"HYIdCard"];
     NSString *nickname = [[NSUserDefaults standardUserDefaults]objectForKey:@"HYName"];
-    [HttpRequest postPathGov:@"" params:@{@"uri":@"/apiFile/discernFace",@"app":@"ios",@"nickname":nickname,@"idCard":idCard,@"file":imageStr,@"deviceId":deviceid,@"skey":skey} resultBlock:^(id  _Nullable responseObject, NSError * _Nullable error) {
-        SLog(@" 人脸识别== %@ ",responseObject);
+    [HttpRequest postPathGov:@"" params:@{@"uri":@"/apiFile/discernFace",@"app":@"ios",@"nickname":nickname?:@"",@"idCard":idCard?:@"",@"file":imageStr,@"deviceId":deviceid,@"skey":skey} resultBlock:^(id  _Nullable responseObject, NSError * _Nullable error) {
+        NSLog(@" 人脸识别== %@ ",responseObject);
         if ([responseObject[@"success"] intValue] == 1) {
             MyCertificateMainViewController *mainVC = [[MyCertificateMainViewController alloc]init];
             [self.navigationController pushViewController:mainVC animated:YES];

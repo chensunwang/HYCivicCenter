@@ -39,7 +39,7 @@
         [self.contentView addSubview:self.nameLabel];
         
         self.rightIV = [[UIImageView alloc]init];
-        self.rightIV.image = [UIImage imageNamed:@"enterIndicate"];
+        self.rightIV.image = [UIImage imageNamed:BundleFile(@"enterIndicate")];
         [self.contentView addSubview:self.rightIV];
         
         self.lineView = [[UIView alloc]init];

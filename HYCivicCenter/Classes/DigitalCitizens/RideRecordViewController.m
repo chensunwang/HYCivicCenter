@@ -8,6 +8,8 @@
 #import "RideRecordViewController.h"
 #import "RideRecordTableViewCell.h"
 #import "HYCivicCenterCommand.h"
+#import "UILabel+XFExtension.h"
+#import "UILabel+XFExtension.h"
 
 @interface RideRecordViewController () <UITableViewDelegate,UITableViewDataSource>
 
@@ -24,7 +26,7 @@ NSString *const rideRecordCell = @"rideRecord";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.title = @"乘车记录";
+    self.navigationItem.titleView = [UILabel xf_labelWithText:@"乘车记录"];
     
     [self configUI];
     

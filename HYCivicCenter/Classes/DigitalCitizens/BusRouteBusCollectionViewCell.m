@@ -27,7 +27,7 @@
         [self addSubview:self.timeLabel];
         
         self.signalIV = [[UIImageView alloc]init];
-        self.signalIV.image = [UIImage imageNamed:@"busSignal"];
+        self.signalIV.image = [UIImage imageNamed:BundleFile(@"busSignal")];
         [self addSubview:self.signalIV];
         
         self.speedLabel = [[UILabel alloc]init];

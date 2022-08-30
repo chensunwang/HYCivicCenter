@@ -40,7 +40,7 @@ NSString *const serviceProgressCell = @"progressCell";
     self.tableView.tableFooterView = [[UIView alloc] init];
     
     self.holderIV = [[UIImageView alloc]init];
-    self.holderIV.image = [UIImage imageNamed:@"cardHolder"];
+    self.holderIV.image = [UIImage imageNamed:BundleFile(@"cardHolder")];
     [self.view addSubview:self.holderIV];
     
     self.holderLabel = [[UILabel alloc]init];

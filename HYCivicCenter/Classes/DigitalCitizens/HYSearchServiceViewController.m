@@ -16,8 +16,9 @@
 #import "HYObtainCertiViewController.h"
 #import "HYCivicCenterCommand.h"
 #import "UILabel+XFExtension.h"
+#import "UILabel+XFExtension.h"
 
-@interface HYSearchServiceViewController () <UITableViewDelegate,UITableViewDataSource,HYDatePickerDelegate,HYSelectServiceDelegate,HYSelectIndustryDelegate>
+@interface HYSearchServiceViewController () <UITableViewDelegate, UITableViewDataSource, HYDatePickerDelegate, HYSelectServiceDelegate, HYSelectIndustryDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *datasArr;
@@ -490,7 +491,7 @@
 
 - (void)serviceSelectType:(NSInteger)type selectValue:(NSString *)value selectCode:(NSString *)code {
     
-    SLog(@" 选择== %ld == %@ == %@",(long)type,value,code);
+    NSLog(@" 选择== %ld == %@ == %@",(long)type,value,code);
     if (type == 100) { // 国籍
         
         self.serviceModel.nationalityName = value;
@@ -514,12 +515,12 @@
         
     }
 //    else if (type == 103) { // 是否盲人
-//
+//        
 //        self.serviceModel.blindName = value;
 //        self.serviceModel.blindId = code;
 //        NSIndexPath *indexPath=[NSIndexPath indexPathForRow:1 inSection:3];
 //        [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath,nil] withRowAnimation:UITableViewRowAnimationNone];
-//
+//        
 //    }
     
 }
@@ -545,7 +546,7 @@
     
     [HttpRequest postHttpBody:@"/phone/v2/service/editServiceUserInfo" params:@{@"admissionDate":self.serviceModel.admissionDate,@"areaCode":self.serviceModel.areaCode,@"areaName":self.serviceModel.areaName,@"blindId":self.serviceModel.blindId,@"blindName":self.serviceModel.blindName,@"disabilityId":self.serviceModel.disabilityId,@"disabilityName":self.serviceModel.disabilityName,@"graduationDate":self.serviceModel.graduationDate,@"id":self.serviceModel.id,@"industryId":self.serviceModel.industryId,@"industryName":self.serviceModel.industryName,@"major":self.serviceModel.major,@"nationalityCode":self.serviceModel.nationalityCode,@"nationalityName":self.serviceModel.nationalityName,@"occupationName":self.serviceModel.occupationName,@"positionName":self.serviceModel.positionName,@"schoolName":self.serviceModel.schoolName,@"uuid":self.serviceModel.uuid
     } resultBlock:^(id  _Nullable responseObject, NSError * _Nullable error) {
-        SLog(@" 保存可享服务 == %@ ",responseObject);
+        NSLog(@" 保存可享服务 == %@ ",responseObject);
         if ([responseObject[@"code"] intValue] == 200) {
             MainApi *api = [MainApi sharedInstance];
             api.isFirst = YES;

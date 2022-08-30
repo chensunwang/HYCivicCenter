@@ -14,6 +14,7 @@
 #import "UIButton+WebCache.h"
 #import "HYCivicCenterCommand.h"
 #import "UILabel+XFExtension.h"
+#import "UILabel+XFExtension.h"
 
 @interface HYSpecialServiceViewController () <UIScrollViewDelegate>
 

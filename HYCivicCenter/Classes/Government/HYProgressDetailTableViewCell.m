@@ -31,7 +31,7 @@
     [self.contentView addSubview:self.bgView];
     
     self.headerIV = [[UIImageView alloc] init];
-    self.headerIV.image = [UIImage imageNamed:@"icon_base_info"];
+    self.headerIV.image = [UIImage imageNamed:BundleFile(@"icon_base_info")];
     self.headerIV.hidden = YES;
     [self.bgView addSubview:self.headerIV];
     
