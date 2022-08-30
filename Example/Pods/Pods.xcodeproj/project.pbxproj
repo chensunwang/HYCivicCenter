@@ -1228,7 +1228,7 @@
 		4FE9172D76D8692F5EFBA6E00230FE57 /* UIColor+SDHexString.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIColor+SDHexString.h"; path = "SDWebImage/Private/UIColor+SDHexString.h"; sourceTree = "<group>"; };
 		5023112BEC9D10FD961D5244E0308DEC /* BusTransportViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BusTransportViewController.h; sourceTree = "<group>"; };
 		5126F049C41081735050C4A9F507C323 /* idl-key.face-ios */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; path = "idl-key.face-ios"; sourceTree = "<group>"; };
-		513A0CE8528E8B624E86F15E8293FF7C /* HYCivicCenter */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = HYCivicCenter; path = HYCivicCenter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		513A0CE8528E8B624E86F15E8293FF7C /* HYCivicCenter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HYCivicCenter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		51500549B4C825FAF8702979EF927A40 /* HYSocialServiceViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HYSocialServiceViewController.m; sourceTree = "<group>"; };
 		51D642ABFBDF6D23B4AA74E69E6917D9 /* SDWebImageDownloaderOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageDownloaderOperation.m; path = SDWebImage/Core/SDWebImageDownloaderOperation.m; sourceTree = "<group>"; };
 		51F770517FCADDF47078A70C91A42B20 /* HYSearchStationModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HYSearchStationModel.m; sourceTree = "<group>"; };
@@ -1544,7 +1544,7 @@
 		AD6C17CDC49EFA3C10EBB47889D4DF94 /* UIScrollView+MJExtension.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIScrollView+MJExtension.m"; path = "MJRefresh/UIScrollView+MJExtension.m"; sourceTree = "<group>"; };
 		AD790144488C84A51B0860AD935DF5FF /* HYAreaServiceViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HYAreaServiceViewController.h; sourceTree = "<group>"; };
 		AE40D1D5BF2E0F08FE8DA82C5D02C6D8 /* SDWebImageCacheKeyFilter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageCacheKeyFilter.h; path = SDWebImage/Core/SDWebImageCacheKeyFilter.h; sourceTree = "<group>"; };
-		AE5CB37DC570B2D0F09944B50820153F /* HYCivicCenter-HYCivicCenter */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "HYCivicCenter-HYCivicCenter"; path = HYCivicCenter.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE5CB37DC570B2D0F09944B50820153F /* HYCivicCenter.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HYCivicCenter.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE7324518BD7505CE6BDACE8008DF239 /* module.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = module.modulemap; sourceTree = "<group>"; };
 		AE7E5AAA40BF511005856E312F187DEC /* MJRefreshHeader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshHeader.h; path = MJRefresh/Base/MJRefreshHeader.h; sourceTree = "<group>"; };
 		AEA7C35AC21B2965BE0AE38E207941A4 /* MJRefreshBackStateFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshBackStateFooter.m; path = MJRefresh/Custom/Footer/Back/MJRefreshBackStateFooter.m; sourceTree = "<group>"; };
@@ -1671,7 +1671,7 @@
 		D4F316C0916F92DAE6E0144221E69178 /* WKWebView+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "WKWebView+AFNetworking.h"; path = "UIKit+AFNetworking/WKWebView+AFNetworking.h"; sourceTree = "<group>"; };
 		D4F860EE00872EACE55AB5893135AE15 /* TZImagePickerController.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = TZImagePickerController.bundle; path = TZImagePickerController/TZImagePickerController/TZImagePickerController.bundle; sourceTree = "<group>"; };
 		D50649D48B587A93AE9B73C68EEF8ED9 /* BDFaceAdjustParamsRootCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = BDFaceAdjustParamsRootCell.m; sourceTree = "<group>"; };
-		D55B1DBB0D13B008033B0B5DE3AAA985 /* Pods-HYCivicCenter_Example */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-HYCivicCenter_Example"; path = Pods_HYCivicCenter_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D55B1DBB0D13B008033B0B5DE3AAA985 /* Pods_HYCivicCenter_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HYCivicCenter_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D55B71AAC2608D842CCCA97C05885122 /* IndustryLeftTableViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = IndustryLeftTableViewCell.m; sourceTree = "<group>"; };
 		D5E428E9F2B8577F69E7786BE0F578D9 /* BDFaceLivingConfigViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BDFaceLivingConfigViewController.h; sourceTree = "<group>"; };
 		D60291A44D13F57DE83A5BC2ED68E48F /* HYServiceContentController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HYServiceContentController.h; sourceTree = "<group>"; };
@@ -3252,12 +3252,12 @@
 			isa = PBXGroup;
 			children = (
 				A4FA15D44DF6BAC7550EDEED10862AA3 /* AFNetworking */,
-				513A0CE8528E8B624E86F15E8293FF7C /* HYCivicCenter */,
-				AE5CB37DC570B2D0F09944B50820153F /* HYCivicCenter-HYCivicCenter */,
+				513A0CE8528E8B624E86F15E8293FF7C /* HYCivicCenter.framework */,
+				AE5CB37DC570B2D0F09944B50820153F /* HYCivicCenter.bundle */,
 				1FFED36A657123030ABB700256D73F15 /* Masonry */,
 				2B276B0A79173A1D6E83C9B4FB9A4A57 /* MJExtension */,
 				E49D6D248DD1CEE584E6776B9164A1B2 /* MJRefresh */,
-				D55B1DBB0D13B008033B0B5DE3AAA985 /* Pods-HYCivicCenter_Example */,
+				D55B1DBB0D13B008033B0B5DE3AAA985 /* Pods_HYCivicCenter_Example.framework */,
 				96C52AD6AC132139D56004308398AD06 /* Pods-HYCivicCenter_Tests */,
 				B0B214D775196BA7CA8E17E53048A493 /* SDWebImage */,
 				E97D43C46A45EE515A4DA3AF94398441 /* SVProgressHUD */,
@@ -4072,7 +4072,7 @@
 			);
 			name = HYCivicCenter;
 			productName = HYCivicCenter;
-			productReference = 513A0CE8528E8B624E86F15E8293FF7C /* HYCivicCenter */;
+			productReference = 513A0CE8528E8B624E86F15E8293FF7C /* HYCivicCenter.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		C27FED5101F47A87C27B19E7F79086D7 /* Pods-HYCivicCenter_Example */ = {
@@ -4100,7 +4100,7 @@
 			);
 			name = "Pods-HYCivicCenter_Example";
 			productName = Pods_HYCivicCenter_Example;
-			productReference = D55B1DBB0D13B008033B0B5DE3AAA985 /* Pods-HYCivicCenter_Example */;
+			productReference = D55B1DBB0D13B008033B0B5DE3AAA985 /* Pods_HYCivicCenter_Example.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		F0799FFFFB219FA8157C943A4AEEF6D7 /* HYCivicCenter-HYCivicCenter */ = {
@@ -4117,7 +4117,7 @@
 			);
 			name = "HYCivicCenter-HYCivicCenter";
 			productName = HYCivicCenter;
-			productReference = AE5CB37DC570B2D0F09944B50820153F /* HYCivicCenter-HYCivicCenter */;
+			productReference = AE5CB37DC570B2D0F09944B50820153F /* HYCivicCenter.bundle */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */

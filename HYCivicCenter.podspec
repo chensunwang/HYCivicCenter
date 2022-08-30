@@ -111,9 +111,14 @@ end
 
 # 5.提交代码并打对应的tag（tag和podspec文件中保持一致）
 ## 5.1  git add .
-## 5.2  git commit -m 'change pod vresion'
+## 5.2  git commit -m 'change pod version'
 ## 5.3  git push
-## 5.4  git tag -a 0.1.1 -m 'add tag 0.1.1'
-## 5.5  git push origin 0.1.1
+## 5.4  git tag -a 0.1.2 -m 'add tag 0.1.2'
+## 5.5  git push origin 0.1.2
 
-# 6.提交到cocoapods仓库  pod trunk push HYCivicCenter.podspec --allow-warnings
+# 6.提交到cocoapods仓库  pod trunk push HYCivicCenter.podspec --use-libraries --allow-warnings
+
+
+# 搜索不到上传的库：
+# 1.首先移除本地缓存的索引文件  rm ~/Library/Caches/CocoaPods/search_index.json
+# 2.更新本地的库到最新  pod repo update

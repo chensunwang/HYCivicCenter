@@ -1,1 +1,1 @@
-../../../WechatOpenSDK/OpenSDK1.8.7.1/WXApiObject.h
+../../../WechatOpenSDK/OpenSDK1.9.7/WXApiObject.h
