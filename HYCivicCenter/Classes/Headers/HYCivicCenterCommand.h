@@ -24,6 +24,7 @@
 #import "UIButton+Gradient.h"
 #import "HYNavigationController.h"
 #import <CTID_Verification/CTID_Verification.h>
+#import "UIImage+Gradient.h"
 
 // **********************************  测试环境  ***************************************
 //#define BaseApi @"http://10.20.114.168:80"  //

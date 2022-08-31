@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'HYCivicCenter' # 库名称
-  s.version          = '0.1.3' # 库的版本号，我们每次发新版本的时候版本号需要对应修改
+  s.version          = '0.1.4' # 库的版本号，我们每次发新版本的时候版本号需要对应修改
   s.summary          = 'HYCivicCenter.' # 库的简单描述
 
 # This description is used to generate tags and improve search results.
@@ -39,6 +39,9 @@ Pod::Spec.new do |s|
   
   # 工程依赖系统版本
   s.ios.deployment_target = '9.0'
+  
+  # 指定生成的库
+  s.vendored_frameworks = 'SDK/HYCivicCenter.frameworks'
   
   # 是否是静态库 这个地方很重要 假如不写这句打出来的包 就是动态库 不能使用 一运行会报错 image not found
   s.static_framework = true
@@ -113,10 +116,12 @@ end
 ## 5.1  git add .
 ## 5.2  git commit -m 'change pod version'
 ## 5.3  git push
-## 5.4  git tag -a 0.1.3 -m 'add tag 0.1.3'
-## 5.5  git push origin 0.1.3
+## 5.4  git tag -a 0.1.4 -m 'add tag 0.1.4'
+## 5.5  git push origin 0.1.4
 
-# 6.提交到cocoapods仓库  pod trunk push HYCivicCenter.podspec --use-libraries --allow-warnings
+# 6.打包  pod package HYCivicCenter.podspec --force
+
+# 7.提交到cocoapods仓库  pod trunk push HYCivicCenter.podspec --use-libraries --allow-warnings
 
 
 # 搜索不到上传的库：
