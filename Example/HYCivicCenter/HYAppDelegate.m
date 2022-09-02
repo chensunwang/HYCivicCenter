@@ -7,12 +7,19 @@
 //
 
 #import "HYAppDelegate.h"
+#import "HYTabBarViewController.h"
 
 @implementation HYAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.backgroundColor = UIColor.whiteColor;
+    self.window.rootViewController = [HYTabBarViewController shareInstance];
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 

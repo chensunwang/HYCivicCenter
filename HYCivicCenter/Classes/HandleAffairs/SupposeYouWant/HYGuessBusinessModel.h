@@ -27,6 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *serviceObjType;
 @property (nonatomic, strong) NSArray *serviceObjTypeList;
 @property (nonatomic, copy) NSString *servicePersonFlag;
+@property (nonatomic, copy) NSString *canHandle;
 
 @end
 

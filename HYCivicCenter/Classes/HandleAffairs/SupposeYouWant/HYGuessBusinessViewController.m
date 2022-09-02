@@ -157,6 +157,10 @@ NSString *const guessBusinessCell = @"guessCell";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     HYHotServiceModel *model = self.datasArr[indexPath.row];
+//    if ([model.canHandle boolValue] == NO) {
+//        [SVProgressHUD showErrorWithStatus:@"该事项无法操作"];
+//        return;
+//    }
     if (model.needFaceRecognition.intValue == 1) { // 跳转人脸识别
         self.code = model.link;
         self.titleStr = model.name;

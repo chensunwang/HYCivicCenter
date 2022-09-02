@@ -41,8 +41,8 @@
 }
 
 - (void)clicked {
-    DigitalcitizenViewController *vc = [[DigitalcitizenViewController alloc] init];
-//    HYHandleAffairsViewController *vc = [[HYHandleAffairsViewController alloc] init];
+//    DigitalcitizenViewController *vc = [[DigitalcitizenViewController alloc] init];
+    HYHandleAffairsViewController *vc = [[HYHandleAffairsViewController alloc] init];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

@@ -108,6 +108,10 @@ NSString *const businessSearchCell = @"search";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     HYGuessBusinessModel *businessModel = self.datasArr[indexPath.row];
+//    if ([businessModel.canHandle boolValue] == NO) {
+//        [SVProgressHUD showErrorWithStatus:@"该事项无法操作"];
+//        return;
+//    }
     if (businessModel.needFaceRecognition.intValue == 1) { // 跳转人脸
         self.code = businessModel.link;
         self.titleStr = businessModel.name;
@@ -230,15 +234,5 @@ NSString *const businessSearchCell = @"search";
     }
     return _datasArr;
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

@@ -63,7 +63,8 @@
     [self.view addSubview:self.tableView];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.searchView.mas_bottom);
-        make.left.right.bottom.equalTo(self.view);
+        make.left.right.equalTo(self.view);
+        make.bottom.equalTo(self.view).offset(-kBottomTabBarHeight);
     }];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -89,6 +90,9 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
+//    self.navigationController.navigationBar.hidden = YES;
+    
 //    // 判断是 push / present 还是 pop /dismiss
 //    if ([self isBeingPresented] || [self isMovingToParentViewController]) {
 //        // push / present
@@ -101,6 +105,12 @@
 //        [self.tableView.mj_header beginRefreshing];
         [self getUserByToken];
     }
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+//    self.navigationController.navigationBar.hidden = NO;
 }
 
 - (void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection {
@@ -394,6 +404,10 @@
             [self.navigationController pushViewController:hotServiceVC animated:YES];
         }
     } else {
+//        if ([model.canHandle boolValue] == NO) {
+//            [SVProgressHUD showErrorWithStatus:@"该事项无法操作"];
+//            return;
+//        }
         // 判断逻辑如下：先判断是否实名认证 -- 再判断是否人脸识别 -- 再判断内外链（外链直接跳转，内链区分个人和企业 -- 个人直接跳转，企业判断是否企业认证）
         if (!_idCard || [_idCard isEqualToString:@""]) { // 需要实名认证
             [self showAlertForReanNameAuth];

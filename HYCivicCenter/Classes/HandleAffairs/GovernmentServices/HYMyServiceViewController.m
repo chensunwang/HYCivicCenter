@@ -152,6 +152,10 @@ NSString *const myServiceCell = @"HYMyserviceCell";
 - (NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
     HYMyServiceModel *model = self.datasArr[indexPath.row];
     UITableViewRowAction *handleAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"办理" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
+//        if ([model.canHandle boolValue] == NO) {
+//            [SVProgressHUD showErrorWithStatus:@"该事项无法操作"];
+//            return;
+//        }
         if (model.needFaceRecognition.intValue == 1) {  // 跳转人脸识别
             self.code = model.eventCode;
             self.titleStr = model.eventName;

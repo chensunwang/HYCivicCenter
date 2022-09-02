@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'HYCivicCenter' # 库名称
-  s.version          = '0.1.5' # 库的版本号，我们每次发新版本的时候版本号需要对应修改
+  s.version          = '0.1.6' # 库的版本号，我们每次发新版本的时候版本号需要对应修改
   s.summary          = 'HYCivicCenter.' # 库的简单描述
 
 # This description is used to generate tags and improve search results.
@@ -34,6 +34,7 @@ Pod::Spec.new do |s|
   # 库的git地址，tag就是对应的版本，注意这个tag就是发布的时候的版本，我们引用第三方库时，有时需要指定版本，对应的就是这个版本号
   s.source           = { :git => 'https://github.com/chensunwang/HYCivicCenter.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  
 
 # 下面配置依赖的资源、库、配置等
   
@@ -50,7 +51,8 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   # 你的源码位置，源文件 包含 h、m
-  s.source_files = 'HYCivicCenter/Classes/**/*'
+  s.source_files = ['HYCivicCenter/Classes/**/*',
+                    'HYCivicCenter/Assets/*']
   
   # 调试公开所有的头文件 这个地方下面的头文件 如果是在Example中调试 就公开全部，需要打包就只公开特定的h文件
   # s.public_header_files = 'Pod/Classes/**/*.h'
@@ -60,9 +62,7 @@ Pod::Spec.new do |s|
     
   # 资源、比如图片、音频文件等
   s.resource_bundles = {  # 这是个数组，可以添加其他bundle
-    'HYCivicCenter' => ['HYCivicCenter/Assets/*.png',
-                        'HYCivicCenter/Assets/CTID.bundle',
-                        'HYCivicCenter/Assets/HYCivicCenter.bundle']
+    'HYCivicCenter' => ['HYCivicCenter/Assets/*.png']
   }
   
   # 表示依赖系统的框架(多个)
@@ -116,8 +116,8 @@ end
 ## 5.1  git add .
 ## 5.2  git commit -m 'change pod version'
 ## 5.3  git push
-## 5.4  git tag -a 0.1.5 -m 'add tag 0.1.5'
-## 5.5  git push origin 0.1.5
+## 5.4  git tag -a 0.1.6 -m 'add tag 0.1.6'
+## 5.5  git push origin 0.1.6
 
 # 6.打包  pod package HYCivicCenter.podspec --force --exclude-deps --no-mangle --embedded
 

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2884A13DDBC5A454871081E5 /* Pods_HYCivicCenter_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 743D40F4C5B7B6EE30B0DB80 /* Pods_HYCivicCenter_Example.framework */; };
 		37668A0128BD9A7D00CE530D /* HYCivicCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37668A0028BD9A7D00CE530D /* HYCivicCenter.framework */; };
+		37BC1FFA28C19AA6003516E8 /* HYTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37BC1FF928C19AA6003516E8 /* HYTabBarViewController.m */; };
 		4E9FBA3399805E8ED59F7841 /* Pods_HYCivicCenter_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3A68687F4049E9CE8A8DDD /* Pods_HYCivicCenter_Tests.framework */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
@@ -40,6 +41,8 @@
 /* Begin PBXFileReference section */
 		348010E11FE744FAE41F7637 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		37668A0028BD9A7D00CE530D /* HYCivicCenter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = HYCivicCenter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		37BC1FF828C19AA6003516E8 /* HYTabBarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HYTabBarViewController.h; sourceTree = "<group>"; };
+		37BC1FF928C19AA6003516E8 /* HYTabBarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HYTabBarViewController.m; sourceTree = "<group>"; };
 		51895835F905B6186548049C /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* HYCivicCenter_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HYCivicCenter_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -141,6 +144,8 @@
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
 				6003F5A5195388D20070C39A /* HYViewController.h */,
 				6003F5A6195388D20070C39A /* HYViewController.m */,
+				37BC1FF828C19AA6003516E8 /* HYTabBarViewController.h */,
+				37BC1FF928C19AA6003516E8 /* HYTabBarViewController.m */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
@@ -407,6 +412,7 @@
 				6003F59E195388D20070C39A /* HYAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* HYViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				37BC1FFA28C19AA6003516E8 /* HYTabBarViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

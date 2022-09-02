@@ -28,7 +28,7 @@
 #import "UIView+YXAdd.h"
 #import "UILabel+XFExtension.h"
 #import "UILabel+XFExtension.h"
-#import "WechatOpenSDK/WXApi.h""
+#import "WechatOpenSDK/WXApi.h"
 
 @interface DigitalcitizenViewController () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, FaceResultDelegate>
 
@@ -53,6 +53,12 @@ NSString *const serviceCell = @"serviceCell";
     // Do any additional setup after loading the view.
     
     self.navigationItem.titleView = [UILabel xf_labelWithText:@"数字市民"];
+    
+    if (@available(iOS 11.0, *)) {
+        self.collectionView.contentInsetAdjustmentBehavior = UIApplicationBackgroundFetchIntervalNever;
+    } else {
+        // Fallback on earlier versions
+    }
     
     self.view.backgroundColor = [UIColor whiteColor];
 //    [self configUI];

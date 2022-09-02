@@ -175,6 +175,10 @@ NSString *const searchCell = @"homeSearchCell";
         [self showAlertForReanNameAuth];
     } else {
         HYGuessBusinessModel *businessModel = self.datasArr[indexPath.row];
+//        if ([businessModel.canHandle boolValue] == NO) {
+//            [SVProgressHUD showErrorWithStatus:@"该事项无法操作"];
+//            return;
+//        }
         if ([businessModel.needFaceRecognition intValue] == 1) { // 跳转人脸识别
             self.code  =businessModel.code;
             self.titleStr = businessModel.name;

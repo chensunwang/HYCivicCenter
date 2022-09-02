@@ -23,34 +23,16 @@
     
     UINavigationBar *appearance = [UINavigationBar appearance];
     if (@available(iOS 13.0, *)) {
-            
         UINavigationBarAppearance *barAppearance = UINavigationBarAppearance.new;
         barAppearance.backgroundColor = UIColorFromRGB(0x157AFF);
         appearance.standardAppearance = barAppearance;
-        
+        appearance.translucent = YES;
     } else {
         //设置导航栏的颜色
         [appearance setBarTintColor:UIColorFromRGB(0x157AFF)];
         appearance.translucent = YES;
-        
     }
-    
-    
 }
-
-//+ (void)initialize {
-//
-//    //appearance方法返回一个导航栏的外观对象
-//        //修改了这个外观对象，相当于修改了整个项目中的外观
-//    UINavigationBar *navigationBar = [UINavigationBar appearance];
-//    //设置导航栏背景颜色
-//    [navigationBar setBarTintColor:UIColorFromRGB(0x157AFF)];
-//    //设置标题栏颜色
-//    navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor], NSFontAttributeName : [UIFont systemFontOfSize:18]};
-//    //设置NavigationBarItem文字的颜色
-//    //[navigationBar setTintColor:[UIColor blackColor]];
-//
-//}
 
 - (void)backClick {
     

@@ -31,6 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *servicePersonFlag;
 @property (nonatomic, copy) NSString *updateBy;
 @property (nonatomic, copy) NSString *updateTime;
+@property (nonatomic, copy) NSString *canHandle;
 
 @end
 

@@ -108,7 +108,12 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     // 后台说这里返回的全是本地的页面 不需要判断外链的情况
     HYOnLineBusinessMainViewController * mainVC = [[HYOnLineBusinessMainViewController alloc] init];
-    mainVC.affairsModel = self.dataArray[indexPath.item];
+    HYHotHandleAffairsModel *affairsModel = self.dataArray[indexPath.item];
+//    if ([affairsModel.canHandle boolValue] == NO) {
+//        [SVProgressHUD showErrorWithStatus:@"该事项无法操作"];
+//        return;
+//    }
+    mainVC.affairsModel = affairsModel;
     mainVC.hyTitleColor = _hyTitleColor;
     [self.viewController.navigationController pushViewController:mainVC animated:YES];
 }

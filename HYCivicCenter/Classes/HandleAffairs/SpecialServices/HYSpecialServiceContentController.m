@@ -85,6 +85,10 @@ NSString *const specialServiceCell = @"specialServiceCell";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     HYHotServiceModel *serviceModel = self.datasArr[indexPath.row];
+//    if ([serviceModel.canHandle boolValue] == NO) {
+//        [SVProgressHUD showErrorWithStatus:@"该事项无法操作"];
+//        return;
+//    }
     if ([serviceModel.needFaceRecognition intValue] == 1) {  // 跳转人脸识别
         self.code = serviceModel.link;
         self.titleStr = serviceModel.name;

@@ -297,6 +297,10 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     HYBusinessInfoModel * infoModel = _dataArray[indexPath.section];
     HYBusinessInfoModel * model = infoModel.agentTitleList[indexPath.row];
+//    if ([infoModel.canHandle boolValue] == NO) {
+//        [SVProgressHUD showErrorWithStatus:@"该事项无法操作"];
+//        return;
+//    }
     if (infoModel.needFaceRecognition.intValue == 1) { // 跳转人脸
         self.code = infoModel.link;
         self.titleStr = infoModel.name;

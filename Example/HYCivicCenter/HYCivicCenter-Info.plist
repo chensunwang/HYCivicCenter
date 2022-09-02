@@ -24,6 +24,16 @@
 	<string>1.0</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>APP需要您的同意才能访问相机权限，用于人脸识别</string>
+	<key>NSContactsUsageDescription</key>
+	<string>APP需要您的同意才能访问通讯录权限，用于保存信息到通讯录</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>APP需要您的同意才能访问麦克风权限，用于人脸识别</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>APP需要您的同意才能访问相册权限，用于保存照片</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>APP需要您的同意才能访问相册权限，用于上传照片</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
