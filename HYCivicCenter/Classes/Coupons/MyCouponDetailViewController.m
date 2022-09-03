@@ -33,7 +33,7 @@
     
     UIImageView *codeIV = [[UIImageView alloc]init];
     codeIV.userInteractionEnabled = YES;
-    codeIV.image = [UIImage imageNamed:BundleFile(@"coupons")];
+    codeIV.image = HyBundleImage(@"coupons");
     [self.scrollView addSubview:codeIV];
     
     UILabel *pricceLabel = [[UILabel alloc] init];

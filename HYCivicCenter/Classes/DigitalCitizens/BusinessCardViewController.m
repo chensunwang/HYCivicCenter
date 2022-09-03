@@ -115,7 +115,7 @@ NSString *const businessCardCell = @"cardCell";
     
     UIView *leftView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 36, 32)];
     UIImageView *searchIV = [[UIImageView alloc]initWithFrame:CGRectMake(15, 8, 16, 16)];
-    searchIV.image = [UIImage imageNamed:BundleFile(@"search")];
+    searchIV.image = HyBundleImage(@"search");
     [leftView addSubview:searchIV];
     
     UITextField *searchTF = [[UITextField alloc]init];
@@ -163,7 +163,7 @@ NSString *const businessCardCell = @"cardCell";
     }];
     
     self.holderIV = [[UIImageView alloc]init];
-    self.holderIV.image = [UIImage imageNamed:BundleFile(@"cardHolder")];
+    self.holderIV.image = HyBundleImage(@"cardHolder");
     [self.view addSubview:self.holderIV];
     
     self.holderLabel = [[UILabel alloc]init];

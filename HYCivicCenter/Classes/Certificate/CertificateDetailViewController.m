@@ -55,11 +55,11 @@
     [self.view addSubview:contentView];
     
     UIImageView *cardBgIV = [[UIImageView alloc]init];
-    cardBgIV.image = [UIImage imageNamed:BundleFile(@"idcard1")];
+    cardBgIV.image = HyBundleImage(@"idcard1");
     [contentView addSubview:cardBgIV];
     
     UIImageView *headerIV = [[UIImageView alloc]init];
-    headerIV.image = [UIImage imageNamed:BundleFile(@"idcardHeader1")];
+    headerIV.image = HyBundleImage(@"idcardHeader1");
     [cardBgIV addSubview:headerIV];
     
     UILabel *cardNameLabel = [[UILabel alloc]init];
@@ -97,7 +97,7 @@
     self.codeIV = codeIV;
     
     self.centerIV = [[UIImageView alloc]init];
-    self.centerIV.image = [UIImage imageNamed:BundleFile(@"citizenBg")];
+    self.centerIV.image = HyBundleImage(@"citizenBg");
     self.centerIV.hidden = YES;
     [codeIV addSubview:self.centerIV];
     
@@ -115,7 +115,7 @@
     [contentView addSubview:self.maskView];
     
     UIImageView *citizenIV = [[UIImageView alloc]init];
-    citizenIV.image = [UIImage imageNamed:BundleFile(@"citizenBg")];
+    citizenIV.image = HyBundleImage(@"citizenBg");
     [self.maskView addSubview:citizenIV];
     
     UIButton *downloadBtn = [[UIButton alloc]init];

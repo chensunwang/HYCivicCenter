@@ -47,7 +47,7 @@
         [self.containView addSubview:self.busNumLabel];
         
         self.terminalIV = [[UIImageView alloc]init];
-        self.terminalIV.image = [UIImage imageNamed:BundleFile(@"terminal")];
+        self.terminalIV.image = HyBundleImage(@"terminal");
         [self.containView addSubview:self.terminalIV];
         
         self.terminalLabel = [[UILabel alloc]init];

@@ -211,7 +211,7 @@ NSString *const busTransPortCell = @"busCell";
     contentView.backgroundColor = UIColorFromRGB(0xF5F5F5);
     
     UIImageView *bgIV = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 145)];
-    bgIV.image = [UIImage imageNamed:BundleFile(@"businessBG")];
+    bgIV.image = HyBundleImage(@"businessBG");
     [contentView addSubview:bgIV];
     
     UIView *topView = [[UIView alloc]initWithFrame:CGRectMake(16, 16, [UIScreen mainScreen].bounds.size.width - 32, 480)];
@@ -222,7 +222,7 @@ NSString *const busTransPortCell = @"busCell";
     
     UIButton *titleBtn = [[UIButton alloc]init];
     [titleBtn setBackgroundColor:UIColorFromRGB(0xF8FCFF)];
-    [titleBtn setImage:[UIImage imageNamed:BundleFile(@"scene")] forState:UIControlStateNormal];
+    [titleBtn setImage:HyBundleImage(@"scene") forState:UIControlStateNormal];
     [titleBtn setTitle:@" 洪城一卡通" forState:UIControlStateNormal];
     titleBtn.titleLabel.font = RFONT(12);
     [titleBtn setTitleColor:UIColorFromRGB(0xFE8601) forState:UIControlStateNormal];
@@ -242,11 +242,11 @@ NSString *const busTransPortCell = @"busCell";
     [topView addSubview:self.codeIV];
     
     UIImageView *busIV = [[UIImageView alloc]init];
-    busIV.image = [UIImage imageNamed:BundleFile(@"bus")];
+    busIV.image = HyBundleImage(@"bus");
     [self.codeIV addSubview:busIV];
     
     self.maskView = [[UIImageView alloc]init];
-    self.maskView.image = [UIImage imageNamed:BundleFile(@"busMask")];
+    self.maskView.image = HyBundleImage(@"busMask");
     self.maskView.userInteractionEnabled = YES;
     self.maskView.hidden = YES;
     [topView addSubview:self.maskView];
@@ -290,7 +290,7 @@ NSString *const busTransPortCell = @"busCell";
     [topView addSubview:tipLabel];
     
     UIButton *refreshBtn = [[UIButton alloc]init];
-    [refreshBtn setImage:[UIImage imageNamed:BundleFile(@"refresh")] forState:UIControlStateNormal];
+    [refreshBtn setImage:HyBundleImage(@"refresh") forState:UIControlStateNormal];
     [refreshBtn setTitle:@" 刷新二维码" forState:UIControlStateNormal];
     [refreshBtn setTitleColor:UIColorFromRGB(0x157AFF) forState:UIControlStateNormal];
     [refreshBtn setBackgroundColor:UIColorFromRGB(0xE5F1FF)];
@@ -305,7 +305,7 @@ NSString *const busTransPortCell = @"busCell";
     [topView addSubview:lineView];
     
     UIButton *riderecordBtn = [[UIButton alloc]init];
-    [riderecordBtn setImage:[UIImage imageNamed:BundleFile(@"busRecord")] forState:UIControlStateNormal];
+    [riderecordBtn setImage:HyBundleImage(@"busRecord") forState:UIControlStateNormal];
     [riderecordBtn setTitle:@"乘车记录" forState:UIControlStateNormal];
     [riderecordBtn setTitleColor:UIColorFromRGB(0x333333) forState:UIControlStateNormal];
     riderecordBtn.titleLabel.font = RFONT(14);
@@ -313,7 +313,7 @@ NSString *const busTransPortCell = @"busCell";
     [topView addSubview:riderecordBtn];
     
     UIButton *rechargeBtn = [[UIButton alloc]init];
-    [rechargeBtn setImage:[UIImage imageNamed:BundleFile(@"myBalance")] forState:UIControlStateNormal];
+    [rechargeBtn setImage:HyBundleImage(@"myBalance") forState:UIControlStateNormal];
     [rechargeBtn setTitle:@"我的余额" forState:UIControlStateNormal];
     [rechargeBtn setTitleColor:UIColorFromRGB(0x333333) forState:UIControlStateNormal];
     rechargeBtn.titleLabel.font = RFONT(14);
@@ -558,12 +558,12 @@ NSString *const busTransPortCell = @"busCell";
         [moreBusBtn setTitle:@"更多实时公交" forState:UIControlStateNormal];
         [moreBusBtn setTitleColor:UIColorFromRGB(0x999999) forState:UIControlStateNormal];
         moreBusBtn.titleLabel.font = RFONT(12);
-        [moreBusBtn setImage:[UIImage imageNamed:BundleFile(@"moreBus")] forState:UIControlStateNormal];
+        [moreBusBtn setImage:HyBundleImage(@"moreBus") forState:UIControlStateNormal];
         [moreBusBtn addTarget:self action:@selector(moreBusClicked) forControlEvents:UIControlEventTouchUpInside];
         [busInfoView addSubview:moreBusBtn];
         
         self.busHolderIV = [[UIImageView alloc]init];
-        self.busHolderIV.image = [UIImage imageNamed:BundleFile(@"busHolderIV")];
+        self.busHolderIV.image = HyBundleImage(@"busHolderIV");
         self.busHolderIV.hidden = self.busInfoArr.count > 0;
         [busInfoView addSubview:self.busHolderIV];
         
@@ -592,7 +592,7 @@ NSString *const busTransPortCell = @"busCell";
         [contentView addSubview:titleInfoView];
         
         UIImageView *headerIV = [[UIImageView alloc]init];
-        headerIV.image = [UIImage imageNamed:BundleFile(@"myService")];
+        headerIV.image = HyBundleImage(@"myService");
         [contentView addSubview:headerIV];
         
         UILabel *titleName = [[UILabel alloc]init];
@@ -659,7 +659,7 @@ NSString *const busTransPortCell = @"busCell";
     
     NSArray *imagesArr = @[@"myService",@"currenService"];
     NSArray *namesArr = @[@"我的",@"可享服务"];
-    headerIV.image = [UIImage imageNamed:BundleFile(imagesArr[section])];
+    headerIV.image = HyBundleImage(imagesArr[section]);
     nameLabel.text = namesArr[section];
     
     [headerIV mas_makeConstraints:^(MASConstraintMaker *make) {

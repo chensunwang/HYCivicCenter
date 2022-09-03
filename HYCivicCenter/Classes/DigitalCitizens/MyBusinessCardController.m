@@ -69,7 +69,7 @@ NSString *const mycardCell = @"mycardCell";
             NSDictionary *dataDic = responseObject[@"data"];
             self.companyLabel.text = dataDic[@"companyName"]?dataDic[@"companyName"]:@"";
 //            self.headerIV.backgroundColor = [UIColor redColor];
-            [self.headerIV sd_setImageWithURL:[NSURL URLWithString:self.cardModel.headPhoto] placeholderImage:[UIImage imageNamed:BundleFile(@"touxiang")]];
+            [self.headerIV sd_setImageWithURL:[NSURL URLWithString:self.cardModel.headPhoto] placeholderImage:HyBundleImage(@"touxiang")];
             self.nameLabel.text = dataDic[@"name"];
             self.jobLabel.text = dataDic[@"duty"];
             self.phoneLabel.text = dataDic[@"phone"];
@@ -92,7 +92,7 @@ NSString *const mycardCell = @"mycardCell";
     [rightbutton addTarget:self action:@selector(scanClicked:) forControlEvents:UIControlEventTouchUpInside];
     [rightbutton setTitle:@"扫一扫" forState:UIControlStateNormal];
     [rightbutton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [rightbutton setImage:[UIImage imageNamed:BundleFile(@"scan")] forState:UIControlStateNormal];
+    [rightbutton setImage:HyBundleImage(@"scan") forState:UIControlStateNormal];
     rightbutton.titleLabel.font = RFONT(15);
     rightbutton.frame = CGRectMake(0 , 0, 80, 44);
 //    [rightbutton setTitleEdgeInsets:UIEdgeInsetsMake(0, -rightbutton.imageView.frame.size.width, 0, rightbutton.imageView.frame.size.width)];
@@ -114,11 +114,11 @@ NSString *const mycardCell = @"mycardCell";
     [self.view addSubview:self.topView];
     
     UIImageView *bgIV = [[UIImageView alloc]init];
-    bgIV.image = [UIImage imageNamed:BundleFile(@"businessBG")];
+    bgIV.image = HyBundleImage(@"businessBG");
     [self.topView addSubview:bgIV];
     
     UIImageView *contentIV = [[UIImageView alloc]init];
-    contentIV.image = [UIImage imageNamed:BundleFile(@"busiContent")];
+    contentIV.image = HyBundleImage(@"busiContent");
     contentIV.userInteractionEnabled = YES;
     [self.topView addSubview:contentIV];
     
@@ -140,7 +140,7 @@ NSString *const mycardCell = @"mycardCell";
     self.headerIV = [[UIImageView alloc]init];
     self.headerIV.layer.cornerRadius = 8;
     self.headerIV.clipsToBounds = YES;
-    self.headerIV.image = [UIImage imageNamed:BundleFile(@"touxiang")];
+    self.headerIV.image = HyBundleImage(@"touxiang");
     [contentIV addSubview:self.headerIV];
     
     self.phoneLabel = [[UILabel alloc]init];
@@ -170,7 +170,7 @@ NSString *const mycardCell = @"mycardCell";
         [button setTitle:titlesArr[i] forState:UIControlStateNormal];
         [button setTitleColor:UIColorFromRGB(0x333333) forState:UIControlStateNormal];
         button.titleLabel.font = RFONT(12);
-        [button setImage:[UIImage imageNamed:BundleFile(imagesArr[i])] forState:UIControlStateNormal];
+        [button setImage:HyBundleImage(imagesArr[i]) forState:UIControlStateNormal];
         button.tag = 100 + i;
         [button addTarget:self action:@selector(cardClicked:) forControlEvents:UIControlEventTouchUpInside];
         button.frame = CGRectMake(35 + (padding + 60) * i, 7, 60, 70);
@@ -192,7 +192,7 @@ NSString *const mycardCell = @"mycardCell";
     [cardCodeView addSubview:showCodeLabel];
     
     UIImageView *codeIV = [[UIImageView alloc]init];
-    codeIV.image = [UIImage imageNamed:BundleFile(@"cardCode")];
+    codeIV.image = HyBundleImage(@"cardCode");
     [cardCodeView addSubview:codeIV];
     
     UIView *dataView = [[UIView alloc]init];

@@ -107,7 +107,7 @@ NSString *const rechargeCell = @"rechargeCell";
 - (void)configUI {
     
     UIImageView *bgIV = [[UIImageView alloc]init];
-    bgIV.image = [UIImage imageNamed:BundleFile(@"balanceBg")];
+    bgIV.image = HyBundleImage(@"balanceBg");
     [self.view addSubview:bgIV];
     
     UIView *balanceView = [[UIView alloc]init];
@@ -129,7 +129,7 @@ NSString *const rechargeCell = @"rechargeCell";
     [balanceView addSubview:self.moneyLabel];
     
     UIImageView *balanceIV = [[UIImageView alloc]init];
-    balanceIV.image = [UIImage imageNamed:BundleFile(@"money")];
+    balanceIV.image = HyBundleImage(@"money");
     [balanceView addSubview:balanceIV];
     
     UIView *rechargeView = [[UIView alloc]init];

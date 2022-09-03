@@ -188,7 +188,7 @@ NSString *const busRouteBusCell = @"routeBusCell";
     [self.busInfoView addSubview:self.directionLabel];
     
     UIImageView *turnToIV = [[UIImageView alloc]init];
-    turnToIV.image = [UIImage imageNamed:BundleFile(@"turnTo")];
+    turnToIV.image = HyBundleImage(@"turnTo");
     [self.busInfoView addSubview:turnToIV];
     
     self.endStationLabel = [[UILabel alloc]init];
@@ -197,7 +197,7 @@ NSString *const busRouteBusCell = @"routeBusCell";
     [self.busInfoView addSubview:self.endStationLabel];
     
     self.startIV = [[UIImageView alloc]init];
-    self.startIV.image = [UIImage imageNamed:BundleFile(@"busStart")];
+    self.startIV.image = HyBundleImage(@"busStart");
     self.startIV.hidden = YES;
     [self.busInfoView addSubview:self.startIV];
     
@@ -208,7 +208,7 @@ NSString *const busRouteBusCell = @"routeBusCell";
     
     self.endIV = [[UIImageView alloc]init];
     self.endIV.hidden = YES;
-    self.endIV.image = [UIImage imageNamed:BundleFile(@"busEnd")];
+    self.endIV.image = HyBundleImage(@"busEnd");
     [self.busInfoView addSubview:self.endIV];
     
     self.endTimeLabel = [[UILabel alloc]init];
@@ -288,7 +288,7 @@ NSString *const busRouteBusCell = @"routeBusCell";
     
     XFUDButton *turnBtn = [[XFUDButton alloc]init];
     turnBtn.padding = 8;
-    [turnBtn setImage:[UIImage imageNamed:BundleFile(@"turnRound")] forState:UIControlStateNormal];
+    [turnBtn setImage:HyBundleImage(@"turnRound") forState:UIControlStateNormal];
     [turnBtn setTitle:@"转向" forState:UIControlStateNormal];
     [turnBtn setTitleColor:UIColorFromRGB(0x333333) forState:UIControlStateNormal];
     turnBtn.titleLabel.font = RFONT(12);
@@ -297,7 +297,7 @@ NSString *const busRouteBusCell = @"routeBusCell";
     
     XFUDButton *refreshBtn = [[XFUDButton alloc]init];
     refreshBtn.padding = 8;
-    [refreshBtn setImage:[UIImage imageNamed:BundleFile(@"busRefresh")] forState:UIControlStateNormal];
+    [refreshBtn setImage:HyBundleImage(@"busRefresh") forState:UIControlStateNormal];
     [refreshBtn setTitle:@"刷新" forState:UIControlStateNormal];
     [refreshBtn setTitleColor:UIColorFromRGB(0x333333) forState:UIControlStateNormal];
     refreshBtn.titleLabel.font = RFONT(12);

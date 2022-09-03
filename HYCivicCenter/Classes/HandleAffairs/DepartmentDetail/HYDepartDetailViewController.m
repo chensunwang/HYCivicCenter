@@ -45,7 +45,7 @@
         make.left.right.equalTo(self.view);
         make.height.mas_equalTo(110);
     }];
-    self.headerBgImgV.image = [UIImage imageNamed:BundleFile(@"icon_depart_bg")];
+    self.headerBgImgV.image = HyBundleImage(@"icon_depart_bg");
     
     self.logoImgV = [[UIImageView alloc] init];
     [self.headerBgImgV addSubview:self.logoImgV];

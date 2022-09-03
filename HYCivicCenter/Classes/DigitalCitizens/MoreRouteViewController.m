@@ -102,7 +102,7 @@ NSString *const moreRouteCell = @"moreRouteCell";
     
     UIView *leftView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 36, 32)];
     UIImageView *searchIV = [[UIImageView alloc]initWithFrame:CGRectMake(15, 8, 16, 16)];
-    searchIV.image = [UIImage imageNamed:BundleFile(@"search")];
+    searchIV.image = HyBundleImage(@"search");
     [leftView addSubview:searchIV];
     
     UITextField *searchTF = [[UITextField alloc]init];

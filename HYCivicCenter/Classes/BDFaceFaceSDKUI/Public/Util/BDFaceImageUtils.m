@@ -34,7 +34,8 @@
 
 
 + (UIImage *)getImageResourceForName:(NSString *)name {
-    NSString* bundlepath = [[NSBundle mainBundle] pathForResource:@"com.baidu.idl.face.faceSDK.bundle" ofType:nil];
+    // [[NSBundle mainBundle] pathForResource:@"com.baidu.idl.face.faceSDK.bundle" ofType:nil];
+    NSString* bundlepath = [[NSBundle bundleForClass:[self class]].resourcePath stringByAppendingPathComponent:@"/HYCivicCenter.bundle/com.baidu.idl.face.faceSDK.bundle"];
     NSBundle* modelBundle = [NSBundle bundleWithPath:bundlepath];
     NSString* imagePath = [modelBundle pathForResource:name ofType:@"png"];
     return [[UIImage alloc] initWithContentsOfFile:imagePath];

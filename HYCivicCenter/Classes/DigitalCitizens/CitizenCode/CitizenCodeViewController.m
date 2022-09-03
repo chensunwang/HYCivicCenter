@@ -198,7 +198,7 @@ NSString *const citizenCell = @"citizenCell";
     
     // businessBG 145
     UIImageView *bgIV = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 85)];
-    bgIV.image = [UIImage imageNamed:BundleFile(@"balanceBg")];
+    bgIV.image = HyBundleImage(@"balanceBg");
     [self.view addSubview:bgIV];
     
     [self.view addSubview:self.tableView];
@@ -215,7 +215,7 @@ NSString *const citizenCell = @"citizenCell";
     contentView.backgroundColor = UIColorFromRGB(0xF5F5F5);
     
     UIImageView *bgIV = [[UIImageView alloc]initWithFrame:CGRectMake(0, -40, [UIScreen mainScreen].bounds.size.width, 145)];
-    bgIV.image = [UIImage imageNamed:BundleFile(@"businessBG")];
+    bgIV.image = HyBundleImage(@"businessBG");
     [contentView addSubview:bgIV];
     
     UIView *topView = [[UIView alloc]init];
@@ -232,12 +232,12 @@ NSString *const citizenCell = @"citizenCell";
     [contentView addSubview:contentIV];
     
     UIImageView *netCerIV = [[UIImageView alloc]init];
-    netCerIV.image = [UIImage imageNamed:BundleFile(@"netCerti")];
+    netCerIV.image = HyBundleImage(@"netCerti");
     [contentIV addSubview:netCerIV];
     
     UIButton *sceneBtn = [[UIButton alloc]init];
     [sceneBtn setBackgroundColor:UIColorFromRGB(0xF8FCFF)];
-    [sceneBtn setImage:[UIImage imageNamed:BundleFile(@"scene")] forState:UIControlStateNormal];
+    [sceneBtn setImage:HyBundleImage(@"scene") forState:UIControlStateNormal];
     [sceneBtn setTitle:@" 使用场景介绍" forState:UIControlStateNormal];
     sceneBtn.titleLabel.font = RFONT(12);
     [sceneBtn setTitleColor:UIColorFromRGB(0xFE8601) forState:UIControlStateNormal];
@@ -249,7 +249,7 @@ NSString *const citizenCell = @"citizenCell";
     [topView addSubview:self.codeIV];
     
     self.citizenIV = [[UIImageView alloc]init];
-    self.citizenIV.image = [UIImage imageNamed:BundleFile(@"citizenBg")];
+    self.citizenIV.image = HyBundleImage(@"citizenBg");
     self.citizenIV.hidden = YES;
     [self.codeIV addSubview:self.citizenIV];
     
@@ -261,7 +261,7 @@ NSString *const citizenCell = @"citizenCell";
     [topView addSubview:tipLabel];
     
     UIButton *refreshBtn = [[UIButton alloc]init];
-    [refreshBtn setImage:[UIImage imageNamed:BundleFile(@"refresh")] forState:UIControlStateNormal];
+    [refreshBtn setImage:HyBundleImage(@"refresh") forState:UIControlStateNormal];
     [refreshBtn setTitle:@" 刷新二维码" forState:UIControlStateNormal];
     [refreshBtn setTitleColor:UIColorFromRGB(0x157AFF) forState:UIControlStateNormal];
     refreshBtn.titleLabel.font = RFONT(12);
@@ -272,12 +272,12 @@ NSString *const citizenCell = @"citizenCell";
     [topView addSubview:refreshBtn];
     
     self.homeMaskIV = [[UIImageView alloc]init];
-    self.homeMaskIV.image = [UIImage imageNamed:BundleFile(@"homeMask")];
+    self.homeMaskIV.image = HyBundleImage(@"homeMask");
     self.homeMaskIV.userInteractionEnabled = YES;
     [contentView addSubview:self.homeMaskIV];
     
     UIImageView *mainIV = [[UIImageView alloc]init];
-    mainIV.image = [UIImage imageNamed:BundleFile(@"citizenBg")];
+    mainIV.image = HyBundleImage(@"citizenBg");
     [self.homeMaskIV addSubview:mainIV];
     
     NSString *CTID = [[NSUserDefaults standardUserDefaults]valueForKey:@"CTID"];
@@ -418,7 +418,7 @@ NSString *const citizenCell = @"citizenCell";
     [img drawInRect:CGRectMake(0, 0, img.size.width, img.size.height)];
     //7.3在中心划入其他图片
     
-//    UIImage *centerImg = [UIImage imageNamed:BundleFile(@"citizenBg")];
+//    UIImage *centerImg = HyBundleImage(@"citizenBg");
 //    
 //    CGFloat centerW = 36;
 //    CGFloat centerH = 36;
@@ -514,7 +514,7 @@ NSString *const citizenCell = @"citizenCell";
     
     NSArray *imagesArr = @[@"myService",@"currenService"];
     NSArray *namesArr = @[@"我的",@"可享服务"];
-    headerIV.image = [UIImage imageNamed:BundleFile(imagesArr[section])];
+    headerIV.image = HyBundleImage(imagesArr[section]);
     nameLabel.text = namesArr[section];
     
     [headerIV mas_makeConstraints:^(MASConstraintMaker *make) {

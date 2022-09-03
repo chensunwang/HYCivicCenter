@@ -45,7 +45,7 @@
     [self.contentView addSubview:self.containView];
     
     self.qustionIV = [[UIImageView alloc] init];
-    self.qustionIV.image = [UIImage imageNamed:BundleFile(@"icon_question")];
+    self.qustionIV.image = HyBundleImage(@"icon_question");
     [self.containView addSubview:self.qustionIV];
     
     self.questionLabel = [[UILabel alloc] init];
@@ -55,7 +55,7 @@
     [self.containView addSubview:self.questionLabel];
     
     self.answerIV = [[UIImageView alloc] init];
-    self.answerIV.image = [UIImage imageNamed:BundleFile(@"icon_answer")];
+    self.answerIV.image = HyBundleImage(@"icon_answer");
     [self.containView addSubview:self.answerIV];
     
     self.answerLabel = [[UILabel alloc] init];

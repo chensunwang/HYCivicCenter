@@ -17,7 +17,7 @@
         
         self.carIV = [[UIImageView alloc]init];
         self.carIV.hidden = YES;
-        self.carIV.image = [UIImage imageNamed:BundleFile(@"busCar")];
+        self.carIV.image = HyBundleImage(@"busCar");
         [self.contentView addSubview:self.carIV];
         
         self.circleIV = [[UIImageView alloc]init];
@@ -45,10 +45,10 @@
 - (void)currentIndex:(NSInteger)index totalStation:(NSInteger)total withBusInfoArr:(NSArray *)busInfoArr {
     
     if (index == 0) {
-        self.circleIV.image = [UIImage imageNamed:BundleFile(@"circle1")];
+        self.circleIV.image = HyBundleImage(@"circle1");
         self.routeIV.hidden = NO;
     }else if (index == total - 1) {
-        self.circleIV.image = [UIImage imageNamed:BundleFile(@"circle1")];
+        self.circleIV.image = HyBundleImage(@"circle1");
         self.routeIV.hidden = YES;
     }else {
         self.routeIV.hidden = NO;
@@ -61,12 +61,12 @@
     _stationModel = stationModel;
     
     if ([stationModel.currentBus isEqualToString:@"1"]) {
-        self.circleIV.image = [UIImage imageNamed:BundleFile(@"circle3")];
+        self.circleIV.image = HyBundleImage(@"circle3");
     }else {
-        self.circleIV.image = [UIImage imageNamed:BundleFile(@"circle2")];
+        self.circleIV.image = HyBundleImage(@"circle2");
     }
-//    self.circleIV.image = [UIImage imageNamed:BundleFile(@"circle2")];
-    self.routeIV.image = [UIImage imageNamed:BundleFile(@"route")];
+//    self.circleIV.image = HyBundleImage(@"circle2");
+    self.routeIV.image = HyBundleImage(@"route");
 //    self.stationNumLabel.text = stationModel.labelNo;
     self.stationLabel.verticalText = stationModel.stationName;
     self.carIV.hidden = [stationModel.stationHaveCar isEqualToString:@"1"]?NO:YES;

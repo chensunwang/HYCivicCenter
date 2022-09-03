@@ -94,7 +94,7 @@
     
     //library
     self.libraryBtn = [[XFUDButton alloc]init];
-    [self.libraryBtn setImage:[UIImage imageNamed:BundleFile(@"library")] forState:UIControlStateNormal];
+    [self.libraryBtn setImage:HyBundleImage(@"library") forState:UIControlStateNormal];
     [self.libraryBtn setTitle:@"相册" forState:UIControlStateNormal];
     self.libraryBtn.padding = 10;
     self.libraryBtn.titleLabel.font = RFONT(12);

@@ -17,13 +17,13 @@
 #import "MJExtension/MJExtension.h"
 #import "TZImagePickerController/TZImageManager.h"
 #import "TZImagePickerController/TZImagePickerController.h"
+#import <CTID_Verification/CTID_Verification.h>
 #import "MainApi.h"
 #import "SVProgressHUD/SVProgressHUD.h"
 #import "HYSystemInfo.h"
 #import "NSString+Category.h"
 #import "UIButton+Gradient.h"
 #import "HYNavigationController.h"
-#import <CTID_Verification/CTID_Verification.h>
 #import "UIImage+Gradient.h"
 
 // **********************************  测试环境  ***************************************
@@ -71,6 +71,7 @@
 
 #define kBottomTabBarHeight    (kSafeAreaBottomHeight + 49.f)
 
-#define BundleFile(FileName) [@"HYCivicCenter.bundle" stringByAppendingPathComponent:FileName]
+#define ResourceBundle [NSBundle bundleWithPath:[[NSBundle bundleForClass:[self class]].resourcePath stringByAppendingPathComponent:@"/HYCivicCenter.bundle"]]
+#define HyBundleImage(imageName) [UIImage imageNamed:imageName inBundle:ResourceBundle compatibleWithTraitCollection:nil]
 
 #endif /* HYCivicCenterCommand_h */

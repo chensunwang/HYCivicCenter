@@ -58,7 +58,7 @@
     [self.alertView addSubview:self.titleLabel];
     
     self.logoImageView = [[UIImageView alloc] initWithFrame:CGRectMake(21, 42, 188, 69)];
-    self.logoImageView.image = [UIImage imageNamed:BundleFile(@"icon_real_name")];
+    self.logoImageView.image = HyBundleImage(@"icon_real_name");
     [self.alertView addSubview:self.logoImageView];
     
     self.messageLabel = [[UILabel alloc] initWithFrame:CGRectMake(19, 125, AlertW - 38, 30)];

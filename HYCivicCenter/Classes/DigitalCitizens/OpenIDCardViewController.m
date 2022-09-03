@@ -34,7 +34,7 @@
 - (void)configUI {
     
     UIImageView *bgIV = [[UIImageView alloc]init];
-    bgIV.image = [UIImage imageNamed:BundleFile(@"openCertiBg")];
+    bgIV.image = HyBundleImage(@"openCertiBg");
     [self.view addSubview:bgIV];
     
     UIView *contentView = [[UIView alloc]init];

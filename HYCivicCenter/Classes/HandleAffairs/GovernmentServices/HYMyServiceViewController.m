@@ -51,7 +51,7 @@ NSString *const myServiceCell = @"HYMyserviceCell";
     self.tableView.tableFooterView = [[UIView alloc] init];
     
     self.holderIV = [[UIImageView alloc]init];
-    self.holderIV.image = [UIImage imageNamed:BundleFile(@"cardHolder")];
+    self.holderIV.image = HyBundleImage(@"cardHolder");
     [self.view addSubview:self.holderIV];
     
     self.holderLabel = [[UILabel alloc]init];

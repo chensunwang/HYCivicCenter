@@ -20,12 +20,12 @@
         
         self.addBtn = [[UIButton alloc] init];
         [self.contentView addSubview:self.addBtn];
-        [self.addBtn setImage:[UIImage imageNamed:BundleFile(@"icon_add_img")] forState:UIControlStateNormal];
+        [self.addBtn setImage:HyBundleImage(@"icon_add_img") forState:UIControlStateNormal];
         [self.addBtn addTarget:self action:@selector(addBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
         
         self.deleteBtn = [[UIButton alloc] init];
         [self.contentView addSubview:self.deleteBtn];
-        [self.deleteBtn setImage:[UIImage imageNamed:BundleFile(@"icon_delete_img")] forState:UIControlStateNormal];
+        [self.deleteBtn setImage:HyBundleImage(@"icon_delete_img") forState:UIControlStateNormal];
         [self.deleteBtn setHidden:YES];
         [self.deleteBtn addTarget:self action:@selector(deleteBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
     }

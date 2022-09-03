@@ -34,14 +34,14 @@
     
     //businessBG
     UIImageView *headerBg = [[UIImageView alloc]init];
-    headerBg.image = [UIImage imageNamed:BundleFile(@"businessBG")];
+    headerBg.image = HyBundleImage(@"businessBG");
     [self.view addSubview:headerBg];
     
     self.cardIV = [[UIImageView alloc]init];
     self.cardIV.layer.cornerRadius = 8;
     self.cardIV.clipsToBounds = YES;
 //    self.cardIV.backgroundColor = [UIColor orangeColor];
-    self.cardIV.image = [UIImage imageNamed:BundleFile(@"busCard")];
+    self.cardIV.image = HyBundleImage(@"busCard");
     [self.view addSubview:self.cardIV];
     
     UIButton *receiveBtn = [[UIButton alloc]init];
@@ -111,10 +111,10 @@
 - (void)checkedClicked:(UIButton *)button {
     
     if (button.selected) {
-        [button setImage:[UIImage imageNamed:BundleFile(@"checked")] forState:UIControlStateNormal];
+        [button setImage:HyBundleImage(@"checked") forState:UIControlStateNormal];
         [[NSUserDefaults standardUserDefaults] setObject:@(YES) forKey:@"checkAgreenBtn"];
     }else {
-        [button setImage:[UIImage imageNamed:BundleFile(@"checkBox")] forState:UIControlStateNormal];
+        [button setImage:HyBundleImage(@"checkBox") forState:UIControlStateNormal];
         [[NSUserDefaults standardUserDefaults] setObject:@(NO) forKey:@"checkAgreenBtn"];
     }
     

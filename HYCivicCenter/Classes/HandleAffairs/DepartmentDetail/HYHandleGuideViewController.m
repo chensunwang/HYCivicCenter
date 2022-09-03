@@ -241,7 +241,7 @@ NSString *const handleGuideCell = @"guideCell";
     view.tag = 110 + section;
     view.backgroundColor = UIColor.whiteColor;
     UIImageView *logo = [[UIImageView alloc] initWithFrame:CGRectMake(16, 18, 20, 20)];
-    logo.image = [UIImage imageNamed:BundleFile(_imageArray[section])];
+    logo.image = HyBundleImage(_imageArray[section]);
     [view addSubview:logo];
     
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(45, 21, view.bounds.size.width - 75, 15)];
@@ -252,11 +252,11 @@ NSString *const handleGuideCell = @"guideCell";
     
     if ([[self.openSectionDict valueForKey:[NSString stringWithFormat:@"%ld", (long)section]] integerValue] == 0) {
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(view.bounds.size.width - 28, 25, 12, 7)];
-        imageView.image = [UIImage imageNamed:BundleFile(@"ico_listdown")]; // 三角形小图片
+        imageView.image = HyBundleImage(@"ico_listdown"); // 三角形小图片
         [view addSubview:imageView];
     } else {
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(view.bounds.size.width - 28, 25, 12, 7)];
-        imageView.image = [UIImage imageNamed:BundleFile(@"ico_listup")];
+        imageView.image = HyBundleImage(@"ico_listup");
         [view addSubview:imageView];
     }
     UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 54, view.bounds.size.width, 1)];

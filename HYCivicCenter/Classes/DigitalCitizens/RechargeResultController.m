@@ -35,9 +35,9 @@
     
     self.resultIV = [[UIImageView alloc]init];
     if (self.type == 1) {
-        self.resultIV.image = [UIImage imageNamed:BundleFile(@"rechargeSuccess")];
+        self.resultIV.image = HyBundleImage(@"rechargeSuccess");
     }else {
-        self.resultIV.image = [UIImage imageNamed:BundleFile(@"rechargefail")];
+        self.resultIV.image = HyBundleImage(@"rechargefail");
     }
     [self.view addSubview:self.resultIV];
     

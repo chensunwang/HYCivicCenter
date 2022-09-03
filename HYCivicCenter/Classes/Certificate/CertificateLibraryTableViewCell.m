@@ -43,7 +43,7 @@
         self.contentView.backgroundColor = [UIColor whiteColor];
         
         self.timeLineIV = [[UIImageView alloc]init];
-        self.timeLineIV.image = [UIImage imageNamed:BundleFile(@"timeline")];
+        self.timeLineIV.image = HyBundleImage(@"timeline");
         [self.contentView addSubview:self.timeLineIV];
         
         self.lineView = [[UIView alloc]init];
@@ -86,8 +86,7 @@
         [self.bottomView addSubview:self.nameLabel];
         
         self.codeBtn = [[UIButton alloc]init];
-//        [self.codeBtn setBackgroundColor:[UIColor yellowColor]];
-        [self.codeBtn setImage:[UIImage imageNamed:BundleFile(@"code2")] forState:UIControlStateNormal];
+        [self.codeBtn setImage:HyBundleImage(@"code2") forState:UIControlStateNormal];
         [self.bottomView addSubview:self.codeBtn];
         
         self.mainIV.backgroundColor = [UIColor redColor];
@@ -103,73 +102,56 @@
     _model = model;
     
     if ([model.license_item_code isEqualToString:@"107012901"]) { // 不动产权证书
-        self.mainIV.image = [UIImage imageNamed:BundleFile(@"idcard5")];
-        self.headerIV.image = [UIImage imageNamed:BundleFile(@"idcardHeader4")];
+        self.mainIV.image = HyBundleImage(@"idcard5");
+        self.headerIV.image = HyBundleImage(@"idcardHeader4");
     }else if ([model.license_item_code isEqualToString:@"107013001"]) { // 不动产权证明
-        self.mainIV.image = [UIImage imageNamed:BundleFile(@"idcard5")];
-        self.headerIV.image = [UIImage imageNamed:BundleFile(@"idcardHeader4")];
+        self.mainIV.image = HyBundleImage(@"idcard5");
+        self.headerIV.image = HyBundleImage(@"idcardHeader4");
     }else if ([model.license_item_code isEqualToString:@"100018901"]) { //身份证电子凭证
-        self.mainIV.image = [UIImage imageNamed:BundleFile(@"idcard1")];
-        self.headerIV.image = [UIImage imageNamed:BundleFile(@"idcardHeader1")];
+        self.mainIV.image = HyBundleImage(@"idcard1");
+        self.headerIV.image = HyBundleImage(@"idcardHeader1");
     }else if ([model.license_item_code isEqualToString:@"100019001"]) {// 户口簿电子电子凭证
-        self.mainIV.image = [UIImage imageNamed:BundleFile(@"idcard4")];
-        self.headerIV.image = [UIImage imageNamed:BundleFile(@"idcardHeader1")];
+        self.mainIV.image = HyBundleImage(@"idcard4");
+        self.headerIV.image = HyBundleImage(@"idcardHeader1");
     }else if ([model.license_item_code isEqualToString:@"100018801"]) { // 驾驶证
-        self.mainIV.image = [UIImage imageNamed:BundleFile(@"idcard2")];
-        self.headerIV.image = [UIImage imageNamed:BundleFile(@"idcardHeader3")];
+        self.mainIV.image = HyBundleImage(@"idcard2");
+        self.headerIV.image = HyBundleImage(@"idcardHeader3");
     }else if ([model.license_item_code isEqualToString:@"100018601"]) { // 行驶证
-        self.mainIV.image = [UIImage imageNamed:BundleFile(@"idcard15")];
-        self.headerIV.image = [UIImage imageNamed:BundleFile(@"idcardHeader11")];
+        self.mainIV.image = HyBundleImage(@"idcard15");
+        self.headerIV.image = HyBundleImage(@"idcardHeader11");
     }else if ([model.license_item_code isEqualToString:@"100001001"]) { // 结婚证
-        self.mainIV.image = [UIImage imageNamed:BundleFile(@"idcard3")];
-        self.headerIV.image = [UIImage imageNamed:BundleFile(@"idcardHeader2")];
+        self.mainIV.image = HyBundleImage(@"idcard3");
+        self.headerIV.image = HyBundleImage(@"idcardHeader2");
     }else if ([model.license_item_code isEqualToString:@"100000401"]) { // 离婚证
-        self.mainIV.image = [UIImage imageNamed:BundleFile(@"idcard3")];
-        self.headerIV.image = [UIImage imageNamed:BundleFile(@"idcardHeader2")];
+        self.mainIV.image = HyBundleImage(@"idcard3");
+        self.headerIV.image = HyBundleImage(@"idcardHeader2");
     }else if ([model.license_item_code isEqualToString:@"100043701"]) { // 电子营业执照
-        self.mainIV.image = [UIImage imageNamed:BundleFile(@"idcard13")];
-        self.headerIV.image = [UIImage imageNamed:BundleFile(@"idcardHeader1")];
-        
+        self.mainIV.image = HyBundleImage(@"idcard13");
+        self.headerIV.image = HyBundleImage(@"idcardHeader1");
     }else if ([model.license_item_code isEqualToString:@"105003101"]) {// 公共场所卫生许可证
-        
-        self.mainIV.image = [UIImage imageNamed:BundleFile(@"idcard8")];
-        self.headerIV.image = [UIImage imageNamed:BundleFile(@"idcardHeader7")];
-        
+        self.mainIV.image = HyBundleImage(@"idcard8");
+        self.headerIV.image = HyBundleImage(@"idcardHeader7");
     }else if ([model.license_item_code isEqualToString:@"106006501"]) { // 供水单位卫生许可证
-        
-        self.mainIV.image = [UIImage imageNamed:BundleFile(@"idcard10")];
-        self.headerIV.image = [UIImage imageNamed:BundleFile(@"idcardHeader9")];
-        
+        self.mainIV.image = HyBundleImage(@"idcard10");
+        self.headerIV.image = HyBundleImage(@"idcardHeader9");
     }else if ([model.license_item_code isEqualToString:@"110002301"]) { // 食品生产许可证
-        
-        self.mainIV.image = [UIImage imageNamed:BundleFile(@"idcard9")];
-        self.headerIV.image = [UIImage imageNamed:BundleFile(@"idcardHeader8")];
-        
+        self.mainIV.image = HyBundleImage(@"idcard9");
+        self.headerIV.image = HyBundleImage(@"idcardHeader8");
     }else if ([model.license_item_code isEqualToString:@"100007801"]) { // 建设用地规划许可证
-        
-        self.mainIV.image = [UIImage imageNamed:BundleFile(@"idcard6")];
-        self.headerIV.image = [UIImage imageNamed:BundleFile(@"idcardHeader5")];
-        
+        self.mainIV.image = HyBundleImage(@"idcard6");
+        self.headerIV.image = HyBundleImage(@"idcardHeader5");
     }else if ([model.license_item_code isEqualToString:@"501006601"]) {// 同意接用城市照明电源告知书
-        
-        self.mainIV.image = [UIImage imageNamed:BundleFile(@"idcard11")];
-        self.headerIV.image = [UIImage imageNamed:BundleFile(@"idcardHeader10")];
-        
+        self.mainIV.image = HyBundleImage(@"idcard11");
+        self.headerIV.image = HyBundleImage(@"idcardHeader10");
     }else if ([model.license_item_code isEqualToString:@"110003901"]) { // 外国人工作许可证
-        
-        self.mainIV.image = [UIImage imageNamed:BundleFile(@"idcard12")];
-        self.headerIV.image = [UIImage imageNamed:BundleFile(@"idcardHeader1")];
-        
+        self.mainIV.image = HyBundleImage(@"idcard12");
+        self.headerIV.image = HyBundleImage(@"idcardHeader1");
     }else if ([model.license_item_code isEqualToString:@"100001701"]) { // 药品经营许可证
-        
-        self.mainIV.image = [UIImage imageNamed:BundleFile(@"idcard7")];
-        self.headerIV.image = [UIImage imageNamed:BundleFile(@"idcardHeader6")];
-        
+        self.mainIV.image = HyBundleImage(@"idcard7");
+        self.headerIV.image = HyBundleImage(@"idcardHeader6");
     }else if ([model.license_item_code isEqualToString:@"110"]) { // 网证
-        
-        self.mainIV.image = [UIImage imageNamed:BundleFile(@"idcard14")];
-        self.headerIV.image = [UIImage imageNamed:BundleFile(@"netCerti")];
-        
+        self.mainIV.image = HyBundleImage(@"idcard14");
+        self.headerIV.image = HyBundleImage(@"netCerti");
     }
     if (model.issue_date) {
         self.timeLabel.text = [model.issue_date substringToIndex:10];

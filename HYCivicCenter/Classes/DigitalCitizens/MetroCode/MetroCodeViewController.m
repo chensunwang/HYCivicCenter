@@ -73,7 +73,7 @@ NSString *const metroCell = @"metroCell";
     contentView.backgroundColor = UIColorFromRGB(0xF5F5F5);
     
     UIImageView *bgIV = [[UIImageView alloc]initWithFrame:CGRectMake(0, -40, [UIScreen mainScreen].bounds.size.width, 145)];
-    bgIV.image = [UIImage imageNamed:BundleFile(@"businessBG")];
+    bgIV.image = HyBundleImage(@"businessBG");
     [contentView addSubview:bgIV];
     
     UIView *topView = [[UIView alloc]initWithFrame:CGRectMake(16, 16, [UIScreen mainScreen].bounds.size.width - 32, 358)];
@@ -93,7 +93,7 @@ NSString *const metroCell = @"metroCell";
     [topView addSubview:lineView];
     
     UIImageView *metroIV = [[UIImageView alloc]init];
-    metroIV.image = [UIImage imageNamed:BundleFile(@"metro")];
+    metroIV.image = HyBundleImage(@"metro");
     [topView addSubview:metroIV];
     
     UILabel *tipLabel = [[UILabel alloc]init];
@@ -230,7 +230,7 @@ NSString *const metroCell = @"metroCell";
     
     NSArray *imagesArr = @[@"myService",@"currenService"];
     NSArray *namesArr = @[@"我的",@"可享服务"];
-    headerIV.image = [UIImage imageNamed:BundleFile(imagesArr[section])];
+    headerIV.image = HyBundleImage(imagesArr[section]);
     nameLabel.text = namesArr[section];
     
     [headerIV mas_makeConstraints:^(MASConstraintMaker *make) {

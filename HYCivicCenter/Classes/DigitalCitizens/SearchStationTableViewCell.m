@@ -54,7 +54,7 @@
 - (void)setLineModel:(HYSearchLineModel *)lineModel {
     _lineModel = lineModel;
     
-    self.headerIV.image = [UIImage imageNamed:BundleFile(@"busRoute")];
+    self.headerIV.image = HyBundleImage(@"busRoute");
     self.nameLabel.text = lineModel.lineName?:@"";
     
 }
@@ -62,7 +62,7 @@
 - (void)setStationModel:(HYSearchStationModel *)stationModel {
     _stationModel = stationModel;
     
-    self.headerIV.image = [UIImage imageNamed:BundleFile(@"station")];
+    self.headerIV.image = HyBundleImage(@"station");
     self.nameLabel.text = stationModel.stationName;
     
 }

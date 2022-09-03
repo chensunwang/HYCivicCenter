@@ -79,11 +79,11 @@ NSString *const cardDetailCell = @"cardDetail";
     [self.view addSubview:self.topView];
     
     UIImageView *bgIV = [[UIImageView alloc]init];
-    bgIV.image = [UIImage imageNamed:BundleFile(@"businessBG")];
+    bgIV.image = HyBundleImage(@"businessBG");
     [self.topView addSubview:bgIV];
     
     UIImageView *contentIV = [[UIImageView alloc]init];
-    contentIV.image = [UIImage imageNamed:BundleFile(@"busiContent")];
+    contentIV.image = HyBundleImage(@"busiContent");
     contentIV.userInteractionEnabled = YES;
     [self.topView addSubview:contentIV];
     
@@ -312,7 +312,7 @@ NSString *const cardDetailCell = @"cardDetail";
     if (indexPath.section == 0) {
         NSArray *imagesArr = @[@"info1",@"info2",@"info3",@"info4"];
         NSArray *titlesArr = @[@"电话",@"微信",@"邮箱",@"地址"];
-        cell.headerIV.image = [UIImage imageNamed:BundleFile(imagesArr[indexPath.row])];
+        cell.headerIV.image = HyBundleImage(imagesArr[indexPath.row]);
         cell.nameLabel.text = titlesArr[indexPath.row];
         
         NSArray *contentArr = @[self.cardModel.phone?:@"",self.cardModel.weChat?:@"",self.cardModel.email?:@"",self.cardModel.address?:@""];
@@ -339,7 +339,7 @@ NSString *const cardDetailCell = @"cardDetail";
         NSArray *titlesArr = @[@"公司",@"职位",@"行业"];
         NSArray *contentArr = @[self.cardModel.companyName?:@"",self.cardModel.duty?:@"",self.cardModel.industryName?:@""];
         cell.reproduceBtn.hidden = NO;
-        cell.headerIV.image = [UIImage imageNamed:BundleFile(imagesArr[indexPath.row])];
+        cell.headerIV.image = HyBundleImage(imagesArr[indexPath.row]);
         cell.nameLabel.text = titlesArr[indexPath.row];
         cell.contentLabel.text = contentArr[indexPath.row];
         

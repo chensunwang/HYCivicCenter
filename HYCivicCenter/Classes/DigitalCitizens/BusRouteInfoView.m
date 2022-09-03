@@ -43,7 +43,7 @@
         [self addSubview:self.timeLabel];
         
         self.soundIV = [[UIImageView alloc]init];
-        self.soundIV.image = [UIImage imageNamed:BundleFile(@"busSignal")];
+        self.soundIV.image = HyBundleImage(@"busSignal");
         [self addSubview:self.soundIV];
         
         self.numLabel.text = @"6路";

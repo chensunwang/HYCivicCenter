@@ -149,7 +149,7 @@
     [img drawInRect:CGRectMake(0, 0, img.size.width, img.size.height)];
     //7.3在中心划入其他图片
     
-    UIImage *centerImg = [UIImage imageNamed:BundleFile(@"citizenBg")];
+    UIImage *centerImg = HyBundleImage(@"citizenBg");
     
     CGFloat centerW = 48;
     CGFloat centerH = 48;

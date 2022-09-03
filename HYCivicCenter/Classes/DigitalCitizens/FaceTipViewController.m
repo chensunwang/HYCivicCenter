@@ -41,7 +41,7 @@
 - (void)configUI {
     
     UIImageView *faceScanIV = [[UIImageView alloc]init];
-    faceScanIV.image = [UIImage imageNamed:BundleFile(@"faceScan")];
+    faceScanIV.image = HyBundleImage(@"faceScan");
     [self.view addSubview:faceScanIV];
     
     UILabel *tipLabel1 = [[UILabel alloc]init];
@@ -63,12 +63,12 @@
     [self.view addSubview:tipLabel3];
     
     UIImageView *contentIV = [[UIImageView alloc]init];
-    contentIV.image = [UIImage imageNamed:BundleFile(@"faceShadow")];
+    contentIV.image = HyBundleImage(@"faceShadow");
     [self.view addSubview:contentIV];
     
     XFUDButton *faceScreenBtn = [[XFUDButton alloc]init];
     faceScreenBtn.padding = 10;
-    [faceScreenBtn setImage:[UIImage imageNamed:BundleFile(@"faceScreen")] forState:UIControlStateNormal];
+    [faceScreenBtn setImage:HyBundleImage(@"faceScreen") forState:UIControlStateNormal];
     faceScreenBtn.titleLabel.font = RFONT(10);
     [faceScreenBtn setTitle:@"正对手机" forState:UIControlStateNormal];
     [faceScreenBtn setTitleColor:UIColorFromRGB(0x999999) forState:UIControlStateNormal];
@@ -76,7 +76,7 @@
     
     XFUDButton *lightBtn = [[XFUDButton alloc]init];
     lightBtn.padding = 10;
-    [lightBtn setImage:[UIImage imageNamed:BundleFile(@"faceLight")] forState:UIControlStateNormal];
+    [lightBtn setImage:HyBundleImage(@"faceLight") forState:UIControlStateNormal];
     [lightBtn setTitle:@"光线充足" forState:UIControlStateNormal];
     [lightBtn setTitleColor:UIColorFromRGB(0x999999) forState:UIControlStateNormal];
     lightBtn.titleLabel.font = RFONT(10);
@@ -84,7 +84,7 @@
     
     XFUDButton *facenoHiddBtn = [[XFUDButton alloc]init];
     facenoHiddBtn.padding = 10;
-    [facenoHiddBtn setImage:[UIImage imageNamed:BundleFile(@"faceNohidden")] forState:UIControlStateNormal];
+    [facenoHiddBtn setImage:HyBundleImage(@"faceNohidden") forState:UIControlStateNormal];
     [facenoHiddBtn setTitle:@"脸无遮挡" forState:UIControlStateNormal];
     [facenoHiddBtn setTitleColor:UIColorFromRGB(0x999999) forState:UIControlStateNormal];
     facenoHiddBtn.titleLabel.font = RFONT(10);

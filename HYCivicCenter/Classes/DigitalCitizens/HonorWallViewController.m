@@ -85,7 +85,7 @@ NSString *const honorCell = @"honorCell";
     [self.view addSubview:addCardBtn];
     
     UIImageView *addIV = [[UIImageView alloc]init];
-    addIV.image = [UIImage imageNamed:BundleFile(@"addCard")];
+    addIV.image = HyBundleImage(@"addCard");
     [addCardBtn addSubview:addIV];
     
     UILabel *nameLabel = [[UILabel alloc]init];
@@ -95,7 +95,7 @@ NSString *const honorCell = @"honorCell";
     [addCardBtn addSubview:nameLabel];
     
     self.holderIV = [[UIImageView alloc]init];
-    self.holderIV.image = [UIImage imageNamed:BundleFile(@"cardHolder")];
+    self.holderIV.image = HyBundleImage(@"cardHolder");
     [self.view addSubview:self.holderIV];
     
     self.holderLabel = [[UILabel alloc]init];

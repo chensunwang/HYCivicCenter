@@ -52,7 +52,7 @@
         [self.contentView addSubview:self.headerIV];
         
         self.holderIV = [[UIImageView alloc]init];
-        self.holderIV.image = [UIImage imageNamed:BundleFile(@"headHolder")];
+        self.holderIV.image = HyBundleImage(@"headHolder");
         [self.headerIV addSubview:self.holderIV];
         
         self.tipLabel = [[UILabel alloc]init];

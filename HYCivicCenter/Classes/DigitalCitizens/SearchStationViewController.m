@@ -88,11 +88,11 @@ NSString *const searchStationCell = @"searchStationCell";
     [self.view addSubview:self.tableView];
     
     self.holderIV = [[UIImageView alloc]init];
-    self.holderIV.image = [UIImage imageNamed:BundleFile(@"searchBusHolder")];
+    self.holderIV.image = HyBundleImage(@"searchBusHolder");
     [self.view addSubview:self.holderIV];
     
     self.noResultIV = [[UIImageView alloc]init];
-    self.noResultIV.image = [UIImage imageNamed:BundleFile(@"searchNoResult")];
+    self.noResultIV.image = HyBundleImage(@"searchNoResult");
     self.noResultIV.hidden = YES;
     [self.view addSubview:self.noResultIV];
     
@@ -136,7 +136,7 @@ NSString *const searchStationCell = @"searchStationCell";
     
     UIView *leftView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 36, 32)];
     UIImageView *searchIV = [[UIImageView alloc]initWithFrame:CGRectMake(15, 8, 16, 16)];
-    searchIV.image = [UIImage imageNamed:BundleFile(@"search")];
+    searchIV.image = HyBundleImage(@"search");
     [leftView addSubview:searchIV];
     
     UITextField *searchTF = [[UITextField alloc]init];
@@ -295,7 +295,7 @@ NSString *const searchStationCell = @"searchStationCell";
     [moreBtn addSubview:nameLabel];
     
     UIImageView *moreIV = [[UIImageView alloc]init];
-    moreIV.image = [UIImage imageNamed:BundleFile(@"moreIndicator")];
+    moreIV.image = HyBundleImage(@"moreIndicator");
     [moreBtn addSubview:moreIV];
     
     [moreBtn mas_makeConstraints:^(MASConstraintMaker *make) {

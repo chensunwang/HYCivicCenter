@@ -9,9 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "BDFaceRemindAnimationView.h"
 
-#define FACESDK_ACTION_BUNDLE_NAME @"com.baidu.idl.face.live.action.image.bundle"
-#define FACESDK_ACTION_BUNDLE [[NSBundle alloc] initWithPath:[[NSBundle mainBundle] pathForResource:FACESDK_ACTION_BUNDLE_NAME ofType:nil]]
-#define ImageBundleFile(FileName) [@"HYCivicCenter.bundle" stringByAppendingPathComponent:FileName]
+#define ResourceBundle [NSBundle bundleWithPath:[[NSBundle bundleForClass:[self class]].resourcePath stringByAppendingPathComponent:@"/HYCivicCenter.bundle/com.baidu.idl.face.live.action.image.bundle"]]
+#define BDBundleImage(imageName) [UIImage imageNamed:imageName inBundle:ResourceBundle compatibleWithTraitCollection:nil]
 
 @interface BDFaceRemindAnimationView ()
 @property (nonatomic, assign) BOOL isImageSuccess;
@@ -59,8 +58,7 @@
             } else {
                 imageName = [NSString stringWithFormat:@"%d_%d", i, k];
             }
-//            NSString * path = [FACESDK_ACTION_BUNDLE pathForResource:imageName ofType:@"png"];
-            UIImage *image = [UIImage imageNamed:ImageBundleFile(imageName)];
+            UIImage *image = BDBundleImage(imageName);
             if (image) {
                 [imageArr addObject:image];
             }

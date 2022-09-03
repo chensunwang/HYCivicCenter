@@ -48,7 +48,7 @@
 - (void)setClassifyModel:(HYServiceClassifyModel *)classifyModel {
     _classifyModel = classifyModel;
     
-    [self.headerIV sd_setImageWithURL:[NSURL URLWithString:classifyModel.iconUrl] placeholderImage:[UIImage imageNamed:BundleFile(classifyModel.iconUrl)]];
+    [self.headerIV sd_setImageWithURL:[NSURL URLWithString:classifyModel.iconUrl] placeholderImage:HyBundleImage(classifyModel.iconUrl)];
     self.nameLabel.text = classifyModel.serviceName;
     self.subNameLabel.text = classifyModel.remark;
     

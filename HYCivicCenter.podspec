@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'HYCivicCenter' # 库名称
-  s.version          = '0.1.6' # 库的版本号，我们每次发新版本的时候版本号需要对应修改
+  s.version          = '0.1.7' # 库的版本号，我们每次发新版本的时候版本号需要对应修改
   s.summary          = 'HYCivicCenter.' # 库的简单描述
 
 # This description is used to generate tags and improve search results.
@@ -51,8 +51,7 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   # 你的源码位置，源文件 包含 h、m
-  s.source_files = ['HYCivicCenter/Classes/**/*',
-                    'HYCivicCenter/Assets/*']
+  s.source_files = ['HYCivicCenter/Classes/**/*']
   
   # 调试公开所有的头文件 这个地方下面的头文件 如果是在Example中调试 就公开全部，需要打包就只公开特定的h文件
   # s.public_header_files = 'Pod/Classes/**/*.h'
@@ -62,7 +61,8 @@ Pod::Spec.new do |s|
     
   # 资源、比如图片、音频文件等
   s.resource_bundles = {  # 这是个数组，可以添加其他bundle
-    'HYCivicCenter' => ['HYCivicCenter/Assets/*.png']
+    'HYCivicCenter' => ['HYCivicCenter/Assets/*.xcassets',
+                        'HYCivicCenter/Classes/**/*.bundle']
   }
   
   # 表示依赖系统的框架(多个)
@@ -116,8 +116,8 @@ end
 ## 5.1  git add .
 ## 5.2  git commit -m 'change pod version'
 ## 5.3  git push
-## 5.4  git tag -a 0.1.6 -m 'add tag 0.1.6'
-## 5.5  git push origin 0.1.6
+## 5.4  git tag -a 0.1.7 -m 'add tag 0.1.7'
+## 5.5  git push origin 0.1.7
 
 # 6.打包  pod package HYCivicCenter.podspec --force --exclude-deps --no-mangle --embedded
 

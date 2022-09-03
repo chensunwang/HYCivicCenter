@@ -44,7 +44,7 @@
         [self.contentView addSubview:self.subNameLabel];
         
         self.indicateIV = [[UIImageView alloc]init];
-        self.indicateIV.image = [UIImage imageNamed:BundleFile(@"serviceIndicate")];
+        self.indicateIV.image = HyBundleImage(@"serviceIndicate");
         [self.contentView addSubview:self.indicateIV];
         
         self.lineView = [[UIView alloc]init];
