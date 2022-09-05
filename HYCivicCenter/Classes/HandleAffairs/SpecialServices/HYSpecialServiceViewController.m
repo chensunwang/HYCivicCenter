@@ -31,7 +31,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.navigationItem.titleView = [UILabel xf_labelWithText:@"专项服务"];
+    UILabel *titleLabel = [UILabel xf_labelWithText:@"专项服务"];
+    if (_hyTitleColor) {
+        titleLabel.textColor = _hyTitleColor;
+    }
+    self.navigationItem.titleView = titleLabel;
     
     self.view.backgroundColor = UIColorFromRGB(0xF5F5F5);
 }
@@ -52,6 +56,7 @@
     for (NSInteger i = 0; i < self.headerArr.count; i++) {
         HYServiceContentModel *serviceModel = self.headerArr[i];
         HYSpecialServiceContentController *contentVC = [[HYSpecialServiceContentController alloc] init];
+        contentVC.hyTitleColor = _hyTitleColor;
         contentVC.contentModel = serviceModel;
         contentVC.isEnterprise = _isEnterprise;
         [self addChildViewController:contentVC];

@@ -181,6 +181,7 @@
         [self showAlertForReanNameAuth];
     } else {
         HYServiceProgressViewController *progressVC = [[HYServiceProgressViewController alloc] init];
+        progressVC.hyTitleColor = _hyTitleColor;
         [self.viewController.navigationController pushViewController:progressVC animated:YES];
     }
 }
@@ -194,6 +195,7 @@
     } else {
         HYMyServiceViewController *myServiceVC = [[HYMyServiceViewController alloc] init];
         myServiceVC.isEnterprise = _isEnterprise;
+        myServiceVC.hyTitleColor = _hyTitleColor;
         [self.viewController.navigationController pushViewController:myServiceVC animated:YES];
     }
 }

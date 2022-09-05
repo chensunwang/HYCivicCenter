@@ -35,9 +35,7 @@
 }
 
 - (void)backClick {
-    
     [self.navigationController popViewControllerAnimated:YES];
-    
 }
 
 ///MARK: override
@@ -46,7 +44,7 @@
 {
     if (self.viewControllers.count > 0) {
         viewController.hidesBottomBarWhenPushed = YES;
-        viewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"naviBack"] style:UIBarButtonItemStyleDone target:self action:@selector(backClickedAction)];
+        viewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:HyBundleImage(@"goBack") style:UIBarButtonItemStyleDone target:self action:@selector(backClickedAction)];
     }
     //在push一个新的VC时，禁用滑动返回手势
     if ([self respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
@@ -83,20 +81,8 @@
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
-    
     self.navigationBar.subviews.firstObject.alpha = 1;
     [self.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
-    
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

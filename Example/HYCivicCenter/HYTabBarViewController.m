@@ -49,7 +49,7 @@
     // Do any additional setup after loading the view.
     
     MainApi *mainApi = [MainApi sharedInstance];
-    mainApi.token = @"s9P41NF3pK-yVpNc3DtZK3i5rIw";
+    mainApi.token = @"44_WyvH4LoajBX1HpSV3Fcfh00k";
     
     self.view.backgroundColor = UIColor.whiteColor;
     self.delegate = self;
@@ -60,12 +60,15 @@
 - (void)setupChildViewController {
     // alloc init 的时候会进入对应vc的init viewdidload方法里面，也算是进入了新的界面
     DigitalcitizenViewController *homeVc = [[DigitalcitizenViewController alloc] init];
+    homeVc.hyTitleColor = UIColor.blackColor;
     [self setupChildViewController:homeVc title:@"首页" image:@"icon_task_n" selectedImage:@"icon_task_s"];
     
     HYHandleAffairsViewController *InstanceVc = [[HYHandleAffairsViewController alloc] init];
+    InstanceVc.hyTitleColor = UIColor.blackColor;
     [self setupChildViewController:InstanceVc title:@"办事" image:@"icon_money_n" selectedImage:@"icon_money_s"];
     
     HYGovernmentViewController *mineVc = [[HYGovernmentViewController alloc] init];
+    mineVc.hyTitleColor = UIColor.blackColor;
     [self setupChildViewController:mineVc title:@"政务" image:@"icon_me_n" selectedImage:@"icon_me_s"];
 }
 
@@ -77,7 +80,6 @@
     
     viewController.navigationItem.title = title;  // 顶部标题
     viewController.tabBarItem.title = title;  // 底部标题
-    
     
     // 正常状态
     [viewController.tabBarItem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor grayColor], NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
@@ -92,15 +94,5 @@
     HYNavigationController *nav = [[HYNavigationController alloc] initWithRootViewController:viewController];
     [self addChildViewController:nav];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

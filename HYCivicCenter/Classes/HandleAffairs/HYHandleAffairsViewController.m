@@ -83,7 +83,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
         
-    self.navigationItem.titleView = [UILabel xf_labelWithText:@"办事"];
+    UILabel *titleLabel = [UILabel xf_labelWithText:@"办事"];
+    if (_hyTitleColor) {
+        titleLabel.textColor = _hyTitleColor;
+    }
+    self.navigationItem.titleView = titleLabel;
     
     [self traitCollectionDidChange:nil];
 }
@@ -126,6 +130,7 @@
         return;
     }
     HYHomeSearchViewController *homeSearchVC = [[HYHomeSearchViewController alloc] init];
+    homeSearchVC.hyTitleColor = _hyTitleColor;
     homeSearchVC.searchStr = _searchView.searchTF.text;
     homeSearchVC.idCard = _idCard;
     homeSearchVC.isEnterprise = _isEnterprise;
@@ -296,6 +301,7 @@
     if (indexPath.row == 0) {
         HYGovernmentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HYGovernmentCell"];
         cell.viewController = self;
+        cell.hyTitleColor = _hyTitleColor;
         cell.idCard = _idCard;
         cell.isEnterprise = _isEnterprise;
         cell.isLogin = _isLogin;
@@ -315,6 +321,7 @@
     } else if (indexPath.row == 2) {
         HYSpecialServiceCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HYSpecialServiceCell"];
         cell.viewController = self;
+        cell.hyTitleColor = _hyTitleColor;
         cell.idCard = _idCard;
         cell.isEnterprise = _isEnterprise;
         cell.specialArray = self.specialServiceArr;
@@ -343,6 +350,7 @@
                 if (model.outLinkFlag || model.servicePersonFlag || weakSelf.isEnterprise) { // 外链 内链个人  内链企业且已企业认证
                     HYGuessBusinessViewController *guessVC = [[HYGuessBusinessViewController alloc] init];
                     guessVC.isEnterprise = weakSelf.isEnterprise;
+                    guessVC.hyTitleColor = weakSelf.hyTitleColor;
                     if (index == 0) {
                         guessVC.titleName = @"机动车业务";
                     } else if (index == 1) {
@@ -394,6 +402,7 @@
     HYHotServiceModel *model = self.hotServiceArr[index];
     if ([model.name isEqualToString:@"法律援助指南"]) {
         HYLegalAidGuideViewController *legalAidVC = [[HYLegalAidGuideViewController alloc] init];
+        legalAidVC.hyTitleColor = self.hyTitleColor;
         [self.navigationController pushViewController:legalAidVC animated:YES];
     } else if ([model.name isEqualToString:@"更多"]) {
         if (!_idCard || [_idCard isEqualToString:@""]) { // 需要实名认证
@@ -401,6 +410,7 @@
         } else {
             HYHotServiceViewController *hotServiceVC = [[HYHotServiceViewController alloc] init];
             hotServiceVC.isEnterprise = self.isEnterprise;
+            hotServiceVC.hyTitleColor = self.hyTitleColor;
             [self.navigationController pushViewController:hotServiceVC animated:YES];
         }
     } else {
@@ -429,6 +439,7 @@
                 } else if ([model.servicePersonFlag intValue] == 1 || self.isEnterprise) { // 内链个人  内链企业且已企业认证
                     HYOnLineBusinessMainViewController * mainVC = [[HYOnLineBusinessMainViewController alloc] init];
                     mainVC.serviceModel = model;
+                    mainVC.hyTitleColor = self.hyTitleColor;
                     [self.navigationController pushViewController:mainVC animated:YES];
                 } else { // 内链
                     // 提示企业认证

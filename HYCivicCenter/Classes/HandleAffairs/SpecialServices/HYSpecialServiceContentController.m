@@ -106,6 +106,7 @@ NSString *const specialServiceCell = @"specialServiceCell";
         } else if (serviceModel.servicePersonFlag || self.isEnterprise) {  // 内链个人  内链企业且已企业认证
             HYOnLineBusinessMainViewController * mainVC = [[HYOnLineBusinessMainViewController alloc] init];
             mainVC.serviceModel = serviceModel;
+            mainVC.hyTitleColor = _hyTitleColor;
             [self.navigationController pushViewController:mainVC animated:YES];
         } else {
             // 提示企业认证

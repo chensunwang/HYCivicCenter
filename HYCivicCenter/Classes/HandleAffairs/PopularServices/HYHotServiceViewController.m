@@ -53,7 +53,11 @@ NSString *const hotServiceCell = @"hotCell";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
         
-    self.navigationItem.titleView = [UILabel xf_labelWithText:@"热门服务"];
+    UILabel *titleLabel = [UILabel xf_labelWithText:@"热门服务"];
+    if (_hyTitleColor) {
+        titleLabel.textColor = _hyTitleColor;
+    }
+    self.navigationItem.titleView = titleLabel;
         
     MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
     self.tableView.mj_header = header;
@@ -133,6 +137,7 @@ NSString *const hotServiceCell = @"hotCell";
         } else if ([model.servicePersonFlag intValue] == 1 || self.isEnterprise) {
             HYOnLineBusinessMainViewController * mainVC = [[HYOnLineBusinessMainViewController alloc] init];
             mainVC.serviceModel = model;
+            mainVC.hyTitleColor = self.hyTitleColor;
             [self.navigationController pushViewController:mainVC animated:YES];
         } else {
             // 提示企业认证

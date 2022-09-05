@@ -54,7 +54,11 @@ NSString *const guessBusinessCell = @"guessCell";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
         
-    self.navigationItem.titleView = [UILabel xf_labelWithText:self.titleName];
+    UILabel *titleLabel = [UILabel xf_labelWithText:self.titleName];
+    if (_hyTitleColor) {
+        titleLabel.textColor = _hyTitleColor;
+    }
+    self.navigationItem.titleView = titleLabel;
     
     [self loadData];
     
@@ -178,6 +182,7 @@ NSString *const guessBusinessCell = @"guessCell";
         } else if ([model.servicePersonFlag intValue] == 1 || self.isEnterprise) { // 内链个人  内链企业且已企业认证
             HYOnLineBusinessMainViewController * mainVC = [[HYOnLineBusinessMainViewController alloc] init];
             mainVC.serviceModel = model;
+            mainVC.hyTitleColor = _hyTitleColor;
             [self.navigationController pushViewController:mainVC animated:YES];
         } else {
             // 提示企业认证

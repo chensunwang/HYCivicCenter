@@ -25,7 +25,7 @@
 	// Do any additional setup after loading the view, typically from a nib.
     
     MainApi *mainApi = [MainApi sharedInstance];
-    mainApi.token = @"s9P41NF3pK-yVpNc3DtZK3i5rIw";
+    mainApi.token = @"44_WyvH4LoajBX1HpSV3Fcfh00k";
 
     UIButton *clicked = [[UIButton alloc] initWithFrame:CGRectMake(100, 200, 100, 40)];
     [clicked setTitle:@"政务办事" forState:UIControlStateNormal];

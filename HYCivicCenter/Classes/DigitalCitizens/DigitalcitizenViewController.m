@@ -52,7 +52,11 @@ NSString *const serviceCell = @"serviceCell";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.navigationItem.titleView = [UILabel xf_labelWithText:@"数字市民"];
+    UILabel *titleLabel = [UILabel xf_labelWithText:@"数字市民"];
+    if (_hyTitleColor) {
+        titleLabel.textColor = _hyTitleColor;
+    }
+    self.navigationItem.titleView = titleLabel;
     
     if (@available(iOS 11.0, *)) {
         self.collectionView.contentInsetAdjustmentBehavior = UIApplicationBackgroundFetchIntervalNever;

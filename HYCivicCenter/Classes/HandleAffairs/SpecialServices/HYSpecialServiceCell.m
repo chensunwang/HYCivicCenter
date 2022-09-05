@@ -215,6 +215,7 @@
             [self showAlertForReanNameAuth];
         } else {
             HYSpecialServiceViewController *specialVC = [[HYSpecialServiceViewController alloc] init];
+            specialVC.hyTitleColor = _hyTitleColor;
             specialVC.index = indexPath.row;
             specialVC.headerArr = self.specialArray;
             specialVC.isEnterprise = _isEnterprise;
@@ -226,6 +227,7 @@
         } else {
             HYDepartmentCountryModel *departmentModel = self.departmentArray[indexPath.row];
             HYDepartDetailViewController * businessVC = [[HYDepartDetailViewController alloc] init];
+            businessVC.hyTitleColor = _hyTitleColor;
             businessVC.orgName = departmentModel.title;
             businessVC.isEnterprise = _isEnterprise;
             [self.viewController.navigationController pushViewController:businessVC animated:YES];
@@ -236,6 +238,7 @@
         } else {
             HYDepartmentCountryModel *departmentModel = self.countyArray[indexPath.row];
             HYAreaServiceViewController *areaVC = [[HYAreaServiceViewController alloc] init];
+            areaVC.hyTitleColor = _hyTitleColor;
             areaVC.titleString = departmentModel.title;
             areaVC.orgCode = departmentModel.orgCode;
             areaVC.isEnterprise = _isEnterprise;

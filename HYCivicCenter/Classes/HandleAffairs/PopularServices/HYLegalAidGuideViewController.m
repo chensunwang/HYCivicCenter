@@ -32,7 +32,11 @@ NSString *const legalAidCell = @"legalCell";
     
     self.view.backgroundColor = UIColorFromRGB(0xF5F5F5);
     
-    self.navigationItem.titleView = [UILabel xf_labelWithText:@"江西省法律援助指南"];
+    UILabel *titleLabel = [UILabel xf_labelWithText:@"江西省法律援助指南"];
+    if (_hyTitleColor) {
+        titleLabel.textColor = _hyTitleColor;
+    }
+    self.navigationItem.titleView = titleLabel;
     
     [self configUI];
     
