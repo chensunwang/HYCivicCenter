@@ -22,7 +22,18 @@
     self.delegate = wkself;
     
     UINavigationBar *appearance = [UINavigationBar appearance];
-    if (@available(iOS 13.0, *)) {
+    if (@available(iOS 15, *)) {
+        UINavigationBarAppearance *app = [UINavigationBarAppearance new];
+        [app configureWithDefaultBackground];                                              /// 设置默认背景
+        app.backgroundImage = nil;                                                         /// 导航条背景 : 一张图片
+        app.backgroundColor = UIColorFromRGB(0x157AFF);                                    /// 导航条背景 : 纯颜色
+        app.backgroundEffect = nil;                                                        /// 导航条背景 : 是否要一个 模糊效果
+        app.shadowImage = nil;                                                             /// 导航条最下方的一条线 : 一张图片
+        app.shadowColor = [UIColor clearColor];                                            /// 导航条最下方的一条线 : 纯颜色
+        app.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]}; /// 导航条title的颜色 || 大小
+        [appearance setScrollEdgeAppearance:app];
+        [appearance setStandardAppearance:app];
+    } else if (@available(iOS 13.0, *)) {
         UINavigationBarAppearance *barAppearance = UINavigationBarAppearance.new;
         barAppearance.backgroundColor = UIColorFromRGB(0x157AFF);
         appearance.standardAppearance = barAppearance;
@@ -44,7 +55,7 @@
 {
     if (self.viewControllers.count > 0) {
         viewController.hidesBottomBarWhenPushed = YES;
-        viewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:HyBundleImage(@"goBack") style:UIBarButtonItemStyleDone target:self action:@selector(backClickedAction)];
+        viewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:HyBundleImage(@"naviBack") style:UIBarButtonItemStyleDone target:self action:@selector(backClickedAction)];
     }
     //在push一个新的VC时，禁用滑动返回手势
     if ([self respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
@@ -53,7 +64,7 @@
     [super pushViewController:viewController animated:animated];
 }
 
--(void)backClickedAction {
+- (void)backClickedAction {
     [self popViewControllerAnimated:YES];
 }
 
@@ -76,6 +87,7 @@
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer{
     return YES;
 }
+
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldBeRequiredToFailByGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer{
     return [gestureRecognizer isKindOfClass:UIScreenEdgePanGestureRecognizer.class];
 }

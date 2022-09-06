@@ -60,15 +60,15 @@
 - (void)setupChildViewController {
     // alloc init 的时候会进入对应vc的init viewdidload方法里面，也算是进入了新的界面
     DigitalcitizenViewController *homeVc = [[DigitalcitizenViewController alloc] init];
-    homeVc.hyTitleColor = UIColor.blackColor;
+//    homeVc.hyTitleColor = UIColor.blackColor;
     [self setupChildViewController:homeVc title:@"首页" image:@"icon_task_n" selectedImage:@"icon_task_s"];
     
     HYHandleAffairsViewController *InstanceVc = [[HYHandleAffairsViewController alloc] init];
-    InstanceVc.hyTitleColor = UIColor.blackColor;
+//    InstanceVc.hyTitleColor = UIColor.blackColor;
     [self setupChildViewController:InstanceVc title:@"办事" image:@"icon_money_n" selectedImage:@"icon_money_s"];
     
     HYGovernmentViewController *mineVc = [[HYGovernmentViewController alloc] init];
-    mineVc.hyTitleColor = UIColor.blackColor;
+//    mineVc.hyTitleColor = UIColor.blackColor;
     [self setupChildViewController:mineVc title:@"政务" image:@"icon_me_n" selectedImage:@"icon_me_s"];
 }
 
@@ -88,7 +88,7 @@
     // 选中状态
     [viewController.tabBarItem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor redColor], NSForegroundColorAttributeName, nil] forState:UIControlStateSelected];
     
-    viewController.tabBarItem.image = [UIImage imageNamed:image];
+    viewController.tabBarItem.image = [[UIImage imageNamed:image] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     viewController.tabBarItem.selectedImage = [[UIImage imageNamed:selectedImage] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     
     HYNavigationController *nav = [[HYNavigationController alloc] initWithRootViewController:viewController];

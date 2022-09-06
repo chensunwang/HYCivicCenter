@@ -29,10 +29,10 @@
     self.searchView = [[UIView alloc] initWithFrame:CGRectZero];
     [self addSubview:self.searchView];
     [self.searchView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(self);
         make.left.mas_equalTo(16);
         make.right.equalTo(self).offset(-59);
         make.height.mas_equalTo(32);
-        make.bottom.mas_equalTo(self).offset(-10.5);
     }];
     self.searchView.layer.cornerRadius = 16;
     
