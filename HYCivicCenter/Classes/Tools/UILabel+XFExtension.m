@@ -25,7 +25,7 @@
 +(instancetype)xf_labelWithText:(NSString *)text {
     
     UILabel *label = [[UILabel alloc]init];
-    label.font = RFONT(18);
+    label.font = BFONT(17);
     label.textColor = [UIColor whiteColor];
     label.numberOfLines = 1;
     label.textAlignment = NSTextAlignmentCenter;

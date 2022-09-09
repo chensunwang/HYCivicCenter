@@ -30,22 +30,22 @@
         app.backgroundEffect = nil;                                                        /// 导航条背景 : 是否要一个 模糊效果
         app.shadowImage = nil;                                                             /// 导航条最下方的一条线 : 一张图片
         app.shadowColor = [UIColor clearColor];                                            /// 导航条最下方的一条线 : 纯颜色
-        app.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor],
-                                    NSFontAttributeName: [UIFont boldSystemFontOfSize:17]};/// 导航条title的颜色 || 大小
+//        app.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor],
+//                                    NSFontAttributeName: [UIFont boldSystemFontOfSize:17]};/// 导航条title的颜色 || 大小
         [appearance setScrollEdgeAppearance:app];
         [appearance setStandardAppearance:app];
     } else if (@available(iOS 13.0, *)) {
         UINavigationBarAppearance *barAppearance = UINavigationBarAppearance.new;
         barAppearance.backgroundColor = UIColorFromRGB(0x157AFF);
-        barAppearance.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor],
-                                              NSFontAttributeName: [UIFont boldSystemFontOfSize:17]};
+//        barAppearance.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor],
+//                                              NSFontAttributeName: [UIFont boldSystemFontOfSize:17]};
         appearance.standardAppearance = barAppearance;
         appearance.translucent = YES;
     } else {
         //设置导航栏的颜色
         [appearance setBarTintColor:UIColorFromRGB(0x157AFF)];
-        appearance.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor],
-                                           NSFontAttributeName: [UIFont boldSystemFontOfSize:17]};
+//        appearance.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor],
+//                                           NSFontAttributeName: [UIFont boldSystemFontOfSize:17]};
         appearance.translucent = YES;
     }
 }
@@ -60,7 +60,7 @@
 {
     if (self.viewControllers.count > 0) {
         viewController.hidesBottomBarWhenPushed = YES;
-        viewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:HyBundleImage(@"goBack") style:UIBarButtonItemStyleDone target:self action:@selector(backClickedAction)];
+        viewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:HyBundleImage(@"naviBack") style:UIBarButtonItemStyleDone target:self action:@selector(backClickedAction)];
     }
     //在push一个新的VC时，禁用滑动返回手势
     if ([self respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
