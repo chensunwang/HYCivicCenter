@@ -15,6 +15,7 @@
 #import "BDFaceToastView.h"
 #import "BDFaceAdjustParamsFileManager.h"
 #import "BDUIConstant.h"
+#import "HYCivicCenterCommand.h"
 
 #define SoundSwitch @"SoundMode"
 #define LiveDetect @"LiveMode"
@@ -66,7 +67,7 @@ static float const BDFaceActionValue = 0.8f;
     
     UIButton *backButton = [[UIButton alloc] init];
     backButton.frame = CGRectMake(16, 8+KBDXStatusHeight, 28, 28);
-    [backButton setImage:[UIImage imageNamed:@"icon_titlebar_back"] forState:UIControlStateNormal];
+    [backButton setImage:HyBundleImage(@"icon_titlebar_back") forState:UIControlStateNormal];
     [backButton addTarget:self action:@selector(backAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:backButton];
     
@@ -79,7 +80,7 @@ static float const BDFaceActionValue = 0.8f;
     noticeLabel.textColor = KColorFromRGB(0x91979E);
     [self.view addSubview:noticeLabel];
     
-    UIImage *backSelectImage = [UIImage imageNamed:@"icon_live_list"];
+    UIImage *backSelectImage = HyBundleImage(@"icon_live_list");
     
     // 语音播报部分
     {
@@ -91,7 +92,7 @@ static float const BDFaceActionValue = 0.8f;
         
         UIImageView *img1 = [[UIImageView alloc] init];
         img1.frame = CGRectMake(16, 42+KBDNaviHeight+11, 30, 30);
-        img1.image = [UIImage imageNamed:@"living_config1"];
+        img1.image = HyBundleImage(@"living_config1");
         [self.view addSubview:img1];
         
         
@@ -123,7 +124,7 @@ static float const BDFaceActionValue = 0.8f;
         
         UIImageView *img2 = [[UIImageView alloc] init];
         img2.frame = CGRectMake(16, 110+KBDNaviHeight+11, 30, 30);
-        img2.image = [UIImage imageNamed:@"living_config2"];
+        img2.image = HyBundleImage(@"living_config2");
         [self.view addSubview:img2];
         
         UILabel *qualityLabel = [[UILabel alloc] init];
@@ -134,7 +135,7 @@ static float const BDFaceActionValue = 0.8f;
         [self.view addSubview:qualityLabel];
         UIImageView *rightArrow = [[UIImageView alloc] init];
         rightArrow.frame = CGRectMake(ScreenWidth-30-16, KBDNaviHeight+120, 30, 30);
-        rightArrow.image = [UIImage imageNamed:@"right_arrow"];
+        rightArrow.image = HyBundleImage(@"right_arrow");
         [rightArrow setContentMode:UIViewContentModeCenter];
         [self.view addSubview:rightArrow];
         
@@ -159,7 +160,7 @@ static float const BDFaceActionValue = 0.8f;
     
     UIImageView *img3 = [[UIImageView alloc] init];
     img3.frame = CGRectMake(16, 178+KBDNaviHeight+11, 30, 30);
-    img3.image = [UIImage imageNamed:@"living_config1"];
+    img3.image = HyBundleImage(@"living_config1");
     [self.view addSubview:img3];
     
     
@@ -198,7 +199,7 @@ static float const BDFaceActionValue = 0.8f;
     
     UIImageView *img4 = [[UIImageView alloc] init];
     img4.frame = CGRectMake(16, 11, 30, 30);
-    img4.image = [UIImage imageNamed:@"living_config4"];
+    img4.image = HyBundleImage(@"living_config4");
     [imageView3 addSubview:img4];
     
     UILabel *thresholdLabel = [[UILabel alloc] init];
@@ -214,8 +215,8 @@ static float const BDFaceActionValue = 0.8f;
     [imageView3 addSubview:self.leftButton];
     [self.leftButton addTarget:self action:@selector(minusNumber) forControlEvents:UIControlEventTouchUpInside];
 
-    [self.leftButton setImage:[UIImage imageNamed:@"left_button_normal"] forState:UIControlStateNormal];
-    [self.leftButton setImage:[UIImage imageNamed:@"left_button_highlight"] forState:UIControlStateHighlighted];
+    [self.leftButton setImage:HyBundleImage(@"left_button_normal") forState:UIControlStateNormal];
+    [self.leftButton setImage:HyBundleImage(@"left_button_highlight") forState:UIControlStateHighlighted];
     
     self.textLabel = [[UILabel alloc]init];
     [imageView3 addSubview:self.textLabel];
@@ -230,8 +231,8 @@ static float const BDFaceActionValue = 0.8f;
     self.rightButton.frame = CGRectMake(ScreenWidth-28-16, 12, 28, 28);
     [imageView3 addSubview:self.rightButton];
     [self.rightButton addTarget:self action:@selector(addNumber) forControlEvents:UIControlEventTouchUpInside];
-    [self.rightButton setImage:[UIImage imageNamed:@"right_button_normal"] forState:UIControlStateNormal];
-    [self.rightButton setImage:[UIImage imageNamed:@"right_button_highlight"] forState:UIControlStateHighlighted];
+    [self.rightButton setImage:HyBundleImage(@"right_button_normal") forState:UIControlStateNormal];
+    [self.rightButton setImage:HyBundleImage(@"right_button_highlight") forState:UIControlStateHighlighted];
     
     
     // 提示
@@ -249,10 +250,10 @@ static float const BDFaceActionValue = 0.8f;
     self.actionValue -= 0.05;
     if (self.actionValue<0) {
         self.actionValue=0;
-        [self.leftButton setImage:[UIImage imageNamed:@"left_button_unable"] forState:UIControlStateNormal];
+        [self.leftButton setImage:HyBundleImage(@"left_button_unable") forState:UIControlStateNormal];
     } else {
-        [self.leftButton setImage:[UIImage imageNamed:@"left_button_normal"] forState:UIControlStateNormal];
-        [self.rightButton setImage:[UIImage imageNamed:@"right_button_normal"] forState:UIControlStateNormal];
+        [self.leftButton setImage:HyBundleImage(@"left_button_normal") forState:UIControlStateNormal];
+        [self.rightButton setImage:HyBundleImage(@"right_button_normal") forState:UIControlStateNormal];
     }
     [[FaceSDKManager sharedInstance] setliveThresholdValue:self.actionValue];
     self.textLabel.text = [NSString stringWithFormat:@"%.2f",self.actionValue];
@@ -262,10 +263,10 @@ static float const BDFaceActionValue = 0.8f;
     self.actionValue += 0.05;
     if (self.actionValue>1) {
         self.actionValue=1;
-        [self.rightButton setImage:[UIImage imageNamed:@"right_button_unable"] forState:UIControlStateNormal];
+        [self.rightButton setImage:HyBundleImage(@"right_button_unable") forState:UIControlStateNormal];
     } else {
-        [self.leftButton setImage:[UIImage imageNamed:@"left_button_normal"] forState:UIControlStateNormal];
-        [self.rightButton setImage:[UIImage imageNamed:@"right_button_normal"] forState:UIControlStateNormal];
+        [self.leftButton setImage:HyBundleImage(@"left_button_normal") forState:UIControlStateNormal];
+        [self.rightButton setImage:HyBundleImage(@"right_button_normal") forState:UIControlStateNormal];
     }
     
     [[FaceSDKManager sharedInstance] setliveThresholdValue:self.actionValue];

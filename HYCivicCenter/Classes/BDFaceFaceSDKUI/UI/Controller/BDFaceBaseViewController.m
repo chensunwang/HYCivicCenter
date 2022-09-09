@@ -12,7 +12,7 @@
 #import "BDFaceLogoView.h"
 #import "BDUIConstant.h"
 #import "BDPopupController.h"
-
+#import "HYCivicCenterCommand.h"
 #import "SSFaceDetectionManager.h"
 
 #define scaleValue 0.70
@@ -88,7 +88,7 @@
 
 - (void)singleActionSuccess:(BOOL)success
 {
-    __weak typeof(self) weakSelf = self;
+//    __weak typeof(self) weakSelf = self;
     dispatch_async(dispatch_get_main_queue(), ^{
         if (success) {
             
@@ -189,7 +189,7 @@
     
     UIButton *backButton = [[UIButton alloc] init];
     backButton.frame = CGRectMake(23.3, KScaleY(42.7), 28, 28);
-    [backButton setImage:[UIImage imageNamed:@"icon_titlebar_close"] forState:UIControlStateNormal];
+    [backButton setImage:HyBundleImage(@"icon_titlebar_close") forState:UIControlStateNormal];
     [backButton addTarget:self action:@selector(closeAction) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:backButton];
     
@@ -197,14 +197,14 @@
     _voiceImageView = [[UIImageView alloc] init];
     _voiceImageView.frame = CGRectMake((ScreenWidth-22-20), KScaleY(42.7), 28, 28);
     _voiceImageView.animationImages = [NSArray arrayWithObjects:
-                                       [UIImage imageNamed:@"icon_titlebar_voice2"], nil];
+                                       HyBundleImage(@"icon_titlebar_voice2"), nil];
     _voiceImageView.animationDuration = 2;
     _voiceImageView.animationRepeatCount = 0;
     NSNumber *soundMode = [[NSUserDefaults standardUserDefaults] objectForKey:@"SoundMode"];
     if (soundMode.boolValue){
         [_voiceImageView startAnimating];
     } else {
-        _voiceImageView.image = [UIImage imageNamed:@"icon_titlebar_voice_close"];
+        _voiceImageView.image = HyBundleImage(@"icon_titlebar_voice_close");
     }
     _voiceImageView.userInteractionEnabled = YES;
     UITapGestureRecognizer *changeVoidceSet = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(changeVoidceSet:)];
@@ -214,7 +214,7 @@
     // 底部logo部分
     UIImageView *logoImageView = [[UIImageView alloc] init];
     logoImageView.frame = CGRectMake(0, CGRectGetMaxY(self.view.frame) - 221, ScreenWidth, 221);
-    logoImageView.image = [UIImage imageNamed:@"image_guide_bottom"];
+    logoImageView.image = HyBundleImage(@"image_guide_bottom");
     [self.maskView addSubview:logoImageView];
     
     // 设置logo，底部的位置和大小，实例化显示
@@ -412,7 +412,7 @@
     NSLog(@"点击");
     if (soundMode.boolValue && _voiceImageView.animating) {
         [_voiceImageView stopAnimating];
-        _voiceImageView.image = [UIImage imageNamed:@"icon_titlebar_voice_close"];
+        _voiceImageView.image = HyBundleImage(@"icon_titlebar_voice_close");
         // 之前是开启的，点击后关闭
         [[NSUserDefaults standardUserDefaults] setObject:@(NO) forKey:@"SoundMode"];
 //        // 活体声音
@@ -455,7 +455,7 @@
         // 成功图片显示和label
         UIImageView *successImageView = [[UIImageView alloc] init];
         successImageView.frame = CGRectMake(KScaleX(112), KScaleY(82), 88, 88);
-        successImageView.image = [UIImage imageNamed:@"icon_overtime"];
+        successImageView.image = HyBundleImage(@"icon_overtime");
         successImageView.layer.masksToBounds = YES;
         successImageView.layer.cornerRadius = 44;
         [view addSubview:successImageView];

@@ -11,6 +11,7 @@
 #import "BDFaceCalculateTool.h"
 #import "BDFaceAdjustParamsConstants.h"
 #import "UIColor+BDFaceColorUtils.h"
+#import "HYCivicCenterCommand.h"
 
 static float const BDFaceAdjustParamsNavigationBarHeight = 44.0f;
 
@@ -64,7 +65,7 @@ static float const BDFaceAdjustParamsNavigationBarBackButtonWidth = 60.0f;
     self.goBackButton.frame = CGRectMake(0, 0, BDFaceAdjustParamsNavigationBarBackButtonWidth, CGRectGetHeight(self.titleView.frame));
     [self.titleView addSubview:self.goBackButton];
     [self.goBackButton addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
-    [self.goBackButton setImage:[UIImage imageNamed:@"icon_titlebar_back"] forState:UIControlStateNormal];
+    [self.goBackButton setImage:HyBundleImage(@"icon_titlebar_back") forState:UIControlStateNormal];
     self.goBackButton.imageView.contentMode = UIViewContentModeCenter;
     
 }

@@ -9,7 +9,7 @@
 #import "BDFaceAgreementViewController.h"
 #import "BDFaceLogoView.h"
 #import "BDUIConstant.h"
-
+#import "HYCivicCenterCommand.h"
 
 @interface BDFaceAgreementViewController ()
 
@@ -33,7 +33,7 @@
     
     UIButton *backButton = [[UIButton alloc] init];
     backButton.frame = CGRectMake(16, 8+KBDXStatusHeight, 28, 28);
-    [backButton setImage:[UIImage imageNamed:@"icon_titlebar_back"] forState:UIControlStateNormal];
+    [backButton setImage:HyBundleImage(@"icon_titlebar_back") forState:UIControlStateNormal];
     [backButton addTarget:self action:@selector(backAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:backButton];
     

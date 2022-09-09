@@ -1,4 +1,3 @@
-source "https://code.aliyun.com/mpaas-public/podspecs.git"
 use_frameworks!
 
 platform :ios, '10.0'
@@ -16,7 +15,6 @@ target 'HYCivicCenter_Example' do
   pod 'SDWebImage'
   pod 'SVProgressHUD'
   pod 'TZImagePickerController', '~> 3.8.3'
-#  pod 'AntVerify', '1.0.0.220608162853'
 
   target 'HYCivicCenter_Tests' do
     inherit! :search_paths

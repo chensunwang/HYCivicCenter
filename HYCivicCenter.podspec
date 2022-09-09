@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'HYCivicCenter' # 库名称
-  s.version          = '0.2.0' # 库的版本号，我们每次发新版本的时候版本号需要对应修改
+  s.version          = '0.2.1' # 库的版本号，我们每次发新版本的时候版本号需要对应修改
   s.summary          = 'HYCivicCenter.' # 库的简单描述
 
 # This description is used to generate tags and improve search results.
@@ -61,15 +61,14 @@ Pod::Spec.new do |s|
     
   # 资源、比如图片、音频文件等
   s.resource_bundles = {  # 这是个数组，可以添加其他bundle
-    'HYCivicCenter' => ['HYCivicCenter/Assets/*.xcassets',
-                        'HYCivicCenter/Classes/**/*.bundle']
+    'HYCivicCenter' => ['HYCivicCenter/Assets/*.xcassets']
   }
   
   # 表示依赖系统的框架(多个)
-  # s.frameworks = 'UIKit', 'MapKit'
+#   s.frameworks = 'UIKit', 'MapKit', 'CoreMotion', 'CFNetwork', 'Foundation', 'CoreGraphics', 'CoreText', 'QuartzCore', 'SystemConfiguration', 'Security'
   
   # 表示依赖的系统类库(多个) 注意:系统类库不需要写全名 去掉开头的lib
-  # s.libraries = 'stdc++','sqlite3'
+#   s.libraries = 'sqlite3.0', 'z', 'c++'
   
   # 依赖的第三方/自己的framework
   s.ios.vendored_frameworks = 'HYCivicCenter/Classes/NetWorkIDCard/CTID_Verification.framework'
@@ -77,7 +76,7 @@ Pod::Spec.new do |s|
   # 依赖的第三方/自己的静态库文件 必须以lib为前缀进行命名，否则会出现找不到的情况，这一点非常重要（比如libWeChatSDK.a）
   # s.vendored_libraries = 'HYCivicCenter/Classes/libWeChatSDK.a'
   # s.vendored_libraries = 'HYCivicCenter/Classes/openssl/include/*.{a}'
-  s.vendored_libraries = 'HYCivicCenter/Classes/BDFaceSDK/*.{a}'
+#  s.vendored_libraries = 'HYCivicCenter/Classes/BDFaceSDK/*.{a}'
   
   # target 项⽬目配置
   s.xcconfig = {
@@ -115,8 +114,8 @@ end
 ## 5.1  git add .
 ## 5.2  git commit -m 'change pod version'
 ## 5.3  git push
-## 5.4  git tag -a 0.2.0 -m 'add tag 0.2.0'
-## 5.5  git push origin 0.2.0
+## 5.4  git tag -a 0.2.1 -m 'add tag 0.2.1'
+## 5.5  git push origin 0.2.1
 
 # 6.远程校验  pod spec lint HYCivicCenter.podspec --use-libraries --allow-warnings --verbose --no-clean
 

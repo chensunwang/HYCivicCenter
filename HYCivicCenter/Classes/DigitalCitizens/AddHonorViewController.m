@@ -288,7 +288,7 @@ NSString *const honorPhotoCell = @"honorCell";
         cell.addIV.hidden = NO;
         cell.addLabel.hidden = NO;
         cell.delBtn.hidden = YES;
-        cell.contentIV.image = [UIImage imageNamed:@" "];
+        cell.contentIV.image = HyBundleImage(@" ");
     }else {
         cell.addIV.hidden = YES;
         cell.addLabel.hidden = YES;

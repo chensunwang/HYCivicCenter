@@ -17,7 +17,7 @@
 #import "BDFaceColorfulViewController.h"
 #import "BDUIConstant.h"
 #import "BDFaceSuccessViewController+BDCheckFace.h"
-
+#import "HYCivicCenterCommand.h"
 
 @interface BDFaceSuccessViewController ()
 @end
@@ -31,14 +31,14 @@
 
     UIButton *backButton = [[UIButton alloc] init];
     backButton.frame = CGRectMake(23.3, 43.3, 28, 28);
-    [backButton setImage:[UIImage imageNamed:@"icon_titlebar_close"] forState:UIControlStateNormal];
+    [backButton setImage:HyBundleImage(@"icon_titlebar_close") forState:UIControlStateNormal];
     [backButton addTarget:self action:@selector(backAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:backButton];
     
     // 成功图片显示和label
     UIImageView *successImageView = [[UIImageView alloc] init];
     successImageView.frame = CGRectMake((ScreenWidth-88) / 2, KScaleY(164), 88, 88);
-    successImageView.image = [UIImage imageNamed:@"icon_success"]; //icon_overtime
+    successImageView.image = HyBundleImage(@"icon_success"); //icon_overtime
     successImageView.layer.masksToBounds = YES;
     successImageView.layer.cornerRadius = 44;
     successImageView.contentMode = UIViewContentModeScaleAspectFill;
@@ -81,7 +81,7 @@
     // 底部logo部分
     UIImageView *logoImageView = [[UIImageView alloc] init];
     logoImageView.frame = CGRectMake(0, CGRectGetMaxY(self.view.frame) - 221, ScreenWidth, 221);
-    logoImageView.image = [UIImage imageNamed:@"image_guide_bottom"];
+    logoImageView.image = HyBundleImage(@"image_guide_bottom");
     [self.view addSubview:logoImageView];
     
     
