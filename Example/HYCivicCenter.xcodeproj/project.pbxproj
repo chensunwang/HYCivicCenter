@@ -23,7 +23,6 @@
 		6003F598195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F596195388D20070C39A /* InfoPlist.strings */; };
 		6003F59A195388D20070C39A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F599195388D20070C39A /* main.m */; };
 		6003F59E195388D20070C39A /* HYAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F59D195388D20070C39A /* HYAppDelegate.m */; };
-		6003F5A7195388D20070C39A /* HYViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5A6195388D20070C39A /* HYViewController.m */; };
 		6003F5A9195388D20070C39A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5A8195388D20070C39A /* Images.xcassets */; };
 		6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F5AF195388D20070C39A /* XCTest.framework */; };
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
@@ -66,8 +65,6 @@
 		6003F59B195388D20070C39A /* HYCivicCenter-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HYCivicCenter-Prefix.pch"; sourceTree = "<group>"; };
 		6003F59C195388D20070C39A /* HYAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HYAppDelegate.h; sourceTree = "<group>"; };
 		6003F59D195388D20070C39A /* HYAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HYAppDelegate.m; sourceTree = "<group>"; };
-		6003F5A5195388D20070C39A /* HYViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HYViewController.h; sourceTree = "<group>"; };
-		6003F5A6195388D20070C39A /* HYViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HYViewController.m; sourceTree = "<group>"; };
 		6003F5A8195388D20070C39A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6003F5AE195388D20070C39A /* HYCivicCenter_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HYCivicCenter_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F5AF195388D20070C39A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -155,8 +152,6 @@
 				6003F59C195388D20070C39A /* HYAppDelegate.h */,
 				6003F59D195388D20070C39A /* HYAppDelegate.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
-				6003F5A5195388D20070C39A /* HYViewController.h */,
-				6003F5A6195388D20070C39A /* HYViewController.m */,
 				37BC1FF828C19AA6003516E8 /* HYTabBarViewController.h */,
 				37BC1FF928C19AA6003516E8 /* HYTabBarViewController.m */,
 				3708369F28CAD034007184A7 /* com.baidu.idl.face.live.action.image.bundle */,
@@ -277,7 +272,7 @@
 				ORGANIZATIONNAME = chensunwang;
 				TargetAttributes = {
 					6003F589195388D20070C39A = {
-						DevelopmentTeam = PJCYVMSLY9;
+						DevelopmentTeam = 43DT5Z45J4;
 					};
 					6003F5AD195388D20070C39A = {
 						DevelopmentTeam = 43DT5Z45J4;
@@ -434,7 +429,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				6003F59E195388D20070C39A /* HYAppDelegate.m in Sources */,
-				6003F5A7195388D20070C39A /* HYViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 				37BC1FFA28C19AA6003516E8 /* HYTabBarViewController.m in Sources */,
 			);
@@ -595,7 +589,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
-				DEVELOPMENT_TEAM = PJCYVMSLY9;
+				DEVELOPMENT_TEAM = 43DT5Z45J4;
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HYCivicCenter/HYCivicCenter-Prefix.pch";
@@ -618,7 +612,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
-				DEVELOPMENT_TEAM = PJCYVMSLY9;
+				DEVELOPMENT_TEAM = 43DT5Z45J4;
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HYCivicCenter/HYCivicCenter-Prefix.pch";

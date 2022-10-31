@@ -15,7 +15,7 @@ PODS:
   - AFNetworking/UIKit (4.0.1):
     - AFNetworking/NSURLSession
   - AlipaySDK-iOS (15.8.11)
-  - HYCivicCenter (0.2.3):
+  - HYCivicCenter (0.2.4):
     - AFNetworking
     - AlipaySDK-iOS
     - Masonry
@@ -28,9 +28,9 @@ PODS:
   - Masonry (1.1.0)
   - MJExtension (3.4.1)
   - MJRefresh (3.7.5)
-  - SDWebImage (5.13.2):
-    - SDWebImage/Core (= 5.13.2)
-  - SDWebImage/Core (5.13.2)
+  - SDWebImage (5.13.5):
+    - SDWebImage/Core (= 5.13.5)
+  - SDWebImage/Core (5.13.5)
   - SVProgressHUD (2.2.5)
   - TZImagePickerController (3.8.3):
     - TZImagePickerController/Basic (= 3.8.3)
@@ -70,15 +70,15 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
   AlipaySDK-iOS: a07b6eafa847a5b29acb6c150ea16d9792d5d167
-  HYCivicCenter: 445fe88154cba09826fcf269fc90adcc18f3dc42
+  HYCivicCenter: 649082be8a1812d29cb4de1bf96411a597e71d14
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJExtension: 21c5f6f8c4d5d8844b7ae8fbae08fed0b501f961
   MJRefresh: fdf5e979eb406a0341468932d1dfc8b7f9fce961
-  SDWebImage: 72f86271a6f3139cc7e4a89220946489d4b9a866
+  SDWebImage: 23d714cd599354ee7906dbae26dff89b421c4370
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   TZImagePickerController: e9909edbadf7381140efc5b5c9f5bdbfd630f7d4
   WechatOpenSDK: 2f0ae448c7525cb5c27db5f7aa0f568de0988fa4
 
-PODFILE CHECKSUM: 7a328c86f31cfc58519d4bf6205399be80b1a198
+PODFILE CHECKSUM: eb5c3c505a6b365c36cc205685df655e510db166
 
 COCOAPODS: 1.11.3

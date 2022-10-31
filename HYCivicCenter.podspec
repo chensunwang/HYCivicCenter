@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'HYCivicCenter' # 库名称
-  s.version          = '0.2.3' # 库的版本号，我们每次发新版本的时候版本号需要对应修改
+  s.version          = '0.2.4' # 库的版本号，我们每次发新版本的时候版本号需要对应修改
   s.summary          = 'HYCivicCenter.' # 库的简单描述
 
 # This description is used to generate tags and improve search results.
@@ -39,7 +39,7 @@ Pod::Spec.new do |s|
 # 下面配置依赖的资源、库、配置等
   
   # 工程依赖系统版本
-  s.ios.deployment_target = '9.0'
+  s.ios.deployment_target = '10.0'
   
   # 指定生成的库
   s.vendored_frameworks = 'SDK/HYCivicCenter.frameworks'
@@ -114,8 +114,8 @@ end
 ## 5.1  git add .
 ## 5.2  git commit -m 'change pod version'
 ## 5.3  git push
-## 5.4  git tag -a 0.2.3 -m 'add tag 0.2.3'
-## 5.5  git push origin 0.2.3
+## 5.4  git tag -a 0.2.4 -m 'add tag 0.2.4'
+## 5.5  git push origin 0.2.4
 
 # 6.远程校验  pod spec lint HYCivicCenter.podspec --use-libraries --allow-warnings --verbose --no-clean
 
