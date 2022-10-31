@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'HYCivicCenter' # 库名称
-  s.version          = '0.2.4' # 库的版本号，我们每次发新版本的时候版本号需要对应修改
+  s.version          = '0.2.5' # 库的版本号，我们每次发新版本的时候版本号需要对应修改
   s.summary          = 'HYCivicCenter.' # 库的简单描述
 
 # This description is used to generate tags and improve search results.
@@ -84,7 +84,7 @@ Pod::Spec.new do |s|
 #      'USER_HEADER_SEARCH_PATHS' => 'HYCivicCenter/Classes/BDFaceSDK/include/*.{h}'  # 载入第三方.a头文件
   }
   
-  s.pod_target_xcconfig = { 'VALID_ARCHS' => 'arm64 armv7' }  # libFaceSSDKLib.a库只支持真机架构 所以必须加这句话
+  s.pod_target_xcconfig = { 'VALID_ARCHS' => 'arm64' }  # libFaceSSDKLib.a库只支持真机架构 所以必须加这句话
   
   # 依赖第三方开源框架(多个)
    s.dependency 'AFNetworking'
@@ -112,10 +112,10 @@ end
 
 # 5.提交代码并打对应的tag（tag和podspec文件中保持一致）
 ## 5.1  git add .
-## 5.2  git commit -m 'change pod version'
+## 5.2  git commit -m 'package static library'
 ## 5.3  git push
-## 5.4  git tag -a 0.2.4 -m 'add tag 0.2.4'
-## 5.5  git push origin 0.2.4
+## 5.4  git tag -a 0.2.5 -m 'add tag 0.2.5'
+## 5.5  git push origin 0.2.5
 
 # 6.远程校验  pod spec lint HYCivicCenter.podspec --use-libraries --allow-warnings --verbose --no-clean
 
