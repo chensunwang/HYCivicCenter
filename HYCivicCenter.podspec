@@ -39,7 +39,7 @@ Pod::Spec.new do |s|
 # 下面配置依赖的资源、库、配置等
   
   # 工程依赖系统版本
-  s.ios.deployment_target = '10.0'
+  s.ios.deployment_target = '11.0'
   
   # 指定生成的库
   s.vendored_frameworks = 'SDK/HYCivicCenter.frameworks'
@@ -113,9 +113,8 @@ end
 # 5.提交代码并打对应的tag（tag和podspec文件中保持一致）
 ## 5.1  git add .
 ## 5.2  git commit -m 'package static library'
-## 5.3  git push
-## 5.4  git tag -a 0.2.5 -m 'add tag 0.2.5'
-## 5.5  git push origin 0.2.5
+## 5.3  git tag -a 0.2.5 -m 'add tag 0.2.5'
+## 5.4  git push origin 0.2.5
 
 # 6.远程校验  pod spec lint HYCivicCenter.podspec --use-libraries --allow-warnings --verbose --no-clean
 
