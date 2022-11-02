@@ -16,7 +16,7 @@
     "tag": "0.2.7"
   },
   "platforms": {
-    "ios": "11.0"
+    "ios": "9.0"
   },
   "vendored_frameworks": "SDK/HYCivicCenter.frameworks",
   "static_framework": true,

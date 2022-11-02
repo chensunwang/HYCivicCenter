@@ -18,16 +18,16 @@
 // 基类 导航控制器
 + (void)initialize {
     if (@available(iOS 15, *)) {
-        UINavigationBarAppearance *app = [UINavigationBarAppearance new];
-        [app configureWithDefaultBackground];                                              /// 设置默认背景
-        app.backgroundImage = nil;                                                         /// 导航条背景 : 一张图片
-        app.backgroundColor = UIColor.orangeColor;                                         /// 导航条背景 : 纯颜色
-        app.backgroundEffect = nil;                                                        /// 导航条背景 : 是否要一个 模糊效果
-        app.shadowImage = nil;                                                             /// 导航条最下方的一条线 : 一张图片
-        app.shadowColor = [UIColor clearColor];                                            /// 导航条最下方的一条线 : 纯颜色
-        app.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]}; /// 导航条title的颜色 || 大小
-        [[UINavigationBar appearance] setScrollEdgeAppearance:app];
-        [[UINavigationBar appearance] setStandardAppearance:app];
+        UINavigationBarAppearance *appearance = [UINavigationBarAppearance new];
+        [appearance configureWithDefaultBackground];                              /// 设置默认背景
+        appearance.backgroundImage = nil;                                         /// 导航条背景 : 一张图片
+        appearance.backgroundColor = UIColor.orangeColor;                         /// 导航条背景 : 纯颜色
+        appearance.backgroundEffect = nil;                                        /// 导航条背景 : 是否要一个 模糊效果
+        appearance.shadowImage = nil;                                             /// 导航条最下方的一条线 : 一张图片
+        appearance.shadowColor = [UIColor clearColor];                            /// 导航条最下方的一条线 : 纯颜色
+        appearance.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]}; /// 导航条title的颜色 || 大小
+        [[UINavigationBar appearance] setScrollEdgeAppearance:appearance];
+        [[UINavigationBar appearance] setStandardAppearance:appearance];
     } else {
         [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
     }
