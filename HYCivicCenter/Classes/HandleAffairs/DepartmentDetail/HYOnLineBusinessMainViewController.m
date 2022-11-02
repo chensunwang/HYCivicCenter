@@ -182,17 +182,6 @@
     }
 }
 
-- (void)loadData234 {
-    [HttpRequest getPathZWBS:@"phone/item/event/getItemInfoByItemCode" params:@{@"itemCode": _itemCode} resultBlock:^(id  _Nullable responseObject, NSError * _Nullable error) {
-        SLog(@" 办事指南 == %@ ", responseObject);
-        if ([responseObject[@"code"] intValue] == 200) {
-            
-        } else {
-            SLog(@"%@", responseObject[@"msg"]);
-        }
-    }];
-}
-
 - (void)loadData { // 判断是否收藏   /city/4AItems/event/collect/checkCollect
     [HttpRequest postHttpBodyZWBS:@"city/4AItems/event/collect/checkCollect" params:@{@"eventCode": _itemCode, @"eventName":_eventName} resultBlock:^(id  _Nullable responseObject, NSError * _Nullable error) {
         SLog(@"判断是否收藏== %@", responseObject);

@@ -24,6 +24,9 @@
 @property (nonatomic, strong) UIButton * countyBtn;  // 县区服务
 @property (nonatomic, strong) UIView * lineView;  // 指示条
 @property (nonatomic, strong) UITableView * tableView;
+@property (nonatomic, strong) UIView * emptyView;  // 空数据提示
+@property (nonatomic, strong) UIImageView * emptyImageView;
+@property (nonatomic, strong) UILabel * emptyTipLabel;
 
 @property (nonatomic, assign) NSInteger type; // 0:专项服务 1:部门服务 2:县区服务
 
@@ -56,6 +59,10 @@
     if (specialArray) {
         _specialArray = specialArray;
         [self.tableView reloadData];
+        if (_type == 0) {
+            _tableView.hidden = specialArray.count == 0 ? YES : NO;
+            _emptyView.hidden = specialArray.count == 0 ? NO : YES;
+        }
     }
 }
 
@@ -63,6 +70,10 @@
     if (departmentArray) {
         _departmentArray = departmentArray;
         [self.tableView reloadData];
+        if (_type == 1) {
+            _tableView.hidden = departmentArray.count == 0 ? YES : NO;
+            _emptyView.hidden = departmentArray.count == 0 ? NO : YES;
+        }
     }
 }
 
@@ -70,6 +81,10 @@
     if (countyArray) {
         _countyArray = countyArray;
         [self.tableView reloadData];
+        if (_type == 2) {
+            _tableView.hidden = countyArray.count == 0 ? YES : NO;
+            _emptyView.hidden = countyArray.count == 0 ? NO : YES;
+        }
     }
 }
 
@@ -138,6 +153,36 @@
     self.tableView.dataSource = self;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.tableView registerClass:[HYSSTableViewCell class] forCellReuseIdentifier:@"HYSSTableViewCell"];
+    
+    self.emptyView = [[UIView alloc] initWithFrame:CGRectZero];
+    [self.bgView addSubview:self.emptyView];
+    [self.emptyView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.center.equalTo(self.tableView);
+        make.size.equalTo(self.tableView);
+    }];
+    
+    self.emptyImageView = [[UIImageView alloc] init];
+    [self.emptyView addSubview:self.emptyImageView];
+    [self.emptyImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.emptyView);
+        make.centerY.equalTo(self.emptyView).offset(-20);
+        make.width.mas_equalTo(100);
+        make.height.mas_equalTo(80);
+    }];
+    self.emptyImageView.image = HyBundleImage(@"cardHolder");
+    
+    self.emptyTipLabel = [[UILabel alloc] init];
+    [self.emptyView addSubview:self.emptyTipLabel];
+    [self.emptyTipLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.emptyView);
+        make.centerY.equalTo(self.emptyView).offset(50);
+        make.height.mas_equalTo(20);
+        make.width.mas_equalTo(80);
+    }];
+    self.emptyTipLabel.text = @"暂无数据";
+    self.emptyTipLabel.font = MFONT(12);
+    self.emptyTipLabel.textAlignment = NSTextAlignmentCenter;
+    self.emptyTipLabel.textColor = UIColorFromRGB(0x999999);
 }
 
 - (void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection {

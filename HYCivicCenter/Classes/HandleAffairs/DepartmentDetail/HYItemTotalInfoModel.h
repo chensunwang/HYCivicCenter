@@ -42,7 +42,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString * keyword;
 @property (nonatomic, copy) NSString * lastEditor;
 @property (nonatomic, strong) NSDictionary * lastTime;
-@property (nonatomic, copy) NSString * name;               // 受理条件名称
+@property (nonatomic, copy) NSString * name;                // 受理条件名称
 @property (nonatomic, strong) NSDictionary * remark;
 @property (nonatomic, assign) NSInteger status;             //
 @property (nonatomic, copy) NSString * type;
@@ -91,26 +91,28 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HYItemInfoModel : NSObject
 
-@property (nonatomic, copy) NSString * agentCode;            // 承办单位编码
-@property (nonatomic, copy) NSString * agentName;            // 承办单位名称
-@property (nonatomic, assign) NSInteger agreeTime;           // 承诺时限
+@property (nonatomic, copy) NSString * agentCode;           // 承办单位编码
+@property (nonatomic, copy) NSString * agentName;           // 承办单位名称
+@property (nonatomic, assign) NSInteger agreeTime;          // 承诺时限
 @property (nonatomic, copy) NSString * agreeTimeUnit;       // 承诺时限
 @property (nonatomic, copy) NSString * agreeTimeUnitValue;
-@property (nonatomic, copy) NSString * assort;                // 办件类型
-@property (nonatomic, copy) NSString * code;                  // 事项编码
-@property (nonatomic, copy) NSString * id;                    // id主键
-@property (nonatomic, assign) NSInteger lawTime;             // 法定时限
+@property (nonatomic, copy) NSString * assort;              // 办件类型
+@property (nonatomic, copy) NSString * code;                // 事项编码
+@property (nonatomic, copy) NSString * id;                  // id主键
+@property (nonatomic, assign) NSInteger lawTime;            // 法定时限
 @property (nonatomic, copy) NSString * lawTimeUnit;         // 法定时限单位
 @property (nonatomic, copy) NSString * lawTimeUnitValue;
-@property (nonatomic, copy) NSString * name;                  // 事项名称
-@property (nonatomic, copy) NSString * orgCode;              // 事项所属单位的编码
-@property (nonatomic, copy) NSString * orgName;              // 事项所属的单位名称
+@property (nonatomic, copy) NSString * name;                // 事项名称
+@property (nonatomic, copy) NSString * orgCode;             // 事项所属单位的编码
+@property (nonatomic, copy) NSString * orgName;             // 事项所属的单位名称
 @property (nonatomic, copy) NSDictionary * progress;
-@property (nonatomic, copy) NSString * regionCode;           // 事项区划编码
-@property (nonatomic, copy) NSString * regionName;           // 事项区划名称
-@property (nonatomic, copy) NSString * serviceObject;        // 判断是个人还是企业
+@property (nonatomic, copy) NSString * regionCode;          // 事项区划编码
+@property (nonatomic, copy) NSString * regionName;          // 事项区划名称
+@property (nonatomic, copy) NSString * serviceObject;       // 判断是个人还是企业
 @property (nonatomic, assign) BOOL  servicePersonFlag;      // 判断是否是个人事项 true是 false否
-@property (nonatomic, copy) NSString * type;                  // 事项类型
+@property (nonatomic, copy) NSString * type;                // 事项类型
+@property (nonatomic, assign) BOOL canHandle;               // 是否可以操作
+@property (nonatomic, copy) NSString * online_address;      // 在线办理
 
 @end
 

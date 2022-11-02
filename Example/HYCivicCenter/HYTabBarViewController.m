@@ -12,6 +12,8 @@
 #import "HYGovernmentViewController.h"
 #import "HYHandleAffairsViewController.h"
 #import "MainApi.h"
+#import "CSWNavigationController.h"
+#import "MineViewController.h"
 
 @interface HYTabBarViewController ()<UIGestureRecognizerDelegate, UITabBarControllerDelegate>
 
@@ -49,7 +51,7 @@
     // Do any additional setup after loading the view.
     
     MainApi *mainApi = [MainApi sharedInstance];
-    mainApi.token = @"Gq3ABOFF72gw5EbbLdT-x8aNzCk";
+    mainApi.token = @"OTkVoNOTxz504hGkeCuUTmoR1t4";
     
     self.view.backgroundColor = UIColor.whiteColor;
     self.delegate = self;
@@ -59,17 +61,21 @@
 // 设置分栏的项目属性
 - (void)setupChildViewController {
     // alloc init 的时候会进入对应vc的init viewdidload方法里面，也算是进入了新的界面
-    DigitalcitizenViewController *homeVc = [[DigitalcitizenViewController alloc] init];
+    DigitalcitizenViewController *digitalVc = [[DigitalcitizenViewController alloc] init];
 //    homeVc.hyTitleColor = UIColor.blackColor;
-    [self setupChildViewController:homeVc title:@"首页" image:@"icon_task_n" selectedImage:@"icon_task_s"];
+    [self setupChildViewController:digitalVc title:@"首页" image:@"icon_task_n" selectedImage:@"icon_task_s"];
     
-    HYHandleAffairsViewController *InstanceVc = [[HYHandleAffairsViewController alloc] init];
+    HYHandleAffairsViewController *handleVc = [[HYHandleAffairsViewController alloc] init];
 //    InstanceVc.hyTitleColor = UIColor.blackColor;
-    [self setupChildViewController:InstanceVc title:@"办事" image:@"icon_money_n" selectedImage:@"icon_money_s"];
+    [self setupChildViewController:handleVc title:@"办事" image:@"icon_money_n" selectedImage:@"icon_money_s"];
     
-    HYGovernmentViewController *mineVc = [[HYGovernmentViewController alloc] init];
+    HYGovernmentViewController *goverVc = [[HYGovernmentViewController alloc] init];
 //    mineVc.hyTitleColor = UIColor.blackColor;
-    [self setupChildViewController:mineVc title:@"政务" image:@"icon_me_n" selectedImage:@"icon_me_s"];
+    [self setupChildViewController:goverVc title:@"政务" image:@"icon_me_n" selectedImage:@"icon_me_s"];
+    
+    MineViewController *mineVc = [[MineViewController alloc] init];
+    [self setupChildViewController:mineVc title:@"我的" image:@"icon_me_n" selectedImage:@"icon_me_s"];
+    
 }
 
 #pragma mark - 添加一个子控制器
@@ -91,7 +97,8 @@
     viewController.tabBarItem.image = [[UIImage imageNamed:image] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     viewController.tabBarItem.selectedImage = [[UIImage imageNamed:selectedImage] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     
-    HYNavigationController *nav = [[HYNavigationController alloc] initWithRootViewController:viewController];
+    HYNavigationController *nav = [[HYNavigationController alloc] initWithRootViewController:viewController];  // 我们库里面的导航栏
+//    CSWNavigationController *nav = [[CSWNavigationController alloc] initWithRootViewController:viewController];  // 你的自定义导航栏
     [self addChildViewController:nav];
 }
 

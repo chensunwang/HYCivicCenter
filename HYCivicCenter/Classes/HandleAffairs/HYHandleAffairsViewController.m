@@ -347,7 +347,7 @@
                 [weakSelf showAlertForReanNameAuth];
             } else {
                 HYHotServiceModel *model = weakSelf.hotServiceArr[index];
-                if (model.outLinkFlag || model.servicePersonFlag || weakSelf.isEnterprise) { // 外链 内链个人  内链企业且已企业认证
+                if (model.outLinkFlag || !model.servicePersonFlag || weakSelf.isEnterprise) { // 外链 内链个人  内链企业且已企业认证
                     HYGuessBusinessViewController *guessVC = [[HYGuessBusinessViewController alloc] init];
                     guessVC.isEnterprise = weakSelf.isEnterprise;
                     guessVC.hyTitleColor = weakSelf.hyTitleColor;
@@ -436,7 +436,7 @@
                     webVC.titleStr = model.name;
                     webVC.jumpUrl = model.jumpUrl;
                     [self.navigationController pushViewController:webVC animated:YES];
-                } else if ([model.servicePersonFlag intValue] == 1 || self.isEnterprise) { // 内链个人  内链企业且已企业认证
+                } else if ([model.servicePersonFlag intValue] == 0 || self.isEnterprise) { // 内链个人  内链企业且已企业认证
                     HYOnLineBusinessMainViewController * mainVC = [[HYOnLineBusinessMainViewController alloc] init];
                     mainVC.serviceModel = model;
                     mainVC.hyTitleColor = self.hyTitleColor;

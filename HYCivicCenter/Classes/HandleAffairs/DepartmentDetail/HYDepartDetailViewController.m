@@ -118,6 +118,20 @@
         SLog(@" 部门服务所有数据 == %@ ", responseObject);
         if ([responseObject[@"code"] intValue] == 200) {
             self.hotArr = [HYHotHandleAffairsModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"agentHotList"]];
+            if (self.hotArr.count > 0) {
+                HYHotHandleAffairsModel *model = [self.hotArr firstObject];
+                if ([model.agentId isEqualToString:@"360101000201006000"]) { // 如果是南昌市公安局 添加一个“货车通行证”死数据
+                    HYHotHandleAffairsModel *trucksModel = [[HYHotHandleAffairsModel alloc] init];
+                    trucksModel.agentId = @"360101000201006000";
+                    trucksModel.agentName = @"南昌市公安局";
+                    trucksModel.hotName = @"货车通行证";
+                    trucksModel.hotPic = @"https://nccsdn.yunshangnc.com/ncbd-policy/2022/8/5/1659670892041_pass-icon.png";
+                    NSString *uuid = [[NSUserDefaults standardUserDefaults] valueForKey:@"CurrentUuid"];
+                    trucksModel.jumpUrl = [NSString stringWithFormat:@"https://nc.tpms.jxangyi.cn/tpmswx-webapp/?openId=%@&comefrom=inc", uuid];
+                    trucksModel.outLinkFlag = @"1";
+                    [self.hotArr addObject:trucksModel];
+                }
+            }
             self.infoModel = [HYAgentInfoModel mj_objectWithKeyValues:responseObject[@"data"][@"agentInfo"]];
             self.personalArr = [HYBusinessInfoModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"person"]];
             self.companyArr = [HYBusinessInfoModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"company"]];

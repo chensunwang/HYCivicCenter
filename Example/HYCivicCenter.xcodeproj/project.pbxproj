@@ -14,6 +14,8 @@
 		370836A228CAD034007184A7 /* com.baidu.idl.face.model.faceSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3708369D28CAD034007184A7 /* com.baidu.idl.face.model.faceSDK.bundle */; };
 		370836A328CAD034007184A7 /* idl-license.vis-var in Resources */ = {isa = PBXBuildFile; fileRef = 3708369E28CAD034007184A7 /* idl-license.vis-var */; };
 		370836A428CAD034007184A7 /* com.baidu.idl.face.live.action.image.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3708369F28CAD034007184A7 /* com.baidu.idl.face.live.action.image.bundle */; };
+		3725ECBA2911F7B5008F8213 /* CSWNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3725ECB82911F7B5008F8213 /* CSWNavigationController.m */; };
+		3725ECBD2911F95F008F8213 /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3725ECBC2911F95F008F8213 /* MineViewController.m */; };
 		37668A0128BD9A7D00CE530D /* HYCivicCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37668A0028BD9A7D00CE530D /* HYCivicCenter.framework */; };
 		37BC1FFA28C19AA6003516E8 /* HYTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37BC1FF928C19AA6003516E8 /* HYTabBarViewController.m */; };
 		4E9FBA3399805E8ED59F7841 /* Pods_HYCivicCenter_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3A68687F4049E9CE8A8DDD /* Pods_HYCivicCenter_Tests.framework */; };
@@ -51,6 +53,10 @@
 		3708369D28CAD034007184A7 /* com.baidu.idl.face.model.faceSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = com.baidu.idl.face.model.faceSDK.bundle; sourceTree = "<group>"; };
 		3708369E28CAD034007184A7 /* idl-license.vis-var */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "idl-license.vis-var"; sourceTree = "<group>"; };
 		3708369F28CAD034007184A7 /* com.baidu.idl.face.live.action.image.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = com.baidu.idl.face.live.action.image.bundle; sourceTree = "<group>"; };
+		3725ECB82911F7B5008F8213 /* CSWNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSWNavigationController.m; sourceTree = "<group>"; };
+		3725ECB92911F7B5008F8213 /* CSWNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSWNavigationController.h; sourceTree = "<group>"; };
+		3725ECBB2911F95F008F8213 /* MineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineViewController.h; sourceTree = "<group>"; };
+		3725ECBC2911F95F008F8213 /* MineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineViewController.m; sourceTree = "<group>"; };
 		37668A0028BD9A7D00CE530D /* HYCivicCenter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = HYCivicCenter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		37BC1FF828C19AA6003516E8 /* HYTabBarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HYTabBarViewController.h; sourceTree = "<group>"; };
 		37BC1FF928C19AA6003516E8 /* HYTabBarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HYTabBarViewController.m; sourceTree = "<group>"; };
@@ -154,6 +160,10 @@
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
 				37BC1FF828C19AA6003516E8 /* HYTabBarViewController.h */,
 				37BC1FF928C19AA6003516E8 /* HYTabBarViewController.m */,
+				3725ECB92911F7B5008F8213 /* CSWNavigationController.h */,
+				3725ECB82911F7B5008F8213 /* CSWNavigationController.m */,
+				3725ECBB2911F95F008F8213 /* MineViewController.h */,
+				3725ECBC2911F95F008F8213 /* MineViewController.m */,
 				3708369F28CAD034007184A7 /* com.baidu.idl.face.live.action.image.bundle */,
 				3708369D28CAD034007184A7 /* com.baidu.idl.face.model.faceSDK.bundle */,
 				3708369C28CAD034007184A7 /* idl-key.face-ios */,
@@ -429,6 +439,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				6003F59E195388D20070C39A /* HYAppDelegate.m in Sources */,
+				3725ECBA2911F7B5008F8213 /* CSWNavigationController.m in Sources */,
+				3725ECBD2911F95F008F8213 /* MineViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 				37BC1FFA28C19AA6003516E8 /* HYTabBarViewController.m in Sources */,
 			);

@@ -103,7 +103,7 @@ NSString *const specialServiceCell = @"specialServiceCell";
             webVC.titleStr = serviceModel.name;
             webVC.jumpUrl = serviceModel.jumpUrl;
             [self.navigationController pushViewController:webVC animated:YES];
-        } else if (serviceModel.servicePersonFlag || self.isEnterprise) {  // 内链个人  内链企业且已企业认证
+        } else if (!serviceModel.servicePersonFlag || self.isEnterprise) {  // 内链个人  内链企业且已企业认证
             HYOnLineBusinessMainViewController * mainVC = [[HYOnLineBusinessMainViewController alloc] init];
             mainVC.serviceModel = serviceModel;
             mainVC.hyTitleColor = _hyTitleColor;

@@ -38,6 +38,7 @@
         [self.contentView addSubview:self.lineView];
         
         self.selectionStyle = UITableViewCellSelectionStyleNone;
+        [self traitCollectionDidChange:nil];
     }
     return self;
 }
@@ -45,6 +46,7 @@
 - (void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection {
     [super traitCollectionDidChange:previousTraitCollection];
     
+    self.contentView.backgroundColor = UIColor.whiteColor;
     self.nameLabel.textColor = UIColorFromRGB(0x333333);
     self.lineView.backgroundColor = UIColorFromRGB(0xF5F5F5);
 }

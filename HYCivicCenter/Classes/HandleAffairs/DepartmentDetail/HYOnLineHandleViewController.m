@@ -15,6 +15,7 @@
 #import "HYOnLineHandleHeader.h"
 #import "HYServiceProgressViewController.h"
 #import "HYCivicCenterCommand.h"
+#import "HYHandleAffairsWebVIewController.h"
 
 @interface HYOnLineHandleViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -90,11 +91,63 @@
         if ([responseObject[@"code"] intValue] == 200) {
             self.materailsArr = [HYMaterialModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"material"]];
             self.baseInfo = [[HYItemInfoModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"itemInfo"]] firstObject];
-            [self.tableView reloadData];
+            if (!self.baseInfo.canHandle) {
+                [self showUnableToOperate];  // 提示该事项无法操作
+            } else {
+                NSArray *onlineConduct = responseObject[@"onlineConduct"];
+                if (onlineConduct != nil && onlineConduct.count > 0) {
+                    NSString *onlineAddress = onlineConduct.firstObject[@"online_address"];
+                    if (onlineAddress != nil) {
+                        NSString *uuid = [[NSUserDefaults standardUserDefaults] valueForKey:@"CurrentUuid"];
+                        if ([onlineAddress containsString:@"https://nc.tpms.jxangyi.cn"] && uuid != nil) { // 货车通行证
+                            HYHandleAffairsWebVIewController *webVC = [[HYHandleAffairsWebVIewController alloc] init];
+                            webVC.code = @"";
+                            webVC.titleStr = @"货车通行证";
+                            webVC.jumpUrl = [NSString stringWithFormat:@"https://nc.tpms.jxangyi.cn/tpmswx-webapp/?openId=%@&comefrom=inc", uuid];
+                            [self.navigationController pushViewController:webVC animated:YES];
+                        } else {
+                            [self showOutsideOpen:onlineAddress];  // 弹出该事项无法在app内办理
+                        }
+                    } else {
+                        [self.tableView reloadData];
+                    }
+                } else {
+                    [self.tableView reloadData];
+                }
+            }
         } else {
             SLog(@"%@", responseObject[@"msg"]);
         }
     }];
+}
+
+- (void)showUnableToOperate { // 提示该事项无法操作
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"消息提示" message:@"该事项无法操作" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *confirm = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.navigationController popViewControllerAnimated:YES];
+        });
+    }];
+    [alert addAction:confirm];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+- (void)showOutsideOpen:(NSString *)url { // 弹出该事项无法在app内办理
+    NSString *message = [NSString stringWithFormat:@"复制链接前往浏览器办理\n%@", url];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"该事项无法在app内办理" message:message preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *confirm = [UIAlertAction actionWithTitle:@"复制" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UIPasteboard *board = [[UIPasteboard alloc] init];
+        board.string = url;
+        [SVProgressHUD showSuccessWithStatus:@"复制成功"];
+    }];
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.navigationController popViewControllerAnimated:YES];
+        });
+    }];
+    [alert addAction:confirm];
+    [alert addAction:cancel];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 - (void)submitData {

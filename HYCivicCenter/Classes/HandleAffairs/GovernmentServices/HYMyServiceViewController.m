@@ -174,7 +174,7 @@ NSString *const myServiceCell = @"HYMyserviceCell";
                 webVC.titleStr = model.eventName;
                 webVC.jumpUrl = model.jumpUrl;
                 [self.navigationController pushViewController:webVC animated:YES];
-            } else if ([model.servicePersonFlag intValue] == 1 || self.isEnterprise) {
+            } else if ([model.servicePersonFlag intValue] == 0 || self.isEnterprise) {
                 HYOnLineBusinessMainViewController * mainVC = [[HYOnLineBusinessMainViewController alloc] init];
                 mainVC.myServiceModel = model;
                 mainVC.hyTitleColor = self.hyTitleColor;

@@ -106,16 +106,19 @@
 #pragma mark - UICollectionViewDelegate
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    // 后台说这里返回的全是本地的页面 不需要判断外链的情况
-    HYOnLineBusinessMainViewController * mainVC = [[HYOnLineBusinessMainViewController alloc] init];
-    HYHotHandleAffairsModel *affairsModel = self.dataArray[indexPath.item];
-//    if ([affairsModel.canHandle boolValue] == NO) {
-//        [SVProgressHUD showErrorWithStatus:@"该事项无法操作"];
-//        return;
-//    }
-    mainVC.affairsModel = affairsModel;
-    mainVC.hyTitleColor = _hyTitleColor;
-    [self.viewController.navigationController pushViewController:mainVC animated:YES];
+    HYHotHandleAffairsModel *model = self.dataArray[indexPath.item];
+    if ([model.outLinkFlag intValue] == 1) {  // 外链
+        HYHandleAffairsWebVIewController *webVC = [[HYHandleAffairsWebVIewController alloc] init];
+        webVC.code = model.orderCode;
+        webVC.titleStr = model.hotName;
+        webVC.jumpUrl = model.jumpUrl;
+        [self.viewController.navigationController pushViewController:webVC animated:YES];
+    } else {
+        HYOnLineBusinessMainViewController * mainVC = [[HYOnLineBusinessMainViewController alloc] init];
+        mainVC.affairsModel = model;
+        mainVC.hyTitleColor = _hyTitleColor;
+        [self.viewController.navigationController pushViewController:mainVC animated:YES];
+    }
 }
 
 #pragma mark - UICollectionViewDelegateFlowLayout
