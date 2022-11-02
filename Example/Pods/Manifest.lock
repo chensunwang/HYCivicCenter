@@ -15,7 +15,7 @@ PODS:
   - AFNetworking/UIKit (4.0.1):
     - AFNetworking/NSURLSession
   - AlipaySDK-iOS (15.8.11)
-  - HYCivicCenter (0.2.7):
+  - HYCivicCenter (0.2.8):
     - AFNetworking
     - AlipaySDK-iOS
     - Masonry
@@ -70,7 +70,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
   AlipaySDK-iOS: a07b6eafa847a5b29acb6c150ea16d9792d5d167
-  HYCivicCenter: e801d875f1053794bce32a165e7d2be1c734b5f2
+  HYCivicCenter: de538fc7cb9b653d9f8bd5ddc456980486a26a1a
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJExtension: 21c5f6f8c4d5d8844b7ae8fbae08fed0b501f961
   MJRefresh: fdf5e979eb406a0341468932d1dfc8b7f9fce961

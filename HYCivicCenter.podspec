@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'HYCivicCenter' # 库名称
-  s.version          = '0.2.7' # 库的版本号，我们每次发新版本的时候版本号需要对应修改
+  s.version          = '0.2.8' # 库的版本号，我们每次发新版本的时候版本号需要对应修改
   s.summary          = 'HYCivicCenter.' # 库的简单描述
 
 # This description is used to generate tags and improve search results.
@@ -112,9 +112,9 @@ end
 
 # 5.提交代码并打对应的tag（tag和podspec文件中保持一致）
 ## 5.1  git add .
-## 5.2  git commit -m 'change version'
-## 5.3  git tag -a 0.2.7 -m 'add tag 0.2.7'
-## 5.4  git push origin 0.2.7
+## 5.2  git commit -m 'package static framework'
+## 5.3  git tag -a 0.2.8 -m 'add tag 0.2.8'
+## 5.4  git push origin 0.2.8
 
 # 6.远程校验  pod spec lint HYCivicCenter.podspec --use-libraries --allow-warnings --verbose --no-clean
 
