@@ -96,7 +96,7 @@
             } else {
                 NSArray *onlineConduct = responseObject[@"onlineConduct"];
                 if (onlineConduct != nil && onlineConduct.count > 0) {
-                    NSString *onlineAddress = onlineConduct.firstObject[@"online_address"];
+                    NSString *onlineAddress = onlineConduct.firstObject[@"ONLINE_ADDRESS"];
                     if (onlineAddress != nil) {
                         NSString *uuid = [[NSUserDefaults standardUserDefaults] valueForKey:@"CurrentUuid"];
                         if ([onlineAddress containsString:@"https://nc.tpms.jxangyi.cn"] && uuid != nil) { // 货车通行证
@@ -136,9 +136,14 @@
     NSString *message = [NSString stringWithFormat:@"复制链接前往浏览器办理\n%@", url];
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"该事项无法在app内办理" message:message preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *confirm = [UIAlertAction actionWithTitle:@"复制" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        UIPasteboard *board = [[UIPasteboard alloc] init];
+        UIPasteboard *board = [UIPasteboard generalPasteboard];
         board.string = url;
         [SVProgressHUD showSuccessWithStatus:@"复制成功"];
+        dispatch_time_t time = dispatch_time(DISPATCH_TIME_NOW, 0.5 * NSEC_PER_SEC);  // 3s
+        // 主队列中执行
+        dispatch_after(time, dispatch_get_main_queue(), ^{ // dispatch_after 这个函数是用来延时执行任务的
+            [self.navigationController popViewControllerAnimated:YES];
+        });
     }];
     UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
         dispatch_async(dispatch_get_main_queue(), ^{
