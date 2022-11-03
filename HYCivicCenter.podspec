@@ -113,8 +113,9 @@ end
 # 5.提交代码并打对应的tag（tag和podspec文件中保持一致）
 ## 5.1  git add .
 ## 5.2  git commit -m 'package static framework'
-## 5.3  git tag -a 0.2.8 -m 'add tag 0.2.8'
-## 5.4  git push origin 0.2.8
+## 5.3  git push
+## 5.4  git tag -a 0.2.8 -m 'add tag 0.2.8'
+## 5.5  git push origin 0.2.8
 
 # 6.远程校验  pod spec lint HYCivicCenter.podspec --use-libraries --allow-warnings --verbose --no-clean
 
