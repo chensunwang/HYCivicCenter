@@ -112,7 +112,7 @@ end
 
 # 5.提交代码并打对应的tag（tag和podspec文件中保持一致）
 ## 5.1  git add .
-## 5.2  git commit -m 'package static framework'
+## 5.2  git commit -m '修改个人事项判断逻辑'
 ## 5.3  git push
 ## 5.4  git tag -a 0.2.8 -m 'add tag 0.2.8'
 ## 5.5  git push origin 0.2.8
@@ -120,6 +120,7 @@ end
 # 6.远程校验  pod spec lint HYCivicCenter.podspec --use-libraries --allow-warnings --verbose --no-clean
 
 # 7.打包  pod package HYCivicCenter.podspec --force --exclude-deps --no-mangle --embedded
+#（打包前需要切换Xcode，开发和打包的Xcode不一样，打包完成后需要再切换回来，命令为：sudo xcode-select -s /Applications/Xcode13.4.1.app.）
 
 # 8.提交到cocoapods仓库  pod trunk push HYCivicCenter.podspec --use-libraries --allow-warnings
 

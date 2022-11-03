@@ -193,7 +193,7 @@ NSString *const searchCell = @"homeSearchCell";
                 webVC.titleStr = businessModel.name;
                 webVC.jumpUrl = businessModel.jumpUrl;
                 [self.navigationController pushViewController:webVC animated:YES];
-            } else if ([businessModel.servicePersonFlag intValue] == 0 || self.isEnterprise) { // 内链个人  内链企业且已企业认证
+            } else if ([businessModel.servicePersonFlag intValue] == 1 || self.isEnterprise) { // 内链个人  内链企业且已企业认证
                 HYOnLineBusinessMainViewController * mainVC = [[HYOnLineBusinessMainViewController alloc] init];
                 mainVC.businessModel = businessModel;
                 [self.navigationController pushViewController:mainVC animated:YES];

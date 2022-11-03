@@ -179,7 +179,7 @@ NSString *const guessBusinessCell = @"guessCell";
             webVC.titleStr = model.name;
             webVC.jumpUrl = model.jumpUrl;
             [self.navigationController pushViewController:webVC animated:YES];
-        } else if ([model.servicePersonFlag intValue] == 0 || self.isEnterprise) { // 内链个人  内链企业且已企业认证
+        } else if ([model.servicePersonFlag intValue] == 1 || self.isEnterprise) { // 内链个人  内链企业且已企业认证
             HYOnLineBusinessMainViewController * mainVC = [[HYOnLineBusinessMainViewController alloc] init];
             mainVC.serviceModel = model;
             mainVC.hyTitleColor = _hyTitleColor;
