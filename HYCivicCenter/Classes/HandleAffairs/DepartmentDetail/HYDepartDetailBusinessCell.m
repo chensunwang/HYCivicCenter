@@ -103,7 +103,7 @@
         make.top.equalTo(self.bgView.mas_bottom).offset(15);
         make.left.mas_equalTo(16);
         make.right.equalTo(self).offset(-16);
-        make.bottom.equalTo(self).offset(-kSafeAreaBottomHeight);
+        make.bottom.equalTo(self).offset(-15);
     }];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.delegate = self;
@@ -202,8 +202,7 @@
             make.bottom.equalTo(self.headerView);
         }];
     } else {
-        if (!_isEnterprise) { //
-            // 提示企业认证
+        if (!_isEnterprise) { // 提示企业认证
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"消息提示" message:@"该事项只针对企业，请先进行企业实名认证" preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction *confirm = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                 

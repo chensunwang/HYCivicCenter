@@ -16,11 +16,13 @@
 #import "HYCivicCenterCommand.h"
 #import "UILabel+XFExtension.h"
 #import "UILabel+XFExtension.h"
+#import "HYEmptyView.h"
 
 @interface HYGuessBusinessViewController () <UITableViewDelegate, UITableViewDataSource, FaceResultDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *datasArr;
+@property (nonatomic, strong) HYEmptyView *emptyView;  // 空数据占位图
 @property (nonatomic, copy) NSString * jumpUrl;  // 传给网页的url
 @property (nonatomic, copy) NSString * code;  // 传给网页的code
 @property (nonatomic, copy) NSString * titleStr;  // 传给网页的title
@@ -48,6 +50,15 @@ NSString *const guessBusinessCell = @"guessCell";
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.showsVerticalScrollIndicator = NO;
     self.tableView.tableFooterView = [[UIView alloc] init];
+    
+    self.emptyView = [[HYEmptyView alloc] init];
+    [self.view addSubview:self.emptyView];
+    [self.emptyView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.center.equalTo(self.view);
+        make.width.mas_equalTo(155);
+        make.height.mas_equalTo(204);
+    }];
+    self.emptyView.hidden = YES;
 }
 
 - (void)viewDidLoad {
@@ -69,7 +80,15 @@ NSString *const guessBusinessCell = @"guessCell";
     [HttpRequest getPathZWBS:@"phone/item/event/getGuessChildren" params:@{@"titleName": self.titleName ? : @""} resultBlock:^(id  _Nullable responseObject, NSError * _Nullable error) {
         if ([responseObject[@"code"] intValue] == 200) {
             self.datasArr = [HYGuessBusinessModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
-            [self.tableView reloadData];
+            if (self.datasArr.count == 0) {
+                self.emptyView.hidden = NO;
+                self.tableView.hidden = YES;
+            } else {
+                self.emptyView.hidden = YES;
+                self.tableView.hidden = NO;
+                [self.tableView reloadData];
+            }
+
         } else {
             SLog(@"%@", responseObject[@"msg"]);
         }

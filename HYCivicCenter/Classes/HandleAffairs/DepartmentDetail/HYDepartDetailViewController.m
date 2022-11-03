@@ -186,12 +186,12 @@
         int mo = _hotArr.count%3 == 0 ? 0 : 1;
         return (_hotArr.count/3 + mo)*100 + 50;
     } else {
-        // 根据数组计算整个页面的高度 返回上个页面渲染cell 总高度 = 段头高度 + 表高度 + 段尾高度 + 头部高度 + 底部安全高度
+        // 根据数组计算整个页面的高度 返回上个页面渲染cell 总高度 = 段头高度 + 表高度 + 段尾高度 + 头部高度
         NSMutableArray * tempArr = _type == 0 ? _personalArr : _companyArr;
         CGFloat headerHeight = [self caculateHeightForSectionWithArray:tempArr];
         CGFloat rowHeight = [self caculateHeightForRowWithArray:tempArr];
         CGFloat footerHeight = tempArr.count * 16;
-        CGFloat totalHeight = headerHeight + rowHeight + footerHeight + 46 + 20 + kSafeAreaBottomHeight;
+        CGFloat totalHeight = headerHeight + rowHeight + footerHeight + 46 + 20;
         return totalHeight;
     }
 }
@@ -209,7 +209,7 @@
 
 // 计算表格高度
 - (CGFloat)caculateHeightForRowWithArray:(NSMutableArray *)array {
-    CGFloat totalHeight = 0;
+    CGFloat totalHeight = 30;  // 30: 表格上下离superview各15间距
     for (HYBusinessInfoModel * model in array) {
         for (HYBusinessInfoModel * mo in model.agentTitleList) {
             NSMutableParagraphStyle *paraStyle = [[NSMutableParagraphStyle alloc] init];
@@ -223,7 +223,7 @@
                                              attributes:attribtDic
                                                 context:nil];
             
-            CGFloat height = rect.size.height + 20;
+            CGFloat height = rect.size.height + 23;
             totalHeight += height;
         }
     }

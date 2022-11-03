@@ -354,6 +354,9 @@
             return [UITableViewCell new];
         }
     } else if (indexPath.section == 2) {
+        if (_materailsArr.count == 0) {
+            return [[UITableViewCell alloc] init];
+        }
         HYUploadFileTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HYUploadFileTableViewCell"];
         cell.viewController = self;
         HYMaterialModel *mo = _materailsArr[indexPath.row];
@@ -445,6 +448,9 @@
             return 80;
         }
     } else if (indexPath.section == 2) {
+        if (_materailsArr.count == 0) {
+            return 80;
+        }
         HYMaterialModel *model = _materailsArr[indexPath.row];
         CGFloat height = [model.name heightForStringWithFont:MFONT(14) width:([UIScreen mainScreen].bounds.size.width - 64)];
 //        CGFloat rowHeight = [[_rowHeightDic valueForKey:[NSString stringWithFormat:@"%ld-%ld", (long)indexPath.section, (long)indexPath.row]] floatValue];
@@ -464,6 +470,7 @@
         view.hidden = _fieldsArr.count == 0 ? YES : NO;
     } else if (section == 2) {
         view.nameLabel.text = @"上传材料";
+        view.hidden = _materailsArr.count == 0 ? YES : NO;
     } else {
         return [UIView new];
     }
@@ -471,7 +478,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    if ((_fieldsArr.count == 0 && section == 1) || (section == 3)) {
+    if ((_fieldsArr.count == 0 && section == 1) || (_materailsArr.count == 0 && section == 2) || (section == 3)) {
         return 0.001;
     }
     return 50;
@@ -482,7 +489,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    if ((_fieldsArr.count == 0 && section == 1) || (section == 3)) {
+    if ((_fieldsArr.count == 0 && section == 1) || (_materailsArr.count == 0 && section == 2) || (section == 3)) {
         return 0.001;
     }
     return 16;

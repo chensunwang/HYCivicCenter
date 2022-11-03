@@ -255,32 +255,24 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (_type == 0) { // 专项服务
-        if (!_idCard || [_idCard isEqualToString:@""]) { // 需要实名认证
-            [self showAlertForReanNameAuth];
-        } else {
+    if (!_idCard || [_idCard isEqualToString:@""]) { // 需要实名认证
+        [self showAlertForReanNameAuth];
+    } else {
+        if (_type == 0) { // 专项服务
             HYSpecialServiceViewController *specialVC = [[HYSpecialServiceViewController alloc] init];
             specialVC.hyTitleColor = _hyTitleColor;
             specialVC.index = indexPath.row;
             specialVC.headerArr = self.specialArray;
             specialVC.isEnterprise = _isEnterprise;
             [self.viewController.navigationController pushViewController:specialVC animated:YES];
-        }
-    } else if (_type == 1) {  // 部门服务
-        if (!_idCard || [_idCard isEqualToString:@""]) { // 需要实名认证
-            [self showAlertForReanNameAuth];
-        } else {
+        } else if (_type == 1) {  // 部门服务
             HYDepartmentCountryModel *departmentModel = self.departmentArray[indexPath.row];
             HYDepartDetailViewController * businessVC = [[HYDepartDetailViewController alloc] init];
             businessVC.hyTitleColor = _hyTitleColor;
             businessVC.orgName = departmentModel.title;
             businessVC.isEnterprise = _isEnterprise;
             [self.viewController.navigationController pushViewController:businessVC animated:YES];
-        }
-    } else {  // 县区服务
-        if (!_idCard || [_idCard isEqualToString:@""]) { // 需要实名认证
-            [self showAlertForReanNameAuth];
-        } else {
+        } else {  // 县区服务
             HYDepartmentCountryModel *departmentModel = self.countyArray[indexPath.row];
             HYAreaServiceViewController *areaVC = [[HYAreaServiceViewController alloc] init];
             areaVC.hyTitleColor = _hyTitleColor;

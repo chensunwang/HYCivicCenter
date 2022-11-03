@@ -15,6 +15,7 @@
 			dependencies = (
 			);
 			name = "AlipaySDK-iOS";
+			productName = "AlipaySDK-iOS";
 		};
 		8554F6236D2AA202CF58503D2DF29730 /* WechatOpenSDK */ = {
 			isa = PBXAggregateTarget;
@@ -24,6 +25,7 @@
 			dependencies = (
 			);
 			name = WechatOpenSDK;
+			productName = WechatOpenSDK;
 		};
 /* End PBXAggregateTarget section */
 
@@ -992,7 +994,7 @@
 		012CD968B0C6F5FF1728FDD86248CC96 /* SDWebImageDefine.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageDefine.h; path = SDWebImage/Core/SDWebImageDefine.h; sourceTree = "<group>"; };
 		01CB45E1CEBB56D9DC87C3E20E31F3AB /* HYAreaServiceTableViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HYAreaServiceTableViewCell.h; sourceTree = "<group>"; };
 		020CF5583AE46932F338F0B0877D69A6 /* MyCouponsMainViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MyCouponsMainViewController.h; sourceTree = "<group>"; };
-		0254D10B223B5D6B2522A634BBE78090 /* CodeSignature */ = {isa = PBXFileReference; includeInIndex = 1; path = CodeSignature; sourceTree = "<group>"; };
+		0254D10B223B5D6B2522A634BBE78090 /* CodeSignature */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; path = CodeSignature; sourceTree = "<group>"; };
 		0277E230C04DEC251AB0A60875B14325 /* TZImageRequestOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TZImageRequestOperation.h; path = TZImagePickerController/TZImagePickerController/TZImageRequestOperation.h; sourceTree = "<group>"; };
 		02978DEB5F9EF534D2F02034643C14D7 /* SDWebImage-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SDWebImage-umbrella.h"; sourceTree = "<group>"; };
 		02D5340FDEFE05543F616CFF98FB6BEB /* WechatOpenSDK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = WechatOpenSDK.release.xcconfig; sourceTree = "<group>"; };
@@ -1048,7 +1050,7 @@
 		12B229209B205B61EC3091EBCBC4ED9F /* MyCouponsViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MyCouponsViewController.m; sourceTree = "<group>"; };
 		12B529B2BF775DEBCE8F3C3458FD95DC /* HYFormInfoModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HYFormInfoModel.m; sourceTree = "<group>"; };
 		12DC5229A63DE389AA4D8AC2E8C01050 /* MJRefreshConfig.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshConfig.m; path = MJRefresh/MJRefreshConfig.m; sourceTree = "<group>"; };
-		12F5FFC86C1F0C397C9E2D79C81BEAB0 /* CodeRequirements */ = {isa = PBXFileReference; includeInIndex = 1; path = CodeRequirements; sourceTree = "<group>"; };
+		12F5FFC86C1F0C397C9E2D79C81BEAB0 /* CodeRequirements */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; path = CodeRequirements; sourceTree = "<group>"; };
 		131582CF79008CCCF43EC5F1F0A95322 /* CertificateLibraryViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CertificateLibraryViewController.m; sourceTree = "<group>"; };
 		13BD4DB7BF051C6FDC4986D11CCB24B2 /* HYCivicCenterCommand.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HYCivicCenterCommand.h; sourceTree = "<group>"; };
 		13DE1444E67FBBFEE3BE0C1F8EDBAD8B /* NSObject+MJCoding.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+MJCoding.h"; path = "MJExtension/NSObject+MJCoding.h"; sourceTree = "<group>"; };
@@ -1246,7 +1248,7 @@
 		51BA8F433EDB3EFE17C3A5E6322C80E0 /* MyCtidViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MyCtidViewController.m; sourceTree = "<group>"; };
 		51D642ABFBDF6D23B4AA74E69E6917D9 /* SDWebImageDownloaderOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageDownloaderOperation.m; path = SDWebImage/Core/SDWebImageDownloaderOperation.m; sourceTree = "<group>"; };
 		52B4F9F5FB2D75A499F37BE4D8C9DF92 /* MoreStationViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MoreStationViewController.h; sourceTree = "<group>"; };
-		535619D9AC366DB56C057DFBEEB4C166 /* CodeRequirements-1 */ = {isa = PBXFileReference; includeInIndex = 1; path = "CodeRequirements-1"; sourceTree = "<group>"; };
+		535619D9AC366DB56C057DFBEEB4C166 /* CodeRequirements-1 */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; path = "CodeRequirements-1"; sourceTree = "<group>"; };
 		536189AAE6BCA28268593F9D3122EBC4 /* MJFoundation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJFoundation.h; path = MJExtension/MJFoundation.h; sourceTree = "<group>"; };
 		53694DCEC15519C9487D1CB9A56F0B16 /* logo_icon@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "logo_icon@3x.png"; sourceTree = "<group>"; };
 		53756FB1FDDF77BC24373D968339FDE2 /* FaceParameterConfig.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FaceParameterConfig.h; sourceTree = "<group>"; };
@@ -1348,7 +1350,7 @@
 		6D75C51CDD7EE2BECE92023EF8FF349A /* BDFaceAdjustParamsRootCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = BDFaceAdjustParamsRootCell.m; sourceTree = "<group>"; };
 		6D79B1745EEBB71E6227F7034CABE02E /* AFNetworkReachabilityManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFNetworkReachabilityManager.m; path = AFNetworking/AFNetworkReachabilityManager.m; sourceTree = "<group>"; };
 		6D7AD807A97456DF5138D2F68DE20D2F /* BusRouteCollectionViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = BusRouteCollectionViewCell.m; sourceTree = "<group>"; };
-		6DB1A5F968CADD01311167421E2C690F /* CTID_Verification */ = {isa = PBXFileReference; includeInIndex = 1; path = CTID_Verification; sourceTree = "<group>"; };
+		6DB1A5F968CADD01311167421E2C690F /* CTID_Verification */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; path = CTID_Verification; sourceTree = "<group>"; };
 		6DC6300D3E903EE48A03B5C2C04C96C8 /* BusinessCardViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BusinessCardViewController.h; sourceTree = "<group>"; };
 		6DD5198F353F6587894ACD08C1779FED /* UIImage+ExtendedCacheData.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+ExtendedCacheData.h"; path = "SDWebImage/Core/UIImage+ExtendedCacheData.h"; sourceTree = "<group>"; };
 		6E4C3D18EDFA2D04F2B232EF85F9C89F /* HYHandleGuideMateraCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HYHandleGuideMateraCell.h; sourceTree = "<group>"; };
@@ -1483,7 +1485,7 @@
 		929E637CD5B758814E321D8D45D8B1C4 /* MJExtensionConst.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJExtensionConst.m; path = MJExtension/MJExtensionConst.m; sourceTree = "<group>"; };
 		9300919ED409F9EB2156783E0E0D82EF /* HYDepartDetailBusinessCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HYDepartDetailBusinessCell.m; sourceTree = "<group>"; };
 		93009D810381DF66316FFC41F5F36C5A /* HYRealNameAlertView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HYRealNameAlertView.m; sourceTree = "<group>"; };
-		9398CD5643C8772DFEDAFD0952F51298 /* CodeResources */ = {isa = PBXFileReference; includeInIndex = 1; path = CodeResources; sourceTree = "<group>"; };
+		9398CD5643C8772DFEDAFD0952F51298 /* CodeResources */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; path = CodeResources; sourceTree = "<group>"; };
 		93E96B51682A7AD1D1C3922938BB1C31 /* HYBusinessInfoModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HYBusinessInfoModel.m; sourceTree = "<group>"; };
 		9490FE38068172DFB16AEF2B425A980F /* HYMyServiceTableViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HYMyServiceTableViewCell.h; sourceTree = "<group>"; };
 		95A4235CB34381E920D73D7BF4CFE3C9 /* CardDetailViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CardDetailViewController.h; sourceTree = "<group>"; };
@@ -1512,7 +1514,7 @@
 		9C54763C9BB59815F2A78BC7643BEB3F /* AFURLRequestSerialization.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFURLRequestSerialization.h; path = AFNetworking/AFURLRequestSerialization.h; sourceTree = "<group>"; };
 		9D2369ABC39DBDEA5089510CFF382F91 /* XFSpecialButton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = XFSpecialButton.m; sourceTree = "<group>"; };
 		9D8194D86F9EDF59E48ED09FB35F3677 /* RideRecordViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = RideRecordViewController.m; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9DC5F8B83B15A56EE90FF2E44C73FBB9 /* WXApiObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WXApiObject.h; path = OpenSDK1.9.7/WXApiObject.h; sourceTree = "<group>"; };
 		9E4E591681BE1D99E807E597413477E4 /* HYServiceProgressViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HYServiceProgressViewController.m; sourceTree = "<group>"; };
 		9E95AD44372175224D546D4F7373AC46 /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+WebCacheOperation.h"; path = "SDWebImage/Core/UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
@@ -1572,8 +1574,8 @@
 		AE404EFC5F87E0CED1CE6A759A76A637 /* BDFaceAdjustParamsRootController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BDFaceAdjustParamsRootController.h; sourceTree = "<group>"; };
 		AE40D1D5BF2E0F08FE8DA82C5D02C6D8 /* SDWebImageCacheKeyFilter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageCacheKeyFilter.h; path = SDWebImage/Core/SDWebImageCacheKeyFilter.h; sourceTree = "<group>"; };
 		AE4E109BFC5A47842A918816E8C66F6C /* HYServiceWebViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HYServiceWebViewController.m; sourceTree = "<group>"; };
-		AE5CB37DC570B2D0F09944B50820153F /* HYCivicCenter-HYCivicCenter */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "HYCivicCenter-HYCivicCenter"; path = HYCivicCenter.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
-		AE6FAED7B5B0F011E2525F223B3C04A5 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		AE5CB37DC570B2D0F09944B50820153F /* HYCivicCenter.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HYCivicCenter.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE6FAED7B5B0F011E2525F223B3C04A5 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		AE7E5AAA40BF511005856E312F187DEC /* MJRefreshHeader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshHeader.h; path = MJRefresh/Base/MJRefreshHeader.h; sourceTree = "<group>"; };
 		AEA7C35AC21B2965BE0AE38E207941A4 /* MJRefreshBackStateFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshBackStateFooter.m; path = MJRefresh/Custom/Footer/Back/MJRefreshBackStateFooter.m; sourceTree = "<group>"; };
 		AEC03A8177BAAC049797BC57E75E82AB /* RealTimeBusViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = RealTimeBusViewController.m; sourceTree = "<group>"; };
@@ -1662,7 +1664,7 @@
 		C7202367CDEEA9DB3C36A5631961C8CB /* SDWebImageError.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageError.m; path = SDWebImage/Core/SDWebImageError.m; sourceTree = "<group>"; };
 		C75A9B75E4A6967A2A007D5DCEB4B7AF /* ChooseIndusreyViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ChooseIndusreyViewController.h; sourceTree = "<group>"; };
 		C76B3C83FA046906962C1330C8CA37AD /* HYGovServiceTableViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HYGovServiceTableViewCell.h; sourceTree = "<group>"; };
-		C7ABF998E8BAAFEA1E3535BFC9557D05 /* HYCivicCenter.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = HYCivicCenter.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		C7ABF998E8BAAFEA1E3535BFC9557D05 /* HYCivicCenter.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = HYCivicCenter.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		C8118F521A4B971C3DB58021B204DD44 /* HYServiceProgressTableViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HYServiceProgressTableViewCell.m; sourceTree = "<group>"; };
 		C86C3F63F6B1DE0AE97583B596714F28 /* HYGovernmentCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HYGovernmentCell.h; sourceTree = "<group>"; };
 		C89CF03E9CD48EDE36EE770C9CB2A5D1 /* BDFaceRemindAnimationView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BDFaceRemindAnimationView.h; sourceTree = "<group>"; };
@@ -1788,7 +1790,7 @@
 		E85EE9779F6518B552BE72C5CC79D9D4 /* BDFaceAgreementViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = BDFaceAgreementViewController.m; sourceTree = "<group>"; };
 		E8A135BB8B102A6C15764BDD78658765 /* CouponsCenterViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CouponsCenterViewController.h; sourceTree = "<group>"; };
 		E97D43C46A45EE515A4DA3AF94398441 /* SVProgressHUD */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SVProgressHUD; path = SVProgressHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E9ECD1CEF07E62E49EFC50C05916C900 /* BDFaceParamsConfig.json */ = {isa = PBXFileReference; includeInIndex = 1; path = BDFaceParamsConfig.json; sourceTree = "<group>"; };
+		E9ECD1CEF07E62E49EFC50C05916C900 /* BDFaceParamsConfig.json */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.json; path = BDFaceParamsConfig.json; sourceTree = "<group>"; };
 		EA2C9C5C8B5354EF74675DB016A8EA9C /* HYCommonProblemTableViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HYCommonProblemTableViewCell.h; sourceTree = "<group>"; };
 		EAA5C2B6B52FEA15A67E605A2AB37018 /* AFAutoPurgingImageCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFAutoPurgingImageCache.h; path = "UIKit+AFNetworking/AFAutoPurgingImageCache.h"; sourceTree = "<group>"; };
 		EB39D6FFA5E101A5A2C4A744B3CD3EE5 /* HYGuessBusinessViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HYGuessBusinessViewController.m; sourceTree = "<group>"; };
@@ -1831,7 +1833,7 @@
 		F3A5F25A8A6EEAA7496BE066C9E20D5D /* HYHandleGuideMateraCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HYHandleGuideMateraCell.m; sourceTree = "<group>"; };
 		F3F0C38FC2851FE9BB576F5B551985DE /* MASViewAttribute.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASViewAttribute.h; path = Masonry/MASViewAttribute.h; sourceTree = "<group>"; };
 		F40FADD1DE5FF32AC3202D515C196005 /* SVIndefiniteAnimatedView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVIndefiniteAnimatedView.m; path = SVProgressHUD/SVIndefiniteAnimatedView.m; sourceTree = "<group>"; };
-		F464D250BC44EBC8EA5938A10F8B6089 /* CodeDirectory */ = {isa = PBXFileReference; includeInIndex = 1; path = CodeDirectory; sourceTree = "<group>"; };
+		F464D250BC44EBC8EA5938A10F8B6089 /* CodeDirectory */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; path = CodeDirectory; sourceTree = "<group>"; };
 		F4AEC9528C5D67DA232F791A13185F03 /* long_term_NoSelect@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "long_term_NoSelect@3x.png"; sourceTree = "<group>"; };
 		F4CA1B395E6C8D80485BDFCBDA5DB0AC /* MJRefreshTrailer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshTrailer.h; path = MJRefresh/Base/MJRefreshTrailer.h; sourceTree = "<group>"; };
 		F50DECBD8E115CA9DB9F830D60305402 /* TZImageRequestOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TZImageRequestOperation.m; path = TZImagePickerController/TZImagePickerController/TZImageRequestOperation.m; sourceTree = "<group>"; };
@@ -1851,7 +1853,7 @@
 		F91466F6FC210EBB2958553C36038E87 /* SDImageAWebPCoder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDImageAWebPCoder.m; path = SDWebImage/Core/SDImageAWebPCoder.m; sourceTree = "<group>"; };
 		F9572EBB814D2ED3F95EA9F4CAE7306B /* CitizenCodeViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CitizenCodeViewController.m; sourceTree = "<group>"; };
 		F9B576603BBE9A4D29A567A9D82E3D72 /* Pods-HYCivicCenter_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-HYCivicCenter_Example.modulemap"; sourceTree = "<group>"; };
-		FA4486220CAB0899B11D00DEBD3BBD52 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		FA4486220CAB0899B11D00DEBD3BBD52 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		FB5476EA27EA59A4C5BB29DA49AC41F5 /* RechargeCollectionViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RechargeCollectionViewCell.h; sourceTree = "<group>"; };
 		FB7CECB0889A19DB4E5C7F84C157549E /* HYServiceProgressTableViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HYServiceProgressTableViewCell.h; sourceTree = "<group>"; };
 		FBE2C10D6E99653C320DD5AC8354E5A0 /* CitizenCodeViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CitizenCodeViewController.h; sourceTree = "<group>"; };
@@ -1977,7 +1979,6 @@
 				729AD9240EF7E2EC9EEE40D9F72122F5 /* BDFaceRemindView.h */,
 				49D7BE072AA60738D0B46C22CCA41AAD /* BDFaceRemindView.m */,
 			);
-			name = View;
 			path = View;
 			sourceTree = "<group>";
 		};
@@ -2042,7 +2043,6 @@
 				D633B1683B918248A3E93F31BEBE9974 /* Headers */,
 				6525B4F365E835C42486E3241DC9E3CB /* Modules */,
 			);
-			name = CTID_Verification.framework;
 			path = CTID_Verification.framework;
 			sourceTree = "<group>";
 		};
@@ -2097,7 +2097,6 @@
 				122FF1F9283B50E7680877771A6061E9 /* BDFaceSelectItem.h */,
 				36AEA742FF5D3A1E4B03C47194FE0860 /* BDFaceSelectItem.m */,
 			);
-			name = Model;
 			path = Model;
 			sourceTree = "<group>";
 		};
@@ -2161,7 +2160,6 @@
 				67AC0DC611615F5524AF0AFFC7BC9E98 /* Support Files */,
 				7FBFECAFF448BDFADE3FB62B001DFDE6 /* UIKit */,
 			);
-			name = AFNetworking;
 			path = AFNetworking;
 			sourceTree = "<group>";
 		};
@@ -2195,7 +2193,6 @@
 				C99C5145E33D53E8FF33C744764B82DE /* tipMsgicon@2x.png */,
 				81A72B4046407A83DEE9966F9621DE0E /* tipMsgicon@3x.png */,
 			);
-			name = CTID.bundle;
 			path = CTID.bundle;
 			sourceTree = "<group>";
 		};
@@ -2225,7 +2222,6 @@
 				B6BB0B5CDA4BA062897F07638B7DAE0B /* BDFaceLivingConfigModel.h */,
 				F8B5900FA2F7E6C9E60655F864A4ABCC /* BDFaceLivingConfigModel.m */,
 			);
-			name = Model;
 			path = Model;
 			sourceTree = "<group>";
 		};
@@ -2243,7 +2239,6 @@
 				94879169D410AC0167569A8A29F3A355 /* Resources */,
 				B5A6158F189BD64361BBC78ED6E6CE3F /* Support Files */,
 			);
-			name = SVProgressHUD;
 			path = SVProgressHUD;
 			sourceTree = "<group>";
 		};
@@ -2276,7 +2271,6 @@
 				27F652A5BA4BB485EB48B0338923720A /* Model */,
 				DD79D8A5F7C28C965549635710C551A3 /* Util */,
 			);
-			name = Public;
 			path = Public;
 			sourceTree = "<group>";
 		};
@@ -2307,7 +2301,6 @@
 				62EAAFDF1F86E70FCAA96AA90E331DD5 /* BDFaceAdjustParamsTool.h */,
 				F2D5163F4804E22D91A56082670DB57A /* BDFaceAdjustParamsTool.m */,
 			);
-			name = Interface;
 			path = Interface;
 			sourceTree = "<group>";
 		};
@@ -2377,7 +2370,6 @@
 				D4702EF2ED210C9432EE2BB7D42AB9B0 /* HYUploadImageCollectionViewCell.h */,
 				803EA96CF50FC3C32C3CCFC5C07EA6B9 /* HYUploadImageCollectionViewCell.m */,
 			);
-			name = DepartmentDetail;
 			path = DepartmentDetail;
 			sourceTree = "<group>";
 		};
@@ -2582,7 +2574,6 @@
 				82B09387164900BE5B1B96202A60B9E8 /* Resources */,
 				424A3A4CEF8A4470F80CF86C18DB0862 /* Support Files */,
 			);
-			name = MJRefresh;
 			path = MJRefresh;
 			sourceTree = "<group>";
 		};
@@ -2593,7 +2584,6 @@
 				10460CF2B5986BBB010E772422DAD392 /* Model */,
 				C14A4C6B0CF0F0681DF240F51B150387 /* View */,
 			);
-			name = BDFaceAdjustParams;
 			path = BDFaceAdjustParams;
 			sourceTree = "<group>";
 		};
@@ -2618,7 +2608,6 @@
 				24126CD11A923F078AF9497A4A9838C1 /* BDFaceSelectConfigController.h */,
 				8D21160C3ABB5BEC3E3C5534CBEF0532 /* BDFaceSelectConfigController.m */,
 			);
-			name = Controller;
 			path = Controller;
 			sourceTree = "<group>";
 		};
@@ -2628,7 +2617,6 @@
 				9E61BD7C775BED03D6BCE052C888CE7C /* Core */,
 				C6E846A3824F0B962942633ED65F468F /* Support Files */,
 			);
-			name = SDWebImage;
 			path = SDWebImage;
 			sourceTree = "<group>";
 		};
@@ -2638,7 +2626,6 @@
 				8BAC528EC3ACFE87F4C8AB29CFA8378A /* BusTransportViewController.h */,
 				C0719BD8E73F04479CFD7E4EC8A4E5D3 /* BusTransportViewController.m */,
 			);
-			name = BusTransport;
 			path = BusTransport;
 			sourceTree = "<group>";
 		};
@@ -2673,7 +2660,6 @@
 			children = (
 				7C2AC251A79D5326451EB1FAE4BE2255 /* module.modulemap */,
 			);
-			name = Modules;
 			path = Modules;
 			sourceTree = "<group>";
 		};
@@ -2712,7 +2698,6 @@
 				6F4DA67657E186ADC157AD67F06E628E /* BDFaceSuccessViewController+BDCheckFace.h */,
 				2875412D29DE8F5B502AFCA88E1DE7E5 /* BDFaceSuccessViewController+BDCheckFace.m */,
 			);
-			name = Controller;
 			path = Controller;
 			sourceTree = "<group>";
 		};
@@ -2750,7 +2735,6 @@
 				E67FC98A6FB47EFBAD3546C04D4B80D8 /* HYPQCollectionViewCell.h */,
 				112719713185240A4A7D0754218DD584 /* HYPQCollectionViewCell.m */,
 			);
-			name = PopularServices;
 			path = PopularServices;
 			sourceTree = "<group>";
 		};
@@ -2784,7 +2768,6 @@
 				BE8B6C59BC9782F37E3232831ACD6278 /* ViewController+MASAdditions.m */,
 				0AC220585FA800169455EB50E155C994 /* Support Files */,
 			);
-			name = Masonry;
 			path = Masonry;
 			sourceTree = "<group>";
 		};
@@ -2797,7 +2780,6 @@
 				82785B463CE18A761D00B1ECCCDE4751 /* Frameworks */,
 				6F8DAAE9407CA8EB7475EA281E401DBF /* Support Files */,
 			);
-			name = WechatOpenSDK;
 			path = WechatOpenSDK;
 			sourceTree = "<group>";
 		};
@@ -2808,7 +2790,6 @@
 				F49F1E97C33180C92B8BCEB9AEDB3D72 /* Resources */,
 				D6910139AA54D9D3BE0F2FC98BFE94E0 /* Support Files */,
 			);
-			name = "AlipaySDK-iOS";
 			path = "AlipaySDK-iOS";
 			sourceTree = "<group>";
 		};
@@ -2873,7 +2854,6 @@
 				7C5CE4B1403EEA069D888A26E2719EC6 /* UIView+YZApperance.h */,
 				B64F143D22671E337BE10C2A8AE4992F /* UIView+YZApperance.m */,
 			);
-			name = BDFaceTools;
 			path = BDFaceTools;
 			sourceTree = "<group>";
 		};
@@ -2937,7 +2917,6 @@
 				496501FC3464F1F052152C854EFAF50D /* Interface */,
 				00EA0464FAE6383893814B1F32CDAB56 /* View */,
 			);
-			name = UI;
 			path = UI;
 			sourceTree = "<group>";
 		};
@@ -2953,7 +2932,6 @@
 				1C400E339AC4C85A0F3B4FD89B335097 /* HYGuessYouCell.h */,
 				F16038EB74F260D299C28058B9244FFD /* HYGuessYouCell.m */,
 			);
-			name = SupposeYouWant;
 			path = SupposeYouWant;
 			sourceTree = "<group>";
 		};
@@ -2997,7 +2975,6 @@
 				1F4C4D09EFB7D710DC2FDE6536158A87 /* HYAreaServiceViewController.h */,
 				8ED67F09BEA91349AAAA975EEF04E50C /* HYAreaServiceViewController.m */,
 			);
-			name = CountyServices;
 			path = CountyServices;
 			sourceTree = "<group>";
 		};
@@ -3026,7 +3003,6 @@
 				C57C30C41CAE0DF644A53FA5804866F8 /* HYSSTableViewCell.h */,
 				2EB9DF6F37649DE28D65DA4B109FF580 /* HYSSTableViewCell.m */,
 			);
-			name = SpecialServices;
 			path = SpecialServices;
 			sourceTree = "<group>";
 		};
@@ -3225,7 +3201,6 @@
 				2DDCCA8180278C478144DD4F3FD4FA8B /* NSString+MJExtension.m */,
 				BC3699EED469EF751F8F648A7EBA8B29 /* Support Files */,
 			);
-			name = MJExtension;
 			path = MJExtension;
 			sourceTree = "<group>";
 		};
@@ -3271,7 +3246,6 @@
 				ED555C19AC0576025112AF27BFD74740 /* BDFaceSelectRadio.h */,
 				DE8638D299B04DC86929C2978FA0291A /* BDFaceSelectRadio.m */,
 			);
-			name = View;
 			path = View;
 			sourceTree = "<group>";
 		};
@@ -3295,7 +3269,7 @@
 			children = (
 				A4FA15D44DF6BAC7550EDEED10862AA3 /* AFNetworking */,
 				513A0CE8528E8B624E86F15E8293FF7C /* HYCivicCenter */,
-				AE5CB37DC570B2D0F09944B50820153F /* HYCivicCenter-HYCivicCenter */,
+				AE5CB37DC570B2D0F09944B50820153F /* HYCivicCenter.bundle */,
 				1FFED36A657123030ABB700256D73F15 /* Masonry */,
 				2B276B0A79173A1D6E83C9B4FB9A4A57 /* MJExtension */,
 				E49D6D248DD1CEE584E6776B9164A1B2 /* MJRefresh */,
@@ -3330,7 +3304,6 @@
 				C6E3E943761A18802B2395F843FADA00 /* CTIDReq.h */,
 				0BDB52F332CB99932DC78CC32389E460 /* CtidVerifySdk.h */,
 			);
-			name = Headers;
 			path = Headers;
 			sourceTree = "<group>";
 		};
@@ -3370,7 +3343,6 @@
 				36D2B745E31453DC5BEBD700BAEA06E3 /* HYServiceProgressViewController.h */,
 				9E4E591681BE1D99E807E597413477E4 /* HYServiceProgressViewController.m */,
 			);
-			name = GovernmentServices;
 			path = GovernmentServices;
 			sourceTree = "<group>";
 		};
@@ -3380,7 +3352,6 @@
 				25DFBDCCE4E291C0767C95B64B0D5FA0 /* MetroCodeViewController.h */,
 				A37F67E6E9042CCE10A106B79A2211E6 /* MetroCodeViewController.m */,
 			);
-			name = MetroCode;
 			path = MetroCode;
 			sourceTree = "<group>";
 		};
@@ -3393,7 +3364,6 @@
 				0C48854E1FF26BAD6B322049C874B393 /* BDFaceImageUtils.m */,
 				5BB44750FB07E377E8F236E035DD7165 /* BDUIConstant.h */,
 			);
-			name = Util;
 			path = Util;
 			sourceTree = "<group>";
 		};
@@ -3454,7 +3424,6 @@
 				9398CD5643C8772DFEDAFD0952F51298 /* CodeResources */,
 				0254D10B223B5D6B2522A634BBE78090 /* CodeSignature */,
 			);
-			name = _CodeSignature;
 			path = _CodeSignature;
 			sourceTree = "<group>";
 		};
@@ -3464,7 +3433,6 @@
 				FBE2C10D6E99653C320DD5AC8354E5A0 /* CitizenCodeViewController.h */,
 				F9572EBB814D2ED3F95EA9F4CAE7306B /* CitizenCodeViewController.m */,
 			);
-			name = CitizenCode;
 			path = CitizenCode;
 			sourceTree = "<group>";
 		};
@@ -3529,7 +3497,6 @@
 				55B59C93904102F7B8AAFF86DC09A3B2 /* Location */,
 				6372963BAB73A2E811F3ED7C21501F37 /* Support Files */,
 			);
-			name = TZImagePickerController;
 			path = TZImagePickerController;
 			sourceTree = "<group>";
 		};
@@ -4214,7 +4181,7 @@
 			);
 			name = "HYCivicCenter-HYCivicCenter";
 			productName = HYCivicCenter;
-			productReference = AE5CB37DC570B2D0F09944B50820153F /* HYCivicCenter-HYCivicCenter */;
+			productReference = AE5CB37DC570B2D0F09944B50820153F /* HYCivicCenter.bundle */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -4225,6 +4192,11 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1300;
 				LastUpgradeCheck = 1300;
+				TargetAttributes = {
+					F0799FFFFB219FA8157C943A4AEEF6D7 = {
+						DevelopmentTeam = PJCYVMSLY9;
+					};
+				};
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -5062,6 +5034,7 @@
 			baseConfigurationReference = 38CC90773B2198DFB0990E27AA88BA40 /* HYCivicCenter.debug.xcconfig */;
 			buildSettings = {
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/HYCivicCenter";
+				DEVELOPMENT_TEAM = PJCYVMSLY9;
 				ENABLE_BITCODE = NO;
 				IBSC_MODULE = HYCivicCenter;
 				INFOPLIST_FILE = "Target Support Files/HYCivicCenter/ResourceBundle-HYCivicCenter-HYCivicCenter-Info.plist";
@@ -5527,6 +5500,7 @@
 			baseConfigurationReference = B1A4ED9B1D09A12C563D9C862307164C /* HYCivicCenter.release.xcconfig */;
 			buildSettings = {
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/HYCivicCenter";
+				DEVELOPMENT_TEAM = PJCYVMSLY9;
 				ENABLE_BITCODE = NO;
 				IBSC_MODULE = HYCivicCenter;
 				INFOPLIST_FILE = "Target Support Files/HYCivicCenter/ResourceBundle-HYCivicCenter-HYCivicCenter-Info.plist";
@@ -5626,8 +5600,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};
