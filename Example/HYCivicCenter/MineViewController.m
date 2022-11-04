@@ -8,6 +8,7 @@
 
 #import "MineViewController.h"
 #import "HYGovernmentViewController.h"
+#import "HYNavigationController.h"
 
 @interface MineViewController ()
 
@@ -30,7 +31,9 @@
 
 - (void)btnClicked:(UIButton *)sender {
     HYGovernmentViewController *vc = [[HYGovernmentViewController alloc] init];
-    [self.navigationController pushViewController:vc animated:YES];
+    HYNavigationController *nav = [[HYNavigationController alloc] initWithRootViewController:vc];
+    nav.modalPresentationStyle = UIModalPresentationFullScreen;
+    [self presentViewController:nav animated:YES completion:nil];
 }
 
 /*
