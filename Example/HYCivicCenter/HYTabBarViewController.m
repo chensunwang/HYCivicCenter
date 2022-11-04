@@ -14,6 +14,7 @@
 #import "MainApi.h"
 #import "CSWNavigationController.h"
 #import "MineViewController.h"
+#import "YSNCNavigationController.h"
 
 @interface HYTabBarViewController ()<UIGestureRecognizerDelegate, UITabBarControllerDelegate>
 
@@ -97,8 +98,9 @@
     viewController.tabBarItem.image = [[UIImage imageNamed:image] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     viewController.tabBarItem.selectedImage = [[UIImage imageNamed:selectedImage] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     
-    HYNavigationController *nav = [[HYNavigationController alloc] initWithRootViewController:viewController];  // 我们库里面的导航栏
+//    HYNavigationController *nav = [[HYNavigationController alloc] initWithRootViewController:viewController];  // 我们库里面的导航栏
 //    CSWNavigationController *nav = [[CSWNavigationController alloc] initWithRootViewController:viewController];  // 你的自定义导航栏
+    YSNCNavigationController *nav = [[YSNCNavigationController alloc] initWithRootViewController:viewController];
     [self addChildViewController:nav];
 }
 
