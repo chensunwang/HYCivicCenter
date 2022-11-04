@@ -97,7 +97,7 @@
                 NSArray *onlineConduct = responseObject[@"data"][@"onlineConduct"];
                 if (onlineConduct != nil && onlineConduct.count > 0) {
                     NSString *onlineAddress = onlineConduct.firstObject[@"ONLINE_ADDRESS"];
-                    if (onlineAddress != nil) {
+                    if (onlineAddress != nil && ![onlineAddress isEqualToString:@""]) {
                         NSString *uuid = [[NSUserDefaults standardUserDefaults] valueForKey:@"CurrentUuid"];
                         if ([onlineAddress containsString:@"https://nc.tpms.jxangyi.cn"] && uuid != nil) { // 货车通行证
                             HYHandleAffairsWebVIewController *webVC = [[HYHandleAffairsWebVIewController alloc] init];
