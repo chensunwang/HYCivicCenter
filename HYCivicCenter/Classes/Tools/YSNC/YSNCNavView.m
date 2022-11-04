@@ -32,7 +32,7 @@
 {
     if (!_headView) {
         _headView = [[UIView alloc] init];
-        _headView.backgroundColor = UIColor.whiteColor;
+        _headView.backgroundColor = UIColor.orangeColor;
         [self addSubview:_headView];
     }
     return _headView;

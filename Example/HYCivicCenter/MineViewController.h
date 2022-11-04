@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "YSNCViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MineViewController : UIViewController
+@interface MineViewController : YSNCViewController
 
 @end
 

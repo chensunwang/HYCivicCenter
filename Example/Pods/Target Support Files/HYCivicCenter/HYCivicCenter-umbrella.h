@@ -22,6 +22,9 @@
 #import "SSDKLib.h"
 #import "SSFaceDetectionManager.h"
 #import "SSFaceSDK.h"
+#import "YSNCNavigationController.h"
+#import "YSNCNavView.h"
+#import "YSNCViewController.h"
 
 FOUNDATION_EXPORT double HYCivicCenterVersionNumber;
 FOUNDATION_EXPORT const unsigned char HYCivicCenterVersionString[];
