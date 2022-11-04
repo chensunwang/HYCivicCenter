@@ -94,7 +94,7 @@
             if (!self.baseInfo.canHandle) {
                 [self showUnableToOperate];  // 提示该事项无法操作
             } else {
-                NSArray *onlineConduct = responseObject[@"onlineConduct"];
+                NSArray *onlineConduct = responseObject[@"data"][@"onlineConduct"];
                 if (onlineConduct != nil && onlineConduct.count > 0) {
                     NSString *onlineAddress = onlineConduct.firstObject[@"ONLINE_ADDRESS"];
                     if (onlineAddress != nil) {

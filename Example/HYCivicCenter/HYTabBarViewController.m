@@ -14,7 +14,6 @@
 #import "MainApi.h"
 #import "CSWNavigationController.h"
 #import "MineViewController.h"
-#import "YSNCNavigationController.h"
 
 @interface HYTabBarViewController ()<UIGestureRecognizerDelegate, UITabBarControllerDelegate>
 
@@ -70,10 +69,6 @@
 //    InstanceVc.hyTitleColor = UIColor.blackColor;
     [self setupChildViewController:handleVc title:@"办事" image:@"icon_money_n" selectedImage:@"icon_money_s"];
     
-    HYGovernmentViewController *goverVc = [[HYGovernmentViewController alloc] init];
-//    mineVc.hyTitleColor = UIColor.blackColor;
-    [self setupChildViewController:goverVc title:@"政务" image:@"icon_me_n" selectedImage:@"icon_me_s"];
-    
     MineViewController *mineVc = [[MineViewController alloc] init];
     [self setupChildViewController:mineVc title:@"我的" image:@"icon_me_n" selectedImage:@"icon_me_s"];
     
@@ -98,9 +93,8 @@
     viewController.tabBarItem.image = [[UIImage imageNamed:image] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     viewController.tabBarItem.selectedImage = [[UIImage imageNamed:selectedImage] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     
-//    HYNavigationController *nav = [[HYNavigationController alloc] initWithRootViewController:viewController];  // 我们库里面的导航栏
+    HYNavigationController *nav = [[HYNavigationController alloc] initWithRootViewController:viewController];  // 我们库里面的导航栏
 //    CSWNavigationController *nav = [[CSWNavigationController alloc] initWithRootViewController:viewController];  // 你的自定义导航栏
-    YSNCNavigationController *nav = [[YSNCNavigationController alloc] initWithRootViewController:viewController];
     [self addChildViewController:nav];
 }
 
