@@ -62,11 +62,11 @@
 - (void)setupChildViewController {
     // alloc init 的时候会进入对应vc的init viewdidload方法里面，也算是进入了新的界面
     DigitalcitizenViewController *digitalVc = [[DigitalcitizenViewController alloc] init];
-//    homeVc.hyTitleColor = UIColor.blackColor;
+//    digitalVc.hyTitleColor = UIColor.blackColor;
     [self setupChildViewController:digitalVc title:@"首页" image:@"icon_task_n" selectedImage:@"icon_task_s"];
     
     HYHandleAffairsViewController *handleVc = [[HYHandleAffairsViewController alloc] init];
-//    InstanceVc.hyTitleColor = UIColor.blackColor;
+//    handleVc.hyTitleColor = UIColor.blackColor;
     [self setupChildViewController:handleVc title:@"办事" image:@"icon_money_n" selectedImage:@"icon_money_s"];
     
     MineViewController *mineVc = [[MineViewController alloc] init];
