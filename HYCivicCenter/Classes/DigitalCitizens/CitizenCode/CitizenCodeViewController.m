@@ -174,12 +174,12 @@ NSString *const citizenCell = @"citizenCell";
             self.name = responseObject[@"data"][@"nickName"];
             self.phone = responseObject[@"data"][@"phone"];
             
-            [[NSUserDefaults standardUserDefaults]setValue:responseObject[@"data"][@"nickName"]?:@"" forKey:@"HYName"];
-            [[NSUserDefaults standardUserDefaults]setValue:responseObject[@"data"][@"idCard"] forKey:@"HYIdCard"];
-            [[NSUserDefaults standardUserDefaults]setValue:responseObject[@"data"][@"phone"]?:@"" forKey:@"HYPhone"];
-            [[NSUserDefaults standardUserDefaults]setValue:responseObject[@"data"][@"phoneEncrypt"]?:@"" forKey:@"HYPhoneEncrypt"];
-            [[NSUserDefaults standardUserDefaults]setValue:responseObject[@"data"][@"uuid"] forKey:@"CurrentUuid"];
-            [[NSUserDefaults standardUserDefaults]setValue:responseObject[@"data"][@"word"] forKey:@"CurrentWord"];
+            [[NSUserDefaults standardUserDefaults] setValue:responseObject[@"data"][@"nickName"]?:@"" forKey:@"HYName"];
+            [[NSUserDefaults standardUserDefaults] setValue:responseObject[@"data"][@"idCard"] forKey:@"HYIdCard"];
+            [[NSUserDefaults standardUserDefaults] setValue:responseObject[@"data"][@"phone"]?:@"" forKey:@"HYPhone"];
+            [[NSUserDefaults standardUserDefaults] setValue:responseObject[@"data"][@"phoneEncrypt"]?:@"" forKey:@"HYPhoneEncrypt"];
+            [[NSUserDefaults standardUserDefaults] setValue:responseObject[@"data"][@"uuid"] forKey:@"CurrentUuid"];
+            [[NSUserDefaults standardUserDefaults] setValue:responseObject[@"data"][@"word"] forKey:@"CurrentWord"];
             
             if ([responseObject[@"data"][@"idCard"] length] == 0) {
                 UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"您还未进行实名认证，请先进行实名认证" message:nil preferredStyle:UIAlertControllerStyleAlert];

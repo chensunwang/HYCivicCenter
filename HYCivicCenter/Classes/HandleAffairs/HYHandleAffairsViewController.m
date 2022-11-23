@@ -95,6 +95,8 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+    
 //    self.navigationController.navigationBar.hidden = YES;
     
 //    // 判断是 push / present 还是 pop /dismiss

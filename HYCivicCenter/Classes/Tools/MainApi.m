@@ -290,7 +290,7 @@ static MainApi *request = nil;
 - (NSDictionary *)dictionWithAppendDic:(NSDictionary *)appendDic {
     
     NSDictionary *infoDictionary = [[NSBundle mainBundle]infoDictionary];
-    NSString *userID = [[NSUserDefaults standardUserDefaults]objectForKey:@""]; // @"CurrentUuid"
+    NSString *userID = [[NSUserDefaults standardUserDefaults] objectForKey:@""]; // @"CurrentUuid"
     double currentTime = [[NSDate date]timeIntervalSince1970];
     NSString *strTime = [NSString stringWithFormat:@"%.0f",currentTime];
     NSDictionary *parameters = @{

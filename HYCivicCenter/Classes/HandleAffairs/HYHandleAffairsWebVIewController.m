@@ -72,7 +72,7 @@
     self.backBtn.layer.masksToBounds = YES;
     self.backBtn.layer.cornerRadius = 20;
     [self.backBtn setBackgroundColor:[UIColor lightGrayColor]];
-    [self.backBtn setImage:[UIImage imageNamed:@"naviBack"] forState:UIControlStateNormal];
+    [self.backBtn setImage:HyBundleImage(@"naviBack") forState:UIControlStateNormal];
     [self.backBtn addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
 }
 

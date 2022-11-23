@@ -25,7 +25,7 @@
 @property (nonatomic, strong) UIView * signView;
 @property (nonatomic, strong) UIButton * currentBtn;
 @property (nonatomic, strong) HYOnLineHandleViewController * onlineVC;  // 在线办理vc
-@property (nonatomic, strong) HYHandleGuideViewController * guideVC;  // 办理指南vc
+@property (nonatomic, strong) HYHandleGuideViewController * guideVC;  // 办事指南vc
 @property (nonatomic, strong) HYCommonProblemViewController * problemVC;  // 常见问题vc
 @property (nonatomic, strong) UIButton * collectionBtn;
 @property (nonatomic, strong) NSMutableArray * onLineDataArray;
@@ -306,7 +306,7 @@
 
 - (NSArray *)titleArr {
     if (!_titleArr) {
-        _titleArr = @[@"在线办理", @"办理指南", @"常见问题"];
+        _titleArr = @[@"在线办理", @"办事指南", @"常见问题"];
     }
     return _titleArr;
 }

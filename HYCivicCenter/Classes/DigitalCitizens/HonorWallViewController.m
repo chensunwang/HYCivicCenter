@@ -53,8 +53,8 @@ NSString *const honorCell = @"honorCell";
 
 - (void)loadData {
     
-    NSString *uuid = [[NSUserDefaults standardUserDefaults]objectForKey:@"CurrentUuid"];
-    [HttpRequest postPath:@"/phone/v1/honor/myList" params:@{@"uuid":uuid?:@""} resultBlock:^(id  _Nullable responseObject, NSError * _Nullable error) {
+    NSString *uuid = [[NSUserDefaults standardUserDefaults] objectForKey:@"CurrentUuid"];
+    [HttpRequest postPath:@"/phone/v1/honor/myList" params:@{@"uuid": uuid ? : @""} resultBlock:^(id  _Nullable responseObject, NSError * _Nullable error) {
         XFLog(@" 荣誉墙列表== %@ ",responseObject);
         if ([responseObject[@"code"] intValue] == 200) {
             self.datasArr = [HonorWallModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
