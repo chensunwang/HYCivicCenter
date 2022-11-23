@@ -611,7 +611,7 @@
 					"$(PROJECT_DIR)/HYCivicCenter",
 				);
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = com.yunshangncctbrapp.www;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yunshangncctbrapp.www1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				VALID_ARCHS = "arm64 arm64e armv7 armv7s x86_64";
@@ -635,7 +635,7 @@
 					"$(PROJECT_DIR)/HYCivicCenter",
 				);
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = com.yunshangncctbrapp.www;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yunshangncctbrapp.www1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				VALID_ARCHS = "arm64 arm64e armv7 armv7s x86_64";
