@@ -43,6 +43,7 @@
         self.titleLabel.textColor = UIColorFromRGB(0x333333);
         [self.contentView addSubview:self.titleLabel];
         self.titleLabel.lineBreakMode = NSLineBreakByTruncatingTail;
+        self.titleLabel.numberOfLines = 2;
         
         self.nameLabel.text = @"社会服务";
         self.subNameLabel.text = @"公积金、养老保险";
