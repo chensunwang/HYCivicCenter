@@ -25,8 +25,14 @@
 #import "HYServiceTableViewCell.h"
 #import "HYServiceClassifyModel.h"
 #import "HYCivicCenterCommand.h"
+#import "HYHotServiceModel.h"
+#import "HYLegalAidGuideViewController.h"
+#import "HYHandleAffairsWebVIewController.h"
+#import "HYOnLineBusinessMainViewController.h"
+#import "HYRealNameAlertView.h"
+#import "FaceTipViewController.h"
 
-@interface BusTransportViewController () <UITableViewDelegate,UITableViewDataSource,GetQRCodeDelegate,CLLocationManagerDelegate>
+@interface BusTransportViewController () <UITableViewDelegate, UITableViewDataSource, GetQRCodeDelegate, CLLocationManagerDelegate, FaceResultDelegate>
 
 @property (nonatomic, strong) UIImageView *codeIV;
 @property (nonatomic, strong) UITableView *tableView;
@@ -50,122 +56,133 @@
 @property (nonatomic, strong) UIImageView *busHolderIV;
 @property (nonatomic, strong) NSMutableArray *myArr;
 
+@property (nonatomic, assign) BOOL isLogin;  // 是否已经登录
+@property (nonatomic, copy) NSString * jumpUrl;  // 传给网页的url
+@property (nonatomic, copy) NSString * code;  // 传给网页的code
+@property (nonatomic, copy) NSString * titleStr;  // 传给网页的title
+
 @end
 
 NSString *const busTransPortCell = @"busCell";
 @implementation BusTransportViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
+- (void)loadView {
+    [super loadView];
     
     self.title = @"公交出行";
     self.view.backgroundColor = UIColorFromRGB(0xF5F5F5);
     
-    [self configUI];
+    [self.view addSubview:self.tableView];
+    [self.tableView registerClass:[HYServiceTableViewCell class] forCellReuseIdentifier:busTransPortCell];
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(UIEdgeInsetsZero);
+    }];
     
+    MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(applyQRCode)];
+    self.tableView.mj_header = header;
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
+        
     [self loadData];
     
     [self loadClassifyData];
     
     [self getLocation];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     
-    MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(applyQRCode)];
-    self.tableView.mj_header = header;
-    
+    MainApi *api = [MainApi sharedInstance];
+    if (api.token.length > 0) {
+        self.isLogin = YES;
+    }
 }
 
 - (void)loadData {
-    
     // 账户查询
-    [HttpRequest postPathBus:@"" params:@{@"uri":@"/api/hcard/query/account"} resultBlock:^(id  _Nullable responseObject, NSError * _Nullable error) {
+    [HttpRequest postPathBus:@"" params:@{@"uri": @"/api/hcard/query/account"} resultBlock:^(id  _Nullable responseObject, NSError * _Nullable error) {
         
         NSLog(@" 账户查询== %@ ",responseObject);
         if ([responseObject[@"success"] intValue] == 0 && [responseObject[@"code"] intValue] == 200) { // 领卡
-            
             self.maskView.hidden = NO;
             self.balanceLabel.hidden = YES;
             self.toRechargeBtn.hidden = YES;
             self.receiveBtn.hidden = NO;
             self.receiveLabel.hidden = NO;
-            
-        }else if ([responseObject[@"success"] intValue] == 1) {
-            
+        } else if ([responseObject[@"success"] intValue] == 1) {
             [self applyQRCode];
-            
         }
-        
     }];
-    
 }
 
 - (void)loadClassifyData {
-    
-    [HttpRequest getPath:@"/phone/v2/service/getAvailableService" params:nil resultBlock:^(id  _Nullable responseObject, NSError * _Nullable error) {
-       
+//    [HttpRequest getPath:@"/phone/v2/service/getAvailableService" params:nil resultBlock:^(id  _Nullable responseObject, NSError * _Nullable error) {
 //        SLog(@" 获取分类 == %@ ",responseObject);
-        if ([responseObject[@"code"] intValue] == 200) {
-            self.datasArr = [HYServiceClassifyModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
-            [self.tableView reloadData];
-        }
-        
-    }];
+//        if ([responseObject[@"code"] intValue] == 200) {
+//            self.datasArr = [HYServiceClassifyModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+//            [self.tableView reloadData];
+//        }
+//    }];
     
+    [HttpRequest getPathZWBS:@"phone/item/event/getHotList" params:@{@"pageNum": @"1", @"pageSize": @"6"} resultBlock:^(id  _Nullable responseObject, NSError * _Nullable error) {
+        SLog(@" 热门服务分类== %@ ", responseObject);
+        if ([responseObject[@"code"] intValue] == 200) {
+            self.datasArr = [HYHotServiceModel mj_objectArrayWithKeyValuesArray:responseObject[@"rows"]];
+            
+            HYHotServiceModel *legalModel = [[HYHotServiceModel alloc] init];
+            legalModel.name = @"法律援助指南";
+            legalModel.logoUrl = @"legalAid";
+            [self.datasArr addObject:legalModel];
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.tableView reloadData];
+            });
+        } else {
+            SLog(@"%@", responseObject[@"msg"]);
+        }
+    }];
 }
 
 - (void)applyQRCode {
-    
     // 申请二维码
     [HttpRequest postPathBus:@"" params:@{@"uri":@"/api/hcard/apply/qrcord"} resultBlock:^(id  _Nullable responseObject, NSError * _Nullable error) {
-        
-//        SLog(@"申请二维码 == %@",responseObject);
         self.isApply = YES;
         if ([responseObject[@"success"] intValue] == 1) {
-            
             self.maskView.hidden = YES;
-            NSData *decodedImageData = [[NSData alloc]initWithBase64EncodedString:responseObject[@"data"][@"qrData"][0] options:NSDataBase64DecodingIgnoreUnknownCharacters];
+            NSData *decodedImageData = [[NSData alloc] initWithBase64EncodedString:responseObject[@"data"][@"qrData"][0] options:NSDataBase64DecodingIgnoreUnknownCharacters];
                 
             UIImage *decodedImage = [UIImage imageWithData:decodedImageData];
             self.codeIV.alpha = 1;
             self.codeIV.image = decodedImage;
-            
-        }else {
-            
+        } else {
             if ([responseObject[@"message"] containsString:@"余额不足"]) {
-                
                 self.maskView.hidden = NO;
                 self.balanceLabel.hidden = NO;
                 self.toRechargeBtn.hidden = NO;
                 self.receiveBtn.hidden = YES;
                 self.receiveLabel.hidden = YES;
-                
             }
-            
         }
         [self.tableView.mj_header endRefreshing];
-        
     }];
-    
 }
 
 // delegate
 - (void)getBusQrcode {
-    
     [self applyQRCode];
-    
 }
 
 - (void)loadBusInfo {
-    
-    [HttpRequest getPath:@"/phone/v2/bus/getNearestBusStation" params:@{@"coordinateType":@"WGS84",@"lat":self.latitude?:@"",@"lng":self.longitude?:@""} resultBlock:^(id  _Nullable responseObject, NSError * _Nullable error) {
-        
-//        NSLog(@" 获取附近站点== %@ ",responseObject);
+    [HttpRequest getPath:@"/phone/v2/bus/getNearestBusStation" params:@{@"coordinateType": @"WGS84", @"lat": self.latitude ? : @"", @"lng": self.longitude ? : @""} resultBlock:^(id  _Nullable responseObject, NSError * _Nullable error) {
         if ([responseObject[@"code"] intValue] == 200) {
             NSString *stationName = responseObject[@"data"][@"stationName"];
             self.stationName = stationName;
             self.stationDistance = responseObject[@"data"][@"distanceMeter"];
-            [HttpRequest getPath:@"/phone/v2/bus/getNearestBusLine" params:@{@"stationName":stationName,@"pageNum":@"1",@"pageSize":@"2"} resultBlock:^(id  _Nullable responseObject, NSError * _Nullable error) {
-
+            [HttpRequest getPath:@"/phone/v2/bus/getNearestBusLine" params:@{@"stationName":stationName, @"pageNum": @"1", @"pageSize": @"2"} resultBlock:^(id  _Nullable responseObject, NSError * _Nullable error) {
                 self.busInfoDic = responseObject[@"data"];
                 [self.allkeysArr removeAllObjects];
                 [self.busInfoArr removeAllObjects];
@@ -176,17 +193,13 @@ NSString *const busTransPortCell = @"busCell";
                     [self.busInfoArr addObject:busInfoArr];
                 }
                 [self.tableView reloadData];
-
             }];
         }
-        
     }];
-    
 }
 
 - (void)getLocation {
-    
-    self.locationManager = [[CLLocationManager alloc]init];
+    self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
     self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     self.locationManager.distanceFilter = 1000.0f;
@@ -195,32 +208,21 @@ NSString *const busTransPortCell = @"busCell";
     
 }
 
-- (void)configUI {
-    
-    [self.view addSubview:self.tableView];
-    [self.tableView registerClass:[HYServiceTableViewCell class] forCellReuseIdentifier:busTransPortCell];
-    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.mas_equalTo(UIEdgeInsetsZero);
-    }];
-
-}
-
 - (UIView *)headerView {
-    
-    UIView *contentView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 496)];
+    UIView *contentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 496)];
     contentView.backgroundColor = UIColorFromRGB(0xF5F5F5);
     
-    UIImageView *bgIV = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 145)];
+    UIImageView *bgIV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 145)];
     bgIV.image = HyBundleImage(@"businessBG");
     [contentView addSubview:bgIV];
     
-    UIView *topView = [[UIView alloc]initWithFrame:CGRectMake(16, 16, [UIScreen mainScreen].bounds.size.width - 32, 480)];
+    UIView *topView = [[UIView alloc] initWithFrame:CGRectMake(16, 16, [UIScreen mainScreen].bounds.size.width - 32, 480)];
     topView.layer.cornerRadius = 8;
     topView.clipsToBounds = YES;
     topView.backgroundColor = [UIColor whiteColor];
     [contentView addSubview:topView];
     
-    UIButton *titleBtn = [[UIButton alloc]init];
+    UIButton *titleBtn = [[UIButton alloc] init];
     [titleBtn setBackgroundColor:UIColorFromRGB(0xF8FCFF)];
     [titleBtn setImage:HyBundleImage(@"scene") forState:UIControlStateNormal];
     [titleBtn setTitle:@" 洪城一卡通" forState:UIControlStateNormal];
@@ -228,30 +230,30 @@ NSString *const busTransPortCell = @"busCell";
     [titleBtn setTitleColor:UIColorFromRGB(0xFE8601) forState:UIControlStateNormal];
     [topView addSubview:titleBtn];
     
-//    UILabel *titleLabel = [[UILabel alloc]init];
+//    UILabel *titleLabel = [[UILabel alloc] init];
 //    titleLabel.textColor = UIColorFromRGB(0x333333);
 //    titleLabel.font = RFONT(15);
 //    titleLabel.text = @"洪城一卡通";
 //    [topView addSubview:titleLabel];
     
-    self.codeIV = [[UIImageView alloc]init];
+    self.codeIV = [[UIImageView alloc] init];
 //    self.codeIV.backgroundColor = [UIColor blueColor];
     self.codeIV.image = [self createQRCodeWithCodeStr:@"O862ssJuMeiUQthakzaluAQsUhl/2AS9jMs=O862ssJuMeiUQthakzaluAQsUhl/2AS9jMs=O862ssJuMeiUQthakzaluAQsUhl/2AS9jMs=O862ssJuMeiUQthakzaluAQsUhl/2AS9jMs=O862ssJuMeiUQthakzaluAQsUhl/2AS9jMs=O862ssJuMeiUQthakzaluAQsUhl/2AS9jMs=O862ssJuMeiUQthakzaluAQsUhl/2AS9jMs="];
     self.codeIV.userInteractionEnabled = YES;
     self.codeIV.alpha = 0.5;
     [topView addSubview:self.codeIV];
     
-    UIImageView *busIV = [[UIImageView alloc]init];
+    UIImageView *busIV = [[UIImageView alloc] init];
     busIV.image = HyBundleImage(@"bus");
     [self.codeIV addSubview:busIV];
     
-    self.maskView = [[UIImageView alloc]init];
+    self.maskView = [[UIImageView alloc] init];
     self.maskView.image = HyBundleImage(@"busMask");
     self.maskView.userInteractionEnabled = YES;
     self.maskView.hidden = YES;
     [topView addSubview:self.maskView];
     
-    self.balanceLabel = [[UILabel alloc]init];
+    self.balanceLabel = [[UILabel alloc] init];
     self.balanceLabel.text = @"余额不足，";
     self.balanceLabel.textColor = UIColorFromRGB(0x333333);
     self.balanceLabel.font = RFONT(14);
@@ -259,7 +261,7 @@ NSString *const busTransPortCell = @"busCell";
     self.balanceLabel.hidden = YES;
     [self.maskView addSubview:self.balanceLabel];
     
-    self.toRechargeBtn = [[UIButton alloc]init];
+    self.toRechargeBtn = [[UIButton alloc] init];
     [self.toRechargeBtn setTitle:@"请充值" forState:UIControlStateNormal];
     [self.toRechargeBtn setTitleColor:UIColorFromRGB(0x157AFF) forState:UIControlStateNormal];
     self.toRechargeBtn.titleLabel.font = RFONT(17);
@@ -267,7 +269,7 @@ NSString *const busTransPortCell = @"busCell";
     self.toRechargeBtn.hidden = YES;
     [self.maskView addSubview:self.toRechargeBtn];
     
-    self.receiveLabel = [[UILabel alloc]init];
+    self.receiveLabel = [[UILabel alloc] init];
     self.receiveLabel.text = @"请立即去";
     self.receiveLabel.textColor = UIColorFromRGB(0x333333);
     self.receiveLabel.font = RFONT(14);
@@ -275,7 +277,7 @@ NSString *const busTransPortCell = @"busCell";
     self.receiveLabel.hidden = YES;
     [self.maskView addSubview:self.receiveLabel];
     
-    self.receiveBtn = [[UIButton alloc]init];
+    self.receiveBtn = [[UIButton alloc] init];
     [self.receiveBtn setTitle:@"领卡" forState:UIControlStateNormal];
     [self.receiveBtn setTitleColor:UIColorFromRGB(0x157AFF) forState:UIControlStateNormal];
     self.receiveBtn.titleLabel.font = RFONT(17);
@@ -283,13 +285,13 @@ NSString *const busTransPortCell = @"busCell";
     [self.receiveBtn addTarget:self action:@selector(receiveClick) forControlEvents:UIControlEventTouchUpInside];
     [self.maskView addSubview:self.receiveBtn];
     
-    UILabel *tipLabel = [[UILabel alloc]init];
+    UILabel *tipLabel = [[UILabel alloc] init];
     tipLabel.text = @"该二维码来源洪城一卡通";
     tipLabel.font = RFONT(12);
     tipLabel.textColor = UIColorFromRGB(0x999999);
     [topView addSubview:tipLabel];
     
-    UIButton *refreshBtn = [[UIButton alloc]init];
+    UIButton *refreshBtn = [[UIButton alloc] init];
     [refreshBtn setImage:HyBundleImage(@"refresh") forState:UIControlStateNormal];
     [refreshBtn setTitle:@" 刷新二维码" forState:UIControlStateNormal];
     [refreshBtn setTitleColor:UIColorFromRGB(0x157AFF) forState:UIControlStateNormal];
@@ -300,11 +302,11 @@ NSString *const busTransPortCell = @"busCell";
     [refreshBtn addTarget:self action:@selector(refreshClicked) forControlEvents:UIControlEventTouchUpInside];
     [topView addSubview:refreshBtn];
     
-    UIView *lineView = [[UIView alloc]init];
+    UIView *lineView = [[UIView alloc] init];
     lineView.backgroundColor = UIColorFromRGB(0xF5F5F5);
     [topView addSubview:lineView];
     
-    UIButton *riderecordBtn = [[UIButton alloc]init];
+    UIButton *riderecordBtn = [[UIButton alloc] init];
     [riderecordBtn setImage:HyBundleImage(@"busRecord") forState:UIControlStateNormal];
     [riderecordBtn setTitle:@"乘车记录" forState:UIControlStateNormal];
     [riderecordBtn setTitleColor:UIColorFromRGB(0x333333) forState:UIControlStateNormal];
@@ -312,7 +314,7 @@ NSString *const busTransPortCell = @"busCell";
     [riderecordBtn addTarget:self action:@selector(rideRecordClicked) forControlEvents:UIControlEventTouchUpInside];
     [topView addSubview:riderecordBtn];
     
-    UIButton *rechargeBtn = [[UIButton alloc]init];
+    UIButton *rechargeBtn = [[UIButton alloc] init];
     [rechargeBtn setImage:HyBundleImage(@"myBalance") forState:UIControlStateNormal];
     [rechargeBtn setTitle:@"我的余额" forState:UIControlStateNormal];
     [rechargeBtn setTitleColor:UIColorFromRGB(0x333333) forState:UIControlStateNormal];
@@ -396,19 +398,15 @@ NSString *const busTransPortCell = @"busCell";
     }];
     
     return contentView;
-    
 }
 
 - (UIView *)footerView {
-    
-    UIView *contentView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 16)];
+    UIView *contentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 16)];
     contentView.backgroundColor = UIColorFromRGB(0xF5F5F5);
     return contentView;
-    
 }
 
 - (UIImage *)createQRCodeWithCodeStr:(NSString *)codeStr {
-    
     //1.生成coreImage框架中的滤镜来生产二维码
     CIFilter *filter=[CIFilter filterWithName:@"CIQRCodeGenerator"];
     [filter setDefaults];
@@ -447,17 +445,14 @@ NSString *const busTransPortCell = @"busCell";
     //7.5关闭图像上下文
     UIGraphicsEndImageContext();
     return finalImg;
-    
 }
 
 // 乘车记录
 - (void)rideRecordClicked {
-    
     if (self.isApply == NO) {
-        
         UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"请先领取公交卡" message:nil preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            ReceiceCardViewController *receiveVC = [[ReceiceCardViewController alloc]init];
+            ReceiceCardViewController *receiveVC = [[ReceiceCardViewController alloc] init];
             receiveVC.delegate = self;
             [self.navigationController pushViewController:receiveVC animated:YES];
         }];
@@ -465,95 +460,79 @@ NSString *const busTransPortCell = @"busCell";
         [alertVC addAction:confirmAction];
         [alertVC addAction:cancelAction];
         [self presentViewController:alertVC animated:YES completion:nil];
-        
-    }else {
-        
-        RideRecordViewController *recordVC = [[RideRecordViewController alloc]init];
+    } else {
+        RideRecordViewController *recordVC = [[RideRecordViewController alloc] init];
         [self.navigationController pushViewController:recordVC animated:YES];
-        
     }
-    
 }
 
-#pragma UITableView
+#pragma mark - UITableViewDelegate, UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    
     return 2;
-    
 }
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
     return 1;
-    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     if (indexPath.section == 0 ) {
         return 80;
     }
     return 160;
-    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-//    DigitalTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:busTransPortCell];
-//    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-//
-//    NSArray *imagesArr = @[@"homeCard",@"homeHonor"];
-//    NSArray *namesArr = @[@"个人名片",@"荣誉墙"];
-//    NSArray *subNamesArr = @[@"创建自己的电子版名片，可互相分享",@"展示用户的相关荣誉证书，用户可以自己编辑"];
-//    cell.headerIV.image = [UIImage imageNamed:imagesArr[indexPath.row]];
-//    cell.nameLabel.text = namesArr[indexPath.row];
-//    cell.subNameLabel.text = subNamesArr[indexPath.row];
     HYServiceTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:busTransPortCell];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     if (indexPath.section == 0) {
-        cell.datasArr = self.myArr;
-        cell.indexpath = indexPath;
-    }else {
+        cell.myArr = self.myArr;
+        cell.type = 1;
+    } else {
         cell.datasArr = self.datasArr;
-        cell.indexpath = indexPath;
+        cell.type = 2;
+        __weak typeof(self) weakSelf = self;
+        cell.serviceTableViewCellBlock = ^(NSInteger index) {
+            SLog(@"index:%ld", (long)index);
+            [weakSelf serviceJumpUrl:index];
+        };
     }
     
     return cell;
-    
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    
     if (section == 0 && self.stationName.length > 0) {
-        UIView *contentView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 186 + 29)];
+        UIView *contentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 186 + 29)];
         contentView.backgroundColor = UIColorFromRGB(0xF5F5F5);
         
-        UIView *busInfoView = [[UIView alloc]init];
+        UIView *busInfoView = [[UIView alloc] init];
         busInfoView.backgroundColor = [UIColor whiteColor];
         busInfoView.layer.cornerRadius = 8;
         busInfoView.clipsToBounds = YES;
         [contentView addSubview:busInfoView];
         
-        UILabel *nameLabel = [[UILabel alloc]init];
+        UILabel *nameLabel = [[UILabel alloc] init];
         nameLabel.textColor = UIColorFromRGB(0x333333);
         nameLabel.font = RFONT(15);
     //    nameLabel.text = @"高新创业大道口";
         nameLabel.text = self.stationName;
         [busInfoView addSubview:nameLabel];
         
-        UILabel *distanceLabel = [[UILabel alloc]init];
+        UILabel *distanceLabel = [[UILabel alloc] init];
         distanceLabel.textColor = UIColorFromRGB(0x999999);
         distanceLabel.font = RFONT(12);
     //    distanceLabel.text = @"90m";
         if (self.stationDistance.intValue > 0 && self.stationDistance.intValue < 1000) {
-            distanceLabel.text = [NSString stringWithFormat:@"距你%@m",self.stationDistance];
-        }else {
-            distanceLabel.text = [NSString stringWithFormat:@"距你%.fkm",self.stationDistance.intValue / 1000.0];
+            distanceLabel.text = [NSString stringWithFormat:@"距你%@m", self.stationDistance];
+        } else {
+            distanceLabel.text = [NSString stringWithFormat:@"距你%.fkm", self.stationDistance.intValue / 1000.0];
         }
     //    distanceLabel.text = [NSString stringWithFormat:@"%@",self.stationDistance];
         [busInfoView addSubview:distanceLabel];
         
-        XFLRButton *moreBusBtn = [[XFLRButton alloc]init];
+        XFLRButton *moreBusBtn = [[XFLRButton alloc] init];
         moreBusBtn.padding = 7;
         [moreBusBtn setTitle:@"更多实时公交" forState:UIControlStateNormal];
         [moreBusBtn setTitleColor:UIColorFromRGB(0x999999) forState:UIControlStateNormal];
@@ -562,7 +541,7 @@ NSString *const busTransPortCell = @"busCell";
         [moreBusBtn addTarget:self action:@selector(moreBusClicked) forControlEvents:UIControlEventTouchUpInside];
         [busInfoView addSubview:moreBusBtn];
         
-        self.busHolderIV = [[UIImageView alloc]init];
+        self.busHolderIV = [[UIImageView alloc] init];
         self.busHolderIV.image = HyBundleImage(@"busHolderIV");
         self.busHolderIV.hidden = self.busInfoArr.count > 0;
         [busInfoView addSubview:self.busHolderIV];
@@ -572,14 +551,14 @@ NSString *const busTransPortCell = @"busCell";
     //        HYBusinfoModel *infoModel = self.busInfoDic[self.allkeysArr[i]][0];
             NSArray *busArr = self.busInfoDic[self.allkeysArr[i]];
             NSDictionary *busDic = busArr[0];
-            BusRouteInfoView *infoView = [[BusRouteInfoView alloc]initWithFrame:CGRectMake(i * (width +13) + 22, 52, width, 85)];
+            BusRouteInfoView *infoView = [[BusRouteInfoView alloc] initWithFrame:CGRectMake(i * (width +13) + 22, 52, width, 85)];
             infoView.layer.cornerRadius = 4;
             infoView.clipsToBounds = YES;
             NSString *stationtime = @"";
             if ([busDic[@"arriveNowStationNeedMinute"] intValue] < 2) {
                 stationtime = @"即将到站";
             }else {
-                stationtime = [NSString stringWithFormat:@"%@分钟·%@站",busDic[@"arriveNowStationNeedMinute"],busDic[@"arriveNowStationNumber"]];
+                stationtime = [NSString stringWithFormat:@"%@分钟·%@站", busDic[@"arriveNowStationNeedMinute"], busDic[@"arriveNowStationNumber"]];
             }
             [infoView setStationNum:busDic[@"lineName"] withTerminalStation:busDic[@"terminusStation"][@"stationName"] withTime:stationtime];
             infoView.tag = 1000 + i;
@@ -587,15 +566,15 @@ NSString *const busTransPortCell = @"busCell";
             [busInfoView addSubview:infoView];
         }
         
-        UIView *titleInfoView = [[UIView alloc]init];
+        UIView *titleInfoView = [[UIView alloc] init];
         titleInfoView.backgroundColor = UIColorFromRGB(0xF5F5F5);
         [contentView addSubview:titleInfoView];
         
-        UIImageView *headerIV = [[UIImageView alloc]init];
+        UIImageView *headerIV = [[UIImageView alloc] init];
         headerIV.image = HyBundleImage(@"myService");
         [contentView addSubview:headerIV];
         
-        UILabel *titleName = [[UILabel alloc]init];
+        UILabel *titleName = [[UILabel alloc] init];
         titleName.font = RFONT(15);
         titleName.textColor = UIColorFromRGB(0x212121);
         titleName.text = @"我的";
@@ -646,19 +625,19 @@ NSString *const busTransPortCell = @"busCell";
         return contentView;
     }
     
-    UIView *contentView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 45)];
+    UIView *contentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 45)];
     contentView.backgroundColor = UIColorFromRGB(0xF5F5F5);
     
-    UIImageView *headerIV = [[UIImageView alloc]init];
+    UIImageView *headerIV = [[UIImageView alloc] init];
     [contentView addSubview:headerIV];
     
-    UILabel *nameLabel = [[UILabel alloc]init];
+    UILabel *nameLabel = [[UILabel alloc] init];
     nameLabel.font = RFONT(15);
     nameLabel.textColor = UIColorFromRGB(0x212121);
     [contentView addSubview:nameLabel];
     
-    NSArray *imagesArr = @[@"myService",@"currenService"];
-    NSArray *namesArr = @[@"我的",@"可享服务"];
+    NSArray *imagesArr = @[@"myService", @"currenService"];
+    NSArray *namesArr = @[@"我的", @"可享服务"];
     headerIV.image = HyBundleImage(imagesArr[section]);
     nameLabel.text = namesArr[section];
     
@@ -674,20 +653,83 @@ NSString *const busTransPortCell = @"busCell";
     }];
     
     return contentView;
-    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    
     if (section == 0) {
         if (self.stationName.length > 0) {
             return 186 + 45;
         }
         return 45;
     }
-    
     return 45;
+}
+
+- (void)serviceJumpUrl:(NSInteger)index {
+    if (!_isLogin) {
+        return;
+    }
+    HYHotServiceModel *model = self.datasArr[index];
+    if ([model.name isEqualToString:@"法律援助指南"]) {
+        HYLegalAidGuideViewController *legalAidVC = [[HYLegalAidGuideViewController alloc] init];
+        legalAidVC.hyTitleColor = self.hyTitleColor;
+        [self.navigationController pushViewController:legalAidVC animated:YES];
+    } else {
+        // 判断逻辑如下：先判断是否实名认证 -- 再判断是否人脸识别 -- 再判断内外链（外链直接跳转，内链区分个人和企业 -- 个人直接跳转，企业判断是否企业认证）
+        NSString *idCard = [[NSUserDefaults standardUserDefaults] valueForKey:@"HYIdCard"];
+        NSString *isEnterprise = [[NSUserDefaults standardUserDefaults] valueForKey:@"HYIsEnterprise"];
+        if (!idCard || [idCard isEqualToString:@""]) { // 需要实名认证
+            [self showAlertForReanNameAuth];
+        } else {
+            if (model.needFaceRecognition.intValue == 1) { // 跳转人脸识别
+                self.code = model.link;
+                self.jumpUrl = model.jumpUrl;
+                self.titleStr = model.name;
+                FaceTipViewController *faceTipVC = [[FaceTipViewController alloc] init];
+                faceTipVC.delegate = self;
+                [self.navigationController pushViewController:faceTipVC animated:YES];
+            } else {
+                if ([model.outLinkFlag intValue] == 1) { // 外链
+                    HYHandleAffairsWebVIewController *webVC = [[HYHandleAffairsWebVIewController alloc] init];
+                    webVC.code = model.link;
+                    webVC.titleStr = model.name;
+                    webVC.jumpUrl = model.jumpUrl;
+                    [self.navigationController pushViewController:webVC animated:YES];
+                } else if ([model.servicePersonFlag intValue] == 1 || isEnterprise) { // 内链个人  内链企业且已企业认证
+                    HYOnLineBusinessMainViewController * mainVC = [[HYOnLineBusinessMainViewController alloc] init];
+                    mainVC.serviceModel = model;
+                    mainVC.hyTitleColor = self.hyTitleColor;
+                    [self.navigationController pushViewController:mainVC animated:YES];
+                } else { // 内链
+                    // 提示企业认证
+                    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"消息提示" message:@"该事项只针对企业，请先进行企业实名认证" preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertAction *confirm = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                        
+                    }];
+                    [alert addAction:confirm];
+                    [self presentViewController:alert animated:YES completion:nil];
+                }
+            }
+        }
+    }
     
+}
+
+#pragma mark - FaceResultDelegate
+- (void)getFaceResultWithImageStr:(NSString *)imageStr deviceId:(NSString *)deviceid skey:(NSString *)skey {
+    SLog(@" skey == %@ ", skey);
+    [HttpRequest postPathZWBS:@"phone/item/event/api" params:@{@"uri": @"/apiFile/discernFace", @"app": @"ios", @"file": imageStr, @"deviceId": deviceid, @"skey": skey} resultBlock:^(id  _Nullable responseObject, NSError * _Nullable error) {
+        SLog(@" 人脸识别== %@ ", responseObject);
+        if ([responseObject[@"success"] intValue] == 1) {
+            HYHandleAffairsWebVIewController *webVC = [[HYHandleAffairsWebVIewController alloc] init];
+            webVC.code = self.code;
+            webVC.titleStr = self.titleStr;
+            webVC.jumpUrl = self.jumpUrl;
+            [self.navigationController pushViewController:webVC animated:YES];
+        } else {
+            SLog(@"%@", responseObject[@"message"]);
+        }
+    }];
 }
 
 #pragma LocationDelegate
@@ -703,11 +745,10 @@ NSString *const busTransPortCell = @"busCell";
 //    [alert addAction:cancel];
 //    [alert addAction:queren];
 //    [self.navigationController presentViewController:alert animated:YES completion:nil];
-    
 }
 
--(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
-    NSLog(@" 定位完成== %@ ",locations);
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
+    NSLog(@" 定位完成== %@ ", locations);
     [self.locationManager stopUpdatingLocation];//停止定位
     //地理反编码
     CLLocation *currentLocation = [locations lastObject];
@@ -715,13 +756,11 @@ NSString *const busTransPortCell = @"busCell";
     self.longitude = @(currentLocation.coordinate.longitude).stringValue;
     [self loadBusInfo];
 //    currentLocation.coordinate.latitude;
-    NSLog(@" 当前经纬度== %f == %f ",currentLocation.coordinate.latitude,currentLocation.coordinate.longitude);
-    
+    NSLog(@" 当前经纬度== %f == %f ", currentLocation.coordinate.latitude, currentLocation.coordinate.longitude);
 }
 
 // 刷新二维码
 - (void)refreshClicked {
-    
     [self applyQRCode];
 //    if (self.datasArr.count > 0) {
 //        if (self.currentIndex < self.qrNums) {
@@ -729,26 +768,21 @@ NSString *const busTransPortCell = @"busCell";
 //            self.currentIndex ++;
 //        }
 //    }
-    
 }
 
 // 领卡
 - (void)receiveClick {
-    
-    ReceiceCardViewController *receiveVC = [[ReceiceCardViewController alloc]init];
+    ReceiceCardViewController *receiveVC = [[ReceiceCardViewController alloc] init];
     receiveVC.delegate = self;
     [self.navigationController pushViewController:receiveVC animated:YES];
-    
 }
 
 // 充值
 - (void)rechargeClicked {
-    
     if (self.isApply == NO) {
-        
         UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"请先领取公交卡" message:nil preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            ReceiceCardViewController *receiveVC = [[ReceiceCardViewController alloc]init];
+            ReceiceCardViewController *receiveVC = [[ReceiceCardViewController alloc] init];
             receiveVC.delegate = self;
             [self.navigationController pushViewController:receiveVC animated:YES];
         }];
@@ -756,40 +790,65 @@ NSString *const busTransPortCell = @"busCell";
         [alertVC addAction:confirmAction];
         [alertVC addAction:cancelAction];
         [self presentViewController:alertVC animated:YES completion:nil];
-        
-    }else {
-        
-        RechargeViewController *rechargeVC = [[RechargeViewController alloc]init];
+    } else {
+        RechargeViewController *rechargeVC = [[RechargeViewController alloc] init];
         [self.navigationController pushViewController:rechargeVC animated:YES];
-            
     }
-    
 }
 
 - (void)busInfoClicked:(UIButton *)button {
-    
     NSInteger index = button.tag - 1000;
     NSDictionary *infoDic = self.busInfoDic[self.allkeysArr[index]][0];
 //    NSLog(@"点击公交信息==%@ == %@ ",infoDic[@"lineNo"],infoDic[@"isUpDown"]);
-    BusRouteViewController *routeVC = [[BusRouteViewController alloc]init];
+    BusRouteViewController *routeVC = [[BusRouteViewController alloc] init];
     routeVC.isUpDown = infoDic[@"isUpDown"];
     routeVC.lineNo = infoDic[@"lineNo"];
     routeVC.stationName = self.stationName?:@"";
     [self.navigationController pushViewController:routeVC animated:YES];
-    
 }
 
 // 更多实时公交
 - (void)moreBusClicked {
-    
-    RealTimeBusViewController *realtimeVC = [[RealTimeBusViewController alloc]init];
+    RealTimeBusViewController *realtimeVC = [[RealTimeBusViewController alloc] init];
     realtimeVC.keyword = self.stationName;
     [self.navigationController pushViewController:realtimeVC animated:YES];
+}
+
+- (void)showAlertForReanNameAuth {
+    HYRealNameAlertView *alertV = [[HYRealNameAlertView alloc] init];
+    __weak typeof(self) weakSelf = self;
+    alertV.alertResult = ^(NSInteger index) {
+        if (index == 2) {
+            [weakSelf jumpRealNameAuthVC];
+        }
+    };
+    [alertV showAlertView];
+}
+
+- (void)jumpRealNameAuthVC {  // 实名认证
+    
+    // 类名
+    NSString *class = [NSString stringWithFormat:@"%@", @"RealNameListVC"];
+    const char *className = [class cStringUsingEncoding:NSASCIIStringEncoding];
+
+    // 从一个字串返回一个类
+    Class newClass = objc_getClass(className);
+    if (!newClass)
+    {
+        // 创建一个类
+        Class superClass = [NSObject class];
+        newClass = objc_allocateClassPair(superClass, className, 0);
+        // 注册你创建的这个类
+        objc_registerClassPair(newClass);
+    }
+    // 创建对象
+    UIViewController *instance = [[newClass alloc] init];
+    instance.hidesBottomBarWhenPushed = true;
+    [self.navigationController pushViewController:instance animated:true];
     
 }
 
 - (UITableView *)tableView {
-    
     if (!_tableView) {
         _tableView = [[UITableView alloc] init];
         _tableView.delegate = self;
@@ -798,69 +857,49 @@ NSString *const busTransPortCell = @"busCell";
         _tableView.backgroundColor = UIColorFromRGB(0xF5F5F5);
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableView.tableHeaderView = [self headerView];
-//        _tableView.tableFooterView = [[UIView alloc] init];
         _tableView.tableFooterView = [self footerView];
         _tableView.showsVerticalScrollIndicator = NO;
     }
     return _tableView;
-    
 }
 
 - (NSMutableArray *)datasArr {
-    
     if (!_datasArr) {
         _datasArr = [NSMutableArray array];
     }
     return _datasArr;
-    
 }
 
 - (NSMutableArray *)myArr {
-    
     if (!_myArr) {
         _myArr = [NSMutableArray array];
-        HYServiceClassifyModel *cardModel = [[HYServiceClassifyModel alloc]init];
+        HYServiceClassifyModel *cardModel = [[HYServiceClassifyModel alloc] init];
         cardModel.iconUrl = @"homeCard";
         cardModel.serviceName = @"个人名片";
         cardModel.remark = @"创建电子名片";
         [_myArr addObject:cardModel];
         
-        HYServiceClassifyModel *honorModel = [[HYServiceClassifyModel alloc]init];
+        HYServiceClassifyModel *honorModel = [[HYServiceClassifyModel alloc] init];
         honorModel.iconUrl = @"homeHonor";
         honorModel.serviceName = @"荣誉墙";
         honorModel.remark = @"展示荣誉证书";
         [_myArr addObject:honorModel];
     }
     return _myArr;
-    
 }
 
 - (NSMutableArray *)busInfoArr {
-    
     if (!_busInfoArr) {
         _busInfoArr = [NSMutableArray array];
     }
     return _busInfoArr;
-    
 }
 
 - (NSMutableArray *)allkeysArr {
-    
     if (!_allkeysArr) {
         _allkeysArr = [NSMutableArray array];
     }
     return _allkeysArr;
-    
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

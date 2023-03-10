@@ -39,7 +39,7 @@ mainApi.token = @"XXXXXXXXXXXXXXXXX";
 ```
 ```
 HYHandleAffairsViewController *handleVc = [[HYHandleAffairsViewController alloc] init];
-    handleVc.hyTitleColor = UIColor.blackColor;
+handleVc.hyTitleColor = UIColor.blackColor;
 ```
 
 ## Author

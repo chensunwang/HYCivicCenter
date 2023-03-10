@@ -9,10 +9,14 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef void(^HYServiceTableViewCellBlock)(NSInteger index);
+
 @interface HYServiceTableViewCell : UITableViewCell
 
+@property (nonatomic, strong) NSArray *myArr;
 @property (nonatomic, strong) NSArray *datasArr;
-@property (nonatomic, strong) NSIndexPath *indexpath;
+@property (nonatomic, assign) NSInteger type;
+@property (nonatomic, copy) HYServiceTableViewCellBlock serviceTableViewCellBlock;
 
 @end
 
