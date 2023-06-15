@@ -1,6 +1,7 @@
 # Uncomment the next line to define a global platform for your project
 source 'https://github.com/CocoaPods/Specs.git'
 source "https://code.aliyun.com/mpaas-public/podspecs.git"
+use_modular_headers!
 use_frameworks!
 
 platform :ios, '12.0'
