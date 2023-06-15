@@ -22,7 +22,19 @@ pod 'HYCivicCenter'
 
 ## How to use HYCivicCenter
 
-1、依赖库： pod 'AntVerify'，必须添加源：source "https://code.aliyun.com/mpaas-public/podspecs.git"
+1、依赖库： 
+```
+  pod 'AFNetworking'
+  pod 'AlipaySDK-iOS'
+  pod 'AntVerify'，必须添加源：source "https://code.aliyun.com/mpaas-public/podspecs.git"
+  pod 'Masonry'
+  pod 'MJExtension'
+  pod 'MJRefresh'
+  pod 'WechatOpenSDK'
+  pod 'SDWebImage'
+  pod 'SVProgressHUD'
+  pod 'TZImagePickerController', '~> 3.8.3'
+```
 
 2、使用HYCivicCenter之前，需要本地导入百度人脸识别SDK（不包括UI部分，UI部分已在HYCivicCenter库中集成）。不导入的话，页面中涉及人脸识别的事项无法正常使用，导致人脸识别界面黑屏或者白屏。
 
