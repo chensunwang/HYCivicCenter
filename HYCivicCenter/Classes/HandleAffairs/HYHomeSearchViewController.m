@@ -15,9 +15,9 @@
 #import "HYOnLineBusinessMainViewController.h"
 #import "HYCivicCenterCommand.h"
 #import "UILabel+XFExtension.h"
-#import "UILabel+XFExtension.h"
+#import "FaceRecViewController.h"
 
-@interface HYHomeSearchViewController () <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, FaceResultDelegate>
+@interface HYHomeSearchViewController () <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, FaceResultDelegate, FaceRecResultDelegate>
 
 @property (nonatomic, strong) HYSearchView * searchView;
 @property (nonatomic, strong) UITableView *tableView;
@@ -175,17 +175,16 @@ NSString *const searchCell = @"homeSearchCell";
         [self showAlertForReanNameAuth];
     } else {
         HYGuessBusinessModel *businessModel = self.datasArr[indexPath.row];
-//        if ([businessModel.canHandle boolValue] == NO) {
-//            [SVProgressHUD showErrorWithStatus:@"该事项无法操作"];
-//            return;
-//        }
         if ([businessModel.needFaceRecognition intValue] == 1) { // 跳转人脸识别
             self.code  =businessModel.code;
             self.titleStr = businessModel.name;
             self.jumpUrl = businessModel.jumpUrl;
-            FaceTipViewController *faceTipVC = [[FaceTipViewController alloc] init];
-            faceTipVC.delegate = self;
-            [self.navigationController pushViewController:faceTipVC animated:YES];
+//            FaceTipViewController *faceTipVC = [[FaceTipViewController alloc] init];
+//            faceTipVC.delegate = self;
+//            [self.navigationController pushViewController:faceTipVC animated:YES];
+            FaceRecViewController *vc = [[FaceRecViewController alloc] init];
+            vc.delegate = self;
+            [self.navigationController pushViewController:vc animated:YES];
         } else {
             if ([businessModel.outLinkFlag intValue] == 1) { // 外链
                 HYHandleAffairsWebVIewController *webVC = [[HYHandleAffairsWebVIewController alloc] init];
@@ -261,6 +260,18 @@ NSString *const searchCell = @"homeSearchCell";
             SLog(@"%@", responseObject[@"message"]);
         }
     }];
+}
+
+#pragma mark - FaceRecResultDelegate
+
+- (void)getFaceResult:(BOOL)result {
+    if (result) {
+        HYHandleAffairsWebVIewController *webVC = [[HYHandleAffairsWebVIewController alloc] init];
+        webVC.code = self.code;
+        webVC.titleStr = self.titleStr;
+        webVC.jumpUrl = self.jumpUrl;
+        [self.navigationController pushViewController:webVC animated:YES];
+    }
 }
 
 /*

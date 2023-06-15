@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'HYCivicCenter' # 库名称
-  s.version          = '0.2.23' # 库的版本号，我们每次发新版本的时候版本号需要对应修改
+  s.version          = '0.2.24' # 库的版本号，我们每次发新版本的时候版本号需要对应修改
   s.summary          = 'HYCivicCenter.' # 库的简单描述
 
 # This description is used to generate tags and improve search results.
@@ -39,7 +39,7 @@ Pod::Spec.new do |s|
 # 下面配置依赖的资源、库、配置等
   
   # 工程依赖系统版本
-  s.ios.deployment_target = '9.0'
+  s.ios.deployment_target = '12.0'
   
   # 指定生成的库
   s.vendored_frameworks = 'SDK/HYCivicCenter.frameworks'
@@ -88,7 +88,8 @@ Pod::Spec.new do |s|
   
   # 依赖第三方开源框架(多个)
    s.dependency 'AFNetworking'
-   s.dependency 'AlipaySDK-iOS'
+   s.dependency 'AlipaySDK-iOS', '~> 15.8.11'
+   s.dependency 'AntVerify', '~> 1.0.0.230307112238'
    s.dependency 'Masonry'
    s.dependency 'MJRefresh'
    s.dependency 'MJExtension'
@@ -108,20 +109,36 @@ end
 # 3.版本号更改  s.version = '0.1.1'
 
 # 验证类库 cd 到含有HYCivicCenter.podspec 文件下
-# 4.本地校验  pod lib lint HYCivicCenter.podspec --use-libraries --allow-warnings --verbose --no-clean
+# 4.本地校验  pod lib lint HYCivicCenter.podspec --use-libraries --allow-warnings --verbose --no-clean --sources='https://code.aliyun.com/mpaas-public/podspecs.git,https://github.com/CocoaPods/Specs.git'
+## --use-libraries
+## --allow-warnings
+## --verbose
+## --no-clean
+## --sources 注意--sources后面也需要加上官方源
 
 # 5.提交代码并打对应的tag（tag和podspec文件中保持一致）
 ## 5.1  git add .
 ## 5.2  git commit -m 'change version'
 ## 5.3  git push
-## 5.4  git tag -a 0.2.23 -m 'add tag 0.2.23'
-## 5.5  git push origin 0.2.23
+## 5.4  git tag -a 0.2.24 -m 'add tag 0.2.24'
+## 5.5  git push origin 0.2.24
 
 # 6.远程校验  pod spec lint HYCivicCenter.podspec --use-libraries --allow-warnings --verbose --no-clean
 
 # 7.打包  pod package HYCivicCenter.podspec --force --exclude-deps --no-mangle --embedded
-#（打包前需要切换Xcode，开发和打包的Xcode不一样，打包完成后需要再切换回来，
-# 命令为：sudo xcode-select -s /Applications/Xcode13.4.1.app）
+## -force             强制覆盖之前已经生成过的二进制库
+## -embedded          生成静态.framework
+## –library           生成静态.a
+## –dynamic           生成动态.framework
+## –bundle-identifier 动态.framework是需要签名的，所以只有生成动态库的时候需要这个BundleId
+## –exclude-deps      不包含依赖的符号表，生成动态库的时候不能包含这个命令，动态库一定需要包含依赖的符号表
+## –configuration     表示生成的库是debug还是release，默认是release。–configuration=Debug
+## –no-mangle         表示不使用name mangling技术，pod package默认是使用这个技术的。我们能在用pod package生成二进制库的时候会看到终端有输出Mangling symbols和Building mangled framework。表示使用了这个技术。如果你的pod库没有其他依赖的话，那么不使用这个命令也不会报错。但是如果有其他依赖，不使用–no-mangle这个命令的话，那么你在工程里使用生成的二进制库的时候就会报错：Undefined symbols for architecture x86_64
+## –subspecs          如果你的pod库有subspec，那么加上这个命名表示只给某个或几个subspec生成二进制库，–subspecs=subspec1,subspec2。 生成的库的名字就是你podspec的名字，如果你想生成的库的名字跟subspec的名字一样，那么就需要修改podspec的名字。这个脚本就是批量生成subspec的二进制库，每一个subspec的库名就是podspecName+subspecName
+## –spec-sources      一些依赖的source，如果你有依赖是来自于私有库的，那就需要加上那个私有库的source，默认是cocoapods的Specs仓库。 –spec-sources=private,https://github.com/CocoaPods/Specs.git
+
+##（打包前需要切换Xcode，开发和打包的Xcode不一样，打包完成后需要再切换回来，
+## 命令为：sudo xcode-select -s /Applications/Xcode13.4.1.app）
 
 # 8.提交到cocoapods仓库  pod trunk push HYCivicCenter.podspec --use-libraries --allow-warnings
 

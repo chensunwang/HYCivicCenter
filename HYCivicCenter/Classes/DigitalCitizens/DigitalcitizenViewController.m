@@ -25,13 +25,13 @@
 #import "MetroCodeViewController.h"
 #import "BusTransportViewController.h"
 #import "FaceTipViewController.h"
+#import "FaceRecViewController.h"
 #import "HYCivicCenterCommand.h"
 #import "UIView+YXAdd.h"
 #import "UILabel+XFExtension.h"
-#import "UILabel+XFExtension.h"
 #import "WechatOpenSDK/WXApi.h"
 
-@interface DigitalcitizenViewController () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, FaceResultDelegate>
+@interface DigitalcitizenViewController () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, FaceResultDelegate, FaceRecResultDelegate>
 
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) UICollectionViewFlowLayout *flowLayout;
@@ -47,6 +47,7 @@
 NSString *const certificateHomeHeader = @"homeHeader";
 NSString *const certificateCell = @"certificateCell";
 NSString *const serviceCell = @"serviceCell";
+
 @implementation DigitalcitizenViewController
 
 - (void)viewDidLoad {
@@ -197,14 +198,13 @@ NSString *const serviceCell = @"serviceCell";
             MyCertificateMainViewController *mainVC = [[MyCertificateMainViewController alloc] init];
             [self.navigationController pushViewController:mainVC animated:YES];
         } else {
-            FaceTipViewController *faceTipVC = [[FaceTipViewController alloc] init];
-//            faceTipVC.type = 2;
-            faceTipVC.delegate = self;
-            [self.navigationController pushViewController:faceTipVC animated:YES];
+//            FaceTipViewController *faceTipVC = [[FaceTipViewController alloc] init];
+//            faceTipVC.delegate = self;
+//            [self.navigationController pushViewController:faceTipVC animated:YES];
+            FaceRecViewController *vc = [[FaceRecViewController alloc] init];
+            vc.delegate = self;
+            [self.navigationController pushViewController:vc animated:YES];
         }
-        
-//        CertificateLibraryViewController *libraryVC = [[CertificateLibraryViewController alloc] init];
-//        [self.navigationController pushViewController:libraryVC animated:YES];
         return;
     }
     if (button == self.currentBtn) return;
@@ -238,6 +238,15 @@ NSString *const serviceCell = @"serviceCell";
             [self.navigationController pushViewController:mainVC animated:YES];
         }
     }];
+}
+
+#pragma mark - FaceRecResultDelegate
+
+- (void)getFaceResult:(BOOL)result {
+    if (result) {
+        MyCertificateMainViewController *mainVC = [[MyCertificateMainViewController alloc] init];
+        [self.navigationController pushViewController:mainVC animated:YES];
+    }
 }
 
 - (void)setupButton:(UIButton *)button {

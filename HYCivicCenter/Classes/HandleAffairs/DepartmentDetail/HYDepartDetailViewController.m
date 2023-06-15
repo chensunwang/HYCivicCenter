@@ -14,7 +14,6 @@
 #import "HYDepartDetailBusinessCell.h"
 #import "HYCivicCenterCommand.h"
 #import "UILabel+XFExtension.h"
-#import "UILabel+XFExtension.h"
 
 @interface HYDepartDetailViewController ()<UITableViewDelegate, UITableViewDataSource>
 

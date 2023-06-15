@@ -22,7 +22,7 @@ pod 'HYCivicCenter'
 
 ## How to use HYCivicCenter
 
-1、使用HYCivicCenter之前，需要本地导入百度人脸识别SDK（不包括UI部分，UI部分已在库中集成）。未导入的话，页面中涉及人脸识别的事项无法正常使用，导致人脸识别界面黑屏或者白屏。
+1、使用HYCivicCenter之前，需要本地导入百度人脸识别SDK（不包括UI部分，UI部分已在HYCivicCenter库中集成）。不导入的话，页面中涉及人脸识别的事项无法正常使用，导致人脸识别界面黑屏或者白屏。
 
 2、集成HYCivicCenter之后，需要在恰当的地方（比如TabBarController或者AppDelegate）实例化Api，并且传入登录用户的token，具体代码如下：
 ```

@@ -11,14 +11,14 @@
 #import "HYGuessBusinessModel.h"
 #import "HYHotServiceModel.h"
 #import "FaceTipViewController.h"
+#import "FaceRecViewController.h"
 #import "HYHandleAffairsWebVIewController.h"
 #import "HYOnLineBusinessMainViewController.h"
 #import "HYCivicCenterCommand.h"
 #import "UILabel+XFExtension.h"
-#import "UILabel+XFExtension.h"
 #import "HYEmptyView.h"
 
-@interface HYGuessBusinessViewController () <UITableViewDelegate, UITableViewDataSource, FaceResultDelegate>
+@interface HYGuessBusinessViewController () <UITableViewDelegate, UITableViewDataSource, FaceResultDelegate, FaceRecResultDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *datasArr;
@@ -180,17 +180,16 @@ NSString *const guessBusinessCell = @"guessCell";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     HYHotServiceModel *model = self.datasArr[indexPath.row];
-//    if ([model.canHandle boolValue] == NO) {
-//        [SVProgressHUD showErrorWithStatus:@"该事项无法操作"];
-//        return;
-//    }
     if (model.needFaceRecognition.intValue == 1) { // 跳转人脸识别
         self.code = model.link;
         self.titleStr = model.name;
         self.jumpUrl = model.jumpUrl;
-        FaceTipViewController *faceTipVC = [[FaceTipViewController alloc] init];
-        faceTipVC.delegate = self;
-        [self.navigationController pushViewController:faceTipVC animated:YES];
+//        FaceTipViewController *faceTipVC = [[FaceTipViewController alloc] init];
+//        faceTipVC.delegate = self;
+//        [self.navigationController pushViewController:faceTipVC animated:YES];
+        FaceRecViewController *vc = [[FaceRecViewController alloc] init];
+        vc.delegate = self;
+        [self.navigationController pushViewController:vc animated:YES];
     } else {
         if ([model.outLinkFlag intValue] == 1) {  // 外链
             HYHandleAffairsWebVIewController *webVC = [[HYHandleAffairsWebVIewController alloc] init];
@@ -231,6 +230,18 @@ NSString *const guessBusinessCell = @"guessCell";
             SLog(@"%@", responseObject[@"message"]);
         }
     }];
+}
+
+#pragma mark - FaceRecResultDelegate
+
+- (void)getFaceResult:(BOOL)result {
+    if (result) {
+        HYHandleAffairsWebVIewController *webVC = [[HYHandleAffairsWebVIewController alloc] init];
+        webVC.code = self.code;
+        webVC.titleStr = self.titleStr;
+        webVC.jumpUrl = self.jumpUrl;
+        [self.navigationController pushViewController:webVC animated:YES];
+    }
 }
 
 - (NSMutableArray *)datasArr {

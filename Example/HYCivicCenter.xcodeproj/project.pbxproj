@@ -344,13 +344,23 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-HYCivicCenter_Example/Pods-HYCivicCenter_Example-resources.sh",
+				"${PODS_ROOT}/APBToygerFacade/APBToygerFacade.framework/APBToygerFacade.bundle",
 				"${PODS_ROOT}/AlipaySDK-iOS/AlipaySDK.bundle",
+				"${PODS_ROOT}/AlipayVerifySDK/AlipayVerifySDK.framework/AlipayVerifySDK.bundle",
+				"${PODS_ROOT}/BioAuthEngine/BioAuthEngine.framework/BioAuthEngine.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/HYCivicCenter/HYCivicCenter.bundle",
+				"${PODS_ROOT}/OCRDetectSDKForTech/OCRDetectSDKForTech.framework/OCRXMedia.bundle",
+				"${PODS_ROOT}/ToygerService/ToygerService.framework/ToygerService.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/APBToygerFacade.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AlipaySDK.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AlipayVerifySDK.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/BioAuthEngine.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/HYCivicCenter.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/OCRXMedia.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ToygerService.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -606,6 +616,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HYCivicCenter/HYCivicCenter-Prefix.pch";
 				INFOPLIST_FILE = "HYCivicCenter/HYCivicCenter-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/HYCivicCenter",
@@ -630,6 +641,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HYCivicCenter/HYCivicCenter-Prefix.pch";
 				INFOPLIST_FILE = "HYCivicCenter/HYCivicCenter-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/HYCivicCenter",

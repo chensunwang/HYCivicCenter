@@ -97,12 +97,22 @@ EOM
   esac
 }
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_resource "${PODS_ROOT}/APBToygerFacade/APBToygerFacade.framework/APBToygerFacade.bundle"
   install_resource "${PODS_ROOT}/AlipaySDK-iOS/AlipaySDK.bundle"
+  install_resource "${PODS_ROOT}/AlipayVerifySDK/AlipayVerifySDK.framework/AlipayVerifySDK.bundle"
+  install_resource "${PODS_ROOT}/BioAuthEngine/BioAuthEngine.framework/BioAuthEngine.bundle"
   install_resource "${PODS_CONFIGURATION_BUILD_DIR}/HYCivicCenter/HYCivicCenter.bundle"
+  install_resource "${PODS_ROOT}/OCRDetectSDKForTech/OCRDetectSDKForTech.framework/OCRXMedia.bundle"
+  install_resource "${PODS_ROOT}/ToygerService/ToygerService.framework/ToygerService.bundle"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_resource "${PODS_ROOT}/APBToygerFacade/APBToygerFacade.framework/APBToygerFacade.bundle"
   install_resource "${PODS_ROOT}/AlipaySDK-iOS/AlipaySDK.bundle"
+  install_resource "${PODS_ROOT}/AlipayVerifySDK/AlipayVerifySDK.framework/AlipayVerifySDK.bundle"
+  install_resource "${PODS_ROOT}/BioAuthEngine/BioAuthEngine.framework/BioAuthEngine.bundle"
   install_resource "${PODS_CONFIGURATION_BUILD_DIR}/HYCivicCenter/HYCivicCenter.bundle"
+  install_resource "${PODS_ROOT}/OCRDetectSDKForTech/OCRDetectSDKForTech.framework/OCRXMedia.bundle"
+  install_resource "${PODS_ROOT}/ToygerService/ToygerService.framework/ToygerService.bundle"
 fi
 
 mkdir -p "${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"

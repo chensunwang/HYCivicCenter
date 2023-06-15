@@ -66,7 +66,6 @@ NSString *const searchStationCell = @"searchStationCell";
             self.holderIV.hidden = YES;
             self.linesArr = [HYSearchLineModel mj_objectArrayWithKeyValuesArray: responseObject[@"data"][@"line"][@"records"]];
             self.stationsArr = [HYSearchStationModel mj_objectArrayWithKeyValuesArray: responseObject[@"data"][@"stationList"][@"records"]];
-            
             if (self.linesArr.count == 0 && self.stationsArr.count == 0) {
                 self.noResultIV.hidden = NO;
                 self.noresultLabel.hidden = NO;

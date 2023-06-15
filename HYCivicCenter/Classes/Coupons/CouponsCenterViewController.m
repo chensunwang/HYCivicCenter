@@ -78,7 +78,7 @@ NSString *const couponCell = @"couponCell";
             
         }
         
-        NSLog(@" 当前优惠券  == %@ === %@",responseObject,self.couponType);
+//        NSLog(@" 当前优惠券  == %@ === %@",responseObject,self.couponType);
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         

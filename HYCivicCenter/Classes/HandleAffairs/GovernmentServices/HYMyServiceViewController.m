@@ -14,9 +14,9 @@
 #import "HYOnLineBusinessMainViewController.h"
 #import "HYCivicCenterCommand.h"
 #import "UILabel+XFExtension.h"
-#import "UILabel+XFExtension.h"
+#import "FaceRecViewController.h"
 
-@interface HYMyServiceViewController () <UITableViewDelegate, UITableViewDataSource, FaceResultDelegate>
+@interface HYMyServiceViewController () <UITableViewDelegate, UITableViewDataSource, FaceResultDelegate, FaceRecResultDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *datasArr;
@@ -156,17 +156,16 @@ NSString *const myServiceCell = @"HYMyserviceCell";
 - (NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
     HYMyServiceModel *model = self.datasArr[indexPath.row];
     UITableViewRowAction *handleAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"办理" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
-//        if ([model.canHandle boolValue] == NO) {
-//            [SVProgressHUD showErrorWithStatus:@"该事项无法操作"];
-//            return;
-//        }
         if (model.needFaceRecognition.intValue == 1) {  // 跳转人脸识别
             self.code = model.eventCode;
             self.titleStr = model.eventName;
             self.jumpUrl = model.jumpUrl;
-            FaceTipViewController *faceTipVC = [[FaceTipViewController alloc] init];
-            faceTipVC.delegate = self;
-            [self.navigationController pushViewController:faceTipVC animated:YES];
+//            FaceTipViewController *faceTipVC = [[FaceTipViewController alloc] init];
+//            faceTipVC.delegate = self;
+//            [self.navigationController pushViewController:faceTipVC animated:YES];
+            FaceRecViewController *vc = [[FaceRecViewController alloc] init];
+            vc.delegate = self;
+            [self.navigationController pushViewController:vc animated:YES];
         } else {
             if ([model.outLinkFlag intValue] == 1) {  // 外链
                 HYHandleAffairsWebVIewController *webVC = [[HYHandleAffairsWebVIewController alloc] init];
@@ -233,6 +232,18 @@ NSString *const myServiceCell = @"HYMyserviceCell";
             SLog(@"%@", responseObject[@"message"]);
         }
     }];
+}
+
+#pragma mark - FaceRecResultDelegate
+
+- (void)getFaceResult:(BOOL)result {
+    if (result) {
+        HYHandleAffairsWebVIewController *webVC = [[HYHandleAffairsWebVIewController alloc] init];
+        webVC.code = self.code;
+        webVC.titleStr = self.titleStr;
+        webVC.jumpUrl = self.jumpUrl;
+        [self.navigationController pushViewController:webVC animated:YES];
+    }
 }
 
 /*

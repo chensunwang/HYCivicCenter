@@ -9,13 +9,13 @@
 #import "HYSearchView.h"
 #import "HYGuessBusinessTableViewCell.h"
 #import "FaceTipViewController.h"
+#import "FaceRecViewController.h"
 #import "HYHandleAffairsWebVIewController.h"
 #import "HYOnLineBusinessMainViewController.h"
 #import "HYCivicCenterCommand.h"
 #import "UILabel+XFExtension.h"
-#import "UILabel+XFExtension.h"
 
-@interface HYBusinessSearchViewController () <UITableViewDelegate, UITableViewDataSource, FaceResultDelegate, UITextFieldDelegate>
+@interface HYBusinessSearchViewController () <UITableViewDelegate, UITableViewDataSource, FaceResultDelegate, UITextFieldDelegate, FaceRecResultDelegate>
 
 @property (nonatomic, strong) HYSearchView * searchView;
 @property (nonatomic, copy) NSString * jumpUrl;  // 传给网页的url
@@ -108,17 +108,16 @@ NSString *const businessSearchCell = @"search";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     HYGuessBusinessModel *businessModel = self.datasArr[indexPath.row];
-//    if ([businessModel.canHandle boolValue] == NO) {
-//        [SVProgressHUD showErrorWithStatus:@"该事项无法操作"];
-//        return;
-//    }
     if (businessModel.needFaceRecognition.intValue == 1) { // 跳转人脸
         self.code = businessModel.link;
         self.titleStr = businessModel.name;
         self.jumpUrl = businessModel.jumpUrl;
-        FaceTipViewController *faceTipVC = [[FaceTipViewController alloc]init];
-        faceTipVC.delegate = self;
-        [self.navigationController pushViewController:faceTipVC animated:YES];
+//        FaceTipViewController *faceTipVC = [[FaceTipViewController alloc]init];
+//        faceTipVC.delegate = self;
+//        [self.navigationController pushViewController:faceTipVC animated:YES];
+        FaceRecViewController *vc = [[FaceRecViewController alloc] init];
+        vc.delegate = self;
+        [self.navigationController pushViewController:vc animated:YES];
     } else {  // 内链：跳本地在线办事页面  外链：跳网页在线办事页面
         if (businessModel.outLinkFlag.intValue == 0) {
             HYOnLineBusinessMainViewController * mainVC = [[HYOnLineBusinessMainViewController alloc] init];
@@ -209,6 +208,18 @@ NSString *const businessSearchCell = @"search";
             [self.navigationController pushViewController:webVC animated:YES];
         }
     }];
+}
+
+#pragma mark - FaceRecResultDelegate
+
+- (void)getFaceResult:(BOOL)result {
+    if (result) {
+        HYHandleAffairsWebVIewController *webVC = [[HYHandleAffairsWebVIewController alloc] init];
+        webVC.code = self.code;
+        webVC.titleStr = self.titleStr;
+        webVC.jumpUrl = self.jumpUrl;
+        [self.navigationController pushViewController:webVC animated:YES];
+    }
 }
 
 

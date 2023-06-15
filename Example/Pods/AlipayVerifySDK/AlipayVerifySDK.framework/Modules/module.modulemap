@@ -1,0 +1,6 @@
+framework module AlipayVerifySDK {
+  umbrella header "AlipayVerifySDK_Umbrella.h"
+
+  export *
+  module * { export * }
+}

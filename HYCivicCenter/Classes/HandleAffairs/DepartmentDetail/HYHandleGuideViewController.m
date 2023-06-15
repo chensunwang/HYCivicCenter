@@ -306,7 +306,7 @@ NSString *const handleGuideCell = @"guideCell";
     if ([_titleArray[indexPath.section] isEqualToString:@"流程图"]) {
         HYOutMapModel *model = _dataArray[indexPath.section][indexPath.row];
         if (![model.webUrl isEqualToString:@""]) {
-            UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:model.webUrl]]];
+            UIImage *image = [self webImageForUrlString:model.webUrl];
             CGFloat imgHeight = image.size.height * ([UIScreen mainScreen].bounds.size.width - 32) / image.size.width;  // 手动计算image高度
             SLog(@"流程图的高度:%f", imgHeight);
             imgHeight = imgHeight >= 0 ? imgHeight : 0;  // 防止计算出负数高度 导致闪退
@@ -323,6 +323,15 @@ NSString *const handleGuideCell = @"guideCell";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     return 16;
+}
+
+- (UIImage *)webImageForUrlString:(NSString *)urlString {
+    dispatch_queue_t concurrentQueue = dispatch_queue_create(0, DISPATCH_QUEUE_CONCURRENT);
+    __block UIImage *image = [[UIImage alloc] init];
+    dispatch_async(concurrentQueue, ^{
+        image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:urlString]]];
+    });
+    return image;
 }
 
 #pragma mark - sectionHeader clicked

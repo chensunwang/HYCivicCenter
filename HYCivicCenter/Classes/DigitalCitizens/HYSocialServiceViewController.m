@@ -10,7 +10,6 @@
 #import "HYCivicCenterCommand.h"
 #import "UIView+YXAdd.h"
 #import "UILabel+XFExtension.h"
-#import "UILabel+XFExtension.h"
 
 @interface HYSocialServiceViewController () <UIScrollViewDelegate>
 

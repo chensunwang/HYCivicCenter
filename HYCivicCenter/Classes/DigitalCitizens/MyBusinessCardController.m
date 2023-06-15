@@ -18,7 +18,6 @@
 #import "WXApiObject.h"
 #import "HYCivicCenterCommand.h"
 #import "UILabel+XFExtension.h"
-#import "UILabel+XFExtension.h"
 
 @interface MyBusinessCardController() <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, EditDelegate>
 
@@ -48,7 +47,6 @@ NSString *const mycardCell = @"mycardCell";
     // Do any additional setup after loading the view.
     
     self.navigationItem.titleView = [UILabel xf_labelWithText:@"我的名片"];
-    
     self.view.backgroundColor = UIColorFromRGB(0xF5F5F5);
     
     [self configNavi];
@@ -334,7 +332,6 @@ NSString *const mycardCell = @"mycardCell";
         [HttpRequest postPathPointParams:@{@"buriedPointType": @"moduleVisit",@"eventId": @"E0061",@"applicationId":@"H020"} resuleBlock:^(id  _Nullable responseObject, NSError * _Nullable error) {
             NSLog(@" 埋点 == %@ ",responseObject);
         }];
-        
         if (self.uuid.length == 0) {
             return;
         }

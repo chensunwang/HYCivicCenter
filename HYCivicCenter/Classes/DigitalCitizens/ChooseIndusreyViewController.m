@@ -152,7 +152,6 @@ NSString *const rightCell = @"rightCell";
     }
     [self.navigationController popViewControllerAnimated:YES];
     
-    
 }
 
 - (UITableView *)leftTableView {

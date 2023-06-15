@@ -271,7 +271,6 @@ NSString *const honorPhotoCell = @"honorCell";
         return 3;
     }
 //    return MAX(1, self.photosArr.count);
-    
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {

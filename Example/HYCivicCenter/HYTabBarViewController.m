@@ -51,7 +51,7 @@
     // Do any additional setup after loading the view.
     
     MainApi *mainApi = [MainApi sharedInstance];
-    mainApi.token = @"x1JGODx_7tAmUyXbWRmW4XmgF30";
+    mainApi.token = @"U_0Rt1hwUlGwCBa8ZPnXjoDR7dU";
     
     self.view.backgroundColor = UIColor.whiteColor;
     self.delegate = self;

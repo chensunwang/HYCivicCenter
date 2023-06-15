@@ -11,7 +11,6 @@
 #import <objc/runtime.h>
 #import "HYCivicCenterCommand.h"
 #import "UILabel+XFExtension.h"
-#import "UILabel+XFExtension.h"
 
 char * const buttonKey = "buttonKey";
 

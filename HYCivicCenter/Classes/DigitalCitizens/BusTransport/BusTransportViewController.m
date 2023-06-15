@@ -31,8 +31,9 @@
 #import "HYOnLineBusinessMainViewController.h"
 #import "HYRealNameAlertView.h"
 #import "FaceTipViewController.h"
+#import "FaceRecViewController.h"
 
-@interface BusTransportViewController () <UITableViewDelegate, UITableViewDataSource, GetQRCodeDelegate, CLLocationManagerDelegate, FaceResultDelegate>
+@interface BusTransportViewController () <UITableViewDelegate, UITableViewDataSource, GetQRCodeDelegate, CLLocationManagerDelegate, FaceResultDelegate, FaceRecResultDelegate>
 
 @property (nonatomic, strong) UIImageView *codeIV;
 @property (nonatomic, strong) UITableView *tableView;
@@ -685,9 +686,12 @@ NSString *const busTransPortCell = @"busCell";
                 self.code = model.link;
                 self.jumpUrl = model.jumpUrl;
                 self.titleStr = model.name;
-                FaceTipViewController *faceTipVC = [[FaceTipViewController alloc] init];
-                faceTipVC.delegate = self;
-                [self.navigationController pushViewController:faceTipVC animated:YES];
+//                FaceTipViewController *faceTipVC = [[FaceTipViewController alloc] init];
+//                faceTipVC.delegate = self;
+//                [self.navigationController pushViewController:faceTipVC animated:YES];
+                FaceRecViewController *vc = [[FaceRecViewController alloc] init];
+                vc.delegate = self;
+                [self.navigationController pushViewController:vc animated:YES];
             } else {
                 if ([model.outLinkFlag intValue] == 1) { // 外链
                     HYHandleAffairsWebVIewController *webVC = [[HYHandleAffairsWebVIewController alloc] init];
@@ -730,6 +734,18 @@ NSString *const busTransPortCell = @"busCell";
             SLog(@"%@", responseObject[@"message"]);
         }
     }];
+}
+
+#pragma mark - FaceRecResultDelegate
+
+- (void)getFaceResult:(BOOL)result {
+    if (result) {
+        HYHandleAffairsWebVIewController *webVC = [[HYHandleAffairsWebVIewController alloc] init];
+        webVC.code = self.code;
+        webVC.titleStr = self.titleStr;
+        webVC.jumpUrl = self.jumpUrl;
+        [self.navigationController pushViewController:webVC animated:YES];
+    }
 }
 
 #pragma LocationDelegate

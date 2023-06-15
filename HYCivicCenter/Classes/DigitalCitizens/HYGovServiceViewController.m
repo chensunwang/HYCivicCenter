@@ -11,7 +11,6 @@
 #import "HYServiceWebViewController.h"
 #import "HYCivicCenterCommand.h"
 #import "UILabel+XFExtension.h"
-#import "UILabel+XFExtension.h"
 
 @interface HYGovServiceViewController ()<UITableViewDelegate,UITableViewDataSource>
 

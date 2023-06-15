@@ -16,7 +16,6 @@
 #import "HYObtainCertiViewController.h"
 #import "HYCivicCenterCommand.h"
 #import "UILabel+XFExtension.h"
-#import "UILabel+XFExtension.h"
 
 @interface HYSearchServiceViewController () <UITableViewDelegate, UITableViewDataSource, HYDatePickerDelegate, HYSelectServiceDelegate, HYSelectIndustryDelegate>
 

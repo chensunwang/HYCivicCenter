@@ -22,12 +22,12 @@
 #import "HYHotServiceViewController.h"
 #import "HYLegalAidGuideViewController.h"
 #import "FaceTipViewController.h"
+#import "FaceRecViewController.h"
 #import "HYRealNameAlertView.h"
 #import "HYCivicCenterCommand.h"
 #import "UILabel+XFExtension.h"
-#import "UILabel+XFExtension.h"
 
-@interface HYHandleAffairsViewController ()<UITableViewDelegate, UITableViewDataSource, FaceResultDelegate, UITextFieldDelegate>
+@interface HYHandleAffairsViewController ()<UITableViewDelegate, UITableViewDataSource, FaceResultDelegate, UITextFieldDelegate, FaceRecResultDelegate>
 
 @property (nonatomic, strong) HYSearchView * searchView;
 @property (nonatomic, strong) UITableView * tableView;
@@ -416,10 +416,6 @@
             [self.navigationController pushViewController:hotServiceVC animated:YES];
         }
     } else {
-//        if ([model.canHandle boolValue] == NO) {
-//            [SVProgressHUD showErrorWithStatus:@"该事项无法操作"];
-//            return;
-//        }
         // 判断逻辑如下：先判断是否实名认证 -- 再判断是否人脸识别 -- 再判断内外链（外链直接跳转，内链区分个人和企业 -- 个人直接跳转，企业判断是否企业认证）
         if (!_idCard || [_idCard isEqualToString:@""]) { // 需要实名认证
             [self showAlertForReanNameAuth];
@@ -428,9 +424,12 @@
                 self.code = model.link;
                 self.jumpUrl = model.jumpUrl;
                 self.titleStr = model.name;
-                FaceTipViewController *faceTipVC = [[FaceTipViewController alloc] init];
-                faceTipVC.delegate = self;
-                [self.navigationController pushViewController:faceTipVC animated:YES];
+//                FaceTipViewController *faceTipVC = [[FaceTipViewController alloc] init];
+//                faceTipVC.delegate = self;
+//                [self.navigationController pushViewController:faceTipVC animated:YES];
+                FaceRecViewController *vc = [[FaceRecViewController alloc] init];
+                vc.delegate = self;
+                [self.navigationController pushViewController:vc animated:YES];
             } else {
                 if ([model.outLinkFlag intValue] == 1) { // 外链
                     HYHandleAffairsWebVIewController *webVC = [[HYHandleAffairsWebVIewController alloc] init];
@@ -475,6 +474,17 @@
     }];
 }
 
+#pragma mark - FaceRecResultDelegate
+
+- (void)getFaceResult:(BOOL)result {
+    if (result) {
+        HYHandleAffairsWebVIewController *webVC = [[HYHandleAffairsWebVIewController alloc] init];
+        webVC.code = self.code;
+        webVC.titleStr = self.titleStr;
+        webVC.jumpUrl = self.jumpUrl;
+        [self.navigationController pushViewController:webVC animated:YES];
+    }
+}
 
 - (void)showAlertForReanNameAuth {
     HYRealNameAlertView *alertV = [[HYRealNameAlertView alloc] init];

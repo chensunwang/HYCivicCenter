@@ -10,6 +10,7 @@
 #import "SDWebImageCompat.h"
 #import "SDImageFrame.h"
 
+/// The options controls how we force pre-draw the image (to avoid lazy-decoding). Which need OS's framework compatibility
 typedef NS_ENUM(NSUInteger, SDImageCoderDecodeSolution) {
     /// automatically choose the solution based on image format, hardware, OS version. This keep balance for compatibility and performance. Default after SDWebImage 5.13.0
     SDImageCoderDecodeSolutionAutomatic,
@@ -104,7 +105,7 @@ typedef NS_ENUM(NSUInteger, SDImageCoderDecodeSolution) {
 + (CGSize)scaledSizeWithImageSize:(CGSize)imageSize scaleSize:(CGSize)scaleSize preserveAspectRatio:(BOOL)preserveAspectRatio shouldScaleUp:(BOOL)shouldScaleUp;
 
 /**
- Return the decoded image by the provided image. This one unlike `CGImageCreateDecoded:`, will not decode the image which contains alpha channel or animated image
+ Return the decoded image by the provided image. This one unlike `CGImageCreateDecoded:`, will not decode the image which contains alpha channel or animated image. On iOS 15+, this may use `UIImage.preparingForDisplay()` to use CMPhoto for better performance than the old solution.
  @param image The image to be decoded
  @return The decoded image
  */

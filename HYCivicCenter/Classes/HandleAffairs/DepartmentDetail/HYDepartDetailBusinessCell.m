@@ -11,11 +11,12 @@
 #import "HYBusinessInfoModel.h"
 #import "HYHandleAffairsWebVIewController.h"
 #import "FaceTipViewController.h"
+#import "FaceRecViewController.h"
 #import "HYEmptyView.h"
 #import "HYOnLineBusinessMainViewController.h"
 #import "HYCivicCenterCommand.h"
 
-@interface HYDepartDetailBusinessCell ()<UITableViewDelegate, UITableViewDataSource, FaceResultDelegate>
+@interface HYDepartDetailBusinessCell ()<UITableViewDelegate, UITableViewDataSource, FaceResultDelegate, FaceRecResultDelegate>
 
 @property (nonatomic, strong) UIView * bgView;
 @property (nonatomic, strong) UIView * headerView;
@@ -296,17 +297,16 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     HYBusinessInfoModel * infoModel = _dataArray[indexPath.section];
     HYBusinessInfoModel * model = infoModel.agentTitleList[indexPath.row];
-//    if ([infoModel.canHandle boolValue] == NO) {
-//        [SVProgressHUD showErrorWithStatus:@"该事项无法操作"];
-//        return;
-//    }
     if (infoModel.needFaceRecognition.intValue == 1) { // 跳转人脸
         self.code = infoModel.link;
         self.titleStr = infoModel.name;
         self.jumpUrl = infoModel.jumpUrl;
-        FaceTipViewController *faceTipVC = [[FaceTipViewController alloc]init];
-        faceTipVC.delegate = self;
-        [self.viewController.navigationController pushViewController:faceTipVC animated:YES];
+//        FaceTipViewController *faceTipVC = [[FaceTipViewController alloc]init];
+//        faceTipVC.delegate = self;
+//        [self.viewController.navigationController pushViewController:faceTipVC animated:YES];
+        FaceRecViewController *vc = [[FaceRecViewController alloc] init];
+        vc.delegate = self;
+        [self.viewController.navigationController pushViewController:vc animated:YES];
     } else {  // 内链：跳本地在线办事页面  外链：跳网页在线办事页面
         if (infoModel.outLinkFlag.intValue == 0) {
             HYOnLineBusinessMainViewController * mainVC = [[HYOnLineBusinessMainViewController alloc] init];
@@ -336,6 +336,18 @@
             [self.viewController.navigationController pushViewController:webVC animated:YES];
         }
     }];
+}
+
+#pragma mark - FaceRecResultDelegate
+
+- (void)getFaceResult:(BOOL)result {
+    if (result) {
+        HYHandleAffairsWebVIewController *webVC = [[HYHandleAffairsWebVIewController alloc] init];
+        webVC.code = self.code;
+        webVC.titleStr = self.titleStr;
+        webVC.jumpUrl = self.jumpUrl;
+        [self.viewController.navigationController pushViewController:webVC animated:YES];
+    }
 }
 
 @end

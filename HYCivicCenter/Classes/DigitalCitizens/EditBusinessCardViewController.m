@@ -111,32 +111,21 @@
 
 #pragma tableview
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    
     return 3;
-    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
     if (section == 0) {
-        
         return 2;
-        
-    }else if (section == 1) {
-        
+    } else if (section == 1) {
         return 5;
-        
-    }else {
-        
+    } else {
         return 3;
-        
     }
-    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    NSString *IdStr = [NSString stringWithFormat:@"%ld%ld", (long)indexPath.section,(long)indexPath.row];
+    NSString *IdStr = [NSString stringWithFormat:@"%ld%ld", (long)indexPath.section, (long)indexPath.row];
     EditBusinessCardTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:IdStr];
     NSDictionary *attrs = @{NSForegroundColorAttributeName:UIColorFromRGB(0xCCCCCC),NSFontAttributeName:RFONT(15)};
     if (!cell) {
@@ -145,10 +134,8 @@
     }
     
     if (indexPath.section == 0) {
-        
-        NSArray *titlesArr = @[@"头像：",@"姓名："];
+        NSArray *titlesArr = @[@"头像：", @"姓名："];
         cell.nameLabel.text = titlesArr[indexPath.row];
-        
         if (indexPath.row == 0) {
             cell.headerIV.hidden = NO;
             cell.holderIV.hidden = NO;
@@ -158,69 +145,57 @@
                 cell.holderIV.hidden = YES;
                 [cell.headerIV sd_setImageWithURL:[NSURL URLWithString:self.cardModel.headPhoto]];
             }
-        }else {
+        } else {
             cell.rightLabel.hidden = NO;
             cell.rightLabel.text = self.cardModel.name;
         }
-        
-    }else if (indexPath.section == 1) {
-        
-        NSArray *titlsArr = @[@"手机",@"微信",@"邮箱",@"所在区域",@"地址"];
+    } else if (indexPath.section == 1) {
+        NSArray *titlsArr = @[@"手机", @"微信", @"邮箱", @"所在区域", @"地址"];
         cell.nameLabel.text = titlsArr[indexPath.row];
         
         if (indexPath.row == 0) {
             cell.rightLabel.hidden = NO;
             cell.rightLabel.text = self.cardModel.phone;
-        }else if (indexPath.row == 1) {
+        } else if (indexPath.row == 1) {
             cell.rightTF.hidden = NO;
-//            cell.rightTF.placeholder = @"请填写微信号";
             cell.rightTF.attributedPlaceholder = [[NSAttributedString alloc]initWithString:@"请填写微信号" attributes:attrs];
             cell.rightTF.text = self.cardModel.weChat;
             self.wechatTF = cell.rightTF;
-        }else if (indexPath.row == 2) {
+        } else if (indexPath.row == 2) {
             cell.rightTF.hidden = NO;
-//            cell.rightTF.placeholder = @"请填写邮箱地址";
             cell.rightTF.text = [HYAesUtil aesDecrypt:self.cardModel.emailEncrypt];
             cell.rightTF.attributedPlaceholder = [[NSAttributedString alloc]initWithString:@"请填写邮箱地址" attributes:attrs];
             self.emailTF = cell.rightTF;
-        }else if (indexPath.row == 3) {
+        } else if (indexPath.row == 3) {
             cell.rightTF.hidden = NO;
-//            cell.rightTF.placeholder = @"请选择所在省份城市 >";
             cell.rightTF.attributedPlaceholder = [[NSAttributedString alloc]initWithString:@"请选择所在省份城市 >" attributes:attrs];
             cell.rightTF.userInteractionEnabled = NO;
             cell.rightTF.text = self.cardModel.areaName;
-        }else if (indexPath.row == 4) {
+        } else if (indexPath.row == 4) {
             cell.rightTF.hidden = NO;
-//            cell.rightTF.placeholder = @"请填写街道地址";
             cell.rightTF.attributedPlaceholder = [[NSAttributedString alloc]initWithString:@"请填写街道地址" attributes:attrs];
             cell.rightTF.text = self.cardModel.address;
             self.addressTF = cell.rightTF;
         }
-        
-    }else {
-        
-        NSArray *titlesArr = @[@"公司",@"职位",@"行业"];
-        NSArray *holderArr = @[@"请填写公司名称",@"请填写您的职位",@""];
+    } else {
+        NSArray *titlesArr = @[@"公司", @"职位", @"行业"];
+        NSArray *holderArr = @[@"请填写公司名称", @"请填写您的职位", @""];
         cell.nameLabel.text = titlesArr[indexPath.row];
         cell.rightTF.hidden = NO;
         cell.rightTF.placeholder = holderArr[indexPath.row];
         if (indexPath.row == 0) {
-//            cell.rightTF.placeholder = @"请填写公司名称";
             cell.rightTF.attributedPlaceholder = [[NSAttributedString alloc]initWithString:@"请填写公司名称" attributes:attrs];
             cell.rightTF.text = self.cardModel.companyName;
             self.companyTF = cell.rightTF;
-        }else if (indexPath.row == 1) {
-//            cell.rightTF.placeholder = @"请填写您的职位";
+        } else if (indexPath.row == 1) {
             cell.rightTF.attributedPlaceholder = [[NSAttributedString alloc]initWithString:@"请填写您的职位" attributes:attrs];
             cell.rightTF.text = self.cardModel.duty;
             self.jobTF = cell.rightTF;
-        }else if (indexPath.row == 2) {
+        } else if (indexPath.row == 2) {
             cell.rightTF.placeholder = @"请选择所在的行业 >";
             cell.rightTF.userInteractionEnabled = NO;
             cell.rightTF.text = self.cardModel.industryName;
         }
-        
-        
     }
     
     return cell;
