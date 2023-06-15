@@ -57,10 +57,10 @@ PODS:
     - BioAuthAPI
     - ZolozSensorServices
     - ZolozUtility
-  - HYCivicCenter (0.2.24):
+  - HYCivicCenter (0.2.25):
     - AFNetworking
-    - AlipaySDK-iOS (~> 15.8.11)
-    - AntVerify (~> 1.0.0.230307112238)
+    - AlipaySDK-iOS
+    - AntVerify
     - Masonry
     - MJExtension
     - MJRefresh
@@ -111,8 +111,8 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
-  - AlipaySDK-iOS (~> 15.8.11)
-  - AntVerify (~> 1.0.0.230307112238)
+  - AlipaySDK-iOS
+  - AntVerify
   - HYCivicCenter (from `../`)
   - Masonry
   - MJExtension
@@ -164,7 +164,7 @@ SPEC CHECKSUMS:
   APPSecuritySDK: 65608e8aef50b9424de2c5f55bcaf312852f0567
   BioAuthAPI: aa311096f8ba9097a6fa257494421aecd950c62c
   BioAuthEngine: 06de03b730e67821c231dbeebe58c1564d4ef19e
-  HYCivicCenter: 2c911f9d04a18e6a8be7c01cbc65bed8d80a1a75
+  HYCivicCenter: 96b6252ee9fdd2980261ef6a7200c14f07e2aed5
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJExtension: 21c5f6f8c4d5d8844b7ae8fbae08fed0b501f961
   MJRefresh: fdf5e979eb406a0341468932d1dfc8b7f9fce961
@@ -181,6 +181,6 @@ SPEC CHECKSUMS:
   ZolozSensorServices: 700b44301c1cb8a7172cdd9587580031efb9dc0e
   ZolozUtility: 88c30984b250dcb5557745fb86313b793f9b5d85
 
-PODFILE CHECKSUM: d7862e9571e8c56f50863c92fea84d1743e240fe
+PODFILE CHECKSUM: cc0b172b22ae006278cf041edd039bf6630d2916
 
 COCOAPODS: 1.12.1

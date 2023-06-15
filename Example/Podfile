@@ -10,8 +10,8 @@ target 'HYCivicCenter_Example' do
   pod 'HYCivicCenter', :path => '../'
   
   pod 'AFNetworking'
-  pod 'AlipaySDK-iOS', '~> 15.8.11'
-  pod 'AntVerify', '~> 1.0.0.230307112238'
+  pod 'AlipaySDK-iOS'
+  pod 'AntVerify'
   pod 'Masonry'
   pod 'MJExtension'
   pod 'MJRefresh'
