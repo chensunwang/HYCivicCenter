@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'HYCivicCenter' # 库名称
-  s.version          = '0.2.30' # 库的版本号，我们每次发新版本的时候版本号需要对应修改
+  s.version          = '0.2.31' # 库的版本号，我们每次发新版本的时候版本号需要对应修改
   s.summary          = 'HYCivicCenter.' # 库的简单描述
 
 # This description is used to generate tags and improve search results.
@@ -39,7 +39,7 @@ Pod::Spec.new do |s|
 # 下面配置依赖的资源、库、配置等
   
   # 工程依赖系统版本
-  s.ios.deployment_target = '12.0'
+  s.ios.deployment_target = '11.0'
   
   # 指定生成的库
   s.vendored_frameworks = 'SDK/HYCivicCenter.frameworks'
@@ -115,14 +115,15 @@ end
 ## --use-modular-headers  Lint在安装过程中使用模块化headers
 ## --verbose              显示更多调试信息
 ## --no-clean
-## --sources              私有库，注意--sources后面也需要加上官方源: --sources='https://code.aliyun.com/mpaas-public/podspecs.git,https://github.com/CocoaPods/Specs.git'
+## --sources              私有库，注意--sources后面也需要加上官方源: --sources='https://code.aliyun.com/mpaas-public/podspecs.git,https://cdn.cocoapods.org/'
 
 # 5.提交代码并打对应的tag（tag和podspec文件中保持一致）
-## 5.1  git add .
-## 5.2  git commit -m 'change version'
-## 5.3  git push
-## 5.4  git tag -a 0.2.30 -m 'add tag 0.2.30'
-## 5.5  git push origin 0.2.30
+## 5.1  git remote add origin https://github.com/chensunwang/HYCivicCenter.git  第一次才需要
+## 5.2  git add .
+## 5.3  git commit -m 'change version'        提交变动记录
+## 5.4  git push origin master                推送代码到远端仓库
+## 5.5  git tag -a 0.2.31 -m 'add tag 0.2.31'
+## 5.6  git push origin 0.2.31
 
 # 6.远程校验  pod spec lint HYCivicCenter.podspec --use-libraries --allow-warnings --verbose --no-clean
 
@@ -142,6 +143,7 @@ end
 ## 命令为：sudo xcode-select -s /Applications/Xcode13.4.1.app）
 
 # 8.提交到cocoapods仓库  pod trunk push HYCivicCenter.podspec --use-libraries --allow-warnings
+# pod repo push
 
 
 # 搜索不到上传的库：

@@ -25,6 +25,7 @@
 				0FB07FDD36838B779CD8C22D9BD49A6D /* PBXTargetDependency */,
 			);
 			name = ZolozOpenPlatformBuild;
+			productName = ZolozOpenPlatformBuild;
 		};
 		05B77124956830D55E70AD231B37A5AC /* ZolozMobileRPC */ = {
 			isa = PBXAggregateTarget;
@@ -34,6 +35,7 @@
 			dependencies = (
 			);
 			name = ZolozMobileRPC;
+			productName = ZolozMobileRPC;
 		};
 		08578F12320A56A7DBD47EEC2612A887 /* ZolozIdentityManager */ = {
 			isa = PBXAggregateTarget;
@@ -46,6 +48,7 @@
 				50FCA9C70D15A65A2850AEF9DF72CBC1 /* PBXTargetDependency */,
 			);
 			name = ZolozIdentityManager;
+			productName = ZolozIdentityManager;
 		};
 		0FF22C9B053BD2467A73ABCBDB62DD2E /* AntVerify */ = {
 			isa = PBXAggregateTarget;
@@ -69,6 +72,7 @@
 				1AD639AC08369CDF43E3EEF12F0B5874 /* PBXTargetDependency */,
 			);
 			name = AntVerify;
+			productName = AntVerify;
 		};
 		38DF7213013CE949C186ACF206DF7AD3 /* ZolozUtility */ = {
 			isa = PBXAggregateTarget;
@@ -78,6 +82,7 @@
 			dependencies = (
 			);
 			name = ZolozUtility;
+			productName = ZolozUtility;
 		};
 		3B3FF4D8B2B41F944CE04EB3C8014F59 /* AliyunIdentityManager */ = {
 			isa = PBXAggregateTarget;
@@ -89,6 +94,7 @@
 				9B8046CF73C0B72CCD944E2DF422FCFF /* PBXTargetDependency */,
 			);
 			name = AliyunIdentityManager;
+			productName = AliyunIdentityManager;
 		};
 		434A5D3EFA3E00A8C91C791A1E31DFA3 /* BioAuthEngine */ = {
 			isa = PBXAggregateTarget;
@@ -101,6 +107,7 @@
 				A2197B1A99FD057BB22D58ECF0AD0C06 /* PBXTargetDependency */,
 			);
 			name = BioAuthEngine;
+			productName = BioAuthEngine;
 		};
 		4847ACB1E2799345AA74D9E317048D58 /* AlipaySDK-iOS */ = {
 			isa = PBXAggregateTarget;
@@ -110,6 +117,7 @@
 			dependencies = (
 			);
 			name = "AlipaySDK-iOS";
+			productName = "AlipaySDK-iOS";
 		};
 		5061DDA811805E406124F9EF8A30A0BA /* ToygerService */ = {
 			isa = PBXAggregateTarget;
@@ -122,6 +130,7 @@
 				05FA27D1D993BB7DE3F97B49D6578394 /* PBXTargetDependency */,
 			);
 			name = ToygerService;
+			productName = ToygerService;
 		};
 		58ECDE45CA8C4E97FA6A8DEF3ADF5633 /* BioAuthAPI */ = {
 			isa = PBXAggregateTarget;
@@ -131,6 +140,7 @@
 			dependencies = (
 			);
 			name = BioAuthAPI;
+			productName = BioAuthAPI;
 		};
 		6AB87A3F57DD4A21EE21252C2B99418C /* ZolozSensorServices */ = {
 			isa = PBXAggregateTarget;
@@ -140,6 +150,7 @@
 			dependencies = (
 			);
 			name = ZolozSensorServices;
+			productName = ZolozSensorServices;
 		};
 		6B48EBB30A463E0EC05769FFA46FC939 /* OCRDetectSDKForTech */ = {
 			isa = PBXAggregateTarget;
@@ -152,6 +163,7 @@
 				FD7243207442AF8FA472C346A0CBDFC4 /* PBXTargetDependency */,
 			);
 			name = OCRDetectSDKForTech;
+			productName = OCRDetectSDKForTech;
 		};
 		8554F6236D2AA202CF58503D2DF29730 /* WechatOpenSDK */ = {
 			isa = PBXAggregateTarget;
@@ -161,6 +173,7 @@
 			dependencies = (
 			);
 			name = WechatOpenSDK;
+			productName = WechatOpenSDK;
 		};
 		8FCB6AB8BA54586A6810A8B628CAFDA0 /* AlipayVerifySDK */ = {
 			isa = PBXAggregateTarget;
@@ -183,6 +196,7 @@
 				BDCCB2309D1A454F9FDA6645487DA16F /* PBXTargetDependency */,
 			);
 			name = AlipayVerifySDK;
+			productName = AlipayVerifySDK;
 		};
 		DD32B9216FAA842D0CDADCF654DAAD41 /* APPSecuritySDK */ = {
 			isa = PBXAggregateTarget;
@@ -192,6 +206,7 @@
 			dependencies = (
 			);
 			name = APPSecuritySDK;
+			productName = APPSecuritySDK;
 		};
 		E97FB44DFFF423B7FA9B95C95366CA44 /* MPRemoteLogging */ = {
 			isa = PBXAggregateTarget;
@@ -201,6 +216,7 @@
 			dependencies = (
 			);
 			name = MPRemoteLogging;
+			productName = MPRemoteLogging;
 		};
 		F4231A651743A9B63DDD86BA0D7EF9EF /* APBToygerFacade */ = {
 			isa = PBXAggregateTarget;
@@ -213,6 +229,7 @@
 				79AD6652F6773373F2EFA0BDB33A8E96 /* PBXTargetDependency */,
 			);
 			name = APBToygerFacade;
+			productName = APBToygerFacade;
 		};
 /* End PBXAggregateTarget section */
 
@@ -1743,7 +1760,7 @@
 		1075548273EE3CD2AECF7F78996215D6 /* HYCommonProblemViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HYCommonProblemViewController.h; sourceTree = "<group>"; };
 		114CA484D9B955395A38EACE8BA193E9 /* TZLocationManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TZLocationManager.h; path = TZImagePickerController/Location/TZLocationManager.h; sourceTree = "<group>"; };
 		1159C5E572A59440B26A3257B8BA82DF /* AlipayVerifySDK.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = AlipayVerifySDK.bundle; path = AlipayVerifySDK.framework/AlipayVerifySDK.bundle; sourceTree = "<group>"; };
-		1183ABFC6426B81735FCC7F1F03124D9 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		1183ABFC6426B81735FCC7F1F03124D9 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		1184D955058631EE8FA08E030E7B1CC8 /* UIButton+Gradient.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Gradient.m"; sourceTree = "<group>"; };
 		11F06E94A67E51337616D294D316BD99 /* MJRefresh.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = MJRefresh.modulemap; sourceTree = "<group>"; };
 		12A9A33C1E547261E5E69FD8EB05FE90 /* ZolozUtility.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ZolozUtility.release.xcconfig; sourceTree = "<group>"; };
@@ -1856,7 +1873,7 @@
 		2FA467F014D7120202C94C4495C83F01 /* UIImageView+HighlightedWebCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+HighlightedWebCache.m"; path = "SDWebImage/Core/UIImageView+HighlightedWebCache.m"; sourceTree = "<group>"; };
 		3074F223FFD6F4B98DB6BD7532BF105D /* select@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "select@2x.png"; sourceTree = "<group>"; };
 		3080515829F3C27044D2ED7729B59F8C /* NSArray+MASAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSArray+MASAdditions.h"; path = "Masonry/NSArray+MASAdditions.h"; sourceTree = "<group>"; };
-		3107D7D0EAB157BE0EC1CBA083BC3E6D /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		3107D7D0EAB157BE0EC1CBA083BC3E6D /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		315D61453CFFCBD188E8B40205916FD3 /* SDAsyncBlockOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDAsyncBlockOperation.h; path = SDWebImage/Private/SDAsyncBlockOperation.h; sourceTree = "<group>"; };
 		3182100CCC22325F9EDECB6F9A0B982A /* ToygerService.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ToygerService.framework; sourceTree = "<group>"; };
 		31C19E62282F8FF878734772DDC5F2DC /* XFSpecialButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = XFSpecialButton.h; sourceTree = "<group>"; };
@@ -1900,7 +1917,7 @@
 		3DF2F955E7EA2EFFCEF982173FC9C278 /* SDImageTransformer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDImageTransformer.m; path = SDWebImage/Core/SDImageTransformer.m; sourceTree = "<group>"; };
 		3EC94E4D74DBA1AF1E9AD1FCF562C9E6 /* HYPopularQueriesCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HYPopularQueriesCell.h; sourceTree = "<group>"; };
 		3F22B10EBF6538C4C205B63D1CAC9863 /* SDWebImageCacheKeyFilter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageCacheKeyFilter.h; path = SDWebImage/Core/SDWebImageCacheKeyFilter.h; sourceTree = "<group>"; };
-		3F771073B2A815328C02DDF4F4AE2ED6 /* CodeRequirements-1 */ = {isa = PBXFileReference; includeInIndex = 1; path = "CodeRequirements-1"; sourceTree = "<group>"; };
+		3F771073B2A815328C02DDF4F4AE2ED6 /* CodeRequirements-1 */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; path = "CodeRequirements-1"; sourceTree = "<group>"; };
 		3F776E3D180D75FF4629E04ED8871505 /* NSString+Category.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSString+Category.m"; sourceTree = "<group>"; };
 		3FFEC3CD920E1E126D2BF14A90E44F7D /* CTID_Encrypt.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CTID_Encrypt.h; sourceTree = "<group>"; };
 		4027E32E3E6B96053F531892361EECC1 /* BDFaceSelectConfigCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = BDFaceSelectConfigCell.m; sourceTree = "<group>"; };
@@ -2078,7 +2095,7 @@
 		6E8D4D416F766B4DBAECD123D7DB63B0 /* SDImageHEICCoder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDImageHEICCoder.m; path = SDWebImage/Core/SDImageHEICCoder.m; sourceTree = "<group>"; };
 		6E99CE2AA18153CA210E9FB5C31BD29E /* NSObject+MJCoding.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSObject+MJCoding.m"; path = "MJExtension/NSObject+MJCoding.m"; sourceTree = "<group>"; };
 		6EAA4CB4FF257744E12CB0BC27B5331E /* SDImageCachesManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDImageCachesManager.m; path = SDWebImage/Core/SDImageCachesManager.m; sourceTree = "<group>"; };
-		6EED1887D8B4EFE6D928192961C3BDEA /* CodeSignature */ = {isa = PBXFileReference; includeInIndex = 1; path = CodeSignature; sourceTree = "<group>"; };
+		6EED1887D8B4EFE6D928192961C3BDEA /* CodeSignature */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; path = CodeSignature; sourceTree = "<group>"; };
 		6F04428FB16B40568240F882C6C98F5D /* HYGuessBusinessModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HYGuessBusinessModel.m; sourceTree = "<group>"; };
 		6F57E887729893BBE80009385870D219 /* HYServiceProgressViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HYServiceProgressViewController.m; sourceTree = "<group>"; };
 		6FB074D599EF540C7699E4DAEE55F7CD /* MJRefreshBackNormalFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshBackNormalFooter.m; path = MJRefresh/Custom/Footer/Back/MJRefreshBackNormalFooter.m; sourceTree = "<group>"; };
@@ -2106,7 +2123,7 @@
 		74E54890B7474C8605C5FD3133DE4A73 /* CardDetailViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CardDetailViewController.h; sourceTree = "<group>"; };
 		755A43E7C65431E1B12A1922A098A8F1 /* HYObtainCertiViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HYObtainCertiViewController.m; sourceTree = "<group>"; };
 		75A0B6A43E47A0011971CB1F3FCE3418 /* keyboard_delete@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "keyboard_delete@2x.png"; sourceTree = "<group>"; };
-		75B98BBADCB5B19C73E584254491854A /* HYCivicCenter.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = HYCivicCenter.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		75B98BBADCB5B19C73E584254491854A /* HYCivicCenter.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = HYCivicCenter.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		75D698C5D7B3E9876B128A9B720D782C /* TZImagePickerController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TZImagePickerController-prefix.pch"; sourceTree = "<group>"; };
 		7638D7FFE4DD84A55A9E77CDB9C43B5E /* UIImage+Metadata.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+Metadata.h"; path = "SDWebImage/Core/UIImage+Metadata.h"; sourceTree = "<group>"; };
 		766A8F7F6922D852EE0843D8121A5EAF /* WechatOpenSDK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = WechatOpenSDK.debug.xcconfig; sourceTree = "<group>"; };
@@ -2119,7 +2136,7 @@
 		7788D152E5F75478F4889DC1F42C7090 /* CertificateDetailViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CertificateDetailViewController.h; sourceTree = "<group>"; };
 		77907F03B5C08C24BA0648BB4EB53907 /* WechatAuthSDK.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WechatAuthSDK.h; path = OpenSDK2.0.2/WechatAuthSDK.h; sourceTree = "<group>"; };
 		77CBE1FF5D2D5C58FF9A6F589D0DFAD7 /* IndustryChooseCollectionViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = IndustryChooseCollectionViewCell.h; sourceTree = "<group>"; };
-		77CD7EEB984AB3F2C3CB56AB3CA1D0E5 /* CTID_Verification */ = {isa = PBXFileReference; includeInIndex = 1; path = CTID_Verification; sourceTree = "<group>"; };
+		77CD7EEB984AB3F2C3CB56AB3CA1D0E5 /* CTID_Verification */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; path = CTID_Verification; sourceTree = "<group>"; };
 		7839534008D4CD74F26A3039C95EE217 /* CTID_Verification.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CTID_Verification.h; sourceTree = "<group>"; };
 		78A69A3AA187A19C5D13CA792F58CF00 /* BDFaceDevice.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BDFaceDevice.h; sourceTree = "<group>"; };
 		78E1F37738E593EEDA750021211C5E3E /* NSButton+WebCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSButton+WebCache.m"; path = "SDWebImage/Core/NSButton+WebCache.m"; sourceTree = "<group>"; };
@@ -2147,7 +2164,7 @@
 		7E731252691DB9EB82A793EE9D4CC7D9 /* SVProgressHUD.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SVProgressHUD.modulemap; sourceTree = "<group>"; };
 		7E8AF6ADDC3CC436CE7B6603FCF86A19 /* HYCivicCenter-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HYCivicCenter-prefix.pch"; sourceTree = "<group>"; };
 		7E97B358311AA2738606F98000126C2C /* UIImage+Transform.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+Transform.h"; path = "SDWebImage/Core/UIImage+Transform.h"; sourceTree = "<group>"; };
-		7EE38BF6EEC9F4F2EAF3EBE73695A81A /* CodeRequirements */ = {isa = PBXFileReference; includeInIndex = 1; path = CodeRequirements; sourceTree = "<group>"; };
+		7EE38BF6EEC9F4F2EAF3EBE73695A81A /* CodeRequirements */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; path = CodeRequirements; sourceTree = "<group>"; };
 		7F17D12D4D6D20B5A3B759146D9D9FC5 /* SDAnimatedImagePlayer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDAnimatedImagePlayer.h; path = SDWebImage/Core/SDAnimatedImagePlayer.h; sourceTree = "<group>"; };
 		7F36267C2B7AAC238140CB41EBAEAC17 /* CertificateDetailViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CertificateDetailViewController.m; sourceTree = "<group>"; };
 		7F645CB8BA2E0D262FDE6357D0F0E83E /* MJRefreshNormalTrailer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshNormalTrailer.m; path = MJRefresh/Custom/Trailer/MJRefreshNormalTrailer.m; sourceTree = "<group>"; };
@@ -2245,7 +2262,7 @@
 		9C758DE5A77FC34F5BE468ABAA6364CC /* ServiceCollectionViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ServiceCollectionViewCell.m; sourceTree = "<group>"; };
 		9CEF8EF39E439DEC25E9B8BF003619DF /* HYGovementItemCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HYGovementItemCell.h; sourceTree = "<group>"; };
 		9D88FF07BAB6638D08251220C4A06295 /* HYSubmitTableViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HYSubmitTableViewCell.h; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9DE2BABB155FCC7230A475594D5379B9 /* NSString+MJExtension.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSString+MJExtension.m"; path = "MJExtension/NSString+MJExtension.m"; sourceTree = "<group>"; };
 		9E6BE6249C9D96DE345BD508B375D117 /* HYSearchStationModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HYSearchStationModel.m; sourceTree = "<group>"; };
 		9E7727EDDBB347E498F6B690C4CFB2D8 /* SDWebImage-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SDWebImage-umbrella.h"; sourceTree = "<group>"; };
@@ -2277,7 +2294,7 @@
 		A50C777E53AB5F46A684F26812A213F7 /* CardDetailTableViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CardDetailTableViewCell.m; sourceTree = "<group>"; };
 		A54DBAD78769B5EF7CAEF84FEF0B840B /* SDWebImageDownloaderResponseModifier.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageDownloaderResponseModifier.h; path = SDWebImage/Core/SDWebImageDownloaderResponseModifier.h; sourceTree = "<group>"; };
 		A56F0E382105F7513AE42E52E292C36C /* HYOnLineHandleViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HYOnLineHandleViewController.m; sourceTree = "<group>"; };
-		A585ED5C7D2B48F77DED4FB8BF8D8365 /* BDFaceParamsConfig.json */ = {isa = PBXFileReference; includeInIndex = 1; path = BDFaceParamsConfig.json; sourceTree = "<group>"; };
+		A585ED5C7D2B48F77DED4FB8BF8D8365 /* BDFaceParamsConfig.json */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.json; path = BDFaceParamsConfig.json; sourceTree = "<group>"; };
 		A594268F1C107DE570B81C3CBCA2FFB3 /* HYAreaServiceTableViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HYAreaServiceTableViewCell.h; sourceTree = "<group>"; };
 		A5BDEA3ADC0B95E5BAAA8D9E15C28BEB /* Pods-HYCivicCenter_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-HYCivicCenter_Example-frameworks.sh"; sourceTree = "<group>"; };
 		A60BC5AE7B32B95528B89E592DBF82AC /* BDFaceAlertController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BDFaceAlertController.h; sourceTree = "<group>"; };
@@ -2369,7 +2386,7 @@
 		BD1295DEF76D8CE0675BF8992E4486C7 /* ZolozMobileRPC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ZolozMobileRPC.framework; sourceTree = "<group>"; };
 		BD3126656F37BD6FD821D42158D80E98 /* HYSearchServiceModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HYSearchServiceModel.h; sourceTree = "<group>"; };
 		BD4912F1E0450F5BA99E9BF43294CEE6 /* SDWebImageOptionsProcessor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageOptionsProcessor.h; path = SDWebImage/Core/SDWebImageOptionsProcessor.h; sourceTree = "<group>"; };
-		BD7A5C29A2E77433F1B0598B552C7BBC /* CodeDirectory */ = {isa = PBXFileReference; includeInIndex = 1; path = CodeDirectory; sourceTree = "<group>"; };
+		BD7A5C29A2E77433F1B0598B552C7BBC /* CodeDirectory */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; path = CodeDirectory; sourceTree = "<group>"; };
 		BD9C2A153820F4D13122FED95D7BC921 /* SVProgressHUD-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SVProgressHUD-Info.plist"; sourceTree = "<group>"; };
 		BD9ECECE3E7D4763B653E21D04C47B38 /* SVRadialGradientLayer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVRadialGradientLayer.m; path = SVProgressHUD/SVRadialGradientLayer.m; sourceTree = "<group>"; };
 		BDEA0194F1E5A576B28C36E5FBA3F719 /* HYAreaServiceViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HYAreaServiceViewController.h; sourceTree = "<group>"; };
@@ -2435,7 +2452,7 @@
 		CE10ADA354D7CCD5B64B1C4D54942277 /* AlipaySDK.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; path = AlipaySDK.bundle; sourceTree = "<group>"; };
 		CE4AA31C9BBE68A5413C85191F71274D /* UIImage+Gradient.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIImage+Gradient.h"; sourceTree = "<group>"; };
 		CF338E8CB3E4D9DF0040A0AF48EF05B1 /* SDImageCoderHelper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDImageCoderHelper.h; path = SDWebImage/Core/SDImageCoderHelper.h; sourceTree = "<group>"; };
-		CF50D72DE1DF430A6CE4738738325197 /* CodeResources */ = {isa = PBXFileReference; includeInIndex = 1; path = CodeResources; sourceTree = "<group>"; };
+		CF50D72DE1DF430A6CE4738738325197 /* CodeResources */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; path = CodeResources; sourceTree = "<group>"; };
 		CF6C207A999AD2E8C62940863BB677E4 /* ZolozOpenPlatformBuild.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ZolozOpenPlatformBuild.debug.xcconfig; sourceTree = "<group>"; };
 		CF6D09D4D0FC9C47A4E0D67A3C3DD3EE /* SDImageIOAnimatedCoder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDImageIOAnimatedCoder.h; path = SDWebImage/Core/SDImageIOAnimatedCoder.h; sourceTree = "<group>"; };
 		CF8E8538A45AB13C6F92E607D829AAF2 /* HYHotServiceModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HYHotServiceModel.h; sourceTree = "<group>"; };
@@ -2804,7 +2821,6 @@
 				457750D70AE12E22D7B90E6E7527E179 /* BDFaceRemindView.h */,
 				634E9CDD84ADB804862D287134764608 /* BDFaceRemindView.m */,
 			);
-			name = View;
 			path = View;
 			sourceTree = "<group>";
 		};
@@ -2832,7 +2848,6 @@
 			children = (
 				297F474B40FD07EF9C510A3962EEF867 /* module.modulemap */,
 			);
-			name = Modules;
 			path = Modules;
 			sourceTree = "<group>";
 		};
@@ -2875,7 +2890,6 @@
 				4B0B2B4106928D41D059C98FF95F0199 /* HYPQCollectionViewCell.h */,
 				5E3BDF22A7FA9E5E54D3BC05708D1B67 /* HYPQCollectionViewCell.m */,
 			);
-			name = PopularServices;
 			path = PopularServices;
 			sourceTree = "<group>";
 		};
@@ -2938,7 +2952,6 @@
 				C45E11AF954114249CDC82FAB50E52D7 /* ViewController+MASAdditions.m */,
 				E19A1926532DE694857B53633C98319C /* Support Files */,
 			);
-			name = Masonry;
 			path = Masonry;
 			sourceTree = "<group>";
 		};
@@ -2956,7 +2969,6 @@
 				0981F52877796749E487E42444AB7F7D /* Frameworks */,
 				B1985FFB43438E37466937E4830AE3C1 /* Support Files */,
 			);
-			name = ZolozIdentityManager;
 			path = ZolozIdentityManager;
 			sourceTree = "<group>";
 		};
@@ -3005,7 +3017,6 @@
 				16F186B127C334B98628F4770DACD162 /* BusTransportViewController.h */,
 				D96194AF5D64235B0CD0EFD70E28CDCA /* BusTransportViewController.m */,
 			);
-			name = BusTransport;
 			path = BusTransport;
 			sourceTree = "<group>";
 		};
@@ -3032,7 +3043,6 @@
 				0D720B72E7B0613C6E84C5916968645C /* Frameworks */,
 				65CD0E88121C8B05B7ABED06D42CC16C /* Support Files */,
 			);
-			name = ZolozSensorServices;
 			path = ZolozSensorServices;
 			sourceTree = "<group>";
 		};
@@ -3050,7 +3060,6 @@
 				8424EE3BDFDBFD6F3D2291864C126A96 /* BDFaceAdjustParamsTool.h */,
 				A8DF9789D4C303119473097066CE01EE /* BDFaceAdjustParamsTool.m */,
 			);
-			name = Interface;
 			path = Interface;
 			sourceTree = "<group>";
 		};
@@ -3110,7 +3119,6 @@
 				DB7DA0978BC86C1C4168BD798FD074D5 /* Frameworks */,
 				990E07B9E38EEE7D402B9BDF6DA5EA86 /* Support Files */,
 			);
-			name = ZolozUtility;
 			path = ZolozUtility;
 			sourceTree = "<group>";
 		};
@@ -3281,7 +3289,6 @@
 				388BC215365BB7F90D0110FB1E602493 /* Frameworks */,
 				F4FFCACD0F02091843863B65EABA833E /* Support Files */,
 			);
-			name = AliyunIdentityManager;
 			path = AliyunIdentityManager;
 			sourceTree = "<group>";
 		};
@@ -3351,7 +3358,6 @@
 				62DA7A6741C17F838BA51068B2781DFB /* Resources */,
 				867887A2635C9ED258B2AC43C3199FEA /* Support Files */,
 			);
-			name = SVProgressHUD;
 			path = SVProgressHUD;
 			sourceTree = "<group>";
 		};
@@ -3406,7 +3412,6 @@
 				09AFF2E6A4BC802C946D75AC91E31615 /* BDFaceSelectItem.h */,
 				34F7E5660376500CEAEC686219580634 /* BDFaceSelectItem.m */,
 			);
-			name = Model;
 			path = Model;
 			sourceTree = "<group>";
 		};
@@ -3451,7 +3456,6 @@
 			children = (
 				5FB814B649F2EDC6188009803892E4A0 /* Support Files */,
 			);
-			name = AntVerify;
 			path = AntVerify;
 			sourceTree = "<group>";
 		};
@@ -3471,7 +3475,6 @@
 				41F85109FF049425D0AB87B75F5BD990 /* Frameworks */,
 				738A1355DF9295D906A6A884E3A5AA3E /* Support Files */,
 			);
-			name = ZolozMobileRPC;
 			path = ZolozMobileRPC;
 			sourceTree = "<group>";
 		};
@@ -3513,7 +3516,6 @@
 				FBAB6C025F64DE47A4C8DE7968A068F0 /* Frameworks */,
 				7E4B9EF0726719C6BD20B0F2728D1C0B /* Support Files */,
 			);
-			name = WechatOpenSDK;
 			path = WechatOpenSDK;
 			sourceTree = "<group>";
 		};
@@ -3671,7 +3673,6 @@
 				D4DC2CC7563E2BDC63A275641C2339E6 /* Model */,
 				88FDEE16505814220D42022FE22FCACA /* Util */,
 			);
-			name = Public;
 			path = Public;
 			sourceTree = "<group>";
 		};
@@ -3705,7 +3706,6 @@
 				3C7132DCE591A6072360266F35E42D21 /* tipMsgicon@2x.png */,
 				1AB7B0382AE9D7E4CD40C4E978259E4D /* tipMsgicon@3x.png */,
 			);
-			name = CTID.bundle;
 			path = CTID.bundle;
 			sourceTree = "<group>";
 		};
@@ -3723,7 +3723,6 @@
 				E4B671AA8F403685375018AA4F83B026 /* MetroCodeViewController.h */,
 				BB408A47E4C54B4157A84E5439DDC648 /* MetroCodeViewController.m */,
 			);
-			name = MetroCode;
 			path = MetroCode;
 			sourceTree = "<group>";
 		};
@@ -3759,7 +3758,6 @@
 				5D779359300A4AC0488A29BE281F1D18 /* Model */,
 				A0A8A92BD6DED39191D2F60963E94817 /* View */,
 			);
-			name = BDFaceAdjustParams;
 			path = BDFaceAdjustParams;
 			sourceTree = "<group>";
 		};
@@ -3779,7 +3777,6 @@
 				ED42414E005F15E62800497D2D29994B /* HYSSTableViewCell.h */,
 				EF73EDB421C2509941F5D482B0B48911 /* HYSSTableViewCell.m */,
 			);
-			name = SpecialServices;
 			path = SpecialServices;
 			sourceTree = "<group>";
 		};
@@ -3789,7 +3786,6 @@
 				35D0D6CFC61701C9918493C098937E89 /* Frameworks */,
 				1E933C18288173806B6E5F7F7CC41AEC /* Support Files */,
 			);
-			name = BioAuthAPI;
 			path = BioAuthAPI;
 			sourceTree = "<group>";
 		};
@@ -3848,7 +3844,6 @@
 				9E04AEC3249D4F39542C27613D9DEA87 /* Resources */,
 				11AE8B0BB9B1B88FEA4E3AC77A56E961 /* Support Files */,
 			);
-			name = MJRefresh;
 			path = MJRefresh;
 			sourceTree = "<group>";
 		};
@@ -3902,7 +3897,6 @@
 				1F59F10230518BC6DE912BC7B25E17D7 /* HYUploadImageCollectionViewCell.h */,
 				2BB676272F0E300FD01C73CE28F8DC26 /* HYUploadImageCollectionViewCell.m */,
 			);
-			name = DepartmentDetail;
 			path = DepartmentDetail;
 			sourceTree = "<group>";
 		};
@@ -3931,7 +3925,6 @@
 				40AE90257E1C7481633AFAEFAB3E718D /* CTIDReq.h */,
 				8F6699DFED589442C9C843E2963E743B /* CtidVerifySdk.h */,
 			);
-			name = Headers;
 			path = Headers;
 			sourceTree = "<group>";
 		};
@@ -3942,7 +3935,6 @@
 				112A3AB2F6651A47CA29339493FBED0D /* Resources */,
 				6A77281A96B3B8A9F51CBFA87BC155D8 /* Support Files */,
 			);
-			name = OCRDetectSDKForTech;
 			path = OCRDetectSDKForTech;
 			sourceTree = "<group>";
 		};
@@ -3986,7 +3978,6 @@
 				AACE03DD7A398877C0F30C4A27DF4545 /* BDFaceImageUtils.m */,
 				5887E83E79938CD431CB709E27A0D4D9 /* BDUIConstant.h */,
 			);
-			name = Util;
 			path = Util;
 			sourceTree = "<group>";
 		};
@@ -4004,7 +3995,6 @@
 				424093FD7E7F0CF3259493103C01CEBF /* Core */,
 				D209E412AA8CE4A18EB78C053EAA3516 /* Support Files */,
 			);
-			name = SDWebImage;
 			path = SDWebImage;
 			sourceTree = "<group>";
 		};
@@ -4025,7 +4015,6 @@
 				875118E3ED93B04DE600BEE59073D8E7 /* Headers */,
 				10497DBE7A3AFF6F7E5B814B55F30AC6 /* Modules */,
 			);
-			name = CTID_Verification.framework;
 			path = CTID_Verification.framework;
 			sourceTree = "<group>";
 		};
@@ -4043,7 +4032,6 @@
 				79303A38E3EF151CB0499C03A8BCC94F /* UIView+YZApperance.h */,
 				381EFD2D27712A0F48283B950F56F47A /* UIView+YZApperance.m */,
 			);
-			name = BDFaceTools;
 			path = BDFaceTools;
 			sourceTree = "<group>";
 		};
@@ -4056,7 +4044,6 @@
 				CF50D72DE1DF430A6CE4738738325197 /* CodeResources */,
 				6EED1887D8B4EFE6D928192961C3BDEA /* CodeSignature */,
 			);
-			name = _CodeSignature;
 			path = _CodeSignature;
 			sourceTree = "<group>";
 		};
@@ -4087,7 +4074,6 @@
 				1B82D1C70EBF0AF09A0E9615923FBB18 /* Resources */,
 				CF445F510D2B59E31948A202D53E66BE /* Support Files */,
 			);
-			name = AlipayVerifySDK;
 			path = AlipayVerifySDK;
 			sourceTree = "<group>";
 		};
@@ -4098,7 +4084,6 @@
 				DD0049327EA8886DB19EA0DF0A36573E /* Resources */,
 				C5C2D35E502387FF8A17C686A0B0EB83 /* Support Files */,
 			);
-			name = APBToygerFacade;
 			path = APBToygerFacade;
 			sourceTree = "<group>";
 		};
@@ -4122,7 +4107,6 @@
 				EB1AECFBDE6089A07A350A29A237C08F /* BDFaceSelectRadio.h */,
 				079F36B1439AEDADC6F9F3013970D9ED /* BDFaceSelectRadio.m */,
 			);
-			name = View;
 			path = View;
 			sourceTree = "<group>";
 		};
@@ -4167,7 +4151,6 @@
 				F1AD7528D29AD46DC1056416D4722169 /* BDFaceSuccessViewController+BDCheckFace.h */,
 				038441D6BAF31657D939F102E934F395 /* BDFaceSuccessViewController+BDCheckFace.m */,
 			);
-			name = Controller;
 			path = Controller;
 			sourceTree = "<group>";
 		};
@@ -4183,7 +4166,6 @@
 				BBDB690DAED82BF43E9BC225B6547802 /* HYGuessYouCell.h */,
 				7C5C8E07CAA12A9DC0C02E7D97D155DB /* HYGuessYouCell.m */,
 			);
-			name = SupposeYouWant;
 			path = SupposeYouWant;
 			sourceTree = "<group>";
 		};
@@ -4224,7 +4206,6 @@
 				066996856C28E3CF30F74F1CD2ACA8A0 /* CitizenCodeViewController.h */,
 				0BB0F4CA9E249CB7EE7778AB66C71431 /* CitizenCodeViewController.m */,
 			);
-			name = CitizenCode;
 			path = CitizenCode;
 			sourceTree = "<group>";
 		};
@@ -4264,7 +4245,6 @@
 				9DE2BABB155FCC7230A475594D5379B9 /* NSString+MJExtension.m */,
 				28439F2FF689774BAA37729724FE4175 /* Support Files */,
 			);
-			name = MJExtension;
 			path = MJExtension;
 			sourceTree = "<group>";
 		};
@@ -4275,7 +4255,6 @@
 				01CFD6D0FFE2C140464C228149B1FD8E /* Resources */,
 				EDEBE4EEA9C61A1357168497045CA82E /* Support Files */,
 			);
-			name = BioAuthEngine;
 			path = BioAuthEngine;
 			sourceTree = "<group>";
 		};
@@ -4323,7 +4302,6 @@
 				BDEA0194F1E5A576B28C36E5FBA3F719 /* HYAreaServiceViewController.h */,
 				0399E9B2D25BD9135F4E2CC339480E35 /* HYAreaServiceViewController.m */,
 			);
-			name = CountyServices;
 			path = CountyServices;
 			sourceTree = "<group>";
 		};
@@ -4439,7 +4417,6 @@
 				59C45CACDF514B9FD8C39AE9634AC892 /* BDFaceLivingConfigModel.h */,
 				2634E1B0C1AAA83911B830967DDDF27A /* BDFaceLivingConfigModel.m */,
 			);
-			name = Model;
 			path = Model;
 			sourceTree = "<group>";
 		};
@@ -4501,7 +4478,6 @@
 				2ECAD19A8AB2FF158985BA00F44C88E3 /* Frameworks */,
 				CF03781D59094205994AC246E99B55AF /* Support Files */,
 			);
-			name = MPRemoteLogging;
 			path = MPRemoteLogging;
 			sourceTree = "<group>";
 		};
@@ -4512,7 +4488,6 @@
 				4E828655AE173DE134D2EA85FCE9F2C4 /* Resources */,
 				5FE786C34DD105063E3BD35C3E1EC869 /* Support Files */,
 			);
-			name = ToygerService;
 			path = ToygerService;
 			sourceTree = "<group>";
 		};
@@ -4568,7 +4543,6 @@
 				D4449F475318F6BAB41035F65265C816 /* Location */,
 				0A8447B1B75ABB78BA7C3775E422A396 /* Support Files */,
 			);
-			name = TZImagePickerController;
 			path = TZImagePickerController;
 			sourceTree = "<group>";
 		};
@@ -4609,7 +4583,6 @@
 				BC18E37D9355EF18CDBD76D10D0D6AFE /* BDFaceSelectConfigController.h */,
 				C1C010C147FA1DCBD9687310435C8DE9 /* BDFaceSelectConfigController.m */,
 			);
-			name = Controller;
 			path = Controller;
 			sourceTree = "<group>";
 		};
@@ -4634,7 +4607,6 @@
 				81DA22140B4241F57391AD4CE9878897 /* Support Files */,
 				3A5C2471329CCFD38601C1117D96FB03 /* UIKit */,
 			);
-			name = AFNetworking;
 			path = AFNetworking;
 			sourceTree = "<group>";
 		};
@@ -4655,7 +4627,6 @@
 				DA74F373F33CE67FDBFE0CFBE7178169 /* Resources */,
 				E65DCA90C9B3F1AE682E18D8044855D1 /* Support Files */,
 			);
-			name = "AlipaySDK-iOS";
 			path = "AlipaySDK-iOS";
 			sourceTree = "<group>";
 		};
@@ -4668,7 +4639,6 @@
 				363FD11E422846B1859CB8F176A176D9 /* Interface */,
 				0D3FEF1B67DFE3BCAD950AFD805E9B2A /* View */,
 			);
-			name = UI;
 			path = UI;
 			sourceTree = "<group>";
 		};
@@ -4690,7 +4660,6 @@
 				18C55E9F180D7C68C46727B5A88E593B /* HYServiceProgressViewController.h */,
 				6F57E887729893BBE80009385870D219 /* HYServiceProgressViewController.m */,
 			);
-			name = GovernmentServices;
 			path = GovernmentServices;
 			sourceTree = "<group>";
 		};
@@ -4724,7 +4693,6 @@
 				5F02C6603B1F4F431460620B74AADE84 /* Frameworks */,
 				98AE4E92FD2A32516D86B735D754B8EB /* Support Files */,
 			);
-			name = APPSecuritySDK;
 			path = APPSecuritySDK;
 			sourceTree = "<group>";
 		};
@@ -4746,7 +4714,6 @@
 				217FAF35D60FED0942EF3E7BD6E02179 /* Frameworks */,
 				A4825AF308FE38B61A44031CE1CAA014 /* Support Files */,
 			);
-			name = ZolozOpenPlatformBuild;
 			path = ZolozOpenPlatformBuild;
 			sourceTree = "<group>";
 		};
@@ -6964,7 +6931,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -7270,13 +7237,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};
