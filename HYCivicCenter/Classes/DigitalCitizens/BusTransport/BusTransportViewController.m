@@ -30,10 +30,9 @@
 #import "HYHandleAffairsWebVIewController.h"
 #import "HYOnLineBusinessMainViewController.h"
 #import "HYRealNameAlertView.h"
-#import "FaceTipViewController.h"
 #import "FaceRecViewController.h"
 
-@interface BusTransportViewController () <UITableViewDelegate, UITableViewDataSource, GetQRCodeDelegate, CLLocationManagerDelegate, FaceResultDelegate, FaceRecResultDelegate>
+@interface BusTransportViewController () <UITableViewDelegate, UITableViewDataSource, GetQRCodeDelegate, CLLocationManagerDelegate, FaceRecResultDelegate>
 
 @property (nonatomic, strong) UIImageView *codeIV;
 @property (nonatomic, strong) UITableView *tableView;
@@ -686,9 +685,6 @@ NSString *const busTransPortCell = @"busCell";
                 self.code = model.link;
                 self.jumpUrl = model.jumpUrl;
                 self.titleStr = model.name;
-//                FaceTipViewController *faceTipVC = [[FaceTipViewController alloc] init];
-//                faceTipVC.delegate = self;
-//                [self.navigationController pushViewController:faceTipVC animated:YES];
                 FaceRecViewController *vc = [[FaceRecViewController alloc] init];
                 vc.delegate = self;
                 [self.navigationController pushViewController:vc animated:YES];
@@ -717,23 +713,6 @@ NSString *const busTransPortCell = @"busCell";
         }
     }
     
-}
-
-#pragma mark - FaceResultDelegate
-- (void)getFaceResultWithImageStr:(NSString *)imageStr deviceId:(NSString *)deviceid skey:(NSString *)skey {
-    SLog(@" skey == %@ ", skey);
-    [HttpRequest postPathZWBS:@"phone/item/event/api" params:@{@"uri": @"/apiFile/discernFace", @"app": @"ios", @"file": imageStr, @"deviceId": deviceid, @"skey": skey} resultBlock:^(id  _Nullable responseObject, NSError * _Nullable error) {
-        SLog(@" 人脸识别== %@ ", responseObject);
-        if ([responseObject[@"success"] intValue] == 1) {
-            HYHandleAffairsWebVIewController *webVC = [[HYHandleAffairsWebVIewController alloc] init];
-            webVC.code = self.code;
-            webVC.titleStr = self.titleStr;
-            webVC.jumpUrl = self.jumpUrl;
-            [self.navigationController pushViewController:webVC animated:YES];
-        } else {
-            SLog(@"%@", responseObject[@"message"]);
-        }
-    }];
 }
 
 #pragma mark - FaceRecResultDelegate

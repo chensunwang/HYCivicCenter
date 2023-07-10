@@ -11,13 +11,12 @@
 #import "HYHandleAffairsWebVIewController.h"
 #import "HYRealNameAlertView.h"
 #import "HYEmptyView.h"
-#import "FaceTipViewController.h"
 #import "HYOnLineBusinessMainViewController.h"
 #import "HYCivicCenterCommand.h"
 #import "UILabel+XFExtension.h"
 #import "FaceRecViewController.h"
 
-@interface HYHomeSearchViewController () <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, FaceResultDelegate, FaceRecResultDelegate>
+@interface HYHomeSearchViewController () <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, FaceRecResultDelegate>
 
 @property (nonatomic, strong) HYSearchView * searchView;
 @property (nonatomic, strong) UITableView *tableView;
@@ -179,9 +178,6 @@ NSString *const searchCell = @"homeSearchCell";
             self.code  =businessModel.code;
             self.titleStr = businessModel.name;
             self.jumpUrl = businessModel.jumpUrl;
-//            FaceTipViewController *faceTipVC = [[FaceTipViewController alloc] init];
-//            faceTipVC.delegate = self;
-//            [self.navigationController pushViewController:faceTipVC animated:YES];
             FaceRecViewController *vc = [[FaceRecViewController alloc] init];
             vc.delegate = self;
             [self.navigationController pushViewController:vc animated:YES];
@@ -242,24 +238,6 @@ NSString *const searchCell = @"homeSearchCell";
         }
     };
     [alertV showAlertView];
-}
-
-#pragma mark - FaceResultDelegate
-
-- (void)getFaceResultWithImageStr:(NSString *)imageStr deviceId:(NSString *)deviceid skey:(NSString *)skey {
-    SLog(@" skey == %@ ", skey);
-    [HttpRequest postPathZWBS:@"phone/item/event/api" params:@{@"uri": @"/apiFile/discernFace", @"app": @"ios", @"file": imageStr, @"deviceId": deviceid, @"skey": skey} resultBlock:^(id  _Nullable responseObject, NSError * _Nullable error) {
-        SLog(@" 人脸识别== %@ ", responseObject);
-        if ([responseObject[@"success"] intValue] == 1) {
-            HYHandleAffairsWebVIewController *webVC = [[HYHandleAffairsWebVIewController alloc] init];
-            webVC.code = self.code;
-            webVC.titleStr = self.titleStr;
-            webVC.jumpUrl = self.jumpUrl;
-            [self.navigationController pushViewController:webVC animated:YES];
-        } else {
-            SLog(@"%@", responseObject[@"message"]);
-        }
-    }];
 }
 
 #pragma mark - FaceRecResultDelegate

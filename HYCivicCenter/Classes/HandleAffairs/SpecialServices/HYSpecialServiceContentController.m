@@ -9,12 +9,11 @@
 #import "HYSpecialServiceContentController.h"
 #import "HYHotServiceTableViewCell.h"
 #import "HYHandleAffairsWebVIewController.h"
-#import "FaceTipViewController.h"
 #import "FaceRecViewController.h"
 #import "HYOnLineBusinessMainViewController.h"
 #import "HYCivicCenterCommand.h"
 
-@interface HYSpecialServiceContentController () <UITableViewDelegate, UITableViewDataSource, FaceResultDelegate, FaceRecResultDelegate>
+@interface HYSpecialServiceContentController () <UITableViewDelegate, UITableViewDataSource, FaceRecResultDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *datasArr;
@@ -90,9 +89,6 @@ NSString *const specialServiceCell = @"specialServiceCell";
         self.code = serviceModel.link;
         self.titleStr = serviceModel.name;
         self.jumpUrl = serviceModel.jumpUrl;
-//        FaceTipViewController *faceTipVC = [[FaceTipViewController alloc] init];
-//        faceTipVC.delegate = self;
-//        [self.navigationController pushViewController:faceTipVC animated:YES];
         FaceRecViewController *vc = [[FaceRecViewController alloc] init];
         vc.delegate = self;
         [self.navigationController pushViewController:vc animated:YES];

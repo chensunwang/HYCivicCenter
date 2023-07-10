@@ -8,11 +8,10 @@
 #import "CertificateDetailViewController.h"
 #import "CertificateInfoViewController.h"
 #import <CTID_Verification/CTID_Verification.h>
-#import "FaceTipViewController.h"
 #import "OpenIDCardViewController.h"
 #import "HYCivicCenterCommand.h"
 
-@interface CertificateDetailViewController () <FaceResultDelegate>
+@interface CertificateDetailViewController ()
 
 @property (nonatomic, copy) NSString *urlString;
 @property (nonatomic, strong) UIImageView *codeIV;
@@ -472,9 +471,9 @@
 
 - (void)faceScan {
     
-    FaceTipViewController *faceTipVC = [[FaceTipViewController alloc]init];
-    faceTipVC.delegate = self;
-    [self.navigationController pushViewController:faceTipVC animated:YES];
+//    FaceTipViewController *faceTipVC = [[FaceTipViewController alloc]init];
+//    faceTipVC.delegate = self;
+//    [self.navigationController pushViewController:faceTipVC animated:YES];
     
 }
 

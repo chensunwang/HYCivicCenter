@@ -6,12 +6,11 @@
 //
 
 #import "MyCtidViewController.h"
-#import "FaceTipViewController.h"
 #import "HYCivicCenterCommand.h"
 #import "UILabel+XFExtension.h"
 #import "OpenIDCardViewController.h"
 
-@interface MyCtidViewController () <FaceResultDelegate>
+@interface MyCtidViewController ()
 
 @property (nonatomic, weak) UILabel *cardNumLabel;
 @property (nonatomic, weak) UILabel *cardExpireLabel;
@@ -287,41 +286,41 @@
 
 - (void)faceScan {
     
-    FaceTipViewController *faceTipVC = [[FaceTipViewController alloc]init];
-//        faceTipVC.type = 1;
-    faceTipVC.delegate = self;
-    [self.navigationController pushViewController:faceTipVC animated:YES];
+//    FaceTipViewController *faceTipVC = [[FaceTipViewController alloc]init];
+////        faceTipVC.type = 1;
+//    faceTipVC.delegate = self;
+//    [self.navigationController pushViewController:faceTipVC animated:YES];
     
 }
 
-- (void)getFaceResultWithImageStr:(NSString *)imageStr deviceId:(NSString *)deviceid skey:(NSString *)skey {
-    
-    NSString *name = [[NSUserDefaults standardUserDefaults]objectForKey:@"HYName"];
-    NSString *idCard = [[NSUserDefaults standardUserDefaults]objectForKey:@"HYIdCard"];
-    [HttpRequest postPathGov:@"" params:@{@"uri":@"/apiFile/haiDunBase/downloadNet",@"file":imageStr,@"nickname":name?:@"",@"idCard":idCard?:@"",@"bsn":self.bsn,@"idcardAuthData":self.idcardAuthInfo?:@"",@"source":@"2",@"skey":skey,@"deviceId":deviceid,@"app":@"ios"} resultBlock:^(id  _Nullable responseObject, NSError * _Nullable error) {
-        NSLog(@" 网证下载33== %@ ",responseObject);
-        
-        if ([responseObject[@"success"] intValue] == 1) {
-            
-//            self.codeIV.image = [self createQRCodeWithCodeStr:responseObject[@"data"][@"ctid"]];
-//            self.maskView.hidden = YES;
-            [[NSUserDefaults standardUserDefaults]setValue:responseObject[@"data"][@"ctid"]?:@"" forKey:@"CTID"];
-            [self applyQrcodeWithImageStr:imageStr withSkey:skey withDeviceId:deviceid];
-            
-        }else if ([responseObject[@"code"] intValue] == 500) {
-            // 跳转开通网证
-            
-            NSString *phone = [[NSUserDefaults standardUserDefaults]objectForKey:@"HYPhone"];
-            OpenIDCardViewController *idcardVC = [[OpenIDCardViewController alloc]init];
-            idcardVC.bsn = self.bsn;
-            idcardVC.phone = phone;
-            [self.navigationController pushViewController:idcardVC animated:YES];
-            
-        }
-        
-    }];
-    
-}
+//- (void)getFaceResultWithImageStr:(NSString *)imageStr deviceId:(NSString *)deviceid skey:(NSString *)skey {
+//    
+//    NSString *name = [[NSUserDefaults standardUserDefaults]objectForKey:@"HYName"];
+//    NSString *idCard = [[NSUserDefaults standardUserDefaults]objectForKey:@"HYIdCard"];
+//    [HttpRequest postPathGov:@"" params:@{@"uri":@"/apiFile/haiDunBase/downloadNet",@"file":imageStr,@"nickname":name?:@"",@"idCard":idCard?:@"",@"bsn":self.bsn,@"idcardAuthData":self.idcardAuthInfo?:@"",@"source":@"2",@"skey":skey,@"deviceId":deviceid,@"app":@"ios"} resultBlock:^(id  _Nullable responseObject, NSError * _Nullable error) {
+//        NSLog(@" 网证下载33== %@ ",responseObject);
+//        
+//        if ([responseObject[@"success"] intValue] == 1) {
+//            
+////            self.codeIV.image = [self createQRCodeWithCodeStr:responseObject[@"data"][@"ctid"]];
+////            self.maskView.hidden = YES;
+//            [[NSUserDefaults standardUserDefaults]setValue:responseObject[@"data"][@"ctid"]?:@"" forKey:@"CTID"];
+//            [self applyQrcodeWithImageStr:imageStr withSkey:skey withDeviceId:deviceid];
+//            
+//        }else if ([responseObject[@"code"] intValue] == 500) {
+//            // 跳转开通网证
+//            
+//            NSString *phone = [[NSUserDefaults standardUserDefaults]objectForKey:@"HYPhone"];
+//            OpenIDCardViewController *idcardVC = [[OpenIDCardViewController alloc]init];
+//            idcardVC.bsn = self.bsn;
+//            idcardVC.phone = phone;
+//            [self.navigationController pushViewController:idcardVC animated:YES];
+//            
+//        }
+//        
+//    }];
+//    
+//}
 
 - (UIImage *)createQRCodeWithCodeStr:(NSString *)codeStr {
     

@@ -8,14 +8,13 @@
 #import "HYBusinessSearchViewController.h"
 #import "HYSearchView.h"
 #import "HYGuessBusinessTableViewCell.h"
-#import "FaceTipViewController.h"
 #import "FaceRecViewController.h"
 #import "HYHandleAffairsWebVIewController.h"
 #import "HYOnLineBusinessMainViewController.h"
 #import "HYCivicCenterCommand.h"
 #import "UILabel+XFExtension.h"
 
-@interface HYBusinessSearchViewController () <UITableViewDelegate, UITableViewDataSource, FaceResultDelegate, UITextFieldDelegate, FaceRecResultDelegate>
+@interface HYBusinessSearchViewController () <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, FaceRecResultDelegate>
 
 @property (nonatomic, strong) HYSearchView * searchView;
 @property (nonatomic, copy) NSString * jumpUrl;  // 传给网页的url
@@ -112,9 +111,6 @@ NSString *const businessSearchCell = @"search";
         self.code = businessModel.link;
         self.titleStr = businessModel.name;
         self.jumpUrl = businessModel.jumpUrl;
-//        FaceTipViewController *faceTipVC = [[FaceTipViewController alloc]init];
-//        faceTipVC.delegate = self;
-//        [self.navigationController pushViewController:faceTipVC animated:YES];
         FaceRecViewController *vc = [[FaceRecViewController alloc] init];
         vc.delegate = self;
         [self.navigationController pushViewController:vc animated:YES];
@@ -194,21 +190,6 @@ NSString *const businessSearchCell = @"search";
 //    cell.selectedBackgroundView = selectedBackgroundView;
 }
 */
-
-#pragma mark - FaceResult
-
-- (void)getFaceResultWithImageStr:(NSString *)imageStr deviceId:(NSString *)deviceid skey:(NSString *)skey {
-    [HttpRequest postPathZWBS:@"phone/item/event/api" params:@{@"uri": @"/apiFile/discernFace", @"app": @"ios", @"file": imageStr, @"deviceId": deviceid, @"skey": skey} resultBlock:^(id  _Nullable responseObject, NSError * _Nullable error) {
-        SLog(@" 人脸识别== %@ ", responseObject);
-        if ([responseObject[@"success"] intValue] == 1) {
-            HYHandleAffairsWebVIewController *webVC = [[HYHandleAffairsWebVIewController alloc] init];
-            webVC.code = self.code;
-            webVC.titleStr = self.titleStr;
-            webVC.jumpUrl = self.jumpUrl;
-            [self.navigationController pushViewController:webVC animated:YES];
-        }
-    }];
-}
 
 #pragma mark - FaceRecResultDelegate
 

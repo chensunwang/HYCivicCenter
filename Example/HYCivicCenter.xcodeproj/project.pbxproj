@@ -3,17 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 53;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		2884A13DDBC5A454871081E5 /* Pods_HYCivicCenter_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 743D40F4C5B7B6EE30B0DB80 /* Pods_HYCivicCenter_Example.framework */; };
-		3708369A28CACFB3007184A7 /* com.baidu.idl.face.faceSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3708369928CACFB3007184A7 /* com.baidu.idl.face.faceSDK.bundle */; };
-		370836A028CAD034007184A7 /* libFaceSSDKLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3708369B28CAD034007184A7 /* libFaceSSDKLib.a */; };
-		370836A128CAD034007184A7 /* idl-key.face-ios in Resources */ = {isa = PBXBuildFile; fileRef = 3708369C28CAD034007184A7 /* idl-key.face-ios */; };
-		370836A228CAD034007184A7 /* com.baidu.idl.face.model.faceSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3708369D28CAD034007184A7 /* com.baidu.idl.face.model.faceSDK.bundle */; };
-		370836A328CAD034007184A7 /* idl-license.vis-var in Resources */ = {isa = PBXBuildFile; fileRef = 3708369E28CAD034007184A7 /* idl-license.vis-var */; };
-		370836A428CAD034007184A7 /* com.baidu.idl.face.live.action.image.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3708369F28CAD034007184A7 /* com.baidu.idl.face.live.action.image.bundle */; };
 		3725ECBA2911F7B5008F8213 /* CSWNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3725ECB82911F7B5008F8213 /* CSWNavigationController.m */; };
 		3725ECBD2911F95F008F8213 /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3725ECBC2911F95F008F8213 /* MineViewController.m */; };
 		37668A0128BD9A7D00CE530D /* HYCivicCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37668A0028BD9A7D00CE530D /* HYCivicCenter.framework */; };
@@ -47,12 +41,6 @@
 
 /* Begin PBXFileReference section */
 		348010E11FE744FAE41F7637 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		3708369928CACFB3007184A7 /* com.baidu.idl.face.faceSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = com.baidu.idl.face.faceSDK.bundle; sourceTree = "<group>"; };
-		3708369B28CAD034007184A7 /* libFaceSSDKLib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFaceSSDKLib.a; sourceTree = "<group>"; };
-		3708369C28CAD034007184A7 /* idl-key.face-ios */ = {isa = PBXFileReference; lastKnownFileType = file; path = "idl-key.face-ios"; sourceTree = "<group>"; };
-		3708369D28CAD034007184A7 /* com.baidu.idl.face.model.faceSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = com.baidu.idl.face.model.faceSDK.bundle; sourceTree = "<group>"; };
-		3708369E28CAD034007184A7 /* idl-license.vis-var */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "idl-license.vis-var"; sourceTree = "<group>"; };
-		3708369F28CAD034007184A7 /* com.baidu.idl.face.live.action.image.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = com.baidu.idl.face.live.action.image.bundle; sourceTree = "<group>"; };
 		3725ECB82911F7B5008F8213 /* CSWNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSWNavigationController.m; sourceTree = "<group>"; };
 		3725ECB92911F7B5008F8213 /* CSWNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSWNavigationController.h; sourceTree = "<group>"; };
 		3725ECBB2911F95F008F8213 /* MineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineViewController.h; sourceTree = "<group>"; };
@@ -99,7 +87,6 @@
 				6003F592195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F58E195388D20070C39A /* Foundation.framework in Frameworks */,
 				2884A13DDBC5A454871081E5 /* Pods_HYCivicCenter_Example.framework in Frameworks */,
-				370836A028CAD034007184A7 /* libFaceSSDKLib.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,12 +151,6 @@
 				3725ECB82911F7B5008F8213 /* CSWNavigationController.m */,
 				3725ECBB2911F95F008F8213 /* MineViewController.h */,
 				3725ECBC2911F95F008F8213 /* MineViewController.m */,
-				3708369F28CAD034007184A7 /* com.baidu.idl.face.live.action.image.bundle */,
-				3708369D28CAD034007184A7 /* com.baidu.idl.face.model.faceSDK.bundle */,
-				3708369C28CAD034007184A7 /* idl-key.face-ios */,
-				3708369E28CAD034007184A7 /* idl-license.vis-var */,
-				3708369B28CAD034007184A7 /* libFaceSSDKLib.a */,
-				3708369928CACFB3007184A7 /* com.baidu.idl.face.faceSDK.bundle */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
@@ -277,8 +258,9 @@
 		6003F582195388D10070C39A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				CLASSPREFIX = HY;
-				LastUpgradeCheck = 1340;
+				LastUpgradeCheck = 1430;
 				ORGANIZATIONNAME = chensunwang;
 				TargetAttributes = {
 					6003F589195388D20070C39A = {
@@ -315,13 +297,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
-				3708369A28CACFB3007184A7 /* com.baidu.idl.face.faceSDK.bundle in Resources */,
-				370836A328CAD034007184A7 /* idl-license.vis-var in Resources */,
-				370836A428CAD034007184A7 /* com.baidu.idl.face.live.action.image.bundle in Resources */,
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
-				370836A228CAD034007184A7 /* com.baidu.idl.face.model.faceSDK.bundle in Resources */,
-				370836A128CAD034007184A7 /* idl-key.face-ios in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -551,7 +528,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -616,7 +593,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HYCivicCenter/HYCivicCenter-Prefix.pch";
 				INFOPLIST_FILE = "HYCivicCenter/HYCivicCenter-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/HYCivicCenter",
@@ -641,7 +618,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HYCivicCenter/HYCivicCenter-Prefix.pch";
 				INFOPLIST_FILE = "HYCivicCenter/HYCivicCenter-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/HYCivicCenter",

@@ -7,7 +7,7 @@
 //
 
 #import "HYTabBarViewController.h"
-#import "DigitalcitizenViewController.h"
+//#import "DigitalcitizenViewController.h"
 #import "HYNavigationController.h"
 #import "HYGovernmentViewController.h"
 #import "HYHandleAffairsViewController.h"
@@ -51,7 +51,7 @@
     // Do any additional setup after loading the view.
     
     MainApi *mainApi = [MainApi sharedInstance];
-    mainApi.token = @"U_0Rt1hwUlGwCBa8ZPnXjoDR7dU";
+    mainApi.token = @"9sc9t10-yL58LTPwX6w-QF2y8us";
     
     self.view.backgroundColor = UIColor.whiteColor;
     self.delegate = self;
@@ -61,9 +61,9 @@
 // 设置分栏的项目属性
 - (void)setupChildViewController {
     // alloc init 的时候会进入对应vc的init viewdidload方法里面，也算是进入了新的界面
-    DigitalcitizenViewController *digitalVc = [[DigitalcitizenViewController alloc] init];
+//    DigitalcitizenViewController *digitalVc = [[DigitalcitizenViewController alloc] init];
 //    digitalVc.hyTitleColor = UIColor.blackColor;
-    [self setupChildViewController:digitalVc title:@"首页" image:@"icon_task_n" selectedImage:@"icon_task_s"];
+//    [self setupChildViewController:digitalVc title:@"首页" image:@"icon_task_n" selectedImage:@"icon_task_s"];
     
     HYHandleAffairsViewController *handleVc = [[HYHandleAffairsViewController alloc] init];
 //    handleVc.hyTitleColor = UIColor.blackColor;

@@ -5,19 +5,15 @@
 //  Created by nuchina on 2021/9/1.
 //
 //  市民码页面
-
+/*
 #import "CitizenCodeViewController.h"
 #import "DigitalTableViewCell.h"
 #import "MyBusinessCardController.h"
 #import "HonorWallViewController.h"
 #import "CouponMainViewController.h"
 #import "OpenIDCardViewController.h"// 开通网证
-#import "FaceTipViewController.h"
 
-#import "FaceSDKManager.h"
-#import "BDFaceLivingConfigModel.h"
-#import "BDFaceAdjustParamsTool.h"
-#import "BDFaceColorfulViewController.h"
+//#import "FaceSDKManager.h"
 
 #import <CTID_Verification/CTID_Verification.h>
 #import "NSString+Base64.h"
@@ -36,7 +32,7 @@
 #import "HYOnLineBusinessMainViewController.h"
 #import "HYRealNameAlertView.h"
 
-@interface CitizenCodeViewController () <UITableViewDelegate, UITableViewDataSource, FaceResultDelegate>
+@interface CitizenCodeViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) UIImageView *codeIV;
 @property (nonatomic, strong) UIImageView *citizenIV;
@@ -212,7 +208,7 @@ NSString *const citizenCell = @"citizenCell";
     [[FaceSDKManager sharedInstance] setColorJudgeAbility:false];
     
     // 设置用户设置的配置参数
-    [BDFaceAdjustParamsTool setDefaultConfig];
+//    [BDFaceAdjustParamsTool setDefaultConfig];
 }
 
 - (void)initLivenesswithList {
@@ -220,11 +216,12 @@ NSString *const citizenCell = @"citizenCell";
     /*
      添加当前默认的动作，是否需要按照顺序，动作活体的数量（设置页面会根据这个numOfLiveness来判断选择了几个动作）
      */
-    [BDFaceLivingConfigModel.sharedInstance.liveActionArray addObject:@(FaceLivenessActionTypeLiveEye)];
-    [BDFaceLivingConfigModel.sharedInstance.liveActionArray addObject:@(FaceLivenessActionTypeLiveMouth)];
-    [BDFaceLivingConfigModel.sharedInstance.liveActionArray addObject:@(FaceLivenessActionTypeLiveYawRight)];
-    BDFaceLivingConfigModel.sharedInstance.isByOrder = NO;
-    BDFaceLivingConfigModel.sharedInstance.numOfLiveness = 3;
+//    [BDFaceLivingConfigModel.sharedInstance.liveActionArray addObject:@(FaceLivenessActionTypeLiveEye)];
+//    [BDFaceLivingConfigModel.sharedInstance.liveActionArray addObject:@(FaceLivenessActionTypeLiveMouth)];
+//    [BDFaceLivingConfigModel.sharedInstance.liveActionArray addObject:@(FaceLivenessActionTypeLiveYawRight)];
+//    BDFaceLivingConfigModel.sharedInstance.isByOrder = NO;
+//    BDFaceLivingConfigModel.sharedInstance.numOfLiveness = 3;
+/*
 }
 
 - (void)loadClassifyData {
@@ -423,9 +420,9 @@ NSString *const citizenCell = @"citizenCell";
                 self.jumpUrl = model.jumpUrl;
                 self.titleStr = model.name;
                 self.faceRecognition = 2;
-                FaceTipViewController *faceTipVC = [[FaceTipViewController alloc] init];
-                faceTipVC.delegate = self;
-                [self.navigationController pushViewController:faceTipVC animated:YES];
+//                FaceTipViewController *faceTipVC = [[FaceTipViewController alloc] init];
+//                faceTipVC.delegate = self;
+//                [self.navigationController pushViewController:faceTipVC animated:YES];
             } else {
                 if ([model.outLinkFlag intValue] == 1) { // 外链
                     HYHandleAffairsWebVIewController *webVC = [[HYHandleAffairsWebVIewController alloc] init];
@@ -487,11 +484,11 @@ NSString *const citizenCell = @"citizenCell";
 //        NSLog(@" 埋点 == %@ ", responseObject);
     }];
     
-    FaceTipViewController *faceTipVC = [[FaceTipViewController alloc] init];
-//        faceTipVC.type = 1;
-    self.faceRecognition = 1;
-    faceTipVC.delegate = self;
-    [self.navigationController pushViewController:faceTipVC animated:YES];
+//    FaceTipViewController *faceTipVC = [[FaceTipViewController alloc] init];
+////        faceTipVC.type = 1;
+//    self.faceRecognition = 1;
+//    faceTipVC.delegate = self;
+//    [self.navigationController pushViewController:faceTipVC animated:YES];
 }
 
 
@@ -872,3 +869,4 @@ NSString *const citizenCell = @"citizenCell";
 }
 
 @end
+*/

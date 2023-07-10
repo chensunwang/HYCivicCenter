@@ -24,14 +24,13 @@
 #import "CitizenCodeViewController.h"
 #import "MetroCodeViewController.h"
 #import "BusTransportViewController.h"
-#import "FaceTipViewController.h"
 #import "FaceRecViewController.h"
 #import "HYCivicCenterCommand.h"
 #import "UIView+YXAdd.h"
 #import "UILabel+XFExtension.h"
 #import "WechatOpenSDK/WXApi.h"
 
-@interface DigitalcitizenViewController () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, FaceResultDelegate, FaceRecResultDelegate>
+@interface DigitalcitizenViewController () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, FaceRecResultDelegate>
 
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) UICollectionViewFlowLayout *flowLayout;
@@ -102,9 +101,9 @@ NSString *const serviceCell = @"serviceCell";
 }
 
 - (void)setupChildVC {
-    CitizenCodeViewController *citizenVC = [[CitizenCodeViewController alloc] init];
-    citizenVC.hyTitleColor = _hyTitleColor;
-    [self addChildViewController:citizenVC];
+//    CitizenCodeViewController *citizenVC = [[CitizenCodeViewController alloc] init];
+//    citizenVC.hyTitleColor = _hyTitleColor;
+//    [self addChildViewController:citizenVC];
     
     MetroCodeViewController *metroVC = [[MetroCodeViewController alloc] init];
     metroVC.hyTitleColor = _hyTitleColor;
@@ -198,9 +197,6 @@ NSString *const serviceCell = @"serviceCell";
             MyCertificateMainViewController *mainVC = [[MyCertificateMainViewController alloc] init];
             [self.navigationController pushViewController:mainVC animated:YES];
         } else {
-//            FaceTipViewController *faceTipVC = [[FaceTipViewController alloc] init];
-//            faceTipVC.delegate = self;
-//            [self.navigationController pushViewController:faceTipVC animated:YES];
             FaceRecViewController *vc = [[FaceRecViewController alloc] init];
             vc.delegate = self;
             [self.navigationController pushViewController:vc animated:YES];
@@ -221,23 +217,6 @@ NSString *const serviceCell = @"serviceCell";
     CGPoint offset = self.scrollView.contentOffset;
     offset.x = [UIScreen mainScreen].bounds.size.width * (button.tag - 100);
     [self.scrollView setContentOffset:offset animated:YES];
-}
-
-#pragma FaceResult
-- (void)getFaceResultWithImageStr:(NSString *)imageStr deviceId:(NSString *)deviceid skey:(NSString *)skey {
-    // 人脸识别成功保存
-    NSDate *currentDate = [NSDate date];
-    [[NSUserDefaults standardUserDefaults] setObject:currentDate forKey:@"saveDate"];
-    
-    NSString *idCard = [[NSUserDefaults standardUserDefaults]objectForKey:@"HYIdCard"];
-    NSString *nickname = [[NSUserDefaults standardUserDefaults]objectForKey:@"HYName"];
-    [HttpRequest postPathGov:@"" params:@{@"uri": @"/apiFile/discernFace", @"app": @"ios", @"nickname": nickname ? : @"", @"idCard": idCard ? : @"", @"file": imageStr, @"deviceId": deviceid, @"skey": skey} resultBlock:^(id  _Nullable responseObject, NSError * _Nullable error) {
-        NSLog(@" 人脸识别== %@ ", responseObject);
-        if ([responseObject[@"success"] intValue] == 1) {
-            MyCertificateMainViewController *mainVC = [[MyCertificateMainViewController alloc] init];
-            [self.navigationController pushViewController:mainVC animated:YES];
-        }
-    }];
 }
 
 #pragma mark - FaceRecResultDelegate

@@ -10,13 +10,12 @@
 #import "HYMyServiceTableViewCell.h"
 #import "HYMyServiceModel.h"
 #import "HYHandleAffairsWebVIewController.h"
-#import "FaceTipViewController.h"
 #import "HYOnLineBusinessMainViewController.h"
 #import "HYCivicCenterCommand.h"
 #import "UILabel+XFExtension.h"
 #import "FaceRecViewController.h"
 
-@interface HYMyServiceViewController () <UITableViewDelegate, UITableViewDataSource, FaceResultDelegate, FaceRecResultDelegate>
+@interface HYMyServiceViewController () <UITableViewDelegate, UITableViewDataSource, FaceRecResultDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *datasArr;
@@ -160,9 +159,6 @@ NSString *const myServiceCell = @"HYMyserviceCell";
             self.code = model.eventCode;
             self.titleStr = model.eventName;
             self.jumpUrl = model.jumpUrl;
-//            FaceTipViewController *faceTipVC = [[FaceTipViewController alloc] init];
-//            faceTipVC.delegate = self;
-//            [self.navigationController pushViewController:faceTipVC animated:YES];
             FaceRecViewController *vc = [[FaceRecViewController alloc] init];
             vc.delegate = self;
             [self.navigationController pushViewController:vc animated:YES];
@@ -216,24 +212,6 @@ NSString *const myServiceCell = @"HYMyserviceCell";
     return _datasArr;
 }
 
-#pragma mark - FaceResultDelegate
-
-- (void)getFaceResultWithImageStr:(NSString *)imageStr deviceId:(NSString *)deviceid skey:(NSString *)skey {
-    SLog(@" skey == %@ ", skey);
-    [HttpRequest postPathZWBS:@"phone/item/event/api" params:@{@"uri": @"/apiFile/discernFace", @"app": @"ios", @"file": imageStr, @"deviceId": deviceid, @"skey": skey} resultBlock:^(id  _Nullable responseObject, NSError * _Nullable error) {
-        SLog(@" 人脸识别== %@ ", responseObject);
-        if ([responseObject[@"success"] intValue] == 1) {
-            HYHandleAffairsWebVIewController *webVC = [[HYHandleAffairsWebVIewController alloc] init];
-            webVC.code = self.code;
-            webVC.titleStr = self.titleStr;
-            webVC.jumpUrl = self.jumpUrl;
-            [self.navigationController pushViewController:webVC animated:YES];
-        } else {
-            SLog(@"%@", responseObject[@"message"]);
-        }
-    }];
-}
-
 #pragma mark - FaceRecResultDelegate
 
 - (void)getFaceResult:(BOOL)result {
@@ -245,15 +223,5 @@ NSString *const myServiceCell = @"HYMyserviceCell";
         [self.navigationController pushViewController:webVC animated:YES];
     }
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

@@ -7,10 +7,10 @@
 
 #import "MainApi.h"
 #import "HYSystemInfo.h"
-#import "SSFaceSDK.h"
-#import "SSDKLib.h"
-#import "FaceParameterConfig.h"
-#import "FaceSSDKLib.h"
+//#import "SSFaceSDK.h"
+//#import "SSDKLib.h"
+//#import "FaceParameterConfig.h"
+//#import "FaceSSDKLib.h"
 #import "WechatOpenSDK/WXApi.h"
 #import "HYCivicCenterCommand.h"
 
@@ -42,16 +42,16 @@ static MainApi *request = nil;
         [[NSUserDefaults standardUserDefaults] synchronize];
         
 #warning develper: 下面的hostName sfp.mdbook.cn:8888 需要替换为私有化 安全服务的ip和端口号
-        [[SSDKLib sharedInstance] startSDKEngineWithDeviceID:nil hostName:@"nccsdn.yunshangnc.com/safe" ZInfoReadyHandler:^(NSError *error) {
-            NSLog(@"安全地址==%@", error);
-        }];
-
-        NSString* licensePath = [NSString stringWithFormat:@"%@.%@", FACE_LICENSE_NAME, FACE_LICENSE_SUFFIX ];
-        [[FaceSDKManager sharedInstance] setLicenseID:FACE_LICENSE_ID andLocalLicenceFile:licensePath andRemoteAuthorize:true];
-        NSLog(@"canWork = %d", [[FaceSDKManager sharedInstance] canWork]);
-        NSLog(@"version = %@", [[FaceSDKManager sharedInstance] getVersion]);
-
-        [[FaceSSDKLib sharedInstance] setFaceLicenseId:@"pri_enc_key_01.face-ios"];
+//        [[SSDKLib sharedInstance] startSDKEngineWithDeviceID:nil hostName:@"nccsdn.yunshangnc.com/safe" ZInfoReadyHandler:^(NSError *error) {
+//            NSLog(@"安全地址==%@", error);
+//        }];
+//
+//        NSString* licensePath = [NSString stringWithFormat:@"%@.%@", FACE_LICENSE_NAME, FACE_LICENSE_SUFFIX ];
+//        [[FaceSDKManager sharedInstance] setLicenseID:FACE_LICENSE_ID andLocalLicenceFile:licensePath andRemoteAuthorize:true];
+//        NSLog(@"canWork = %d", [[FaceSDKManager sharedInstance] canWork]);
+//        NSLog(@"version = %@", [[FaceSDKManager sharedInstance] getVersion]);
+//
+//        [[FaceSSDKLib sharedInstance] setFaceLicenseId:@"pri_enc_key_01.face-ios"];
 
         [WXApi registerApp:@"wx523265a0e1fc5f22" universalLink:@"https://citybrain.yunshangnc.com/"];
         

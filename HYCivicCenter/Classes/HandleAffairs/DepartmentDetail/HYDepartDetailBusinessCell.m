@@ -10,13 +10,12 @@
 #import "HYDDBusinessCell.h"
 #import "HYBusinessInfoModel.h"
 #import "HYHandleAffairsWebVIewController.h"
-#import "FaceTipViewController.h"
 #import "FaceRecViewController.h"
 #import "HYEmptyView.h"
 #import "HYOnLineBusinessMainViewController.h"
 #import "HYCivicCenterCommand.h"
 
-@interface HYDepartDetailBusinessCell ()<UITableViewDelegate, UITableViewDataSource, FaceResultDelegate, FaceRecResultDelegate>
+@interface HYDepartDetailBusinessCell ()<UITableViewDelegate, UITableViewDataSource, FaceRecResultDelegate>
 
 @property (nonatomic, strong) UIView * bgView;
 @property (nonatomic, strong) UIView * headerView;
@@ -301,9 +300,6 @@
         self.code = infoModel.link;
         self.titleStr = infoModel.name;
         self.jumpUrl = infoModel.jumpUrl;
-//        FaceTipViewController *faceTipVC = [[FaceTipViewController alloc]init];
-//        faceTipVC.delegate = self;
-//        [self.viewController.navigationController pushViewController:faceTipVC animated:YES];
         FaceRecViewController *vc = [[FaceRecViewController alloc] init];
         vc.delegate = self;
         [self.viewController.navigationController pushViewController:vc animated:YES];
@@ -321,21 +317,6 @@
             [self.viewController.navigationController pushViewController:webVC animated:YES];
         }
     }
-}
-
-#pragma mark - FaceResult
-
-- (void)getFaceResultWithImageStr:(NSString *)imageStr deviceId:(NSString *)deviceid skey:(NSString *)skey {
-    [HttpRequest postPathZWBS:@"phone/item/event/api" params:@{@"uri": @"/apiFile/discernFace", @"app": @"ios", @"file": imageStr, @"deviceId": deviceid, @"skey": skey} resultBlock:^(id  _Nullable responseObject, NSError * _Nullable error) {
-        SLog(@" 人脸识别== %@ ", responseObject);
-        if ([responseObject[@"success"] intValue] == 1) {
-            HYHandleAffairsWebVIewController *webVC = [[HYHandleAffairsWebVIewController alloc] init];
-            webVC.code = self.code;
-            webVC.titleStr = self.titleStr;
-            webVC.jumpUrl = self.jumpUrl;
-            [self.viewController.navigationController pushViewController:webVC animated:YES];
-        }
-    }];
 }
 
 #pragma mark - FaceRecResultDelegate

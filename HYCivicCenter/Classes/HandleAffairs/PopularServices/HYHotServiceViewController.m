@@ -9,14 +9,13 @@
 #import "HYHotServiceViewController.h"
 #import "HYHotServiceTableViewCell.h"
 #import "HYHotServiceModel.h"
-#import "FaceTipViewController.h"
 #import "FaceRecViewController.h"
 #import "HYHandleAffairsWebVIewController.h"
 #import "HYOnLineBusinessMainViewController.h"
 #import "HYCivicCenterCommand.h"
 #import "UILabel+XFExtension.h"
 
-@interface HYHotServiceViewController () <UITableViewDelegate, UITableViewDataSource, FaceResultDelegate, FaceRecResultDelegate>
+@interface HYHotServiceViewController () <UITableViewDelegate, UITableViewDataSource, FaceRecResultDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *datasArr;
@@ -120,9 +119,6 @@ NSString *const hotServiceCell = @"hotCell";
         self.code = model.link;
         self.titleStr = model.name;
         self.jumpUrl = model.jumpUrl;
-//        FaceTipViewController *faceTipVC = [[FaceTipViewController alloc] init];
-//        faceTipVC.delegate = self;
-//        [self.navigationController pushViewController:faceTipVC animated:YES];
         FaceRecViewController *vc = [[FaceRecViewController alloc] init];
         vc.delegate = self;
         [self.navigationController pushViewController:vc animated:YES];
@@ -148,24 +144,6 @@ NSString *const hotServiceCell = @"hotCell";
             [self presentViewController:alert animated:YES completion:nil];
         }
     }
-}
-
-#pragma mark - FaceResultDelegate
-
-- (void)getFaceResultWithImageStr:(NSString *)imageStr deviceId:(NSString *)deviceid skey:(NSString *)skey {
-    SLog(@" skey == %@ ", skey);
-    [HttpRequest postPathZWBS:@"phone/item/event/api" params:@{@"uri": @"/apiFile/discernFace", @"app": @"ios", @"file": imageStr, @"deviceId": deviceid, @"skey": skey} resultBlock:^(id  _Nullable responseObject, NSError * _Nullable error) {
-        SLog(@" 人脸识别== %@ ", responseObject);
-        if ([responseObject[@"success"] intValue] == 1) {
-            HYHandleAffairsWebVIewController *webVC = [[HYHandleAffairsWebVIewController alloc] init];
-            webVC.code = self.code;
-            webVC.titleStr = self.titleStr;
-            webVC.jumpUrl = self.jumpUrl;
-            [self.navigationController pushViewController:webVC animated:YES];
-        } else {
-            SLog(@"%@", responseObject[@"message"]);
-        }
-    }];
 }
 
 #pragma mark - FaceRecResultDelegate
