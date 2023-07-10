@@ -41,7 +41,7 @@ static MainApi *request = nil;
         [[NSUserDefaults standardUserDefaults] setObject:@(NO) forKey:@"checkAgreeBtn"];
         [[NSUserDefaults standardUserDefaults] synchronize];
         
-#warning develper: 下面的hostName sfp.mdbook.cn:8888 需要替换为私有化 安全服务的ip和端口号
+//#warning develper: 下面的hostName sfp.mdbook.cn:8888 需要替换为私有化 安全服务的ip和端口号
 //        [[SSDKLib sharedInstance] startSDKEngineWithDeviceID:nil hostName:@"nccsdn.yunshangnc.com/safe" ZInfoReadyHandler:^(NSError *error) {
 //            NSLog(@"安全地址==%@", error);
 //        }];

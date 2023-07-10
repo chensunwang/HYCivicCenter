@@ -7,7 +7,6 @@
 
 #import "CertificateDetailViewController.h"
 #import "CertificateInfoViewController.h"
-#import <CTID_Verification/CTID_Verification.h>
 #import "OpenIDCardViewController.h"
 #import "HYCivicCenterCommand.h"
 
@@ -101,12 +100,12 @@
     [codeIV addSubview:self.centerIV];
     
     MainApi *api = [MainApi sharedInstance];
-    if (api.isShow) {
-        UIImageView *imageView = [CtidVerifySdk creatQRCodeImageWithImgStreamStr:imgStream width:[imgWidth integerValue] withFrame:CGRectMake(0, 0, 206, 206)];
-        codeIV.alpha = 1;
-        codeIV.image = imageView.image;
-        self.centerIV.hidden = NO;
-    }
+//    if (api.isShow) {
+//        UIImageView *imageView = [CtidVerifySdk creatQRCodeImageWithImgStreamStr:imgStream width:[imgWidth integerValue] withFrame:CGRectMake(0, 0, 206, 206)];
+//        codeIV.alpha = 1;
+//        codeIV.image = imageView.image;
+//        self.centerIV.hidden = NO;
+//    }
     
     self.maskView = [[UIImageView alloc]init];
     self.maskView.userInteractionEnabled = YES;
@@ -117,15 +116,15 @@
     citizenIV.image = HyBundleImage(@"citizenBg");
     [self.maskView addSubview:citizenIV];
     
-    UIButton *downloadBtn = [[UIButton alloc]init];
-    [downloadBtn setTitle:@"网证下载" forState:UIControlStateNormal];
-    [downloadBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [downloadBtn setBackgroundColor:UIColorFromRGB(0x3776FF)];
-    downloadBtn.titleLabel.font = RFONT(15);
-    downloadBtn.layer.cornerRadius = 4;
-    downloadBtn.clipsToBounds = YES;
-    [downloadBtn addTarget:self action:@selector(netCardDownload) forControlEvents:UIControlEventTouchUpInside];
-    [self.maskView addSubview:downloadBtn];
+//    UIButton *downloadBtn = [[UIButton alloc]init];
+//    [downloadBtn setTitle:@"网证下载" forState:UIControlStateNormal];
+//    [downloadBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+//    [downloadBtn setBackgroundColor:UIColorFromRGB(0x3776FF)];
+//    downloadBtn.titleLabel.font = RFONT(15);
+//    downloadBtn.layer.cornerRadius = 4;
+//    downloadBtn.clipsToBounds = YES;
+//    [downloadBtn addTarget:self action:@selector(netCardDownload) forControlEvents:UIControlEventTouchUpInside];
+//    [self.maskView addSubview:downloadBtn];
     
     UILabel *tipLabel = [[UILabel alloc]init];
     tipLabel.textColor = UIColorFromRGB(0x999999);
@@ -233,11 +232,11 @@
         make.size.mas_equalTo(CGSizeMake(206, 206));
     }];
     
-    [downloadBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(self.maskView.mas_bottom).offset(-57);
-        make.centerX.equalTo(self.maskView.mas_centerX);
-        make.size.mas_equalTo(CGSizeMake(100, 36));
-    }];
+//    [downloadBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.bottom.equalTo(self.maskView.mas_bottom).offset(-57);
+//        make.centerX.equalTo(self.maskView.mas_centerX);
+//        make.size.mas_equalTo(CGSizeMake(100, 36));
+//    }];
     
     [citizenIV mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.maskView.mas_top).offset(57);
@@ -439,35 +438,35 @@
 }
 
 // 网证下载
-- (void)netCardDownload {
-    
-    NSString *urlString = @"/apiFile/haiDunBase/applyNet?source=2";
-    NSString *encodeUrl = [urlString stringByAddingPercentEncodingWithAllowedCharacters:[[NSCharacterSet URLQueryAllowedCharacterSet] invertedSet]];
-    [HttpRequest postPathGov:@"" params:@{@"uri":encodeUrl} resultBlock:^(id  _Nullable responseObject, NSError * _Nullable error) {
-        NSLog(@" 网证下载申请 == %@ ",responseObject);
-        if ([responseObject[@"code"] intValue] == 200 && [responseObject[@"success"] intValue] == 1) {
-            self.bsn = responseObject[@"data"][@"bsn"];
-            self.randomNum = responseObject[@"data"][@"randomNum"];
-
-            CtidVerifySdk *ctidVerifyTool = [[CtidVerifySdk alloc]init];
-            CTIDReq *req = [[CTIDReq alloc]init];
-            req.randomNumber = self.randomNum;
-            req.organizeId = @"00001405";
-            req.appId = @"0002";
-            req.type = 3;
-            ctidVerifyTool.resultDictBlock = ^(NSDictionary *resultDict) {
-                NSLog(@" 获取身份认证数据== %@ ",resultDict);
-                if ([resultDict[@"resultCode"] intValue] == 0) {
-        //            resultDict[@"resultInfo"]
-                    self.idcardAuthInfo = resultDict[@"resultInfo"];
-                }
-            };
-            [ctidVerifyTool getAuthIDCardData:req];
-            [self faceScan];
-        }
-    }];
-    
-}
+//- (void)netCardDownload {
+//
+//    NSString *urlString = @"/apiFile/haiDunBase/applyNet?source=2";
+//    NSString *encodeUrl = [urlString stringByAddingPercentEncodingWithAllowedCharacters:[[NSCharacterSet URLQueryAllowedCharacterSet] invertedSet]];
+//    [HttpRequest postPathGov:@"" params:@{@"uri":encodeUrl} resultBlock:^(id  _Nullable responseObject, NSError * _Nullable error) {
+//        NSLog(@" 网证下载申请 == %@ ",responseObject);
+//        if ([responseObject[@"code"] intValue] == 200 && [responseObject[@"success"] intValue] == 1) {
+//            self.bsn = responseObject[@"data"][@"bsn"];
+//            self.randomNum = responseObject[@"data"][@"randomNum"];
+//
+//            CtidVerifySdk *ctidVerifyTool = [[CtidVerifySdk alloc]init];
+//            CTIDReq *req = [[CTIDReq alloc]init];
+//            req.randomNumber = self.randomNum;
+//            req.organizeId = @"00001405";
+//            req.appId = @"0002";
+//            req.type = 3;
+//            ctidVerifyTool.resultDictBlock = ^(NSDictionary *resultDict) {
+//                NSLog(@" 获取身份认证数据== %@ ",resultDict);
+//                if ([resultDict[@"resultCode"] intValue] == 0) {
+//        //            resultDict[@"resultInfo"]
+//                    self.idcardAuthInfo = resultDict[@"resultInfo"];
+//                }
+//            };
+//            [ctidVerifyTool getAuthIDCardData:req];
+//            [self faceScan];
+//        }
+//    }];
+//
+//}
 
 - (void)faceScan {
     
@@ -476,7 +475,7 @@
 //    [self.navigationController pushViewController:faceTipVC animated:YES];
     
 }
-
+/*
 - (void)getFaceResultWithImageStr:(NSString *)imageStr deviceId:(NSString *)deviceid skey:(NSString *)skey {
     
     [[NSUserDefaults standardUserDefaults]setValue:imageStr?:@"" forKey:@"HYImageStr"];
@@ -573,9 +572,8 @@
             }];
         }
     }];
-    
 }
-
+*/
 - (NSString *)URLEncodedString:(NSString*)urlStr {
     
     NSString *encodeString = [urlStr stringByAddingPercentEncodingWithAllowedCharacters:[[NSCharacterSet characterSetWithCharactersInString:@"!*'();:@&=+$,/?%#[]"] invertedSet]];

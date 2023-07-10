@@ -8,7 +8,6 @@
 #import "CertificateLibraryViewController.h"
 #import "CertificateLibraryTableViewCell.h"
 #import "CertificateDetailViewController.h"
-#import <CTID_Verification/CTID_Verification.h>
 #import "MyCtidViewController.h"
 #import "HYCivicCenterCommand.h"
 
@@ -41,21 +40,21 @@ NSString *const certificateCellLibrary = @"certificateCell";
         if ([responseObject[@"code"] intValue] == 200) {
             self.datasArr = [CertificateModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
             if (self.type == 0) {
-                NSString *CTID = [[NSUserDefaults standardUserDefaults]objectForKey:@"CTID"];
-                CtidVerifySdk *ctidVerifyTool = [[CtidVerifySdk alloc]init];
-                NSDictionary *dict = [ctidVerifyTool getCtidNum:CTID];
-                NSLog(@" 网证编号和有效期 == %@ ",dict);
-                
-                CertificateModel *model = [[CertificateModel alloc]init];
-                model.name = @"居民身份网络可信凭证";
-                if (CTID.length > 0) {
-                    model.id_code = [NSString stringWithFormat:@"网证编号 %@",dict[@"SerialNumber"]];
-                }else {
-                    model.id_code = [NSString stringWithFormat:@"网证编号 暂未获取网证或网证已过期"];
-                }
-                model.holder_identity_num = @"110";
-                model.license_item_code = @"110";
-                [self.datasArr insertObject:model atIndex:0];
+//                NSString *CTID = [[NSUserDefaults standardUserDefaults] objectForKey:@"CTID"];
+//                CtidVerifySdk *ctidVerifyTool = [[CtidVerifySdk alloc]init];
+//                NSDictionary *dict = [ctidVerifyTool getCtidNum:CTID];
+//                NSLog(@" 网证编号和有效期 == %@ ",dict);
+//
+//                CertificateModel *model = [[CertificateModel alloc]init];
+//                model.name = @"居民身份网络可信凭证";
+//                if (CTID.length > 0) {
+//                    model.id_code = [NSString stringWithFormat:@"网证编号 %@",dict[@"SerialNumber"]];
+//                }else {
+//                    model.id_code = [NSString stringWithFormat:@"网证编号 暂未获取网证或网证已过期"];
+//                }
+//                model.holder_identity_num = @"110";
+//                model.license_item_code = @"110";
+//                [self.datasArr insertObject:model atIndex:0];
             }
             
             [self.tableView reloadData];
@@ -127,8 +126,8 @@ NSString *const certificateCellLibrary = @"certificateCell";
     CertificateModel *model = self.datasArr[indexPath.row];
     if ([model.holder_identity_num isEqualToString:@"110"]) {// 网证
         
-        MyCtidViewController *ctidVC = [[MyCtidViewController alloc]init];
-        [self.navigationController pushViewController:ctidVC animated:YES];
+//        MyCtidViewController *ctidVC = [[MyCtidViewController alloc]init];
+//        [self.navigationController pushViewController:ctidVC animated:YES];
         
     }else {
         

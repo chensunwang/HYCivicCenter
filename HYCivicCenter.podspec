@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'HYCivicCenter' # 库名称
-  s.version          = '0.2.34' # 库的版本号，我们每次发新版本的时候版本号需要对应修改
+  s.version          = '0.2.35' # 库的版本号，我们每次发新版本的时候版本号需要对应修改
   s.summary          = 'HYCivicCenter.' # 库的简单描述
 
 # This description is used to generate tags and improve search results.
@@ -71,7 +71,7 @@ Pod::Spec.new do |s|
 #   s.libraries = 'sqlite3.0', 'z', 'c++'
   
   # 依赖的第三方/自己的framework
-  s.ios.vendored_frameworks = 'HYCivicCenter/Classes/NetWorkIDCard/CTID_Verification.framework'
+#  s.ios.vendored_frameworks = 'HYCivicCenter/Classes/NetWorkIDCard/CTID_Verification.framework'
   
   # 依赖的第三方/自己的静态库文件 必须以lib为前缀进行命名，否则会出现找不到的情况，这一点非常重要（比如libWeChatSDK.a）
   # s.vendored_libraries = 'HYCivicCenter/Classes/libWeChatSDK.a'
@@ -84,7 +84,7 @@ Pod::Spec.new do |s|
 #      'USER_HEADER_SEARCH_PATHS' => 'HYCivicCenter/Classes/BDFaceSDK/include/*.{h}'  # 载入第三方.a头文件
   }
   
-  s.pod_target_xcconfig = { 'VALID_ARCHS' => 'arm64' }  # libFaceSSDKLib.a库只支持真机架构 所以必须加这句话
+  s.pod_target_xcconfig = { 'VALID_ARCHS' => 'arm64 armv7 x86_64' }
   
   # 依赖第三方开源框架(多个)
   s.dependency 'AFNetworking'
@@ -122,8 +122,8 @@ end
 ## 5.2  git add .
 ## 5.3  git commit -m 'change version'        提交变动记录
 ## 5.4  git push origin master                推送代码到远端仓库
-## 5.5  git tag -a 0.2.34 -m 'add tag 0.2.34'
-## 5.6  git push origin 0.2.34
+## 5.5  git tag -a 0.2.35 -m 'add tag 0.2.35'
+## 5.6  git push origin 0.2.35
 
 # 6.远程校验  pod spec lint HYCivicCenter.podspec --use-libraries --allow-warnings --verbose --no-clean
 
@@ -143,7 +143,7 @@ end
 ## 命令为：sudo xcode-select -s /Applications/Xcode13.4.1.app）
 
 # 8.提交到cocoapods仓库  pod trunk push HYCivicCenter.podspec --use-libraries --allow-warnings
-# pod repo push
+# pod repo push HYCivicCenter HYCivicCenter.podspec --use-libraries --allow-warnings
 
 
 # 搜索不到上传的库：

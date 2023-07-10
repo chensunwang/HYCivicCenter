@@ -93,8 +93,8 @@ NSString *const serviceCell = @"serviceCell";
         [HttpRequest postPathGov:@"" params:@{@"uri": @"/apiFile/discernFace", @"app": @"ios", @"nickname": nickname, @"idCard": idCard, @"file": faceDic[@"image_string"], @"deviceId": faceDic[@"device_id"], @"skey": faceDic[@"skey"]} resultBlock:^(id  _Nullable responseObject, NSError * _Nullable error) {
             NSLog(@" 人脸识别== %@ ", responseObject);
             if ([responseObject[@"success"] intValue] == 1) {
-                MyCertificateMainViewController *mainVC = [[MyCertificateMainViewController alloc] init];
-                [self.navigationController pushViewController:mainVC animated:YES];
+//                MyCertificateMainViewController *mainVC = [[MyCertificateMainViewController alloc] init];
+//                [self.navigationController pushViewController:mainVC animated:YES];
             }
         }];
     });
@@ -194,8 +194,8 @@ NSString *const serviceCell = @"serviceCell";
     if (button.tag == 103) {
         BOOL isExpire = [self isBetweenSaveDateToExpireDate];
         if (isExpire) {
-            MyCertificateMainViewController *mainVC = [[MyCertificateMainViewController alloc] init];
-            [self.navigationController pushViewController:mainVC animated:YES];
+//            MyCertificateMainViewController *mainVC = [[MyCertificateMainViewController alloc] init];
+//            [self.navigationController pushViewController:mainVC animated:YES];
         } else {
             FaceRecViewController *vc = [[FaceRecViewController alloc] init];
             vc.delegate = self;
@@ -223,8 +223,8 @@ NSString *const serviceCell = @"serviceCell";
 
 - (void)getFaceResult:(BOOL)result {
     if (result) {
-        MyCertificateMainViewController *mainVC = [[MyCertificateMainViewController alloc] init];
-        [self.navigationController pushViewController:mainVC animated:YES];
+//        MyCertificateMainViewController *mainVC = [[MyCertificateMainViewController alloc] init];
+//        [self.navigationController pushViewController:mainVC animated:YES];
     }
 }
 
@@ -336,8 +336,8 @@ NSString *const serviceCell = @"serviceCell";
             MyCouponsMainViewController *mainVC = [[MyCouponsMainViewController alloc] init];
             [self.navigationController pushViewController:mainVC animated:YES];
         } else if (indexPath.row == 3) {
-            MyCertificateMainViewController *mainVC = [[MyCertificateMainViewController alloc] init];
-            [self.navigationController pushViewController:mainVC animated:YES];
+//            MyCertificateMainViewController *mainVC = [[MyCertificateMainViewController alloc] init];
+//            [self.navigationController pushViewController:mainVC animated:YES];
         } else if (indexPath.row == 4) {
             HonorWallViewController *wallVC = [[HonorWallViewController alloc] init];
             [self.navigationController pushViewController:wallVC animated:YES];

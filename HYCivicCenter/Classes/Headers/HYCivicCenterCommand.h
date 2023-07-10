@@ -17,7 +17,6 @@
 #import "MJExtension/MJExtension.h"
 #import "TZImagePickerController/TZImageManager.h"
 #import "TZImagePickerController/TZImagePickerController.h"
-#import <CTID_Verification/CTID_Verification.h>
 #import "MainApi.h"
 #import "SVProgressHUD/SVProgressHUD.h"
 #import "HYSystemInfo.h"
