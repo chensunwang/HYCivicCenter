@@ -57,7 +57,7 @@ PODS:
     - BioAuthAPI
     - ZolozSensorServices
     - ZolozUtility
-  - HYCivicCenter (0.2.36):
+  - HYCivicCenter (0.2.37):
     - AFNetworking
     - AlipaySDK-iOS
     - AntVerify
@@ -164,7 +164,7 @@ SPEC CHECKSUMS:
   APPSecuritySDK: 65608e8aef50b9424de2c5f55bcaf312852f0567
   BioAuthAPI: aa311096f8ba9097a6fa257494421aecd950c62c
   BioAuthEngine: 06de03b730e67821c231dbeebe58c1564d4ef19e
-  HYCivicCenter: 1e1c420208f4450557c3def9641892d4fda06abb
+  HYCivicCenter: 3db38665e8a0ed0ae398544a27669bf06f9f35ec
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJExtension: 21c5f6f8c4d5d8844b7ae8fbae08fed0b501f961
   MJRefresh: fdf5e979eb406a0341468932d1dfc8b7f9fce961
