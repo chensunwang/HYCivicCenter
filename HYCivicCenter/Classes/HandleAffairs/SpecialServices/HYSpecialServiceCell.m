@@ -19,7 +19,6 @@
 
 @property (nonatomic, strong) UIView * bgView;
 @property (nonatomic, strong) UIView * topView;
-@property (nonatomic, strong) UIButton * specialBtn;  // 专项服务
 @property (nonatomic, strong) UIButton * departmentBtn;  // 部门服务
 @property (nonatomic, strong) UIButton * countyBtn;  // 县区服务
 @property (nonatomic, strong) UIView * lineView;  // 指示条
@@ -28,7 +27,7 @@
 @property (nonatomic, strong) UIImageView * emptyImageView;
 @property (nonatomic, strong) UILabel * emptyTipLabel;
 
-@property (nonatomic, assign) NSInteger type; // 0:专项服务 1:部门服务 2:县区服务
+@property (nonatomic, assign) NSInteger type; // 0:部门服务 1:县区服务
 
 @end
 
@@ -55,22 +54,11 @@
     // Configure the view for the selected state
 }
 
-- (void)setSpecialArray:(NSMutableArray *)specialArray {
-    if (specialArray) {
-        _specialArray = specialArray;
-        [self.tableView reloadData];
-        if (_type == 0) {
-            _tableView.hidden = specialArray.count == 0 ? YES : NO;
-            _emptyView.hidden = specialArray.count == 0 ? NO : YES;
-        }
-    }
-}
-
 - (void)setDepartmentArray:(NSMutableArray *)departmentArray {
     if (departmentArray) {
         _departmentArray = departmentArray;
         [self.tableView reloadData];
-        if (_type == 1) {
+        if (_type == 0) {
             _tableView.hidden = departmentArray.count == 0 ? YES : NO;
             _emptyView.hidden = departmentArray.count == 0 ? NO : YES;
         }
@@ -81,7 +69,7 @@
     if (countyArray) {
         _countyArray = countyArray;
         [self.tableView reloadData];
-        if (_type == 2) {
+        if (_type == 1) {
             _tableView.hidden = countyArray.count == 0 ? YES : NO;
             _emptyView.hidden = countyArray.count == 0 ? NO : YES;
         }
@@ -103,20 +91,10 @@
         make.height.mas_equalTo(51);
     }];
     
-    self.specialBtn = [[UIButton alloc] initWithFrame:CGRectZero];
-    [self.topView addSubview:self.specialBtn];
-    [self.specialBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(28);
-        make.top.height.mas_equalTo(17);
-    }];
-    [self.specialBtn setTitle:@"专项服务" forState:UIControlStateNormal];
-    self.specialBtn.titleLabel.font = MFONT(17);
-    [self.specialBtn addTarget:self action:@selector(switchBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
-    
     self.departmentBtn = [[UIButton alloc] initWithFrame:CGRectZero];
     [self.topView addSubview:self.departmentBtn];
     [self.departmentBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(self.topView);
+        make.left.equalTo(self.topView).offset(50);
         make.top.height.mas_equalTo(17);
     }];
     [self.departmentBtn setTitle:@"部门服务" forState:UIControlStateNormal];
@@ -126,7 +104,7 @@
     self.countyBtn = [[UIButton alloc] initWithFrame:CGRectZero];
     [self.topView addSubview:self.countyBtn];
     [self.countyBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(self.topView).offset(-28);
+        make.right.equalTo(self.topView).offset(-50);
         make.top.height.mas_equalTo(17);
     }];
     [self.countyBtn setTitle:@"县区服务" forState:UIControlStateNormal];
@@ -136,8 +114,8 @@
     self.lineView = [[UIView alloc] initWithFrame:CGRectZero];
     [self.topView addSubview:self.lineView];
     [self.lineView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(self.specialBtn);
-        make.top.equalTo(self.specialBtn.mas_bottom).offset(10);
+        make.centerX.equalTo(self.departmentBtn);
+        make.top.equalTo(self.departmentBtn.mas_bottom).offset(10);
         make.height.mas_equalTo(2);
         make.width.mas_equalTo(25);
     }];
@@ -190,7 +168,6 @@
     
     self.backgroundColor = UIColorFromRGB(0xEBEFF5);
     self.bgView.backgroundColor = UIColor.whiteColor;
-    [self.specialBtn setTitleColor:UIColorFromRGB(0x157AFF) forState:UIControlStateNormal];
     [self.departmentBtn setTitleColor:UIColorFromRGB(0x999999) forState:UIControlStateNormal];
     [self.countyBtn setTitleColor:UIColorFromRGB(0x999999) forState:UIControlStateNormal];
     
@@ -206,12 +183,10 @@
     }
     [sender setTitleColor:UIColorFromRGB(0x157AFF) forState:UIControlStateNormal];
     
-    if ([sender.titleLabel.text isEqualToString:@"专项服务"]) {
+    if ([sender.titleLabel.text isEqualToString:@"部门服务"]) {
         self.type = 0;
-    } else if ([sender.titleLabel.text isEqualToString:@"部门服务"]) {
-        self.type = 1;
     } else {
-        self.type = 2;
+        self.type = 1;
     }
     if (self.specialServiceCellBlock) {
         self.specialServiceCellBlock(_type, 0);
@@ -233,14 +208,12 @@
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return _type == 0 ? _specialArray.count : (_type == 1 ? _departmentArray.count : _countyArray.count);
+    return _type == 0 ? _departmentArray.count : _countyArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     HYSSTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HYSSTableViewCell" forIndexPath:indexPath];
     if (_type == 0) {
-        cell.specialModel = self.specialArray[indexPath.row];
-    } else if (_type == 1) {
         cell.departmentModel = self.departmentArray[indexPath.row];
     } else {
         cell.departmentModel = self.countyArray[indexPath.row];
@@ -261,14 +234,7 @@
             self.specialServiceCellBlock(0, 1);
         }
     } else {
-        if (_type == 0) { // 专项服务
-            HYSpecialServiceViewController *specialVC = [[HYSpecialServiceViewController alloc] init];
-            specialVC.hyTitleColor = _hyTitleColor;
-            specialVC.index = indexPath.row;
-            specialVC.headerArr = self.specialArray;
-            specialVC.isEnterprise = _isEnterprise;
-            [self.viewController.navigationController pushViewController:specialVC animated:YES];
-        } else if (_type == 1) {  // 部门服务
+        if (_type == 0) {  // 部门服务
             HYDepartmentCountryModel *departmentModel = self.departmentArray[indexPath.row];
             HYDepartDetailViewController * businessVC = [[HYDepartDetailViewController alloc] init];
             businessVC.hyTitleColor = _hyTitleColor;

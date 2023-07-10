@@ -31,13 +31,13 @@
 @property (nonatomic, strong) HYSearchView * searchView;
 @property (nonatomic, strong) UITableView * tableView;
 @property (nonatomic, strong) NSMutableArray * hotServiceArr;  // 热门服务数据
-@property (nonatomic, strong) NSMutableArray * specialServiceArr;  // 专项服务数据
+//@property (nonatomic, strong) NSMutableArray * specialServiceArr;  // 专项服务数据
 @property (nonatomic, strong) NSMutableArray * deparmentServiceArr; // 部门服务数据
 @property (nonatomic, strong) NSMutableArray * countyServiceArr; // 县区服务数据
 @property (nonatomic, copy) NSString * jumpUrl;  // 传给网页的url
 @property (nonatomic, copy) NSString * code;  // 传给网页的code
 @property (nonatomic, copy) NSString * titleStr;  // 传给网页的title
-@property (nonatomic, assign) NSInteger type; // 0:专项 1:部门 2:县区
+@property (nonatomic, assign) NSInteger type; // 0:部门 1:县区
 @property (nonatomic, copy) NSString *idCard;  // 身份证号 如果有则已实名认证 否则未实名认证
 @property (nonatomic, assign) BOOL isEnterprise;  // true 企业  false 个人
 @property (nonatomic, assign) BOOL isLogin;  // 是否已经登录
@@ -146,13 +146,6 @@
     return _hotServiceArr;
 }
 
-- (NSMutableArray *)specialServiceArr {
-    if (!_specialServiceArr) {
-        _specialServiceArr = [NSMutableArray array];
-    }
-    return _specialServiceArr;
-}
-
 - (NSMutableArray *)deparmentServiceArr {
     if (!_deparmentServiceArr) {
         _deparmentServiceArr = [NSMutableArray array];
@@ -218,21 +211,21 @@
         dispatch_group_leave(group);
     });
     
-    dispatch_group_enter(group);
-    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        [HttpRequest getPathZWBS:@"phone/item/event/getSpecialTagList" params:nil resultBlock:^(id  _Nullable responseObject, NSError * _Nullable error) {
-            SLog(@" 专项服务1== %@ ", responseObject);
-            if ([responseObject[@"code"] intValue] == 200) {
-                self.specialServiceArr = [HYServiceContentModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:2 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
-                });
-            } else {
-                SLog(@"%@", responseObject[@"msg"]);
-            }
-        }];
-        dispatch_group_leave(group);
-    });
+//    dispatch_group_enter(group);
+//    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+//        [HttpRequest getPathZWBS:@"phone/item/event/getSpecialTagList" params:nil resultBlock:^(id  _Nullable responseObject, NSError * _Nullable error) {
+//            SLog(@" 专项服务1== %@ ", responseObject);
+//            if ([responseObject[@"code"] intValue] == 200) {
+//                self.specialServiceArr = [HYServiceContentModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+//                dispatch_async(dispatch_get_main_queue(), ^{
+//                    [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:2 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
+//                });
+//            } else {
+//                SLog(@"%@", responseObject[@"msg"]);
+//            }
+//        }];
+//        dispatch_group_leave(group);
+//    });
     
     dispatch_group_enter(group);
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
@@ -333,7 +326,6 @@
         cell.hyTitleColor = _hyTitleColor;
         cell.idCard = _idCard;
         cell.isEnterprise = _isEnterprise;
-        cell.specialArray = self.specialServiceArr;
         cell.departmentArray = self.deparmentServiceArr;
         cell.countyArray = self.countyServiceArr;
         __weak typeof(self) weakSelf = self;
