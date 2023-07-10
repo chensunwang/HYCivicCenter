@@ -9,7 +9,7 @@
 #import "HYSearchView.h"
 #import "HYGuessBusinessTableViewCell.h"
 #import "HYHandleAffairsWebVIewController.h"
-#import "HYRealNameAlertView.h"
+//#import "HYRealNameAlertView.h"
 #import "HYEmptyView.h"
 #import "HYOnLineBusinessMainViewController.h"
 #import "HYCivicCenterCommand.h"
@@ -170,12 +170,18 @@ NSString *const searchCell = @"homeSearchCell";
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    HYGuessBusinessModel *businessModel = self.datasArr[indexPath.row];
     if (!_idCard || [_idCard isEqualToString:@""]) { // 需要实名认证
-        [self showAlertForReanNameAuth];
+//        [self showAlertForReanNameAuth];
+        self.code = businessModel.code;
+        self.titleStr = businessModel.name;
+        self.jumpUrl = businessModel.jumpUrl;
+        FaceRecViewController *vc = [[FaceRecViewController alloc] init];
+        vc.delegate = self;
+        [self.navigationController pushViewController:vc animated:YES];
     } else {
-        HYGuessBusinessModel *businessModel = self.datasArr[indexPath.row];
         if ([businessModel.needFaceRecognition intValue] == 1) { // 跳转人脸识别
-            self.code  =businessModel.code;
+            self.code = businessModel.code;
             self.titleStr = businessModel.name;
             self.jumpUrl = businessModel.jumpUrl;
             FaceRecViewController *vc = [[FaceRecViewController alloc] init];
@@ -204,7 +210,7 @@ NSString *const searchCell = @"homeSearchCell";
         }
     }
 }
-
+/*
 #pragma mark - HYRealNameAuthDelegate
 
 - (void)jumpRealNameAuthVC {  // 实名认证
@@ -239,7 +245,7 @@ NSString *const searchCell = @"homeSearchCell";
     };
     [alertV showAlertView];
 }
-
+*/
 #pragma mark - FaceRecResultDelegate
 
 - (void)getFaceResult:(BOOL)result {

@@ -5,7 +5,7 @@
 //  Created by 谌孙望 on 2022/3/17.
 //
 //  实名认证弹窗
-
+/*
 #import "HYRealNameAlertView.h"
 #import "HYCivicCenterCommand.h"
 
@@ -126,3 +126,4 @@
 }
 
 @end
+*/

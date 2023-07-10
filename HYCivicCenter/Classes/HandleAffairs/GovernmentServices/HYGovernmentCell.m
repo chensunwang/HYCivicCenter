@@ -178,7 +178,10 @@
         return;
     }
     if (!_idCard || [_idCard isEqualToString:@""]) {  // 需要实名认证
-        [self showAlertForReanNameAuth];
+//        [self showAlertForReanNameAuth];
+        if (self.governmentCellBlock != nil) {
+            self.governmentCellBlock();
+        }
     } else {
         HYServiceProgressViewController *progressVC = [[HYServiceProgressViewController alloc] init];
         progressVC.hyTitleColor = _hyTitleColor;
@@ -191,7 +194,10 @@
         return;
     }
     if (!_idCard || [_idCard isEqualToString:@""]) {  // 需要实名认证
-        [self showAlertForReanNameAuth];
+//        [self showAlertForReanNameAuth];
+        if (self.governmentCellBlock != nil) {
+            self.governmentCellBlock();
+        }
     } else {
         HYMyServiceViewController *myServiceVC = [[HYMyServiceViewController alloc] init];
         myServiceVC.isEnterprise = _isEnterprise;
@@ -200,7 +206,7 @@
     }
 }
 
-
+/*
 - (void)showAlertForReanNameAuth {
     HYRealNameAlertView *alertV = [[HYRealNameAlertView alloc] init];
     alertV.alertResult = ^(NSInteger index) {
@@ -233,5 +239,5 @@
     [self.viewController.navigationController pushViewController:instance animated:true];
     
 }
-
+*/
 @end

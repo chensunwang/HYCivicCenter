@@ -679,7 +679,13 @@ NSString *const busTransPortCell = @"busCell";
         NSString *idCard = [[NSUserDefaults standardUserDefaults] valueForKey:@"HYIdCard"];
         NSString *isEnterprise = [[NSUserDefaults standardUserDefaults] valueForKey:@"HYIsEnterprise"];
         if (!idCard || [idCard isEqualToString:@""]) { // 需要实名认证
-            [self showAlertForReanNameAuth];
+//            [self showAlertForReanNameAuth];
+            self.code = model.link;
+            self.jumpUrl = model.jumpUrl;
+            self.titleStr = model.name;
+            FaceRecViewController *vc = [[FaceRecViewController alloc] init];
+            vc.delegate = self;
+            [self.navigationController pushViewController:vc animated:YES];
         } else {
             if (model.needFaceRecognition.intValue == 1) { // 跳转人脸识别
                 self.code = model.link;
@@ -808,7 +814,7 @@ NSString *const busTransPortCell = @"busCell";
     realtimeVC.keyword = self.stationName;
     [self.navigationController pushViewController:realtimeVC animated:YES];
 }
-
+/*
 - (void)showAlertForReanNameAuth {
     HYRealNameAlertView *alertV = [[HYRealNameAlertView alloc] init];
     __weak typeof(self) weakSelf = self;
@@ -842,7 +848,7 @@ NSString *const busTransPortCell = @"busCell";
     [self.navigationController pushViewController:instance animated:true];
     
 }
-
+*/
 - (UITableView *)tableView {
     if (!_tableView) {
         _tableView = [[UITableView alloc] init];

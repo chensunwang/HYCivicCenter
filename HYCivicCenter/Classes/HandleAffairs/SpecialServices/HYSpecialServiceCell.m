@@ -214,7 +214,7 @@
         self.type = 2;
     }
     if (self.specialServiceCellBlock) {
-        self.specialServiceCellBlock(_type);
+        self.specialServiceCellBlock(_type, 0);
     }
     [self.lineView removeFromSuperview];
     [UIView animateWithDuration:0.5 animations:^{
@@ -256,7 +256,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (!_idCard || [_idCard isEqualToString:@""]) { // 需要实名认证
-        [self showAlertForReanNameAuth];
+//        [self showAlertForReanNameAuth];
+        if (self.specialServiceCellBlock) {
+            self.specialServiceCellBlock(0, 1);
+        }
     } else {
         if (_type == 0) { // 专项服务
             HYSpecialServiceViewController *specialVC = [[HYSpecialServiceViewController alloc] init];
@@ -283,7 +286,7 @@
         }
     }
 }
-
+/*
 - (void)showAlertForReanNameAuth {
     HYRealNameAlertView *alertV = [[HYRealNameAlertView alloc] init];
     alertV.alertResult = ^(NSInteger index) {
@@ -316,5 +319,5 @@
     [self.viewController.navigationController pushViewController:instance animated:true];
     
 }
-
+*/
 @end

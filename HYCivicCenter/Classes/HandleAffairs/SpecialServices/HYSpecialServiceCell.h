@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef void(^HYSpecialServiceCellBlock)(NSInteger index);
+typedef void(^HYSpecialServiceCellBlock)(NSInteger index, BOOL flag);
 
 @interface HYSpecialServiceCell : UITableViewCell
 

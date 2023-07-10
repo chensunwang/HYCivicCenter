@@ -9,8 +9,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef void(^HYGovernmentCellBlock)(void);
+
 @interface HYGovernmentCell : UITableViewCell
 
+@property (nonatomic, copy) HYGovernmentCellBlock governmentCellBlock;
 @property (nonatomic, strong) UIViewController * viewController;
 @property (nonatomic, copy) NSString *idCard;
 @property (nonatomic, assign) BOOL isEnterprise;  // true 企业  false 个人

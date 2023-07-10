@@ -41,6 +41,7 @@
 @property (nonatomic, copy) NSString *idCard;  // 身份证号 如果有则已实名认证 否则未实名认证
 @property (nonatomic, assign) BOOL isEnterprise;  // true 企业  false 个人
 @property (nonatomic, assign) BOOL isLogin;  // 是否已经登录
+@property (nonatomic, assign) BOOL isNeedRecResult; // 是否需要人脸识别结果
 
 @end
 
@@ -306,6 +307,13 @@
         cell.idCard = _idCard;
         cell.isEnterprise = _isEnterprise;
         cell.isLogin = _isLogin;
+        __weak typeof(self) weakSelf = self;
+        cell.governmentCellBlock = ^{
+            weakSelf.isNeedRecResult = NO;
+            FaceRecViewController *vc = [[FaceRecViewController alloc] init];
+            vc.delegate = weakSelf;
+            [self.navigationController pushViewController:vc animated:YES];
+        };
         return cell;
     } else if (indexPath.row == 1) {
         HYPopularQueriesCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HYPopularQueriesCell"];
@@ -329,12 +337,19 @@
         cell.departmentArray = self.deparmentServiceArr;
         cell.countyArray = self.countyServiceArr;
         __weak typeof(self) weakSelf = self;
-        cell.specialServiceCellBlock = ^(NSInteger index) {
+        cell.specialServiceCellBlock = ^(NSInteger index, BOOL flag) {
             if (!weakSelf.isLogin) {
                 return;
             }
-            weakSelf.type = index;
-            [tableView reloadData];
+            if (flag) {  // 实名认证
+                weakSelf.isNeedRecResult = NO;
+                FaceRecViewController *vc = [[FaceRecViewController alloc] init];
+                vc.delegate = weakSelf;
+                [self.navigationController pushViewController:vc animated:YES];
+            } else {
+                weakSelf.type = index;
+                [tableView reloadData];
+            }
         };
         return cell;
     } else {
@@ -344,10 +359,17 @@
             if (!weakSelf.isLogin) {
                 return;
             }
+            HYHotServiceModel *model = weakSelf.hotServiceArr[index];
             if (!weakSelf.idCard || [weakSelf.idCard isEqualToString:@""]) {  // 需要实名认证
-                [weakSelf showAlertForReanNameAuth];
+//                [weakSelf showAlertForReanNameAuth];
+                weakSelf.code = model.link;
+                weakSelf.jumpUrl = model.jumpUrl;
+                weakSelf.titleStr = model.name;
+                weakSelf.isNeedRecResult = YES;
+                FaceRecViewController *vc = [[FaceRecViewController alloc] init];
+                vc.delegate = weakSelf;
+                [self.navigationController pushViewController:vc animated:YES];
             } else {
-                HYHotServiceModel *model = weakSelf.hotServiceArr[index];
                 if (model.outLinkFlag || model.servicePersonFlag || weakSelf.isEnterprise) { // 外链 内链个人  内链企业且已企业认证
                     HYGuessBusinessViewController *guessVC = [[HYGuessBusinessViewController alloc] init];
                     guessVC.isEnterprise = weakSelf.isEnterprise;
@@ -407,7 +429,14 @@
         [self.navigationController pushViewController:legalAidVC animated:YES];
     } else if ([model.name isEqualToString:@"更多"]) {
         if (!_idCard || [_idCard isEqualToString:@""]) { // 需要实名认证
-            [self showAlertForReanNameAuth];
+//            [self showAlertForReanNameAuth];
+            self.code = model.link;
+            self.jumpUrl = model.jumpUrl;
+            self.titleStr = model.name;
+            self.isNeedRecResult = YES;
+            FaceRecViewController *vc = [[FaceRecViewController alloc] init];
+            vc.delegate = self;
+            [self.navigationController pushViewController:vc animated:YES];
         } else {
             HYHotServiceViewController *hotServiceVC = [[HYHotServiceViewController alloc] init];
             hotServiceVC.isEnterprise = self.isEnterprise;
@@ -417,12 +446,20 @@
     } else {
         // 判断逻辑如下：先判断是否实名认证 -- 再判断是否人脸识别 -- 再判断内外链（外链直接跳转，内链区分个人和企业 -- 个人直接跳转，企业判断是否企业认证）
         if (!_idCard || [_idCard isEqualToString:@""]) { // 需要实名认证
-            [self showAlertForReanNameAuth];
+//            [self showAlertForReanNameAuth];
+            self.code = model.link;
+            self.jumpUrl = model.jumpUrl;
+            self.titleStr = model.name;
+            self.isNeedRecResult = YES;
+            FaceRecViewController *vc = [[FaceRecViewController alloc] init];
+            vc.delegate = self;
+            [self.navigationController pushViewController:vc animated:YES];
         } else {
             if (model.needFaceRecognition.intValue == 1) { // 跳转人脸识别
                 self.code = model.link;
                 self.jumpUrl = model.jumpUrl;
                 self.titleStr = model.name;
+                self.isNeedRecResult = YES;
                 FaceRecViewController *vc = [[FaceRecViewController alloc] init];
                 vc.delegate = self;
                 [self.navigationController pushViewController:vc animated:YES];
@@ -455,7 +492,7 @@
 #pragma mark - FaceRecResultDelegate
 
 - (void)getFaceResult:(BOOL)result {
-    if (result) {
+    if (result && _isNeedRecResult) {
         HYHandleAffairsWebVIewController *webVC = [[HYHandleAffairsWebVIewController alloc] init];
         webVC.code = self.code;
         webVC.titleStr = self.titleStr;
@@ -463,7 +500,7 @@
         [self.navigationController pushViewController:webVC animated:YES];
     }
 }
-
+/*
 - (void)showAlertForReanNameAuth {
     HYRealNameAlertView *alertV = [[HYRealNameAlertView alloc] init];
     __weak typeof(self) weakSelf = self;
@@ -497,5 +534,5 @@
     [self.navigationController pushViewController:instance animated:true];
     
 }
-
+*/
 @end
