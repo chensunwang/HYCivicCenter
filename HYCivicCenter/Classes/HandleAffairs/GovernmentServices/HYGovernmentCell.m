@@ -9,7 +9,6 @@
 #import "HYGovernmentCell.h"
 #import "HYMyServiceViewController.h" // 我的服务
 #import "HYServiceProgressViewController.h" // 进度查询
-#import "HYRealNameAlertView.h"
 #import "HYCivicCenterCommand.h"
 
 @interface HYGovernmentCell ()
@@ -178,7 +177,6 @@
         return;
     }
     if (!_idCard || [_idCard isEqualToString:@""]) {  // 需要实名认证
-//        [self showAlertForReanNameAuth];
         if (self.governmentCellBlock != nil) {
             self.governmentCellBlock();
         }
@@ -194,7 +192,6 @@
         return;
     }
     if (!_idCard || [_idCard isEqualToString:@""]) {  // 需要实名认证
-//        [self showAlertForReanNameAuth];
         if (self.governmentCellBlock != nil) {
             self.governmentCellBlock();
         }
@@ -206,38 +203,4 @@
     }
 }
 
-/*
-- (void)showAlertForReanNameAuth {
-    HYRealNameAlertView *alertV = [[HYRealNameAlertView alloc] init];
-    alertV.alertResult = ^(NSInteger index) {
-        if (index == 2) {
-            [self jumpRealNameAuthVC];
-        }
-    };
-    [alertV showAlertView];
-}
-
-- (void)jumpRealNameAuthVC {  // 实名认证
-    
-    // 类名
-    NSString *class =[NSString stringWithFormat:@"%@", @"RealNameListVC"];
-    const char *className = [class cStringUsingEncoding:NSASCIIStringEncoding];
-
-    // 从一个字串返回一个类
-    Class newClass = objc_getClass(className);
-    if (!newClass)
-    {
-        // 创建一个类
-        Class superClass = [NSObject class];
-        newClass = objc_allocateClassPair(superClass, className, 0);
-        // 注册你创建的这个类
-        objc_registerClassPair(newClass);
-    }
-    // 创建对象
-    UIViewController *instance = [[newClass alloc] init];
-    instance.hidesBottomBarWhenPushed = true;
-    [self.viewController.navigationController pushViewController:instance animated:true];
-    
-}
-*/
 @end

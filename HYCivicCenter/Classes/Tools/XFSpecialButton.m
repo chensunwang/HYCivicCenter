@@ -14,10 +14,10 @@
     
     if (self = [super initWithFrame:frame]) {
         
-        self.headerIV = [[UIImageView alloc]init];
+        self.headerIV = [[UIImageView alloc] init];
         [self addSubview:self.headerIV];
         
-        self.nameLabel = [[UILabel alloc]init];
+        self.nameLabel = [[UILabel alloc] init];
         self.nameLabel.textColor = [UIColor colorWithRed:0.13 green:0.13 blue:0.13 alpha:1.0];
         self.nameLabel.font = RFONT(12);
         self.nameLabel.textAlignment = NSTextAlignmentCenter;

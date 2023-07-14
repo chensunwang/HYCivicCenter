@@ -46,7 +46,7 @@
     self.scrollView.contentSize = CGSizeMake([UIScreen mainScreen].bounds.size.width * self.titlesArr.count, 0);
     [self.view addSubview:_scrollView];
     
-    self.titleView = [[UIView alloc]initWithFrame:CGRectMake(0, kTopNavHeight, [UIScreen mainScreen].bounds.size.width, 49)];
+    self.titleView = [[UIView alloc] initWithFrame:CGRectMake(0, kTopNavHeight, [UIScreen mainScreen].bounds.size.width, 49)];
     self.titleView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.titleView];
     

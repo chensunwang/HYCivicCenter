@@ -23,7 +23,7 @@ NSString *const commonProblemCell = @"questionCell";
 - (void)loadView {
     [super loadView];
     
-    self.tableView = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStylePlain];
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
     [self.view addSubview:self.tableView];
     [self.tableView registerClass:[HYCommonProblemTableViewCell class] forCellReuseIdentifier:commonProblemCell];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {

@@ -315,7 +315,7 @@ static MainApi *request = nil;
         @"useId": userID ? : @""  // 用户UUID
     };
     if (appendDic && appendDic.count > 0) {
-        NSMutableDictionary *parametersDic = [[NSMutableDictionary alloc]initWithDictionary:parameters];
+        NSMutableDictionary *parametersDic = [[NSMutableDictionary alloc] initWithDictionary:parameters];
         [parametersDic addEntriesFromDictionary:parameters];
         NSLog(@" 参数== %@ ", parametersDic);
         return (NSDictionary *)parametersDic;

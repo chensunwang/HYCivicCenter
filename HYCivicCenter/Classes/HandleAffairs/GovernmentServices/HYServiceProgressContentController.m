@@ -22,6 +22,7 @@
 @end
 
 NSString *const serviceProgressCell = @"progressCell";
+
 @implementation HYServiceProgressContentController
 
 - (void)loadView {
@@ -39,11 +40,11 @@ NSString *const serviceProgressCell = @"progressCell";
     self.tableView.showsVerticalScrollIndicator = NO;
     self.tableView.tableFooterView = [[UIView alloc] init];
     
-    self.holderIV = [[UIImageView alloc]init];
+    self.holderIV = [[UIImageView alloc] init];
     self.holderIV.image = HyBundleImage(@"cardHolder");
     [self.view addSubview:self.holderIV];
     
-    self.holderLabel = [[UILabel alloc]init];
+    self.holderLabel = [[UILabel alloc] init];
     self.holderLabel.text = @"列表内容为空";
     self.holderLabel.font = RFONT(17);
     [self.view addSubview:self.holderLabel];

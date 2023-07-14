@@ -9,7 +9,6 @@
 #import "HYSearchView.h"
 #import "HYGuessBusinessTableViewCell.h"
 #import "HYHandleAffairsWebVIewController.h"
-//#import "HYRealNameAlertView.h"
 #import "HYEmptyView.h"
 #import "HYOnLineBusinessMainViewController.h"
 #import "HYCivicCenterCommand.h"
@@ -172,21 +171,10 @@ NSString *const searchCell = @"homeSearchCell";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     HYGuessBusinessModel *businessModel = self.datasArr[indexPath.row];
     if (!_idCard || [_idCard isEqualToString:@""]) { // 需要实名认证
-//        [self showAlertForReanNameAuth];
-        self.code = businessModel.code;
-        self.titleStr = businessModel.name;
-        self.jumpUrl = businessModel.jumpUrl;
-        FaceRecViewController *vc = [[FaceRecViewController alloc] init];
-        vc.delegate = self;
-        [self.navigationController pushViewController:vc animated:YES];
+        [self goToFaceRecViewControllerWith:businessModel.code url:businessModel.jumpUrl title:businessModel.name];
     } else {
         if ([businessModel.needFaceRecognition intValue] == 1) { // 跳转人脸识别
-            self.code = businessModel.code;
-            self.titleStr = businessModel.name;
-            self.jumpUrl = businessModel.jumpUrl;
-            FaceRecViewController *vc = [[FaceRecViewController alloc] init];
-            vc.delegate = self;
-            [self.navigationController pushViewController:vc animated:YES];
+            [self goToFaceRecViewControllerWith:businessModel.code url:businessModel.jumpUrl title:businessModel.name];
         } else {
             if ([businessModel.outLinkFlag intValue] == 1) { // 外链
                 HYHandleAffairsWebVIewController *webVC = [[HYHandleAffairsWebVIewController alloc] init];
@@ -210,42 +198,16 @@ NSString *const searchCell = @"homeSearchCell";
         }
     }
 }
-/*
-#pragma mark - HYRealNameAuthDelegate
 
-- (void)jumpRealNameAuthVC {  // 实名认证
-    
-    // 类名
-    NSString *class =[NSString stringWithFormat:@"%@", @"RealNameListVC"];
-    const char *className = [class cStringUsingEncoding:NSASCIIStringEncoding];
-    
-    // 从一个字串返回一个类
-    Class newClass = objc_getClass(className);
-    if (!newClass)
-    {
-        // 创建一个类
-        Class superClass = [NSObject class];
-        newClass = objc_allocateClassPair(superClass, className, 0);
-        // 注册你创建的这个类
-        objc_registerClassPair(newClass);
-    }
-    // 创建对象
-    UIViewController *instance = [[newClass alloc] init];
-    instance.hidesBottomBarWhenPushed = true;
-    [self.navigationController pushViewController:instance animated:true];
-    
+- (void)goToFaceRecViewControllerWith:(NSString *)code url:(NSString *)url title:(NSString *)title {
+    self.code = code;
+    self.jumpUrl = url;
+    self.titleStr = title;
+    FaceRecViewController *vc = [[FaceRecViewController alloc] init];
+    vc.delegate = self;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
-- (void)showAlertForReanNameAuth {
-    HYRealNameAlertView *alertV = [[HYRealNameAlertView alloc] init];
-    alertV.alertResult = ^(NSInteger index) {
-        if (index == 2) {
-            [self jumpRealNameAuthVC];
-        }
-    };
-    [alertV showAlertView];
-}
-*/
 #pragma mark - FaceRecResultDelegate
 
 - (void)getFaceResult:(BOOL)result {
@@ -257,15 +219,5 @@ NSString *const searchCell = @"homeSearchCell";
         [self.navigationController pushViewController:webVC animated:YES];
     }
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

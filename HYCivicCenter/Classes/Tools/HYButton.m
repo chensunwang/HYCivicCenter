@@ -22,18 +22,18 @@
     
     if (self = [super initWithFrame:frame]) {
         
-        self.bgView = [[UIView alloc]init];
+        self.bgView = [[UIView alloc] init];
         self.bgView.backgroundColor = [UIColor whiteColor];
         self.bgView.backgroundColor = UIColorFromRGB(0xF8FCFF);
         self.bgView.layer.cornerRadius = 24;
         self.bgView.clipsToBounds = YES;
         [self addSubview:self.bgView];
         
-        self.headerIV = [[UIImageView alloc]init];
+        self.headerIV = [[UIImageView alloc] init];
         self.headerIV.userInteractionEnabled = YES;
         [self addSubview:self.headerIV];
         
-        self.nameLabel = [[UILabel alloc]init];
+        self.nameLabel = [[UILabel alloc] init];
         self.nameLabel.font = RFONT(16);
         self.nameLabel.textColor = UIColorFromRGB(0xF8FCFF);
         [self addSubview:self.nameLabel];

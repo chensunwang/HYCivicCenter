@@ -32,7 +32,7 @@ NSString *const hotServiceCell = @"hotCell";
 - (void)loadView {
     [super loadView];
     
-    self.tableView = [[UITableView alloc]init];
+    self.tableView = [[UITableView alloc] init];
     [self.view addSubview:self.tableView];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(self.view);

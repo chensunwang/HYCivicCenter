@@ -9,8 +9,8 @@
 #import "HYHandleAffairsViewController.h"
 #import "HYSearchView.h"
 #import "HYGovernmentCell.h"
-#import "HYPopularQueriesCell.h"
-#import "HYSpecialServiceCell.h"
+#import "HYPopularServicesCell.h"
+#import "HYDepartmentServiceCell.h"
 #import "HYGuessYouCell.h"
 #import "HYHotServiceModel.h"
 #import "HYHandleAffairsWebVIewController.h"
@@ -22,7 +22,6 @@
 #import "HYHotServiceViewController.h"
 #import "HYLegalAidGuideViewController.h"
 #import "FaceRecViewController.h"
-#import "HYRealNameAlertView.h"
 #import "HYCivicCenterCommand.h"
 #import "UILabel+XFExtension.h"
 
@@ -31,7 +30,6 @@
 @property (nonatomic, strong) HYSearchView * searchView;
 @property (nonatomic, strong) UITableView * tableView;
 @property (nonatomic, strong) NSMutableArray * hotServiceArr;  // 热门服务数据
-//@property (nonatomic, strong) NSMutableArray * specialServiceArr;  // 专项服务数据
 @property (nonatomic, strong) NSMutableArray * deparmentServiceArr; // 部门服务数据
 @property (nonatomic, strong) NSMutableArray * countyServiceArr; // 县区服务数据
 @property (nonatomic, copy) NSString * jumpUrl;  // 传给网页的url
@@ -73,10 +71,10 @@
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self getUserByToken];
     }];
-    [self.tableView registerClass:[HYGovernmentCell class] forCellReuseIdentifier:@"HYGovernmentCell"];
-    [self.tableView registerClass:[HYPopularQueriesCell class] forCellReuseIdentifier:@"HYPopularQueriesCell"];
-    [self.tableView registerClass:[HYSpecialServiceCell class] forCellReuseIdentifier:@"HYSpecialServiceCell"];
-    [self.tableView registerClass:[HYGuessYouCell class] forCellReuseIdentifier:@"HYGuessYouCell"];
+    [self.tableView registerClass:[HYGovernmentCell class] forCellReuseIdentifier:@"HYGovernmentCell"];  // 政务服务
+    [self.tableView registerClass:[HYPopularServicesCell class] forCellReuseIdentifier:@"HYPopularServicesCell"];  // 热门服务
+    [self.tableView registerClass:[HYDepartmentServiceCell class] forCellReuseIdentifier:@"HYDepartmentServiceCell"];  // 专项服务
+    [self.tableView registerClass:[HYGuessYouCell class] forCellReuseIdentifier:@"HYGuessYouCell"];  // 猜你想办
 }
 
 - (void)viewDidLoad {
@@ -96,9 +94,7 @@
     [super viewWillAppear:animated];
     
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
-    
-//    self.navigationController.navigationBar.hidden = YES;
-    
+        
 //    // 判断是 push / present 还是 pop /dismiss
 //    if ([self isBeingPresented] || [self isMovingToParentViewController]) {
 //        // push / present
@@ -211,22 +207,6 @@
         dispatch_group_leave(group);
     });
     
-//    dispatch_group_enter(group);
-//    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-//        [HttpRequest getPathZWBS:@"phone/item/event/getSpecialTagList" params:nil resultBlock:^(id  _Nullable responseObject, NSError * _Nullable error) {
-//            SLog(@" 专项服务1== %@ ", responseObject);
-//            if ([responseObject[@"code"] intValue] == 200) {
-//                self.specialServiceArr = [HYServiceContentModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
-//                dispatch_async(dispatch_get_main_queue(), ^{
-//                    [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:2 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
-//                });
-//            } else {
-//                SLog(@"%@", responseObject[@"msg"]);
-//            }
-//        }];
-//        dispatch_group_leave(group);
-//    });
-    
     dispatch_group_enter(group);
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         [HttpRequest getPathZWBS:@"phone/item/event/getCityAgentList" params:@{@"type": @"city"} resultBlock:^(id  _Nullable responseObject, NSError * _Nullable error) {
@@ -302,14 +282,11 @@
         cell.isLogin = _isLogin;
         __weak typeof(self) weakSelf = self;
         cell.governmentCellBlock = ^{
-            weakSelf.isNeedRecResult = NO;
-            FaceRecViewController *vc = [[FaceRecViewController alloc] init];
-            vc.delegate = weakSelf;
-            [self.navigationController pushViewController:vc animated:YES];
+            [weakSelf goToFaceRecViewControllerWith:@"" url:@"" title:@"" isNeedResult:NO];
         };
         return cell;
     } else if (indexPath.row == 1) {
-        HYPopularQueriesCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HYPopularQueriesCell"];
+        HYPopularServicesCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HYPopularServicesCell"];
         cell.dataArray = self.hotServiceArr;
         __weak typeof(self) weakSelf = self;
         cell.popularQueriesCellBlock = ^(NSInteger index) {
@@ -321,7 +298,7 @@
         };
         return cell;
     } else if (indexPath.row == 2) {
-        HYSpecialServiceCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HYSpecialServiceCell"];
+        HYDepartmentServiceCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HYDepartmentServiceCell"];
         cell.viewController = self;
         cell.hyTitleColor = _hyTitleColor;
         cell.idCard = _idCard;
@@ -334,10 +311,7 @@
                 return;
             }
             if (flag) {  // 实名认证
-                weakSelf.isNeedRecResult = NO;
-                FaceRecViewController *vc = [[FaceRecViewController alloc] init];
-                vc.delegate = weakSelf;
-                [self.navigationController pushViewController:vc animated:YES];
+                [weakSelf goToFaceRecViewControllerWith:@"" url:@"" title:@"" isNeedResult:NO];
             } else {
                 weakSelf.type = index;
                 [tableView reloadData];
@@ -353,14 +327,7 @@
             }
             HYHotServiceModel *model = weakSelf.hotServiceArr[index];
             if (!weakSelf.idCard || [weakSelf.idCard isEqualToString:@""]) {  // 需要实名认证
-//                [weakSelf showAlertForReanNameAuth];
-                weakSelf.code = model.link;
-                weakSelf.jumpUrl = model.jumpUrl;
-                weakSelf.titleStr = model.name;
-                weakSelf.isNeedRecResult = YES;
-                FaceRecViewController *vc = [[FaceRecViewController alloc] init];
-                vc.delegate = weakSelf;
-                [self.navigationController pushViewController:vc animated:YES];
+                [self goToFaceRecViewControllerWith:model.link url:model.jumpUrl title:model.name isNeedResult:YES];
             } else {
                 if (model.outLinkFlag || model.servicePersonFlag || weakSelf.isEnterprise) { // 外链 内链个人  内链企业且已企业认证
                     HYGuessBusinessViewController *guessVC = [[HYGuessBusinessViewController alloc] init];
@@ -398,13 +365,6 @@
         return 253;
     } else if (indexPath.row == 2) {
         return 368;
-//        if (_type == 0) {
-//            return 88 + self.specialServiceArr.count * 70;
-//        } else if (_type == 1) {
-//            return 88 + self.deparmentServiceArr.count * 70;
-//        } else {
-//            return 88 + self.countyServiceArr.count * 70;
-//        }
     } else {
         return 168;
     }
@@ -421,14 +381,7 @@
         [self.navigationController pushViewController:legalAidVC animated:YES];
     } else if ([model.name isEqualToString:@"更多"]) {
         if (!_idCard || [_idCard isEqualToString:@""]) { // 需要实名认证
-//            [self showAlertForReanNameAuth];
-            self.code = model.link;
-            self.jumpUrl = model.jumpUrl;
-            self.titleStr = model.name;
-            self.isNeedRecResult = YES;
-            FaceRecViewController *vc = [[FaceRecViewController alloc] init];
-            vc.delegate = self;
-            [self.navigationController pushViewController:vc animated:YES];
+            [self goToFaceRecViewControllerWith:model.link url:model.jumpUrl title:model.name isNeedResult:YES];
         } else {
             HYHotServiceViewController *hotServiceVC = [[HYHotServiceViewController alloc] init];
             hotServiceVC.isEnterprise = self.isEnterprise;
@@ -438,23 +391,10 @@
     } else {
         // 判断逻辑如下：先判断是否实名认证 -- 再判断是否人脸识别 -- 再判断内外链（外链直接跳转，内链区分个人和企业 -- 个人直接跳转，企业判断是否企业认证）
         if (!_idCard || [_idCard isEqualToString:@""]) { // 需要实名认证
-//            [self showAlertForReanNameAuth];
-            self.code = model.link;
-            self.jumpUrl = model.jumpUrl;
-            self.titleStr = model.name;
-            self.isNeedRecResult = YES;
-            FaceRecViewController *vc = [[FaceRecViewController alloc] init];
-            vc.delegate = self;
-            [self.navigationController pushViewController:vc animated:YES];
+            [self goToFaceRecViewControllerWith:model.link url:model.jumpUrl title:model.name isNeedResult:YES];
         } else {
             if (model.needFaceRecognition.intValue == 1) { // 跳转人脸识别
-                self.code = model.link;
-                self.jumpUrl = model.jumpUrl;
-                self.titleStr = model.name;
-                self.isNeedRecResult = YES;
-                FaceRecViewController *vc = [[FaceRecViewController alloc] init];
-                vc.delegate = self;
-                [self.navigationController pushViewController:vc animated:YES];
+                [self goToFaceRecViewControllerWith:model.link url:model.jumpUrl title:model.name isNeedResult:YES];
             } else {
                 if ([model.outLinkFlag intValue] == 1) { // 外链
                     HYHandleAffairsWebVIewController *webVC = [[HYHandleAffairsWebVIewController alloc] init];
@@ -481,6 +421,21 @@
     }
 }
 
+- (void)goToFaceRecViewControllerWith:(NSString *)code
+                                  url:(NSString *)url
+                                title:(NSString *)title
+                         isNeedResult:(BOOL)isNeed {
+    if (isNeed) {
+        self.code = code;
+        self.jumpUrl = url;
+        self.titleStr = title;
+    }
+    self.isNeedRecResult = isNeed;
+    FaceRecViewController *vc = [[FaceRecViewController alloc] init];
+    vc.delegate = self;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 #pragma mark - FaceRecResultDelegate
 
 - (void)getFaceResult:(BOOL)result {
@@ -492,39 +447,5 @@
         [self.navigationController pushViewController:webVC animated:YES];
     }
 }
-/*
-- (void)showAlertForReanNameAuth {
-    HYRealNameAlertView *alertV = [[HYRealNameAlertView alloc] init];
-    __weak typeof(self) weakSelf = self;
-    alertV.alertResult = ^(NSInteger index) {
-        if (index == 2) {
-            [weakSelf jumpRealNameAuthVC];
-        }
-    };
-    [alertV showAlertView];
-}
 
-- (void)jumpRealNameAuthVC {  // 实名认证
-    
-    // 类名
-    NSString *class = [NSString stringWithFormat:@"%@", @"RealNameListVC"];
-    const char *className = [class cStringUsingEncoding:NSASCIIStringEncoding];
-
-    // 从一个字串返回一个类
-    Class newClass = objc_getClass(className);
-    if (!newClass)
-    {
-        // 创建一个类
-        Class superClass = [NSObject class];
-        newClass = objc_allocateClassPair(superClass, className, 0);
-        // 注册你创建的这个类
-        objc_registerClassPair(newClass);
-    }
-    // 创建对象
-    UIViewController *instance = [[newClass alloc] init];
-    instance.hidesBottomBarWhenPushed = true;
-    [self.navigationController pushViewController:instance animated:true];
-    
-}
-*/
 @end

@@ -162,7 +162,7 @@ NSString *const areaServiceCell = @"areaCell";
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    UIView *contentView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 16)];
+    UIView *contentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 16)];
     contentView.backgroundColor = UIColorFromRGB(0xF5F5F5);
     return contentView;
 }

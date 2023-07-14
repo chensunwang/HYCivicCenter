@@ -24,7 +24,7 @@
 
 +(instancetype)xf_labelWithText:(NSString *)text {
     
-    UILabel *label = [[UILabel alloc]init];
+    UILabel *label = [[UILabel alloc] init];
     label.font = BFONT(17);
     label.textColor = [UIColor whiteColor];
     label.numberOfLines = 1;
@@ -43,7 +43,7 @@
 - (void)setVerticalText:(NSString *)verticalText {
     
     objc_setAssociatedObject(self, &verticalText, verticalText, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    NSMutableString *str = [[NSMutableString alloc]initWithString:verticalText];
+    NSMutableString *str = [[NSMutableString alloc] initWithString:verticalText];
     NSInteger count = str.length;
     for (int i = 1; i < count; i++) {
         [str insertString:@"\n" atIndex:i*2-1];

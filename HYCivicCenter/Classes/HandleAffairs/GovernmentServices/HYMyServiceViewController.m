@@ -49,11 +49,11 @@ NSString *const myServiceCell = @"HYMyserviceCell";
     self.tableView.showsVerticalScrollIndicator = NO;
     self.tableView.tableFooterView = [[UIView alloc] init];
     
-    self.holderIV = [[UIImageView alloc]init];
+    self.holderIV = [[UIImageView alloc] init];
     self.holderIV.image = HyBundleImage(@"cardHolder");
     [self.view addSubview:self.holderIV];
     
-    self.holderLabel = [[UILabel alloc]init];
+    self.holderLabel = [[UILabel alloc] init];
     self.holderLabel.text = @"没有更多了";
     self.holderLabel.font = RFONT(17);
     [self.view addSubview:self.holderLabel];

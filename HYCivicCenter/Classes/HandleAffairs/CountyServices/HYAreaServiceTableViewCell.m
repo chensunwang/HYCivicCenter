@@ -33,21 +33,21 @@
     
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         
-        self.nameLabel = [[UILabel alloc]init];
+        self.nameLabel = [[UILabel alloc] init];
         self.nameLabel.textColor = UIColorFromRGB(0x333333);
         self.nameLabel.font = RFONT(14);
         [self.contentView addSubview:self.nameLabel];
         
-        self.subNameLabel = [[UILabel alloc]init];
+        self.subNameLabel = [[UILabel alloc] init];
         self.subNameLabel.textColor = UIColorFromRGB(0x999999);
         self.subNameLabel.font = RFONT(12);
         [self.contentView addSubview:self.subNameLabel];
         
-        self.indicateIV = [[UIImageView alloc]init];
+        self.indicateIV = [[UIImageView alloc] init];
         self.indicateIV.image = HyBundleImage(@"serviceIndicate");
         [self.contentView addSubview:self.indicateIV];
         
-        self.lineView = [[UIView alloc]init];
+        self.lineView = [[UIView alloc] init];
         self.lineView.backgroundColor = UIColorFromRGB(0xF5F5F5);
         [self.contentView addSubview:self.lineView];
         

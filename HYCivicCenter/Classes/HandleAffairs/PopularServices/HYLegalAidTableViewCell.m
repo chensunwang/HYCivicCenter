@@ -38,28 +38,28 @@
         
         self.contentView.backgroundColor = [UIColor whiteColor];
         
-//        self.topControl = [[UIControl alloc]init];
+//        self.topControl = [[UIControl alloc] init];
 //        [self.contentView addSubview:self.topControl];
         
-        self.nameLabel = [[UILabel alloc]init];
+        self.nameLabel = [[UILabel alloc] init];
         self.nameLabel.textColor = UIColorFromRGB(0x333333);
         self.nameLabel.font = RFONT(14);
         self.nameLabel.numberOfLines = 0;
         [self.contentView addSubview:self.nameLabel];
 
-//        self.indicateIV = [[UIImageView alloc]init];
+//        self.indicateIV = [[UIImageView alloc] init];
 //        [self.topControl addSubview:self.indicateIV];
         
-//        self.lineView = [[UIView alloc]init];
+//        self.lineView = [[UIView alloc] init];
 //        self.lineView.backgroundColor = UIColorFromRGB(0xF5F5F5);
 //        [self.contentView addSubview:self.lineView];
         
-//        self.subNameLabel = [[UILabel alloc]init];
+//        self.subNameLabel = [[UILabel alloc] init];
 //        self.subNameLabel.textColor = UIColorFromRGB(0x999999);
 //        self.subNameLabel.font = RFONT(14);
 //        [self.contentView addSubview:self.subNameLabel];
 //
-//        self.bottomLineView = [[UIView alloc]init];
+//        self.bottomLineView = [[UIView alloc] init];
 //        self.bottomLineView.backgroundColor = UIColorFromRGB(0xF5F5F5);
 //        [self.contentView addSubview:self.bottomLineView];
         

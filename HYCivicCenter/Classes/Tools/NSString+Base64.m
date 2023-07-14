@@ -17,8 +17,8 @@
 
 - (NSString *)base64DecodedString
 {
-    NSData *data = [[NSData alloc]initWithBase64EncodedString:self options:0];
-    return [[NSString alloc]initWithData:data encoding: NSUTF8StringEncoding];
+    NSData *data = [[NSData alloc] initWithBase64EncodedString:self options:0];
+    return [[NSString alloc] initWithData:data encoding: NSUTF8StringEncoding];
 }
 
 - (NSString *)stringEncode {
