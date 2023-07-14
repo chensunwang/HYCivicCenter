@@ -36,9 +36,7 @@ pod 'HYCivicCenter'
   pod 'TZImagePickerController', '~> 3.8.3'
 ```
 
-2、使用HYCivicCenter之前，需要本地导入百度人脸识别SDK（不包括UI部分，UI部分已在HYCivicCenter库中集成）。不导入的话，页面中涉及人脸识别的事项无法正常使用，导致人脸识别界面黑屏或者白屏。
-
-3、集成HYCivicCenter之后，需要在恰当的地方（比如TabBarController或者AppDelegate）实例化Api，并且传入登录用户的token，具体代码如下：
+2、集成HYCivicCenter之后，需要在恰当的地方（比如TabBarController或者AppDelegate）实例化Api，并且传入登录用户的token，具体代码如下：
 ```
 #import "MainApi.h"
 ```
@@ -47,7 +45,7 @@ MainApi *mainApi = [MainApi sharedInstance];
 mainApi.token = @"XXXXXXXXXXXXXXXXX";
 ```
 
-4、HYCivicCenter库里面的页面都是使用了我们自己的导航栏（HYNavigationController，默认字体白色），同时也允许用户对导航栏的字体颜色进行自定义，只需要在页面入口初始化的地方，设置hyTitleColor的值即可，示例代码如下：
+3、HYCivicCenter库里面的页面都是使用了我们自己的导航栏（HYNavigationController，默认字体白色），同时也允许用户对导航栏的字体颜色进行自定义，只需要在页面入口初始化的地方，设置hyTitleColor的值即可，示例代码如下：
 ```
 #import "HYGovernmentViewController.h"
 ```
